@@ -122,7 +122,10 @@ export function LetterWriteScreen() {
               <span className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-white text-2xl shadow-lg ring-4 ring-blue-100">
                 💌
               </span>
-              <h2 className="font-serif text-3xl font-bold tracking-tight text-slate-800">Viết thư</h2>
+              {/* deliberately not font-serif: that stack reaches Georgia first, which has no
+                  glyphs for ư or ạ, so the browser renders a Vietnamese word in two fonts at
+                  once and the tone marks break away — "Viết thư" came out as "Viê ́t thư" */}
+              <h2 className="text-3xl font-black tracking-tight text-slate-800">Viết thư</h2>
               <p className="text-xs text-slate-400 mt-1">Trang giấy để trắng — viết điều bạn thật sự muốn nói</p>
             </div>
 
