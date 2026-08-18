@@ -59,3 +59,14 @@ https://claude.ai/code/artifact/e9a651fd-5643-4365-af97-be0019b0c314
 Ảnh trong `public/images/` được `inline.cjs` tự quét và nhúng base64 — thêm
 ảnh mới chỉ cần bỏ file vào thư mục, không phải khai báo tay. Script sẽ in
 cảnh báo `NOT referenced by the bundle` nếu có ảnh không nhúng được.
+
+### Tự động lên web (GitHub Pages)
+
+Repo: `luubatuanminh2809-afk/phan-khang-t-m-l-`, nhánh `main`.
+
+`.github/workflows/deploy.yml` chạy `npm run release` rồi đưa
+`moralyn-standalone.html` lên Pages dưới tên `index.html`. Deploy file
+self-contained thay vì `dist/` là cố ý: file đó nhúng hết ảnh base64, không còn
+đường dẫn asset nào, nên khỏi phải chỉnh `base` của Vite theo tên repo.
+
+Web: https://luubatuanminh2809-afk.github.io/phan-khang-t-m-l-/
