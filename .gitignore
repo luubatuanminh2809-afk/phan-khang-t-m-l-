@@ -1,0 +1,42 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Generated bundles — CI rebuilds these from src on every push, so keeping the
+# 11 MB artefacts in git history would only bloat the repo
+moralyn-standalone.html
+moralyn-artifact.html
+MORALYN-GAME.html
+moralyn-game.html
+moralyn-play.html
+moralyn-v2.html
+group_work_scene_preview.html
+
+# older snapshots of the project, kept locally only
+moralyn-source/
+moralyn-source.zip
+moralyn-roblox/
+
+# per-machine Claude Code settings, not project config
+.claude/settings.local.json

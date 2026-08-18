@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro", system-ui, "Segoe UI", Roboto, sans-serif;
+  background: #eef3fc;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pop {
+  animation: pop-in 0.25s ease-out;
+}
+
+@keyframes key-glow {
+  0%, 100% { filter: drop-shadow(0 0 0px rgba(250, 204, 21, 0.6)); }
+  50% { filter: drop-shadow(0 0 14px rgba(250, 204, 21, 0.9)); }
+}
+.animate-key-glow {
+  animation: key-glow 1.6s ease-in-out infinite;
+}
+
+@keyframes char-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+.animate-char-blink {
+  animation: char-blink 4.5s ease-in-out infinite;
+}
+
+@keyframes char-talk {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.35); }
+}
+.animate-char-talk {
+  animation: char-talk 0.35s ease-in-out infinite;
+}
+
+@keyframes char-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-1.5deg); }
+}
+.animate-char-bob {
+  animation: char-bob 2.4s ease-in-out infinite;
+}
+
+/* a more assertive "making a point" motion for when the character is actively
+   delivering their line — distinct from the passive idle bob, since a single
+   static cutout has no pose/gesture of its own to match the tone of what's said */
+@keyframes char-talk-emphasis {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  18% { transform: translateY(-3px) rotate(-1.8deg) scale(1.015); }
+  38% { transform: translateY(0) rotate(1.2deg) scale(1); }
+  58% { transform: translateY(-5px) rotate(-2.2deg) scale(1.02); }
+  78% { transform: translateY(-1px) rotate(0.6deg) scale(1.005); }
+}
+.animate-char-talk-emphasis {
+  animation: char-talk-emphasis 1.9s ease-in-out infinite;
+}
+
+@keyframes ping-once {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.35; }
+  100% { transform: translate(-50%, -50%) scale(18); opacity: 0; }
+}
+.animate-ping-once {
+  animation: ping-once 0.6s ease-out forwards;
+}
+
+@keyframes char-react {
+  0% { transform: scale(1) rotate(0deg); }
+  30% { transform: scale(1.12) rotate(-4deg); }
+  60% { transform: scale(0.96) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.animate-char-react {
+  animation: char-react 0.5s ease-out;
+}
+
+@keyframes char-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px) rotate(-2deg); }
+  75% { transform: translateX(4px) rotate(2deg); }
+}
+.animate-char-shake {
+  animation: char-shake 0.4s ease-in-out infinite;
+}
+
+@keyframes scene-kenburns {
+  0% { transform: scale(1.04) translate(0, 0); }
+  50% { transform: scale(1.11) translate(-0.8%, -0.6%); }
+  100% { transform: scale(1.04) translate(0, 0); }
+}
+.animate-scene-kenburns {
+  animation: scene-kenburns 22s ease-in-out infinite;
+}
+
+/* handheld first-person camera drift — a gentle continuous sway so a first-person
+   view doesn't feel like a locked-off static shot */
+@keyframes fp-camera-sway {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-4px, 2px) rotate(-0.3deg); }
+  50% { transform: translate(3px, -3px) rotate(0.3deg); }
+  75% { transform: translate(-2px, -1px) rotate(-0.15deg); }
+}
+.animate-fp-camera-sway {
+  animation: fp-camera-sway 6s ease-in-out infinite;
+}
+
+@keyframes fp-hand-sway {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+.animate-fp-hand-sway {
+  animation: fp-hand-sway 3.4s ease-in-out infinite;
+}
+
+@keyframes dbox-in {
+  0% { transform: translateY(24px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-dbox-in {
+  animation: dbox-in 0.28s ease-out;
+}
+
+@keyframes portrait-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-portrait-pop {
+  animation: portrait-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bg-figure-sway {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(3px) translateY(-2px); }
+}
+.animate-bg-figure {
+  animation: bg-figure-sway 3.2s ease-in-out infinite;
+}
