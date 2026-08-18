@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const root = 'C:/Users/Dien luu/Documents/PKTL';
+// resolved from this file's own location, not hardcoded: the build also runs on the
+// Linux CI runner that deploys the page, where an absolute Windows path is meaningless
+const root = __dirname;
 const distDir = path.join(root, 'dist');
 const cssFile = fs.readdirSync(path.join(distDir, 'assets')).find(f => f.endsWith('.css'));
 const jsFile = fs.readdirSync(path.join(distDir, 'assets')).find(f => f.endsWith('.js'));
