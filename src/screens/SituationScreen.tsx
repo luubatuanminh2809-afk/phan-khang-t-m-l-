@@ -75,12 +75,16 @@ function shuffle<T>(arr: T[]): T[] {
 
 // solo framing (first-person, or any moment with only one person in frame): one
 // large centered character, matching the reference the user shared for that case
-const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-0 w-[76%] sm:w-[52%] h-[92%] sm:h-[88%]";
+const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[-22dvh] w-[82%] h-[52dvh]";
 // two-shot framing (third-person): player and NPC standing side by side at equal
 // size, facing each other — matches the reference the user shared showing both
 // people in a conversation on screen together, replacing the earlier small corner cameo
-const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[2%] sm:left-[8%] bottom-0 w-[46%] sm:w-[38%] h-[86%] sm:h-[82%]";
-const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[2%] sm:right-[8%] bottom-0 w-[46%] sm:w-[38%] h-[86%] sm:h-[82%]";
+// Wide enough that the art is limited by the stage height rather than by the box width,
+// which is what kept the two-shot characters a third shorter than the same character
+// standing alone. The boxes overlap in the middle; the drawings do not, because each PNG
+// carries 20-38% transparent margin on either side of the body.
+const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[-11%] bottom-[-22dvh] w-[78%] h-[52dvh]";
+const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-11%] bottom-[-22dvh] w-[78%] h-[52dvh]";
 
 // One beat of the scene. It's a fixed-height column, not a stack of overlays: the
 // bubble (and any coach card or badge, all marked order-first) claims the top band at
@@ -88,9 +92,18 @@ const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[2%] sm:right-[8%] bottom-0 w-[4
 // on the art — which is what this replaced — put it squarely over the character's
 // face, and worse, a long line grew the bubble downwards and covered more of the face.
 // Here a long line pushes the character down instead of hiding them.
-const BEAT_FRAME = "relative flex h-[60vh] flex-col text-left sm:h-[56vh]";
-/** stages fill the space the top band leaves them, rather than setting their own height */
-const STAGE_FILL = "min-h-0 flex-1";
+// The frame takes whatever the header and the answer sheet leave it, so the screen adds
+// up to exactly one viewport and never scrolls. What it does NOT do is size the character
+// off that leftover — see STAGE_FILL.
+const BEAT_FRAME = "relative flex min-h-0 flex-1 flex-col justify-end text-left";
+/** Only the band of the character that has to stay clear of the answer sheet. The drawing
+ *  itself is taller than this and hangs out of the bottom (see the character boxes), so the
+ *  figure can be enlarged without taking a single pixel from the speech bubble — the sheet
+ *  simply covers its legs, the way it would in any visual novel. Measured against the
+ *  viewport, not the frame, because the frame grows and shrinks between beats. It may be
+ *  squeezed below that on a cramped screen — the figure keeps its size and simply sinks
+ *  further behind the sheet, which costs less than clipping the line being spoken. */
+const STAGE_FILL = "relative h-[30dvh] min-h-[90px]";
 
 // a static cutout has no pose of its own, so motion stands in for body language:
 // an active, slightly forward "making a point" loop while the NPC is delivering
@@ -164,7 +177,7 @@ function playerCharacterOrNone(viewMode: ViewMode, role: "student" | "parent" | 
 // the character standing large in the scene — the dialogue box (below, separate)
 // carries the actual speech now, so this is just a positioned stage for the art
 function Stage({ character, heightClass }: { character: ReactNode | null; heightClass: string }) {
-  return <div className={`relative ${heightClass}`}>{character}</div>;
+  return <div className={heightClass}>{character}</div>;
 }
 
 // third-person "two-shot": both people in the conversation stand on screen together,
@@ -186,7 +199,7 @@ function TwoShotStage({
 }) {
   const playerKey = usePlayerKey(role);
   return (
-    <div className={`relative ${heightClass}`}>
+    <div className={heightClass}>
       <PlayerCharacter role={role} boxClass={CHAR_BOX_TWO_SHOT_LEFT} mood={playerMood} />
       <SceneCharacter
         name={npcName}
@@ -238,12 +251,16 @@ function DialogueBox({
   // sits in the frame's top band (order-first) rather than floating over the art, but
   // keeps the same left/right/centre offsets so it still reads as belonging to whoever
   // is standing underneath it
+  // Takes its natural height when the frame has room and shrinks into a scroll when it
+  // does not, which is what keeps the screen to exactly one viewport: the character is a
+  // fixed height, so the bubble is the part that has to give on a short screen.
+  const cap = "min-h-0 max-h-[60%] shrink-0 overflow-y-auto";
   const posClass =
     align === "right"
-      ? "order-first z-20 mt-1 ml-auto mr-[3%] w-[56%] shrink-0 sm:mr-[6%] sm:w-[220px]"
+      ? `order-first z-20 -mb-1 ml-auto mr-[3%] w-[56%] ${cap}`
       : align === "left"
-        ? "order-first z-20 mt-1 mr-auto ml-[3%] w-[56%] shrink-0 sm:ml-[6%] sm:w-[220px]"
-        : "order-first z-20 mt-1 ml-[44%] w-[68%] shrink-0 -translate-x-1/2 sm:w-[240px]";
+        ? `order-first z-20 -mb-1 mr-auto ml-[3%] w-[56%] ${cap}`
+        : `order-first z-20 -mb-1 ml-[44%] w-[68%] -translate-x-1/2 ${cap}`;
   return (
     <div className={posClass}>
       {variant === "thought" ? (
@@ -571,7 +588,7 @@ export function SituationScreen() {
   }
 
   return (
-    <div className="relative min-h-screen bg-slate-900">
+    <div className="relative h-[100dvh] overflow-hidden bg-slate-900">
       <SceneIllustration
         location={situation.location}
         context={situation.context}
@@ -582,7 +599,11 @@ export function SituationScreen() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-white" />
       {viewMode === "first" && <FirstPersonFrame />}
 
-      <div className="relative flex items-start justify-between p-4">
+      {/* The scene stays full-bleed behind, but everything you read or tap lives in a
+          phone-width column. Without it, a desktop window stretched each answer into a
+          1900px-wide slab and left the character marooned in the middle of the room. */}
+      <div className="relative mx-auto flex h-full w-full max-w-md flex-col">
+      <div className="relative flex shrink-0 items-start justify-between p-4">
         <div className="rounded-2xl bg-white/90 backdrop-blur px-3 py-2 shadow-md">
           <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
             <CalendarDays size={13} className="text-blue-500" />
@@ -624,7 +645,7 @@ export function SituationScreen() {
         </div>
       </div>
 
-      <div className="relative px-4">
+      <div className="relative shrink-0 px-4">
         <p className="inline-block rounded-full bg-black/25 backdrop-blur px-3 py-1 text-[11px] font-medium text-white/90">
           {ambientDetail}
         </p>
@@ -811,7 +832,7 @@ export function SituationScreen() {
 
           <div
             ref={optionsPanelRef}
-            className={`relative -mt-28 sm:-mt-32 space-y-2.5 rounded-t-3xl bg-white/95 backdrop-blur px-4 pt-6 pb-6 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ${
+            className={`relative -mt-40 min-h-0 shrink overflow-y-auto space-y-2 rounded-t-3xl bg-white/95 backdrop-blur px-4 pt-4 pb-4 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ${
               dialogueTypingDone ? "translate-y-0 opacity-100" : "translate-y-3 opacity-40 pointer-events-none"
             }`}
           >
@@ -851,6 +872,8 @@ export function SituationScreen() {
           </div>
         </>
       )}
+
+      </div>
 
       {activeHint && (
         <Coachmark
