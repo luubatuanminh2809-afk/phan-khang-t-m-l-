@@ -75,7 +75,7 @@ function shuffle<T>(arr: T[]): T[] {
 
 // solo framing (first-person, or any moment with only one person in frame): one
 // large centered character, matching the reference the user shared for that case
-const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[-22dvh] w-[82%] h-[52dvh]";
+const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[calc(-1*var(--sink))] w-[82%] h-[52dvh]";
 // two-shot framing (third-person): player and NPC standing side by side at equal
 // size, facing each other — matches the reference the user shared showing both
 // people in a conversation on screen together, replacing the earlier small corner cameo
@@ -83,8 +83,8 @@ const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[-22dvh] w-[8
 // which is what kept the two-shot characters a third shorter than the same character
 // standing alone. The boxes overlap in the middle; the drawings do not, because each PNG
 // carries 20-38% transparent margin on either side of the body.
-const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[-11%] bottom-[-22dvh] w-[78%] h-[52dvh]";
-const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-11%] bottom-[-22dvh] w-[78%] h-[52dvh]";
+const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[-11%] bottom-[calc(-1*var(--sink))] w-[78%] h-[52dvh]";
+const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-11%] bottom-[calc(-1*var(--sink))] w-[78%] h-[52dvh]";
 
 // One beat of the scene. It's a fixed-height column, not a stack of overlays: the
 // bubble (and any coach card or badge, all marked order-first) claims the top band at
@@ -94,16 +94,16 @@ const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-11%] bottom-[-22dvh] w-[78%] h
 // Here a long line pushes the character down instead of hiding them.
 // The frame takes whatever the header and the answer sheet leave it, so the screen adds
 // up to exactly one viewport and never scrolls. What it does NOT do is size the character
-// off that leftover — see STAGE_FILL.
+// off that leftover — see the two stage constants below.
 const BEAT_FRAME = "relative flex min-h-0 flex-1 flex-col justify-end text-left";
-/** Only the band of the character that has to stay clear of the answer sheet. The drawing
- *  itself is taller than this and hangs out of the bottom (see the character boxes), so the
- *  figure can be enlarged without taking a single pixel from the speech bubble — the sheet
- *  simply covers its legs, the way it would in any visual novel. Measured against the
- *  viewport, not the frame, because the frame grows and shrinks between beats. It may be
- *  squeezed below that on a cramped screen — the figure keeps its size and simply sinks
- *  further behind the sheet, which costs less than clipping the line being spoken. */
-const STAGE_FILL = "relative h-[30dvh] min-h-[90px]";
+/** Beats that end with the answer sheet: the band is short and the drawing sinks below it,
+ *  where the sheet covers the legs. */
+const STAGE_BEHIND_SHEET = "relative h-[30dvh] min-h-[90px] [--sink:22dvh]";
+/** Every other beat has no sheet, so nothing would cover an overhang and the figure would
+ *  simply be sawn off at the bottom edge. Here the band is the full height of the drawing
+ *  and the feet land on the floor of the frame. The figure is 52dvh either way, and its head
+ *  sits at the top of the band either way, so it neither resizes nor jumps between beats. */
+const STAGE_GROUNDED = "relative h-[52dvh] min-h-[90px] [--sink:0px]";
 
 // a static cutout has no pose of its own, so motion stands in for body language:
 // an active, slightly forward "making a point" loop while the NPC is delivering
@@ -661,7 +661,7 @@ export function SituationScreen() {
             npcMood="idle"
             reacting={false}
             role={role}
-            heightClass={STAGE_FILL}
+            heightClass={STAGE_GROUNDED}
             playerMood={defiant ? "angry" : "talking"}
           />
           <DialogueBox
@@ -688,7 +688,7 @@ export function SituationScreen() {
             npcMood={defiant ? "angry" : STYLE_REACTION[outcome!]}
             reacting
             role={role}
-            heightClass={STAGE_FILL}
+            heightClass={STAGE_GROUNDED}
             playerMood={defiant ? "angry" : "idle"}
           />
           <DialogueBox
@@ -712,7 +712,7 @@ export function SituationScreen() {
             npcMood={replay.step === "line" ? "idle" : "happy"}
             reacting={replay.step === "reaction"}
             role={role}
-            heightClass={STAGE_FILL}
+            heightClass={STAGE_GROUNDED}
             playerMood={replay.step === "line" ? "talking" : "happy"}
           />
           <span className="order-first z-30 mx-auto mt-1 shrink-0 whitespace-nowrap rounded-full bg-emerald-600 px-3 py-1 text-[11px] font-extrabold text-white shadow-lg">
@@ -733,7 +733,7 @@ export function SituationScreen() {
       ) : thoughtText ? (
         <div role="button" tabIndex={0} onClick={handleThoughtTap} className={BEAT_FRAME}>
           {/* the anger has dropped — what's left underneath is closer to hurt */}
-          <TwoShotStage npcName={situation.insideThoughtOwner} npcMood="sad" reacting={false} role={role} heightClass={STAGE_FILL} />
+          <TwoShotStage npcName={situation.insideThoughtOwner} npcMood="sad" reacting={false} role={role} heightClass={STAGE_GROUNDED} />
           {isAdultRole && situation.coachTip ? (
             // a card rather than a bubble: nobody is saying this, it's advice to the player
             <div className="order-first z-20 mx-[6%] mt-2 shrink-0 rounded-3xl bg-white/95 p-4 shadow-xl ring-2 ring-emerald-200 animate-pop">
@@ -767,7 +767,7 @@ export function SituationScreen() {
       ) : inBeats ? (
         <div role="button" tabIndex={0} onClick={handleBeatTap} className={BEAT_FRAME}>
           <Stage
-            heightClass={STAGE_FILL}
+            heightClass={STAGE_GROUNDED}
             character={
               currentBeat.speaker ? (
                 <SceneCharacter name={currentBeat.speaker} mood="talking" reacting={false} alongside={playerKey} />
@@ -805,14 +805,14 @@ export function SituationScreen() {
                 npcMood={outcome ? STYLE_REACTION[outcome] : "talking"}
                 reacting={outcome !== null}
                 role={role}
-                heightClass={STAGE_FILL}
+                heightClass={STAGE_BEHIND_SHEET}
               />
             ) : (
               <Stage
                 character={
                   <SceneCharacter name={situation.npcName} mood={outcome ? STYLE_REACTION[outcome] : "talking"} reacting={outcome !== null} alongside={playerKey} />
                 }
-                heightClass={STAGE_FILL}
+                heightClass={STAGE_BEHIND_SHEET}
               />
             )}
             <DialogueBox
