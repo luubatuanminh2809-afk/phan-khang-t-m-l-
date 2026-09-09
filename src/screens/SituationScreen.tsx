@@ -96,13 +96,11 @@ const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-11%] bottom-[calc(-1*var(--sin
 // up to exactly one viewport and never scrolls. What it does NOT do is size the character
 // off that leftover — see the two stage constants below.
 const BEAT_FRAME = "relative flex min-h-0 flex-1 flex-col justify-end text-left";
-/** Beats that end with the answer sheet: the band is short and the drawing sinks below it,
- *  where the sheet covers the legs. */
-const STAGE_BEHIND_SHEET = "relative h-[30dvh] min-h-[90px] [--sink:22dvh]";
-/** Every other beat has no sheet, so nothing would cover an overhang and the figure would
- *  simply be sawn off at the bottom edge. Here the band is the full height of the drawing
- *  and the feet land on the floor of the frame. The figure is 52dvh either way, and its head
- *  sits at the top of the band either way, so it neither resizes nor jumps between beats. */
+/** The band is the full height of the drawing, so the feet land on the floor of the frame
+ *  and nothing is sawn off at the bottom edge. The answer sheet is short enough now — two
+ *  columns instead of four stacked rows — that it only laps over the feet, so there is no
+ *  longer any need to sink the figure out of its way. Same band in every beat, so the
+ *  character neither resizes nor jumps as the scene moves. */
 const STAGE_GROUNDED = "relative h-[52dvh] min-h-[90px] [--sink:0px]";
 
 // a static cutout has no pose of its own, so motion stands in for body language:
@@ -596,13 +594,13 @@ export function SituationScreen() {
         seed={situation.id}
         className="absolute inset-0 h-full w-full"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-white" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-white/45" />
       {viewMode === "first" && <FirstPersonFrame />}
 
       {/* The scene stays full-bleed behind, but everything you read or tap lives in a
           phone-width column. Without it, a desktop window stretched each answer into a
           1900px-wide slab and left the character marooned in the middle of the room. */}
-      <div className="relative mx-auto flex h-full w-full max-w-md flex-col">
+      <div className="relative mx-auto flex h-full w-full max-w-md flex-col sm:max-w-3xl">
       <div className="relative flex shrink-0 items-start justify-between p-4">
         <div className="rounded-2xl bg-white/90 backdrop-blur px-3 py-2 shadow-md">
           <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
@@ -805,14 +803,14 @@ export function SituationScreen() {
                 npcMood={outcome ? STYLE_REACTION[outcome] : "talking"}
                 reacting={outcome !== null}
                 role={role}
-                heightClass={STAGE_BEHIND_SHEET}
+                heightClass={STAGE_GROUNDED}
               />
             ) : (
               <Stage
                 character={
                   <SceneCharacter name={situation.npcName} mood={outcome ? STYLE_REACTION[outcome] : "talking"} reacting={outcome !== null} alongside={playerKey} />
                 }
-                heightClass={STAGE_BEHIND_SHEET}
+                heightClass={STAGE_GROUNDED}
               />
             )}
             <DialogueBox
@@ -832,7 +830,7 @@ export function SituationScreen() {
 
           <div
             ref={optionsPanelRef}
-            className={`relative -mt-40 min-h-0 shrink overflow-y-auto space-y-2 rounded-t-3xl bg-white/95 backdrop-blur px-4 pt-4 pb-4 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ${
+            className={`relative -mt-16 grid min-h-0 shrink grid-cols-1 gap-2 overflow-y-auto rounded-t-3xl bg-white/95 backdrop-blur px-4 pt-4 pb-4 sm:grid-cols-2 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ${
               dialogueTypingDone ? "translate-y-0 opacity-100" : "translate-y-3 opacity-40 pointer-events-none"
             }`}
           >
@@ -863,7 +861,6 @@ export function SituationScreen() {
                     </span>
                     <span className="flex-1 min-w-0 leading-snug">
                       <OptionContent opt={opt} textColor={meta.textColor} />
-                      <span className="block text-xs text-slate-400">({opt.sublabel})</span>
                     </span>
                     <ChevronRight size={18} className="shrink-0 text-slate-300" />
                   </button>
