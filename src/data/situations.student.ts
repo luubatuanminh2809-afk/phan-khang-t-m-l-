@@ -191,7 +191,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hạnh",
     npcRole: "Giáo viên Toán",
-    dialogue: "Cô giao thêm ba đề ôn tập, cả lớp phải nộp đủ vào sáng thứ Hai. Bận thi môn khác cũng không phải lý do, thiếu một đề là điểm 0.",
+    dialogue: "Cô giao thêm ba đề ôn tập, sáng thứ Hai các em nộp đủ cho cô nhé. Đừng ai lấy lý do bận thi môn khác, thiếu đề nào là cô cho điểm không đề đó.",
     options: [
       {
         id: "A",
@@ -326,7 +326,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hiệu",
     npcRole: "Ban Giám hiệu",
-    dialogue: "Từ tuần sau lớp mình đổi giáo viên chủ nhiệm, nhà trường đã quyết rồi. Lớp không được làm đơn xin giữ cô cũ, ai còn bàn tán là bị nhắc tên.",
+    dialogue: "Tuần sau lớp mình có cô chủ nhiệm mới, nhà trường quyết rồi, các em không phải bàn nữa đâu. Cô nói trước, đừng ai làm đơn xin giữ cô cũ, cô mà nghe ai bàn tán là cô ghi tên đấy.",
     options: [
       {
         id: "A",
@@ -548,7 +548,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Yến",
     npcRole: "Trưởng ban đại diện phụ huynh lớp",
-    dialogue: "Quỹ lớp kỳ này mỗi bạn đóng năm trăm nghìn để liên hoan và mua quà thầy cô. Ai cũng phải đóng đủ, không có chuyện đóng bớt.",
+    dialogue: "Kỳ này quỹ lớp mỗi con đóng năm trăm nghìn, để liên hoan với mua quà cho thầy cô. Nhà nào cũng đóng đủ nhé, không có chuyện đóng một nửa đâu.",
     options: [
       {
         id: "A",
@@ -729,7 +729,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Vân",
     npcRole: "Giáo viên Hóa học",
-    dialogue: "Cất hết sách vở, kiểm tra 15 phút ngay bây giờ. Điểm này vào thẳng sổ, không ai được xin làm lại hay hoãn sang hôm khác.",
+    dialogue: "Các em cất hết sách vở đi, lấy giấy ra kiểm tra mười lăm phút. Điểm này cô vào sổ luôn, đừng ai xin làm lại hay xin để hôm khác nhé.",
     options: [
       {
         id: "A",
@@ -773,7 +773,7 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Bạn Kỳ",
     npcRole: "Đội Sao đỏ",
-    dialogue: "Từ tuần này Sao đỏ trừ điểm không nhắc trước: áo bỏ ngoài, quên phù hiệu, nói chuyện lúc xếp hàng là ghi tên luôn, khỏi giải thích.",
+    dialogue: "Từ tuần này tụi mình trừ điểm luôn, không nhắc trước nữa đâu nha. Áo bỏ ngoài quần, quên phù hiệu, xếp hàng mà nói chuyện là mình ghi tên liền, khỏi giải thích.",
     options: [
       {
         id: "A",
