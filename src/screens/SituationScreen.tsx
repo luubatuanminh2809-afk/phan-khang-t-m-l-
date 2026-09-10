@@ -315,6 +315,13 @@ function OptionContent({ opt, textColor }: { opt: SituationOption; textColor: st
   return <span className={`block text-sm font-bold ${textColor}`}>{opt.label}</span>;
 }
 
+// What the other person actually says back — the spoken `reply`. `reaction` is a third-
+// person account of the outcome ("Cô giáo cân nhắc, có thể đồng ý nếu…"), written as research
+// notes, and putting it in a speech bubble made every NPC narrate their own behaviour.
+function npcReplyText(opt: SituationOption | undefined): string {
+  return opt?.reply ?? opt?.reaction ?? "";
+}
+
 // the single line to put in the player's own third-person speech bubble — same
 // speech-first, action-fallback priority as OptionContent above, just flattened to
 // plain text instead of styled JSX
@@ -489,7 +496,7 @@ export function SituationScreen() {
       // this option is a silent act with no line to deliver — skip straight to their
       // reaction rather than inventing words for the player
       setArgumentTypingDone(false);
-      setArgumentText(chosen?.reaction ?? "");
+      setArgumentText(npcReplyText(chosen));
       return;
     }
     setPlayerLineTypingDone(false);
@@ -505,7 +512,7 @@ export function SituationScreen() {
     setPlayerLineText(null);
     setArgumentTypingDone(false);
     const chosen = situation!.options.find((o) => o.id === outcome);
-    setArgumentText(chosen?.reaction ?? "");
+    setArgumentText(npcReplyText(chosen));
   }
 
   function handleArgumentTap() {
@@ -549,7 +556,7 @@ export function SituationScreen() {
     if (isAdultRole && situation!.coachTip && kind?.speech) {
       setThoughtText(null);
       setReplayTypingDone(false);
-      setReplay({ line: kind.speech, reaction: kind.reaction ?? "", step: "line" });
+      setReplay({ line: kind.speech, reaction: npcReplyText(kind), step: "line" });
       return;
     }
     dispatch({ type: "CHOOSE_OPTION", style: outcome });

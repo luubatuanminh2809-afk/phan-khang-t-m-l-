@@ -21,8 +21,13 @@ export interface SituationOption {
   /** what the character does, if anything ("Không có hành động cụ thể" in the source docx) */
   action?: string;
   sublabel: string;
-  /** what the other person says/does specifically in response to this choice */
+  /** what the other person does and feels in response to this choice, in the third person —
+   *  the source docx's account of the likely outcome. Kept as research content; it reads as
+   *  narration, so it is not what goes in the speech bubble. */
   reaction: string;
+  /** the same response as the line the other person actually says out loud, in their own
+   *  voice. This is what the speech bubble shows; `reaction` is the fallback only. */
+  reply?: string;
 }
 
 export interface DialogueBeat {

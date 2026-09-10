@@ -19,6 +19,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con thấy AI giúp gì và hại gì? Mình bàn cách dùng nhé.",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Khang chủ động điều chỉnh cách sử dụng AI và hợp tác với giáo viên. Em cảm thấy ý kiến của mình được tôn trọng, có xu hướng tự điều chỉnh cách sử dụng AI.",
+        reply: "Dạ, AI giúp em có ý nhanh, nhưng dễ lười nghĩ. Em sẽ chỉ dùng để lập dàn ý thôi thầy.",
       },
       {
         id: "B",
@@ -26,6 +27,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con tự làm trước, bí rồi mới dùng AI tham khảo nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Khang sử dụng AI đúng mục đích hơn. Em cảm thấy quy định hợp lý và có không gian để tự quyết, dễ hợp tác.",
+        reply: "Dạ, em tự viết trước, kẹt chỗ nào mới hỏi nó ạ.",
       },
       {
         id: "C",
@@ -33,6 +35,7 @@ export const teacherSituations: Situation[] = [
         speech: "Lười nghĩ nên mới dựa AI. Vậy sau này làm được gì.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Khang miễn cưỡng nghe theo hoặc vẫn sử dụng AI nhưng không chia sẻ với giáo viên. Em cảm thấy bị đánh giá năng lực thay vì góp ý về hành vi.",
+        reply: "Em có lười đâu thầy… Dạ, em biết rồi.",
       },
       {
         id: "D",
@@ -40,6 +43,7 @@ export const teacherSituations: Situation[] = [
         speech: "Cấm dùng ChatGPT! Ai dùng là gian lận, điểm 0 ngay!",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Khang tiếp tục sử dụng AI nhưng tìm cách che giấu hoặc đối phó. Em cảm thấy quyền lựa chọn bị tước bỏ hoàn toàn, dễ phản kháng mạnh.",
+        reply: "Dạ. Em không nói với thầy nữa là được chứ gì.",
       },
     ],
     insideThought:
@@ -63,6 +67,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con có việc gấp hay chỉ mất tập trung vậy?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Hoa chủ động cất điện thoại và tập trung học. Em cảm thấy được lắng nghe và có quyền tham gia vào cách giải quyết.",
+        reply: "Dạ, không gấp đâu thầy, em nhắn xong rồi. Em cất máy học đây ạ.",
       },
       {
         id: "B",
@@ -70,6 +75,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con cất máy đến hết tiết nhé, ra chơi dùng bình thường.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Hoa cất điện thoại và tuân thủ. Em cảm thấy yêu cầu có giới hạn rõ ràng và hợp lý.",
+        reply: "Dạ, em cất đến hết tiết ạ.",
       },
       {
         id: "C",
@@ -77,6 +83,7 @@ export const teacherSituations: Situation[] = [
         speech: "Suốt ngày cắm mặt vào máy. Điểm kém cũng đáng.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Hoa làm theo vì sợ bị phạt nhưng trong lòng không đồng tình. Em cảm thấy bị quy kết và chỉ trích.",
+        reply: "Em nhắn cho mẹ thôi mà thầy… Dạ, em cất.",
       },
       {
         id: "D",
@@ -84,6 +91,7 @@ export const teacherSituations: Situation[] = [
         speech: "Đưa máy đây! Cuối kỳ mới trả, không giải thích gì!",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Hoa tức giận và tìm cách lén sử dụng điện thoại lần sau. Em cảm thấy tức giận vì bị tước quyền sở hữu, dễ chống đối.",
+        reply: "Cuối kỳ luôn hả thầy? Máy của em mà…",
       },
     ],
     insideThought:
@@ -107,6 +115,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con thấy mình hợp phần nào? Mình chốt một phần nhé.",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Tuấn chủ động nhận việc và tham gia cùng nhóm. Em cảm thấy năng lực cá nhân được tôn trọng, có xu hướng chủ động hợp tác.",
+        reply: "Dạ, em làm phần thiết kế slide được ạ. Phần đó em tự tin hơn.",
       },
       {
         id: "B",
@@ -114,6 +123,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con đổi phần khác với nhóm, nhưng ai cũng phải làm nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Tuấn hợp tác hơn. Em cảm thấy mình vẫn có quyền lựa chọn trong phạm vi trách nhiệm, dễ hợp tác hơn.",
+        reply: "Dạ, vậy em đổi phần với bạn, em vẫn làm đủ phần của em.",
       },
       {
         id: "C",
@@ -121,6 +131,7 @@ export const teacherSituations: Situation[] = [
         speech: "Lúc nào cũng trốn việc, dựa vào bạn. Thiếu trách nhiệm.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Tuấn làm việc một cách đối phó hoặc tiếp tục né tránh. Em cảm thấy bị gán nhãn tiêu cực, có thể không hợp tác.",
+        reply: "Em có trốn đâu thầy, em chỉ không giỏi phần đó thôi.",
       },
       {
         id: "D",
@@ -128,6 +139,7 @@ export const teacherSituations: Situation[] = [
         speech: "Không làm thì nhóm gạch tên, điểm 0 tự chịu.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Tuấn mặc kệ hoặc bất mãn. Em có thể cảm thấy bị cô lập và ép buộc, dễ nảy sinh tâm lý bất mãn hoặc mặc kệ.",
+        reply: "Gạch thì gạch đi thầy. Em cũng không muốn làm.",
       },
     ],
     insideThought:
@@ -151,6 +163,7 @@ export const teacherSituations: Situation[] = [
         speech: "Điều gì khiến con phải đăng bài vậy, kể thầy nghe?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Vy hợp tác và tìm cách giải quyết trực tiếp. Em cảm thấy quan điểm của mình được tôn trọng, có xu hướng hợp tác.",
+        reply: "Dạ, tuần sau em có bốn bài kiểm tra liền, em thấy ngợp quá nên mới lên đó than ạ.",
       },
       {
         id: "B",
@@ -158,6 +171,7 @@ export const teacherSituations: Situation[] = [
         speech: "Có gì chưa hài lòng thì góp ý thẳng với thầy trước nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Vy cân nhắc cách phản ánh phù hợp hơn. Em cảm thấy được định hướng thay vì bị cấm đoán, dễ cân nhắc cách phản ánh phù hợp.",
+        reply: "Dạ, lần sau có gì em nói với thầy trước ạ.",
       },
       {
         id: "C",
@@ -165,6 +179,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con chỉ biết làm xấu mặt trường. Thiếu ý thức quá.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Vy không hợp tác hoặc tiếp tục giữ quan điểm của mình. Em cảm thấy bị phán xét về con người thay vì được trao đổi về hành vi.",
+        reply: "Em chỉ nói thật thôi mà thầy. Em đâu có làm xấu mặt ai.",
       },
       {
         id: "D",
@@ -172,6 +187,7 @@ export const teacherSituations: Situation[] = [
         speech: "Xóa bài ngay! Không thì mời phụ huynh, xử lý kỷ luật.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Vy chuyển sang tài khoản khác hoặc tiếp tục chia sẻ theo cách kín đáo hơn. Em có thể cảm thấy quyền bày tỏ ý kiến bị hạn chế.",
+        reply: "Dạ, em xoá. Nhưng em nói có sai đâu thầy.",
       },
     ],
     insideThought:
@@ -195,6 +211,7 @@ export const teacherSituations: Situation[] = [
         speech: "Theo con vì sao hay trễ? Tuần tới mình sửa sao đây?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Hải chủ động đề xuất giải pháp và cam kết thay đổi. Em cảm thấy được trao quyền tự nhìn nhận và đề xuất giải pháp, có xu hướng cam kết thay đổi.",
+        reply: "Dạ, em phải chở em gái đi học trước. Tuần tới em dậy sớm hơn hai mươi phút ạ.",
       },
       {
         id: "B",
@@ -202,6 +219,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con đang khó khăn gì thì mình cùng tìm cách nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Hải hợp tác hơn. Em cảm thấy vừa có trách nhiệm tuân thủ quy định vừa nhận được sự hỗ trợ, dễ hợp tác hơn.",
+        reply: "Dạ, nhà em mới chuyển xa hơn. Em cảm ơn thầy, em sẽ cố ạ.",
       },
       {
         id: "C",
@@ -209,6 +227,7 @@ export const teacherSituations: Situation[] = [
         speech: "Trễ mãi là thiếu ý thức, không tôn trọng người khác.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Hải miễn cưỡng nghe theo nhưng chưa thực sự muốn thay đổi. Em cảm thấy bị đánh giá về phẩm chất cá nhân.",
+        reply: "Dạ… em biết rồi ạ.",
       },
       {
         id: "D",
@@ -216,6 +235,7 @@ export const teacherSituations: Situation[] = [
         speech: "Mai còn đi trễ nữa thì đừng vào lớp, cứ về nhà luôn!",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Hải chống đối hoặc chán nản. Em có thể cảm thấy bị dồn ép và mất cơ hội giải thích nguyên nhân, dễ xuất hiện phản ứng chống đối hoặc chán nản.",
+        reply: "Vậy mai em nghỉ luôn cho khỏi trễ thầy.",
       },
     ],
     insideThought:
@@ -239,6 +259,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con trả lời luôn hay cần thêm một phút suy nghĩ?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Ngọc sẵn sàng phát biểu hơn. Em cảm thấy mình có quyền lựa chọn và được tôn trọng, có xu hướng sẵn sàng phát biểu hơn.",
+        reply: "Dạ… cho em một phút nữa ạ.",
       },
       {
         id: "B",
@@ -246,6 +267,7 @@ export const teacherSituations: Situation[] = [
         speech: "Chưa chắc cũng cứ nói, thầy với lớp bổ sung cho.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Ngọc chủ động tham gia. Em cảm thấy áp lực giảm đi và việc phát biểu trở nên an toàn hơn, dễ chủ động tham gia.",
+        reply: "Dạ, em nghĩ là… đáp án là C ạ.",
       },
       {
         id: "C",
@@ -253,6 +275,7 @@ export const teacherSituations: Situation[] = [
         speech: "Lúc nào cũng ngồi im, chẳng đóng góp gì cho lớp.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Ngọc càng thu mình hơn hoặc chỉ phát biểu để đối phó. Em cảm thấy bị đánh giá về năng lực và thái độ, có thể càng thu mình hơn.",
+        reply: "…Dạ, em không biết ạ.",
       },
       {
         id: "D",
@@ -260,6 +283,7 @@ export const teacherSituations: Situation[] = [
         speech: "Đứng lên trả lời ngay! Không được thì đứng hết tiết!",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Ngọc im lặng, trả lời qua loa hoặc mất động lực tham gia. Em có thể cảm thấy bị ép buộc và xấu hổ trước lớp.",
+        reply: "…Em đứng cũng được ạ.",
       },
     ],
     insideThought:
@@ -283,6 +307,7 @@ export const teacherSituations: Situation[] = [
         speech: "Vì sao con chưa làm bài? Lần sau tránh sao đây?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Đạt chủ động điều chỉnh thói quen học tập. Em cảm thấy được tin tưởng và có cơ hội tự nhìn nhận vấn đề, có xu hướng chủ động điều chỉnh.",
+        reply: "Dạ, tối qua em đi học thêm về trễ. Từ giờ em làm bài trước khi đi ạ.",
       },
       {
         id: "B",
@@ -290,6 +315,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con làm xong trước tiết sau, khó thì hỏi thầy nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Đạt hợp tác. Em cảm thấy mình vẫn phải chịu trách nhiệm nhưng được tạo điều kiện để khắc phục, dễ hợp tác.",
+        reply: "Dạ, em làm xong trước tiết sau, có câu khó em hỏi thầy ạ.",
       },
       {
         id: "C",
@@ -297,6 +323,7 @@ export const teacherSituations: Situation[] = [
         speech: "Lười nên mới không làm. Học vậy chẳng tiến bộ được.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Đạt làm bài đối phó trong những lần sau. Em cảm thấy bị quy kết nguyên nhân và thiếu động lực sửa sai.",
+        reply: "Dạ, em làm. Mà em có lười đâu thầy.",
       },
       {
         id: "D",
@@ -304,6 +331,7 @@ export const teacherSituations: Situation[] = [
         speech: "Không làm thì ra ngoài đứng! Lần sau là điểm 0.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Đạt chống đối hoặc chấp nhận bỏ cuộc. Em có thể cảm thấy bị xử lý quá nặng và không có cơ hội giải thích.",
+        reply: "Dạ, em ra ngoài. Điểm không cũng được ạ.",
       },
     ],
     insideThought:
@@ -327,6 +355,7 @@ export const teacherSituations: Situation[] = [
         speech: "Con tự cất tai nghe trước khi vào bài được không?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bình tự điều chỉnh hành vi. Em cảm thấy được tin tưởng và có trách nhiệm với lựa chọn của mình, có xu hướng tự điều chỉnh hành vi.",
+        reply: "Dạ, em cất vô cặp trước khi vào tiết luôn ạ.",
       },
       {
         id: "B",
@@ -334,6 +363,7 @@ export const teacherSituations: Situation[] = [
         speech: "Vào tiết thì cất tai nghe, ra chơi dùng lại nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bình hợp tác. Em cảm thấy quy định rõ ràng và hợp lý, dễ hợp tác.",
+        reply: "Dạ, em cất ạ.",
       },
       {
         id: "C",
@@ -341,6 +371,7 @@ export const teacherSituations: Situation[] = [
         speech: "Suốt ngày chỉ biết nghe nhạc, chẳng chịu tập trung học.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bình miễn cưỡng làm theo nhưng không đồng tình. Em cảm thấy bị quy chụp và không được lắng nghe.",
+        reply: "Em quên thôi mà thầy. Dạ, em cất.",
       },
       {
         id: "D",
@@ -348,6 +379,7 @@ export const teacherSituations: Situation[] = [
         speech: "Bỏ tai nghe xuống! Lần nữa là thầy tịch thu.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bình chỉ tránh bị phát hiện thay vì thay đổi hành vi. Em có thể cảm thấy bị áp đặt và khó chịu.",
+        reply: "Dạ… em cất.",
       },
     ],
     insideThought:
@@ -371,6 +403,7 @@ export const teacherSituations: Situation[] = [
         speech: "Theo em vì sao bài chưa đạt? Em cần thầy giúp gì?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Kiên chủ động xây dựng kế hoạch cải thiện cùng thầy. Em cảm thấy được tôn trọng và đồng hành, có xu hướng chủ động hơn.",
+        reply: "Dạ, con bị mất gốc phần hình học. Thầy chỉ con ôn lại từ đầu được không ạ?",
       },
       {
         id: "B",
@@ -378,6 +411,7 @@ export const teacherSituations: Situation[] = [
         speech: "Mình cùng xem em yếu phần nào để sửa cho lần sau.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Kiên hợp tác hơn trong việc ôn tập. Em cảm thấy thất bại được nhìn nhận như một cơ hội học hỏi.",
+        reply: "Dạ, con yếu nhất phần chứng minh. Mình xem phần đó trước ạ.",
       },
       {
         id: "C",
@@ -385,6 +419,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em chỉ biết chơi, điểm như vậy thì thật đáng thất vọng.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Kiên mất tự tin hoặc giấu kết quả học tập trong tương lai. Em cảm thấy bị chê trách về bản thân thay vì được hỗ trợ.",
+        reply: "Dạ… chắc con dốt thật ạ.",
       },
       {
         id: "D",
@@ -392,6 +427,7 @@ export const teacherSituations: Situation[] = [
         speech: "Cấm dùng điện thoại, cấm ra chơi tới khi điểm lên!",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Kiên phản kháng hoặc học tập chỉ để tránh bị phạt. Em cảm thấy bị trừng phạt toàn diện và mất quyền tự do.",
+        reply: "Cấm hết luôn hả thầy? Vậy con học để khỏi bị phạt thôi.",
       },
     ],
     insideThought:
@@ -415,6 +451,7 @@ export const teacherSituations: Situation[] = [
         speech: "Vì sao câu lạc bộ quan trọng với em? Kể thầy nghe.",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Thảo chủ động xây dựng kế hoạch phù hợp và thực hiện cam kết. Em cảm thấy được lắng nghe và tin tưởng.",
+        reply: "Dạ, vẽ giúp em thư giãn sau giờ học. Em hứa không để điểm tụt ạ.",
       },
       {
         id: "B",
@@ -422,6 +459,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em tham gia cũng được, miễn vẫn đảm bảo việc học nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Thảo hợp tác. Em cảm thấy mong muốn của mình được ghi nhận nhưng vẫn có trách nhiệm cân bằng.",
+        reply: "Dạ, em cảm ơn thầy! Em vẫn học đầy đủ ạ.",
       },
       {
         id: "C",
@@ -429,6 +467,7 @@ export const teacherSituations: Situation[] = [
         speech: "Mấy hoạt động đó tốn thời gian, có ích gì cho học.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Thảo miễn cưỡng từ bỏ nhưng vẫn giữ tâm lý tiếc nuối và không đồng tình. Em cảm thấy đam mê của mình không được tôn trọng.",
+        reply: "Dạ… vậy em không đăng ký nữa ạ.",
       },
       {
         id: "D",
@@ -436,6 +475,7 @@ export const teacherSituations: Situation[] = [
         speech: "Không được tham gia! Việc của em bây giờ là học thôi.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Thảo giấu thầy để tham gia hoặc bất mãn với quyết định. Em cảm thấy sở thích và mong muốn của mình bị phủ nhận.",
+        reply: "Dạ, em không tham gia ạ.",
       },
     ],
     insideThought:
@@ -459,6 +499,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em nghe thầy nói vài phút rồi làm tiếp được không?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Nam chủ động tháo tai nghe và lắng nghe. Em cảm thấy thời gian và sở thích của mình được tôn trọng.",
+        reply: "Dạ, em tháo ra rồi, thầy nói đi ạ.",
       },
       {
         id: "B",
@@ -466,6 +507,7 @@ export const teacherSituations: Situation[] = [
         speech: "Thầy đang nói thì em tháo tai nghe giúp thầy nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Nam hợp tác. Em cảm thấy yêu cầu hợp lý vì không cấm hoàn toàn việc nghe nhạc.",
+        reply: "Dạ, em tháo ạ.",
       },
       {
         id: "C",
@@ -473,6 +515,7 @@ export const teacherSituations: Situation[] = [
         speech: "Đeo tai nghe suốt, nói với em như nói với tường.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Nam làm theo vì áp lực nhưng vẫn cảm thấy bực bội. Em cảm thấy bị trách móc và không được giải thích.",
+        reply: "Em đâu có biết thầy gọi đâu. Dạ, em tháo rồi.",
       },
       {
         id: "D",
@@ -480,6 +523,7 @@ export const teacherSituations: Situation[] = [
         speech: "Tháo tai nghe ra! Từ giờ cấm đeo trong trường!",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Nam miễn cưỡng làm theo hoặc tiếp tục sử dụng khi không có thầy cô. Em cảm thấy quyền tự do cá nhân bị hạn chế quá mức.",
+        reply: "Cấm luôn hả thầy? Dạ… em tháo.",
       },
     ],
     insideThought:
@@ -503,6 +547,7 @@ export const teacherSituations: Situation[] = [
         speech: "Mình chốt giờ và chỗ quay cho khỏi ảnh hưởng ai nhé.",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "My tuân thủ những nguyên tắc đã thống nhất. Em cảm thấy mong muốn của mình được tôn trọng.",
+        reply: "Dạ, tụi em quay ở sân sau giờ ra chơi, không làm phiền lớp nào đâu ạ.",
       },
       {
         id: "B",
@@ -510,6 +555,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em quay giờ ra chơi, miễn không làm phiền người khác.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "My hợp tác. Em cảm thấy vẫn được duy trì sở thích trong khuôn khổ phù hợp.",
+        reply: "Dạ, tụi em quay giờ ra chơi thôi ạ.",
       },
       {
         id: "C",
@@ -517,6 +563,7 @@ export const teacherSituations: Situation[] = [
         speech: "Suốt ngày chỉ lo quay TikTok, chẳng lo học hành gì cả.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "My không đồng tình và cho rằng giáo viên không hiểu sở thích của mình. Em cảm thấy bị đánh giá phiến diện.",
+        reply: "Tụi em quay cho lớp đi thi mà thầy, đâu phải TikTok đâu.",
       },
       {
         id: "D",
@@ -524,6 +571,7 @@ export const teacherSituations: Situation[] = [
         speech: "Xóa video ngay! Còn quay là mời phụ huynh lên.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "My chống đối hoặc tiếp tục quay ở nơi kín đáo hơn. Em có thể cảm thấy mình bị ngăn cản quá mức.",
+        reply: "Dạ, em xoá. Tụi em qua nhà bạn quay vậy.",
       },
     ],
     insideThought:
@@ -547,6 +595,7 @@ export const teacherSituations: Situation[] = [
         speech: "Điều gì khiến con ngại tham gia, kể thầy nghe với?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Trâm cởi mở chia sẻ và tham gia hơn. Em cảm thấy được lắng nghe và tôn trọng cảm xúc.",
+        reply: "Dạ… em ngại chạy nhảy trước đông người. Em sợ các bạn cười ạ.",
       },
       {
         id: "B",
@@ -554,6 +603,7 @@ export const teacherSituations: Situation[] = [
         speech: "Chưa muốn tham gia thì mình tìm việc khác hợp hơn nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Trâm hợp tác khi được giao vai trò phù hợp. Em cảm thấy bản thân vẫn có sự lựa chọn.",
+        reply: "Dạ, vậy em làm người ghi điểm được không thầy?",
       },
       {
         id: "C",
@@ -561,6 +611,7 @@ export const teacherSituations: Situation[] = [
         speech: "Lúc nào cũng tách khỏi lớp, chẳng có trách nhiệm.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Trâm thu mình hơn và giảm động lực tham gia. Em cảm thấy bị đánh giá về tính cách.",
+        reply: "Dạ… em không có ý tách lớp đâu ạ.",
       },
       {
         id: "D",
@@ -568,6 +619,7 @@ export const teacherSituations: Situation[] = [
         speech: "Không được từ chối! Cả lớp làm thì con cũng làm.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Trâm tham gia với thái độ miễn cưỡng hoặc tìm cách né tránh. Em cảm thấy mất quyền quyết định và bị ép buộc.",
+        reply: "Dạ… em chơi là được chứ gì.",
       },
     ],
     insideThought:
@@ -591,6 +643,7 @@ export const teacherSituations: Situation[] = [
         speech: "Làm sao vừa tập trung vừa không lỡ tin quan trọng?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Việt chủ động thống nhất nguyên tắc sử dụng điện thoại. Em cảm thấy được tin tưởng trong việc quản lý thời gian.",
+        reply: "Dạ, em để máy im lặng, có tin gấp em xin phép thầy ra ngoài được không ạ?",
       },
       {
         id: "B",
@@ -598,6 +651,7 @@ export const teacherSituations: Situation[] = [
         speech: "Học thêm 20 phút rồi nghỉ cho em xem tin nhắn nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Việt hợp tác và tập trung học hơn. Em cảm thấy nhu cầu cá nhân được cân nhắc.",
+        reply: "Dạ, hai mươi phút nữa em xem ạ.",
       },
       {
         id: "C",
@@ -605,6 +659,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em nghiện điện thoại rồi, chẳng bao giờ tập trung được.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Việt phủ nhận hoặc tranh cãi thay vì nhìn nhận hành vi. Em cảm thấy bị gán nhãn tiêu cực.",
+        reply: "Em đâu có nghiện đâu thầy, em nhắn có chút mà.",
       },
       {
         id: "D",
@@ -612,6 +667,7 @@ export const teacherSituations: Situation[] = [
         speech: "Đưa điện thoại đây! Học xong mới được dùng.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Việt tìm cách giấu điện thoại hoặc sử dụng lén. Em cảm thấy bị kiểm soát quá mức.",
+        reply: "Dạ, em đưa thầy.",
       },
     ],
     insideThought:
@@ -635,6 +691,7 @@ export const teacherSituations: Situation[] = [
         speech: "Hai em tạm dừng để cả lớp theo kịp bài được không?",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Đăng và Chi tự giác điều chỉnh hành vi. Cả hai cảm thấy được tôn trọng và được giao trách nhiệm thay vì chỉ bị ra lệnh.",
+        reply: "Dạ, tụi em xin lỗi thầy, tụi em nghe bài ạ.",
       },
       {
         id: "B",
@@ -642,6 +699,7 @@ export const teacherSituations: Situation[] = [
         speech: "Có gì cần trao đổi thì đợi ra chơi nhé hai em.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Đăng và Chi hợp tác. Cả hai cảm thấy yêu cầu hợp lý vì không cấm hoàn toàn việc trò chuyện.",
+        reply: "Dạ, ra chơi tụi em nói ạ.",
       },
       {
         id: "C",
@@ -649,6 +707,7 @@ export const teacherSituations: Situation[] = [
         speech: "Lớp đang học mà hai em cứ nói chuyện, thiếu ý thức quá.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Đăng và Chi làm theo nhưng vẫn mang tâm lý khó chịu hoặc tự ái. Cả hai cảm thấy bị phê bình trước tập thể.",
+        reply: "Dạ, tụi em xin lỗi ạ.",
       },
       {
         id: "D",
@@ -656,6 +715,7 @@ export const teacherSituations: Situation[] = [
         speech: "Im lặng ngay! Hai em còn nói nữa thì ra khỏi lớp.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Đăng và Chi im lặng miễn cưỡng hoặc tiếp tục nói chuyện khi giáo viên không chú ý. Cả hai cảm thấy bị làm mất mặt trước bạn bè.",
+        reply: "…Dạ, tụi em im.",
       },
     ],
     insideThought:
@@ -679,6 +739,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em thích màu này vì sao? Mình chọn tone hợp nội quy nhé.",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Khoa chủ động lắng nghe lời khuyên và tự điều chỉnh lựa chọn. Em cảm thấy thầy hiện đại, thấu hiểu.",
+        reply: "Dạ, em thích vì nó hợp với em. Vậy em chọn nâu tối cho đúng nội quy ạ.",
       },
       {
         id: "B",
@@ -686,6 +747,7 @@ export const teacherSituations: Situation[] = [
         speech: "Màu này nổi quá, em chọn tone trầm hơn nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Khoa đồng ý nhuộm tone trầm hơn. Em hiểu nguyên do là từ quy định nhà trường chứ không phải thầy khó tính.",
+        reply: "Dạ, vậy em chọn tone trầm hơn ạ.",
       },
       {
         id: "C",
@@ -693,6 +755,7 @@ export const teacherSituations: Situation[] = [
         speech: "Học sinh mà đú tóc tai, tựu trường vậy không được đâu!",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Khoa vẫn nhuộm nhưng giấu bằng cách xịt phủ đen tạm khi vào năm học. Em bất mãn vì bị gán ghép từ ngữ tiêu cực.",
+        reply: "Đú đâu thầy, em nhuộm hè thôi. Tựu trường em xịt đen lại là được.",
       },
       {
         id: "D",
@@ -700,6 +763,7 @@ export const teacherSituations: Situation[] = [
         speech: "Cấm tuyệt đối! Còn tóc màu là thầy mời phụ huynh!",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Khoa phản kháng bằng cách giữ nguyên màu tóc lâu hơn dự tính. Em cảm thấy sở thích cá nhân bị xúc phạm nghiêm trọng.",
+        reply: "Vậy em để tới hết hè luôn thầy.",
       },
     ],
     insideThought:
@@ -723,6 +787,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em kể kế hoạch đi, an toàn thì thầy cho học bù sau.",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Lâm chuẩn bị kế hoạch chu đáo hơn. Em cảm thấy được tin tưởng và có động lực chuẩn bị kế hoạch chu đáo hơn.",
+        reply: "Dạ, em đi với ba bạn, có anh em dẫn. Chủ nhật em về, thứ Ba em học bù ạ.",
       },
       {
         id: "B",
@@ -730,6 +795,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em đi cũng được, nhưng phải học bù buổi khác nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Lâm hợp tác. Em cảm thấy được tôn trọng nhưng vẫn có trách nhiệm tuân thủ những nguyên tắc đã thống nhất.",
+        reply: "Dạ, em học bù chiều thứ Tư được không thầy?",
       },
       {
         id: "C",
@@ -737,6 +803,7 @@ export const teacherSituations: Situation[] = [
         speech: "Mấy buổi đó tốn tiền, vô bổ, mất thời gian học.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Lâm giữ thái độ không đồng tình và khó chia sẻ với thầy. Em cảm thấy sở thích bị xem thường.",
+        reply: "Dạ… vậy thôi em không nói với thầy nữa.",
       },
       {
         id: "D",
@@ -744,6 +811,7 @@ export const teacherSituations: Situation[] = [
         speech: "Không được nghỉ! Thầy đã nói rồi, không bàn cãi nữa.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Lâm tranh luận hoặc tự ý nghỉ mà không xin phép. Em cảm thấy mong muốn của mình bị bác bỏ hoàn toàn.",
+        reply: "Em chỉ xin nghỉ một buổi thôi mà thầy.",
       },
     ],
     insideThought:
@@ -767,6 +835,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em trình bày kế hoạch đi, rồi thầy góp góc nhìn cho.",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Phương trao đổi cởi mở và cân nhắc kỹ trước khi quyết định. Em cảm thấy được tôn trọng và đồng hành.",
+        reply: "Dạ, em muốn thi vào trường Kiến trúc, em đã đi học vẽ được một năm rồi ạ.",
       },
       {
         id: "B",
@@ -774,6 +843,7 @@ export const teacherSituations: Situation[] = [
         speech: "Thầy muốn nghe vì sao em chọn ngành đó trước đã.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Phương hợp tác trong quá trình tìm hiểu. Em cảm thấy ý kiến của mình được xem xét nghiêm túc.",
+        reply: "Dạ, em thích sáng tạo, em thấy mình hợp với thiết kế hơn làm Y ạ.",
       },
       {
         id: "C",
@@ -781,6 +851,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em còn nhỏ biết gì. Ngành đó chẳng có tương lai đâu.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Phương không muốn tiếp tục chia sẻ định hướng nghề nghiệp với thầy. Em cảm thấy năng lực và suy nghĩ của mình không được công nhận.",
+        reply: "Dạ… vậy thôi em không hỏi nữa ạ.",
       },
       {
         id: "D",
@@ -788,6 +859,7 @@ export const teacherSituations: Situation[] = [
         speech: "Em phải theo ngành gia đình. Thầy không tư vấn nữa.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Phương phản kháng, tranh cãi hoặc cố tình làm trái ý. Em cảm thấy quyền quyết định tương lai bị tước bỏ.",
+        reply: "Tương lai của em mà thầy. Em sẽ thi ngành em thích.",
       },
     ],
     insideThought:
@@ -811,6 +883,7 @@ export const teacherSituations: Situation[] = [
         speech: "Theo em chơi bao lâu là hợp lý? Mình thống nhất nhé.",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Quân tự kiểm soát thời gian chơi. Em cảm thấy được tin tưởng và có trách nhiệm với quyết định của mình.",
+        reply: "Dạ, em chơi ba mươi phút thôi, hết giờ em tự tắt ạ.",
       },
       {
         id: "B",
@@ -818,6 +891,7 @@ export const teacherSituations: Situation[] = [
         speech: "Làm xong bài rồi thì mình chốt giờ chơi hợp lý nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Quân hợp tác. Em cảm thấy quyền giải trí vẫn được tôn trọng trong khuôn khổ phù hợp.",
+        reply: "Dạ, em chơi tới giờ về thì tắt ạ.",
       },
       {
         id: "C",
@@ -825,6 +899,7 @@ export const teacherSituations: Situation[] = [
         speech: "Game chỉ gây nghiện, tới trường mà cũng đòi chơi.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Quân không đồng tình và giảm mong muốn chia sẻ với thầy. Em cảm thấy sở thích của mình bị phủ nhận hoàn toàn.",
+        reply: "Em làm xong bài rồi mà thầy… Dạ, em không chơi.",
       },
       {
         id: "D",
@@ -832,6 +907,7 @@ export const teacherSituations: Situation[] = [
         speech: "Cấm chơi game trong trường! Ai chơi là tịch thu máy.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Quân phản kháng bằng cách chơi lén trên điện thoại hoặc tranh cãi. Em cảm thấy quyền giải trí bị tước bỏ hoàn toàn.",
+        reply: "Dạ, em không chơi trên máy thư viện nữa ạ.",
       },
     ],
     insideThought:
@@ -855,6 +931,7 @@ export const teacherSituations: Situation[] = [
         speech: "Mình chốt giờ đóng cửa, cần gì thầy ghé qua nhé.",
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Trúc cởi mở, hợp tác và chủ động báo thầy khi cần. Em cảm thấy được tôn trọng nhu cầu riêng tư và được tin tưởng.",
+        reply: "Dạ, em ở tới bảy giờ. Có gì em lên phòng thầy ạ.",
       },
       {
         id: "B",
@@ -862,6 +939,7 @@ export const teacherSituations: Situation[] = [
         speech: "Thầy xếp cho em một góc, về thì báo thầy một tiếng nhé.",
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Trúc hợp tác. Em cảm thấy nhu cầu riêng tư được ghi nhận nhưng vẫn đảm bảo sự kết nối với thầy.",
+        reply: "Dạ, em cảm ơn thầy. Về em nhắn thầy ạ.",
       },
       {
         id: "C",
@@ -869,6 +947,7 @@ export const teacherSituations: Situation[] = [
         speech: "Ở lại một mình lâu vậy chắc lại định làm gì đó.",
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Trúc buồn bực hoặc không muốn chia sẻ với thầy nữa. Em cảm thấy bị nghi ngờ và thiếu sự tin tưởng.",
+        reply: "Em chỉ muốn học yên thôi mà thầy nghĩ vậy…",
       },
       {
         id: "D",
@@ -876,6 +955,7 @@ export const teacherSituations: Situation[] = [
         speech: "Không được ở lại một mình! Phải học ở phòng giám thị.",
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Trúc phản kháng hoặc tìm cách ôn bài giấu thầy ở nơi khác. Em cảm thấy quyền riêng tư bị xâm phạm.",
+        reply: "Dạ… vậy thôi em về nhà học ạ.",
       },
     ],
     insideThought:

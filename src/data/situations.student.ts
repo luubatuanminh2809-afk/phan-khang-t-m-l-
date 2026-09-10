@@ -21,6 +21,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction:
           "Cô giáo cân nhắc, có thể đồng ý nếu thấy lý do hợp lý và nhóm có cam kết rõ ràng. Hoặc cô đề nghị nhóm trình bày kế hoạch cụ thể rồi mới quyết định.",
+        reply: "Đổi cũng được, nhưng nhóm em lên kế hoạch cụ thể cho cô xem trước đã. Cô thấy ổn thì cô cho.",
       },
       {
         id: "B",
@@ -29,6 +30,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction:
           "Giáo viên khó phát hiện vì bề ngoài học sinh vẫn hợp tác. Nếu phát hiện, cô sẽ nhắc nhở hoặc yêu cầu làm lại từ đầu.",
+        reply: "Bài này cô nhìn là biết không phải em làm. Tuần sau cả nhóm làm lại từ đầu cho cô.",
       },
       {
         id: "C",
@@ -37,6 +39,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Cô giáo bực mình vì bị thách thức trước lớp, có thể phạt cảnh cáo, mời lên phòng hội đồng hoặc giữ nguyên quyết định để khẳng định uy quyền.",
+        reply: "Em nói với cô bằng giọng đó giữa lớp à? Danh sách giữ nguyên, hết giờ em lên phòng hội đồng gặp cô.",
       },
       {
         id: "D",
@@ -46,6 +49,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction:
           "Cô giáo cho điểm 0 phần làm việc nhóm, ghi sổ đầu bài, mời phụ huynh hoặc hạ hạnh kiểm. Đồng thời các bạn trong nhóm cũng bị ảnh hưởng vì thiếu thành viên.",
+        reply: "Không họp thì phần làm nhóm của em là điểm không. Cô ghi sổ đầu bài và báo phụ huynh em đấy.",
       },
     ],
     insideThought:
@@ -67,6 +71,7 @@ export const studentSituations: Situation[] = [
         speech: "Thầy cho tụi em giữ máy để tra cứu được không ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể đồng ý nếu lớp cam kết kỷ luật, hoặc yêu cầu nộp hẳn để tránh cám dỗ nhưng không phạt nặng.",
+        reply: "Được, nhưng cả lớp phải giữ kỷ luật. Thầy thấy ai lướt mạng là thu hết, không nói nhiều.",
       },
       {
         id: "B",
@@ -74,6 +79,7 @@ export const studentSituations: Situation[] = [
         action: "Nộp máy cũ, giấu máy thật trong cặp",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Khó phát hiện. Nếu bắt được, thầy sẽ tịch thu điện thoại thật và xử phạt nặng hơn vì hành vi lừa dối.",
+        reply: "Máy trong tủ là máy hỏng, máy thật nằm trong cặp em. Lừa thầy thế này thì phạt nặng hơn đấy.",
       },
       {
         id: "C",
@@ -82,6 +88,7 @@ export const studentSituations: Situation[] = [
         action: "Cố tình mở điện thoại công khai để thách thức",
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy tức giận, tịch thu điện thoại ngay tại lớp, ghi sổ đầu bài và báo lên Ban Giám hiệu.",
+        reply: "Em đưa máy đây cho thầy. Thầy ghi sổ đầu bài và báo lên Ban Giám hiệu luôn.",
       },
       {
         id: "D",
@@ -90,6 +97,7 @@ export const studentSituations: Situation[] = [
         action: "Không nộp máy, chịu phạt cũng được",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Thầy mời phụ huynh lên làm việc, đề nghị hạ hạnh kiểm hoặc xử lý kỷ luật theo quy định của nhà trường.",
+        reply: "Vậy thầy mời bố mẹ em lên làm việc. Hạnh kiểm của em tháng này thầy phải xem lại.",
       },
     ],
     insideThought:
@@ -111,6 +119,7 @@ export const studentSituations: Situation[] = [
         speech: "Thầy cho em làm ban hậu cần được không ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy thấy hợp lý vì vẫn có người tham gia, có thể đồng ý hoặc đề nghị em thuyết phục thêm vài bạn làm cùng.",
+        reply: "Hậu cần cũng là tham gia, thầy đồng ý. Em rủ thêm vài bạn làm cùng cho đủ người nhé.",
       },
       {
         id: "B",
@@ -118,6 +127,7 @@ export const studentSituations: Situation[] = [
         action: "Điểm danh đầu giờ xong lén trốn về",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy phát hiện khi điểm danh cuối buổi thấy vắng, sẽ yêu cầu giải trình và phạt bù hoặc trừ điểm thi đua.",
+        reply: "Đầu giờ có mặt, cuối buổi mất tăm. Mai em lên văn phòng giải trình cho thầy, lớp bị trừ điểm rồi.",
       },
       {
         id: "C",
@@ -126,6 +136,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Thầy giải thích đây là hoạt động chung của trường, nếu không tham gia sẽ bị trừ điểm hạnh kiểm. Đồng thời nhắc nhở thái độ của em.",
+        reply: "Đây là hoạt động chung của cả trường, không phải thầy ép riêng em. Em ăn nói cẩn thận, không là trừ hạnh kiểm đấy.",
       },
       {
         id: "D",
@@ -134,6 +145,7 @@ export const studentSituations: Situation[] = [
         action: "Tắt máy ở nhà, không xuất hiện",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Thầy ghi nhận vắng mặt không phép, hạ hạnh kiểm và mời phụ huynh làm việc.",
+        reply: "Vắng không phép là thầy ghi. Hạnh kiểm hạ, và thầy sẽ mời phụ huynh em lên.",
       },
     ],
     insideThought:
@@ -155,6 +167,7 @@ export const studentSituations: Situation[] = [
         speech: "Nóng quá, thầy cho tụi em mặc áo lớp được không ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể linh động cho phép vào những ngày nắng nóng hoặc yêu cầu hỏi ý kiến Ban Giám hiệu trước.",
+        reply: "Để thầy hỏi Ban Giám hiệu. Hôm nào nắng quá thì thầy linh động cho, còn giờ cứ mặc đúng đã.",
       },
       {
         id: "B",
@@ -162,6 +175,7 @@ export const studentSituations: Situation[] = [
         action: "Qua cổng thì đúng đồng phục, vô lớp cởi bớt",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy có thể nhắc nhở hoặc ghi tên nếu đi kiểm tra lớp và phát hiện. Nếu thấy tái phạm sẽ xử phạt.",
+        reply: "Thầy vừa đi kiểm tra lớp đấy. Lần này thầy nhắc, lần sau thầy ghi tên.",
       },
       {
         id: "C",
@@ -170,6 +184,7 @@ export const studentSituations: Situation[] = [
         speech: "Cãi lý, không chịu nhận sai khi bị thầy nhắc nhở",
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy ghi tên, báo lên Ban Giám hiệu xử lý kỷ luật và yêu cầu học sinh thay đồ ngay tại phòng giám thị.",
+        reply: "Còn cãi à? Vào phòng giám thị thay đồ ngay, thầy ghi tên báo Ban Giám hiệu.",
       },
       {
         id: "D",
@@ -178,6 +193,7 @@ export const studentSituations: Situation[] = [
         action: "Mặc đồ tự do, bị đuổi về cũng chịu",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Nhà trường không cho vào lớp, ghi nhận vi phạm, mời phụ huynh lên làm việc và đề xuất các biện pháp kỷ luật.",
+        reply: "Mặc vậy thì không vào lớp. Thầy lập biên bản và mời phụ huynh em lên làm việc.",
       },
     ],
     insideThought:
@@ -199,6 +215,7 @@ export const studentSituations: Situation[] = [
         speech: "Cô cho tụi em lùi hạn nộp sang thứ Hai được không ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Cô có thể chấp nhận lùi hạn nếu thấy học sinh đông đảo đề xuất và có lý do chính đáng. Có thể giảm bớt số lượng bài tập.",
+        reply: "Nếu cả lớp cùng đề nghị thì cô xem lại. Cô có thể bớt một đề, nhưng hạn nộp thì vẫn phải có.",
       },
       {
         id: "B",
@@ -206,6 +223,7 @@ export const studentSituations: Situation[] = [
         action: "Chép bài giải trên mạng hoặc nhờ AI làm",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Cô có thể phát hiện vì bài làm giống nhau hoặc quá sáo rỗng. Sẽ yêu cầu làm lại hoặc cho điểm thấp từng thành viên.",
+        reply: "Bài của cả nhóm giống nhau từng chữ. Làm lại hết cho cô, lần này cô chấm riêng từng người.",
       },
       {
         id: "C",
@@ -214,6 +232,7 @@ export const studentSituations: Situation[] = [
         speech: "Giao thế này thì tụi em khỏi ngủ à?",
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Cô bức xúc vì bị nói xấu trên mạng. Có thể báo lên Ban Giám hiệu, mời phụ huynh và yêu cầu học sinh gỡ bài, xin lỗi.",
+        reply: "Em nói với cô kiểu gì đấy? Cô còn nghe em lên nhóm nói xấu cô nữa. Gỡ bài đi, cô mời phụ huynh em lên.",
       },
       {
         id: "D",
@@ -222,6 +241,7 @@ export const studentSituations: Situation[] = [
         action: "Để trống vở, chấp nhận điểm 0",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Cô cho điểm 0, ghi sổ đầu bài, mời phụ huynh và yêu cầu học sinh bù bài hoặc chịu hình thức kỷ luật theo quy định.",
+        reply: "Vậy em nhận điểm không, cô ghi sổ đầu bài. Còn bài vẫn phải bù, không trốn được đâu.",
       },
     ],
     insideThought:
@@ -243,6 +263,7 @@ export const studentSituations: Situation[] = [
         speech: "Mạng nhà em yếu, cho em bật cam lúc điểm danh thôi ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể chấp nhận nếu tin học sinh, hoặc yêu cầu bật cam định kỳ 10 phút/lần để vừa thông cảm vừa đảm bảo kỷ luật.",
+        reply: "Được, nhưng cứ mười phút em bật cam lên một lần cho thầy nhé.",
       },
       {
         id: "B",
@@ -251,6 +272,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction:
           "Thầy có thể phát hiện qua các dấu hiệu bất thường. Sẽ nhắc nhở hoặc điểm danh bất ngờ yêu cầu di chuyển/vẫy tay để xác minh.",
+        reply: "Em vẫy tay cho thầy xem nào. Hình đứng im mười phút rồi đấy em.",
       },
       {
         id: "C",
@@ -260,6 +282,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Thầy nhắc nhở đây là quy định chung để quản lý chất lượng lớp học. Nếu học sinh tiếp tục gây rối, thầy cho out khỏi lớp và tính vắng mặt.",
+        reply: "Đây là quy định chung để quản lý lớp. Em còn gây rối thì thầy mời em ra khỏi phòng, tính vắng.",
       },
       {
         id: "D",
@@ -269,6 +292,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction:
           "Thầy ghi nhận học sinh vắng mặt, báo lên Ban Giám hiệu, gửi thông báo về cho phụ huynh và yêu cầu học sinh xem lại video ghi hình để bù bài.",
+        reply: "Em thoát thì thầy tính vắng không phép, báo phụ huynh. Tối nay xem lại video mà bù bài.",
       },
     ],
     insideThought:
@@ -290,6 +314,7 @@ export const studentSituations: Situation[] = [
         speech: "Cô cho em để nhẹ vậy thôi được không ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Cô có thể xem xét cho phép nếu mức độ nhẹ và kín đáo, hoặc nhắc nhở chỉ nên dùng son dưỡng trong phạm vi cho phép.",
+        reply: "Kín đáo thế này thì cô cho qua. Nhưng chỉ son dưỡng thôi nhé, đậm hơn là cô nhắc đấy.",
       },
       {
         id: "B",
@@ -297,6 +322,7 @@ export const studentSituations: Situation[] = [
         action: "Kẹp giấu tóc, thoa son mỏng, thấy giám thị thì lau",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Cô khó phát hiện, nhưng nếu bắt gặp có thể nhắc nhở hoặc ghi tên vào sổ.",
+        reply: "Cô thấy rồi đấy, lau cũng không kịp đâu. Lần này cô nhắc, lần sau cô ghi tên.",
       },
       {
         id: "C",
@@ -305,6 +331,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Cô thẳng thắn giải thích đây là nội quy nhà trường, không phải đánh giá đạo đức. Yêu cầu em tuân thủ, nếu không sẽ báo lên Ban Giám hiệu xử lý.",
+        reply: "Không ai chấm đạo đức em qua mái tóc cả. Nhưng nội quy là nội quy, em không sửa thì cô báo lên trên.",
       },
       {
         id: "D",
@@ -313,6 +340,7 @@ export const studentSituations: Situation[] = [
         action: "Giữ nguyên kiểu tóc, không sửa gì hết",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Nhà trường mời phụ huynh nhiều lần, nếu vẫn không thay đổi có thể tạm đình chỉ học để chấn chỉnh nội quy.",
+        reply: "Cô đã mời phụ huynh em mấy lần rồi. Còn giữ vậy thì nhà trường phải đình chỉ em vài hôm đấy.",
       },
     ],
     insideThought:
@@ -334,6 +362,7 @@ export const studentSituations: Situation[] = [
         action: "Viết đơn kiến nghị xin giữ giáo viên cũ",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Ban Giám hiệu tiếp nhận kiến nghị, cân nhắc khả năng thu xếp. Nếu không thể đáp ứng, sẽ giải thích lý do và trấn an học sinh.",
+        reply: "Cô nhận đơn của lớp rồi. Cô sẽ xem thu xếp được không, không được thì cô nói rõ lý do cho các em.",
       },
       {
         id: "B",
@@ -342,6 +371,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction:
           "Giáo viên mới có thể cảm nhận sự thiếu kết nối. Sẽ cố gắng tạo mối quan hệ và tìm cách tiếp cận lớp nhiều hơn, hoặc hỏi thăm tâm tư nguyện vọng của học sinh.",
+        reply: "Cô chủ nhiệm mới nói với cô là lớp mình còn xa cô ấy lắm. Các em có gì khúc mắc thì nói thẳng với cô nhé.",
       },
       {
         id: "C",
@@ -351,6 +381,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Giáo viên mới có thể bối rối, nhưng vẫn giữ bình tĩnh trả lời. Sau tiết học, có thể nói chuyện riêng với lớp trưởng để hiểu tình hình và giảm căng thẳng.",
+        reply: "Cô nghe rồi, lớp mình đang thử cô chủ nhiệm mới phải không. Cô sẽ nói chuyện riêng với lớp trưởng.",
       },
       {
         id: "D",
@@ -360,6 +391,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction:
           "Giáo viên mới báo cáo tình hình lên Ban Giám hiệu. Ban Giám hiệu tổ chức họp giữa giáo viên và ban cán sự lớp để giải quyết mâu thuẫn, yêu cầu học sinh có thái độ học tập nghiêm túc hơn.",
+        reply: "Cô chủ nhiệm mới báo lên cô hết rồi. Chiều nay cô họp với ban cán sự, lớp mình phải nghiêm túc lại ngay.",
       },
     ],
     insideThought:
@@ -381,6 +413,7 @@ export const studentSituations: Situation[] = [
         speech: "Em học trung tâm ngoài rồi, cho em xin miễn ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Nhà trường có thể yêu cầu học sinh cung cấp giấy tờ chứng minh để xem xét miễn giảm nếu thấy hợp lý.",
+        reply: "Em nộp giấy xác nhận của trung tâm cho thầy. Có giấy tờ đầy đủ thì nhà trường xem xét miễn.",
       },
       {
         id: "B",
@@ -388,6 +421,7 @@ export const studentSituations: Situation[] = [
         action: "Đóng tiền nhưng liên tục xin nghỉ buổi chiều",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy nghi ngờ nhưng khó xác minh. Có thể yêu cầu giấy xác nhận của bố mẹ hoặc bệnh viện nếu nghỉ quá nhiều.",
+        reply: "Tuần này em xin nghỉ ba buổi rồi đấy. Buổi sau nghỉ nữa thì mang giấy của bố mẹ hoặc bệnh viện cho thầy.",
       },
       {
         id: "C",
@@ -396,6 +430,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Thầy giải thích đây là chương trình hỗ trợ cho học sinh yếu, được nhà trường tổ chức chứ không phải học thêm trái quy định. Nếu gia đình không có nhu cầu có thể viết đơn xin miễn.",
+        reply: "Đây là lớp phụ đạo trường tổ chức, không phải học thêm trái quy định. Nhà em không cần thì viết đơn xin miễn.",
       },
       {
         id: "D",
@@ -404,6 +439,7 @@ export const studentSituations: Situation[] = [
         action: "Không đóng tiền, không đi, chịu hạ hạnh kiểm",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Nhà trường làm việc với phụ huynh, nếu thực sự không có nhu cầu sẽ tạo điều kiện miễn. Nếu không, xử lý theo nội quy trường.",
+        reply: "Vậy thầy làm việc với bố mẹ em. Thật sự không có nhu cầu thì miễn, còn không thì làm theo nội quy.",
       },
     ],
     insideThought:
@@ -425,6 +461,7 @@ export const studentSituations: Situation[] = [
         speech: "Cô cho em viết cả điểm tốt lẫn điểm chưa được ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Cô có thể đồng ý nếu em cam kết giữ thái độ khách quan, tôn trọng chương trình và chỉ đóng góp mang tính xây dựng.",
+        reply: "Được, em cứ viết cả hai mặt. Miễn là khách quan và góp ý cho tử tế, đừng chê bai.",
       },
       {
         id: "B",
@@ -432,6 +469,7 @@ export const studentSituations: Situation[] = [
         action: "Nhờ AI viết một bài đúng khuôn mẫu rồi nộp",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Cô có thể phát hiện bài viết quá sáo rỗng, đúng chuẩn mẫu, không có dấu ấn cá nhân. Sẽ nhắc nhở và yêu cầu viết lại.",
+        reply: "Bài này đúng từng chữ như văn mẫu, chẳng thấy em đâu cả. Viết lại cho cô bằng suy nghĩ của em.",
       },
       {
         id: "C",
@@ -440,6 +478,7 @@ export const studentSituations: Situation[] = [
         action: "Viết thẳng lời chê chương trình vào bài nộp",
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Cô đọc bài và bực mình. Có thể cho điểm kém, yêu cầu làm lại, hoặc mời lên phòng hội đồng nếu bài có lời lẽ xúc phạm.",
+        reply: "Viết thật thì được, nhưng không theo dàn ý là cô cho điểm kém. Em viết lại, đừng để cô phải mời lên phòng hội đồng.",
       },
       {
         id: "D",
@@ -448,6 +487,7 @@ export const studentSituations: Situation[] = [
         action: "Nộp giấy trắng hoặc không nộp bài, chấp nhận điểm 0",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Cô cho điểm 0, ghi sổ đầu bài, mời phụ huynh và yêu cầu hoàn thành bù nếu có thời gian.",
+        reply: "Giấy trắng thì điểm không, cô ghi sổ đầu bài. Có thời gian thì em làm bù cho cô.",
       },
     ],
     insideThought:
@@ -469,6 +509,7 @@ export const studentSituations: Situation[] = [
         speech: "Bạn kế bên nói chuyện nhiều, cho em đổi chỗ ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể xem xét nếu lý do chính đáng và em có cam kết rõ ràng. Có thể đổi thử một thời gian ngắn để kiểm chứng.",
+        reply: "Lý do đó được. Thầy cho em đổi thử hai tuần, không ổn thì em về chỗ cũ nhé.",
       },
       {
         id: "B",
@@ -476,6 +517,7 @@ export const studentSituations: Situation[] = [
         action: "Có thầy thì ngồi đúng chỗ, thầy đi thì đổi",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy có thể phát hiện qua bạn bè mách hoặc kiểm tra đột xuất. Sẽ nhắc nhở và phạt nếu tái phạm.",
+        reply: "Bạn trong lớp nói với thầy rồi. Thầy vắng là em đổi chỗ đúng không? Lần sau thầy phạt.",
       },
       {
         id: "C",
@@ -484,6 +526,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Thầy giữ vững quan điểm là xếp chỗ theo nhu cầu học tập và kỷ luật. Yêu cầu học sinh tôn trọng quyết định hoặc đưa lý do cụ thể nếu muốn thay đổi.",
+        reply: "Thầy xếp theo việc học của cả lớp, không phải cho vui. Muốn đổi thì em đưa lý do cụ thể.",
       },
       {
         id: "D",
@@ -492,6 +535,7 @@ export const studentSituations: Situation[] = [
         action: "Ngồi sai sơ đồ, bị nhắc cũng không đổi",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Thầy ghi nhận vi phạm, mời phụ huynh và có thể hạ hạnh kiểm của học sinh nếu không tuân thủ.",
+        reply: "Không chấp hành thì thầy ghi vi phạm và mời phụ huynh em. Hạnh kiểm em thầy phải xem lại đấy.",
       },
     ],
     insideThought:
@@ -513,6 +557,7 @@ export const studentSituations: Situation[] = [
         speech: "Thầy cho tụi em mang cơm nhà vào được không ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể cho phép nếu đồ ăn hợp vệ sinh và đóng gói kín, nhưng yêu cầu ăn trong khu vực bán trú hoặc căng tin.",
+        reply: "Cơm nhà thì được, nhưng hộp đậy kín và ăn ở khu bán trú nhé, không mang lên lớp.",
       },
       {
         id: "B",
@@ -520,6 +565,7 @@ export const studentSituations: Situation[] = [
         action: "Giấu đồ ăn dưới đáy cặp mang vào lớp",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Nếu phát hiện, thầy sẽ thu đồ ăn và nhắc nhở. Tái phạm sẽ báo lên giáo viên chủ nhiệm.",
+        reply: "Mở cặp ra thầy xem nào. Thầy thu hộp này, lần sau là thầy báo cô chủ nhiệm đấy.",
       },
       {
         id: "C",
@@ -527,6 +573,7 @@ export const studentSituations: Situation[] = [
         speech: "Căng tin đắt mà ít món, sao cấm mua ngoài ạ?",
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy giữ vững lập trường, giải thích đây là nội quy. Nếu học sinh vẫn cãi cố, sẽ ghi tên và báo lên Ban Giám hiệu xử lý.",
+        reply: "Nội quy là nội quy, thầy không tranh luận với em. Em còn cãi nữa là thầy ghi tên báo lên trên.",
       },
       {
         id: "D",
@@ -535,6 +582,7 @@ export const studentSituations: Situation[] = [
         action: "Vẫn xách đồ ăn qua cổng, bị thu cũng chịu",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Lập biên bản vi phạm, mời phụ huynh, và có thể áp dụng hình thức kỷ luật theo nội quy.",
+        reply: "Vậy thầy lập biên bản. Bố mẹ em sẽ nhận được giấy mời của nhà trường.",
       },
     ],
     insideThought:
@@ -556,6 +604,7 @@ export const studentSituations: Situation[] = [
         speech: "Cô cho em chia nhỏ khoản đóng được không ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Ban đại diện có thể xem xét chia nhỏ nếu gia đình có khó khăn thực sự, hoặc minh bạch các khoản chi để tạo sự đồng thuận.",
+        reply: "Nhà con khó khăn thật thì cô cho chia làm hai ba lần. Cô cũng sẽ công khai từng khoản chi cho cả lớp xem.",
       },
       {
         id: "B",
@@ -565,6 +614,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction:
           "Lớp trưởng nhắc nhở nhiều lần, khi phát hiện lý do trì hoãn kéo dài sẽ thông báo cho giáo viên chủ nhiệm để làm việc trực tiếp với phụ huynh.",
+        reply: "Tuần thứ ba rồi con vẫn bảo bố mẹ chưa gửi. Cô sẽ nhờ cô chủ nhiệm gọi thẳng cho bố mẹ con.",
       },
       {
         id: "C",
@@ -574,6 +624,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Giáo viên chủ nhiệm mời học sinh lên làm việc, yêu cầu gỡ bài. Ban đại diện sẽ giải trình công khai các khoản thu chi để tránh hiểu lầm.",
+        reply: "Con đăng bảng thu chi lên mạng à? Gỡ xuống đi con. Cô sẽ công khai hết các khoản để không ai hiểu lầm.",
       },
       {
         id: "D",
@@ -583,6 +634,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction:
           "Nhà trường và ban đại diện sẽ làm việc với phụ huynh. Nếu không đóng được vì hoàn cảnh khó khăn, có thể xem xét miễn giảm. Nếu vì lý do cá nhân, học sinh sẽ không được tham gia các hoạt động tập thể.",
+        reply: "Nhà khó khăn thì cô xem xét miễn. Còn không đóng vì không thích thì con không đi liên hoan với lớp được đâu.",
       },
     ],
     insideThought:
@@ -604,6 +656,7 @@ export const studentSituations: Situation[] = [
         speech: "Trường mở thêm lớp tổ hợp Xã hội được không ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Ban Giám hiệu xem xét số lượng học sinh đăng ký, nếu đủ điều kiện có thể mở thêm lớp hoặc hướng dẫn học sinh chuyển sang lớp phù hợp.",
+        reply: "Nếu đủ bạn đăng ký thì trường sẽ tính mở thêm. Em làm danh sách những bạn muốn học Xã hội cho cô.",
       },
       {
         id: "B",
@@ -611,6 +664,7 @@ export const studentSituations: Situation[] = [
         action: "Học lớp Tự nhiên lấy điểm, tự ôn Xã hội ở ngoài",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Giáo viên bộ môn phát hiện học sinh không tập trung trong giờ, có thể nhắc nhở hoặc trao đổi riêng để tìm hiểu nguyên nhân.",
+        reply: "Thầy bộ môn báo em không tập trung giờ Tự nhiên. Có chuyện gì thì em nói với cô, mình cùng tìm cách.",
       },
       {
         id: "C",
@@ -619,6 +673,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Nhà trường giải thích rõ lý do về cơ sở vật chất, giáo viên và mục tiêu định hướng. Nếu có nhiều ý kiến, có thể tổ chức họp phụ huynh để lắng nghe và điều chỉnh.",
+        reply: "Trường xếp vậy vì còn thiếu giáo viên và phòng học. Nhiều bạn có ý kiến thì cô sẽ họp phụ huynh để nghe.",
       },
       {
         id: "D",
@@ -628,6 +683,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction:
           "Giáo viên chủ nhiệm nhận thấy kết quả học tập sa sút, mời phụ huynh trao đổi và tìm phương án hỗ trợ học sinh, hoặc đề xuất chuyển lớp nếu có thể.",
+        reply: "Điểm em đang tụt thấy rõ. Cô sẽ mời phụ huynh em lên, xem có chuyển lớp được không.",
       },
     ],
     insideThought:
@@ -649,6 +705,7 @@ export const studentSituations: Situation[] = [
         speech: "Cô mở hòm thư góp ý ẩn danh cho tụi em nhé ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Nhà trường có thể áp dụng ý tưởng này để tạo kênh góp ý chính thức, giảm thiểu tình trạng đăng bài công khai trên mạng xã hội.",
+        reply: "Ý hay đó em. Trường sẽ đặt hòm thư góp ý ẩn danh, các em có gì bức xúc thì gửi vào đó.",
       },
       {
         id: "B",
@@ -656,6 +713,7 @@ export const studentSituations: Situation[] = [
         action: "Lập tài khoản ảo, lập group kín để bàn tiếp",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Khó phát hiện, nhưng nếu bài viết gây ảnh hưởng tiêu cực, nhà trường có thể điều tra và yêu cầu các em xóa bài.",
+        reply: "Group kín của các em cô biết rồi. Bài nào ảnh hưởng tới trường thì các em phải xoá đi.",
       },
       {
         id: "C",
@@ -665,6 +723,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Nhà trường mời học sinh lên phòng hiệu trưởng, yêu cầu gỡ bài và giải thích quyền tự do ngôn luận trong khuôn khổ pháp luật và nội quy nhà trường.",
+        reply: "Em lên phòng cô. Tự do ngôn luận là có, nhưng phải trong khuôn khổ. Bài đó em gỡ xuống.",
       },
       {
         id: "D",
@@ -673,6 +732,7 @@ export const studentSituations: Situation[] = [
         action: "Dùng tài khoản thật đăng tiếp, chịu đình chỉ",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Nhà trường tiến hành xử lý kỷ luật theo quy định, có thể đình chỉ học một thời gian và mời phụ huynh đến làm việc.",
+        reply: "Vậy nhà trường phải xử lý kỷ luật. Em có thể bị đình chỉ vài ngày, và cô mời phụ huynh em lên.",
       },
     ],
     insideThought:
@@ -694,6 +754,7 @@ export const studentSituations: Situation[] = [
         speech: "Cho tụi em trực vào giờ ra chơi được không ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể đồng ý nếu lớp đề xuất hợp lý và tự quản tốt. Hoặc yêu cầu học sinh thực hiện luân phiên để rèn luyện ý thức.",
+        reply: "Nếu lớp tự quản tốt thì thầy cho trực giờ ra chơi. Nhưng phải luân phiên, không ai được trốn.",
       },
       {
         id: "B",
@@ -701,6 +762,7 @@ export const studentSituations: Situation[] = [
         action: "Quét lấy lệ rồi trốn về trước khi bị kiểm tra",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Khi kiểm tra phát hiện khu vực chưa sạch, lớp sẽ bị trừ điểm thi đua. Thầy sẽ nhắc nhở.",
+        reply: "Khu của lớp mình bị chấm chưa sạch, trừ điểm thi đua rồi. Lần sau thầy đứng đó tới cuối đấy.",
       },
       {
         id: "C",
@@ -708,6 +770,7 @@ export const studentSituations: Situation[] = [
         speech: "Dọn sân trường là việc của lao công mà thầy!",
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy giải thích đây là hoạt động giáo dục ý thức, không phải bóc lột sức lao động. Yêu cầu học sinh thực hiện đúng phân công.",
+        reply: "Đây là rèn ý thức giữ trường của chính các em, không phải bắt làm lao công. Làm theo phân công đi.",
       },
       {
         id: "D",
@@ -716,6 +779,7 @@ export const studentSituations: Situation[] = [
         action: "Bỏ về ngay khi tan học, không tham gia",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Ghi nhận vi phạm, trừ điểm thi đua, hạ hạnh kiểm và mời phụ huynh làm việc.",
+        reply: "Bỏ về là thầy ghi vi phạm, trừ điểm thi đua. Hạnh kiểm em tháng này thầy phải hạ và báo phụ huynh.",
       },
     ],
     insideThought:
@@ -737,6 +801,7 @@ export const studentSituations: Situation[] = [
         speech: "Tụi em vừa thi xong, cô cho dời sang tiết sau ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Cô có thể xem xét hoãn nếu nhiều học sinh gặp khó khăn và lý do hợp lý. Hoặc vẫn giữ ý định kiểm tra nhưng nội dung sẽ đơn giản hơn.",
+        reply: "Nhiều bạn mệt thật thì cô cho dời. Nhưng tiết sau vẫn kiểm tra, cô chỉ cho đề dễ hơn thôi.",
       },
       {
         id: "B",
@@ -744,6 +809,7 @@ export const studentSituations: Situation[] = [
         action: "Làm ra vẻ chăm chú nhưng lén mở tài liệu",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Nếu phát hiện, cô sẽ thu bài và cho điểm 0 ngay lập tức.",
+        reply: "Tài liệu dưới gầm bàn là của ai đây? Cô thu bài, điểm không.",
       },
       {
         id: "C",
@@ -752,6 +818,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction:
           "Cô yêu cầu học sinh ngồi xuống, giải thích đây là quyền của giáo viên để kiểm tra kiến thức và tiếp tục cho làm bài. Nếu học sinh tiếp tục gây rối sẽ xử lý kỷ luật.",
+        reply: "Kiểm tra kiến thức là quyền của giáo viên. Em ngồi xuống làm bài, còn gây rối là cô xử lý đấy.",
       },
       {
         id: "D",
@@ -760,6 +827,7 @@ export const studentSituations: Situation[] = [
         action: "Úp giấy trắng, chấp nhận điểm 0",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Cho điểm 0 và ghi sổ đầu bài, mời phụ huynh và có thể cho làm bài kiểm tra bù nếu học sinh hối cải.",
+        reply: "Giấy trắng thì điểm không, cô ghi sổ đầu bài. Em biết lỗi thì cô cho làm bù.",
       },
     ],
     insideThought:
@@ -781,6 +849,7 @@ export const studentSituations: Situation[] = [
         speech: "Nhắc tụi mình trước, đừng trừ điểm liền được không?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Bạn Kỳ có thể đồng ý nhắc nhở trước cho các lần đầu vi phạm, nhưng sẽ trừ điểm nếu tái phạm nhiều lần.",
+        reply: "Được, lần đầu mình nhắc trước. Nhưng tái phạm là mình ghi luôn nha, đừng trách mình.",
       },
       {
         id: "B",
@@ -788,6 +857,7 @@ export const studentSituations: Situation[] = [
         action: "Cắt bạn canh Sao đỏ, thấy là chỉnh đốn ngay",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Sao đỏ có thể nhận thấy và bắt lỗi các hành vi khác để trừ điểm. Có thể ghi nhận lớp thường xuyên vi phạm.",
+        reply: "Mấy bạn canh mình kỹ ghê ha. Nhưng lớp mình vẫn dính lỗi khác, mình ghi rồi đó.",
       },
       {
         id: "C",
@@ -795,6 +865,7 @@ export const studentSituations: Situation[] = [
         speech: "Mấy người làm như cảnh sát vậy, trừ điểm vô lý vừa thôi!",
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Bạn Kỳ ghi tên, báo lại với Giáo viên Tổng phụ trách. Thầy tổng phụ trách sẽ mời học sinh lên làm việc và nhắc nhở về thái độ.",
+        reply: "Bạn nói vậy là mình ghi tên và báo thầy Tổng phụ trách. Thầy sẽ gọi bạn lên nói chuyện đó.",
       },
       {
         id: "D",
@@ -803,6 +874,7 @@ export const studentSituations: Situation[] = [
         action: "Cố tình vi phạm thêm để thách thức Sao đỏ",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Trừ điểm tối đa, báo cáo lớp vi phạm lên Ban Giám hiệu, đề nghị hạ hạnh kiểm của các em nếu có hành vi không hợp tác.",
+        reply: "Vậy mình trừ tối đa và báo lên Ban Giám hiệu. Hạnh kiểm của bạn bị ảnh hưởng đó nha.",
       },
     ],
     insideThought:
@@ -825,6 +897,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction:
           "Thầy có thể thông cảm và cho phép với điều kiện đỗ xe xa cổng và đi bộ vào, không ảnh hưởng đến khu vực trường. Tuy nhiên vẫn yêu cầu tuân thủ an toàn.",
+        reply: "Nhà xa thì thầy thông cảm. Em đỗ xe xa cổng rồi đi bộ vào, nhớ đội mũ bảo hiểm đàng hoàng.",
       },
       {
         id: "B",
@@ -832,6 +905,7 @@ export const studentSituations: Situation[] = [
         action: "Gửi xe trong ngõ xa rồi đi bộ vào trường",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy khó kiểm soát khu vực ngoài trường. Nếu phát hiện, sẽ nhắc nhở và ghi tên.",
+        reply: "Thầy thấy em gửi xe trong ngõ đó rồi. Lần này thầy nhắc, lần sau thầy ghi tên.",
       },
       {
         id: "C",
@@ -839,6 +913,7 @@ export const studentSituations: Situation[] = [
         speech: "Em đủ tuổi có bằng lái, sao trường cấm được ạ?",
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Nhà trường giải thích đây là quy định về an toàn giao thông nội bộ và hình ảnh của trường, không phải luật nhà nước. Yêu cầu học sinh chấp hành.",
+        reply: "Quy định này về an toàn trong trường, không phải luật giao thông. Em cứ chấp hành cho thầy.",
       },
       {
         id: "D",
@@ -847,6 +922,7 @@ export const studentSituations: Situation[] = [
         action: "Vẫn đỗ xe trước cổng, bị bắt cũng chịu",
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Lập biên bản, mời phụ huynh, đề xuất các biện pháp kỷ luật như hạ hạnh kiểm hoặc tạm đình chỉ học.",
+        reply: "Vậy thầy lập biên bản, mời phụ huynh em lên. Em có thể bị hạ hạnh kiểm hoặc đình chỉ đấy.",
       },
     ],
     insideThought:
@@ -868,6 +944,7 @@ export const studentSituations: Situation[] = [
         speech: "Bạn không đi được thì làm báo cáo thay ạ?",
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Nhà trường có thể chấp nhận nếu hoàn cảnh gia đình khó khăn, yêu cầu viết đơn xin phép và hoàn thành bài báo cáo được duyệt.",
+        reply: "Nhà em khó khăn thật thì em viết đơn, làm bài báo cáo thay. Thầy duyệt được thì không sao.",
       },
       {
         id: "B",
@@ -875,6 +952,7 @@ export const studentSituations: Situation[] = [
         action: "Xin giấy ốm đúng hôm đi để khỏi bị trừ điểm",
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy có thể nghi ngờ nhưng khó xác minh ngay. Có thể yêu cầu giấy tờ xác nhận từ bệnh viện nếu xảy ra thường xuyên.",
+        reply: "Đúng hôm đi em lại ốm. Lần sau em mang giấy của bệnh viện cho thầy nhé.",
       },
       {
         id: "C",
@@ -882,6 +960,7 @@ export const studentSituations: Situation[] = [
         speech: "Đây là đi chơi chứ học gì đâu mà bắt đóng ạ!",
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy giải thích mục tiêu giáo dục của chuyến đi, minh bạch hóa chi phí. Nếu học sinh không đồng ý có thể đề xuất phương án thay thế.",
+        reply: "Chuyến đi có mục tiêu học tập hẳn hoi, chi phí thầy công khai hết. Em không đồng ý thì đề xuất cách khác.",
       },
       {
         id: "D",
@@ -891,6 +970,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction:
           "Cho điểm 0 phần trải nghiệm, ghi nhận không tham gia và làm việc với phụ huynh. Nếu có lý do chính đáng có thể điều chỉnh, nếu không sẽ ảnh hưởng đến kết quả môn học.",
+        reply: "Vậy phần trải nghiệm của em là điểm không. Thầy làm việc với bố mẹ em, có lý do chính đáng thì thầy xem lại.",
       },
     ],
     insideThought:
