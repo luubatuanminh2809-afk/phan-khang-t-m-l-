@@ -252,7 +252,7 @@ function DialogueBox({
   // Takes its natural height when the frame has room and shrinks into a scroll when it
   // does not, which is what keeps the screen to exactly one viewport: the character is a
   // fixed height, so the bubble is the part that has to give on a short screen.
-  const cap = "min-h-0 max-h-[60%] shrink-0 overflow-y-auto";
+  const cap = "min-h-0 max-h-[60%] shrink-0 overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden";
   const posClass =
     align === "right"
       ? `order-first z-20 -mb-1 ml-auto mr-[3%] w-[56%] ${cap}`
@@ -830,7 +830,7 @@ export function SituationScreen() {
 
           <div
             ref={optionsPanelRef}
-            className={`relative -mt-16 grid min-h-0 shrink grid-cols-1 gap-2 overflow-y-auto rounded-t-3xl bg-white/95 backdrop-blur px-4 pt-4 pb-4 sm:grid-cols-2 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ${
+            className={`relative -mt-16 grid min-h-0 shrink grid-cols-1 gap-2 overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden rounded-t-3xl bg-white/95 backdrop-blur px-4 pt-4 pb-4 sm:grid-cols-2 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ${
               dialogueTypingDone ? "translate-y-0 opacity-100" : "translate-y-3 opacity-40 pointer-events-none"
             }`}
           >

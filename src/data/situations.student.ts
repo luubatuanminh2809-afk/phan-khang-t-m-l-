@@ -191,7 +191,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hạnh",
     npcRole: "Giáo viên Toán",
-    dialogue: "Tuần này cô giao thêm bài tập ôn tập, các em nộp đúng hạn thứ Hai, không trễ hạn.",
+    dialogue: "Cô giao thêm ba đề ôn tập, cả lớp phải nộp đủ vào sáng thứ Hai. Bận thi môn khác cũng không phải lý do, thiếu một đề là điểm 0.",
     options: [
       {
         id: "A",
@@ -326,7 +326,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hiệu",
     npcRole: "Ban Giám hiệu",
-    dialogue: "Kể từ tuần sau, lớp mình sẽ đổi sang một giáo viên chủ nhiệm mới theo sự phân công của nhà trường.",
+    dialogue: "Từ tuần sau lớp mình đổi giáo viên chủ nhiệm, nhà trường đã quyết rồi. Lớp không được làm đơn xin giữ cô cũ, ai còn bàn tán là bị nhắc tên.",
     options: [
       {
         id: "A",
@@ -548,7 +548,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Yến",
     npcRole: "Trưởng ban đại diện phụ huynh lớp",
-    dialogue: "Kỳ này quỹ lớp cần thu mỗi bạn một khoản khá cao để tổ chức liên hoan và mua quà cho các thầy cô.",
+    dialogue: "Quỹ lớp kỳ này mỗi bạn đóng năm trăm nghìn để liên hoan và mua quà thầy cô. Ai cũng phải đóng đủ, không có chuyện đóng bớt.",
     options: [
       {
         id: "A",
@@ -729,7 +729,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Vân",
     npcRole: "Giáo viên Hóa học",
-    dialogue: "Hôm nay cô sẽ kiểm tra 15 phút đột xuất, không báo trước, cả lớp lấy giấy ra làm bài ngay.",
+    dialogue: "Cất hết sách vở, kiểm tra 15 phút ngay bây giờ. Điểm này vào thẳng sổ, không ai được xin làm lại hay hoãn sang hôm khác.",
     options: [
       {
         id: "A",
@@ -773,7 +773,7 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Bạn Kỳ",
     npcRole: "Đội Sao đỏ",
-    dialogue: "Từ tuần này đội Sao đỏ sẽ chấm điểm thi đua nghiêm hơn, sai một lỗi nhỏ về đồng phục hay tác phong là trừ điểm ngay.",
+    dialogue: "Từ tuần này Sao đỏ trừ điểm không nhắc trước: áo bỏ ngoài, quên phù hiệu, nói chuyện lúc xếp hàng là ghi tên luôn, khỏi giải thích.",
     options: [
       {
         id: "A",
