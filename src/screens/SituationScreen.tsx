@@ -76,6 +76,13 @@ function shuffle<T>(arr: T[]): T[] {
 // solo framing (first-person, or any moment with only one person in frame): one
 // large centered character, matching the reference the user shared for that case
 const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[calc(-1*var(--sink))] w-[82%] h-[52dvh]";
+/** solo figure when its speech bubble stands beside it: pulled left so the bubble on the
+ *  right covers the air next to the character, not the character. On a narrow screen the
+ *  figure is proportionally wider and its head rises into the corner the day/place chip
+ *  sits in, so there it is drawn smaller and further left; from sm up it matches the
+ *  reference layout — head level with the chips, well clear of them sideways. */
+const CHAR_BOX_BESIDE_BUBBLE =
+  "absolute left-[31%] -translate-x-1/2 bottom-[calc(-1*var(--sink))] w-[82%] h-[42dvh] sm:left-[40%] sm:h-[52dvh]";
 // two-shot framing (third-person): player and NPC standing side by side at equal
 // size, facing each other — matches the reference the user shared showing both
 // people in a conversation on screen together, replacing the earlier small corner cameo
@@ -241,7 +248,7 @@ function DialogueBox({
   // "right" hovers the bubble over the NPC's head in the third-person two-shot (NPC
   // stands on the right); "left" hovers it over the player's own head (player stands
   // on the left); "center" is the solo/first-person framing
-  align?: "center" | "left" | "right";
+  align?: "center" | "left" | "right" | "side";
   // "thought" renders the NPC's real inner thought (ThoughtBubble) instead of
   // something they actually said out loud (SpeechBubble)
   variant?: "speech" | "thought";
@@ -254,7 +261,13 @@ function DialogueBox({
   // fixed height, so the bubble is the part that has to give on a short screen.
   const cap = "min-h-0 max-h-[60%] shrink-0 overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden";
   const posClass =
-    align === "right"
+    align === "side"
+      ? // Beside the speaker rather than over their head, the way the reference layout
+        // puts it: out of the flow entirely, so it takes no height from the figure, and
+        // bottom-anchored 76px up — the sheet laps 64px over the frame, plus a 12px gap —
+        // so it always sits just clear of the answers however tall the line runs.
+        `absolute bottom-[76px] right-[2%] z-20 w-[44%] max-h-[58%] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`
+      : align === "right"
       ? `order-first z-20 -mb-1 ml-auto mr-[3%] w-[56%] ${cap}`
       : align === "left"
         ? `order-first z-20 -mb-1 mr-auto ml-[3%] w-[56%] ${cap}`
@@ -304,15 +317,15 @@ function OptionContent({ opt, textColor }: { opt: SituationOption; textColor: st
   if (opt.speech) {
     return (
       <>
-        <span className={`block text-sm font-bold ${textColor}`}>&ldquo;{opt.speech}&rdquo;</span>
-        {opt.action && <span className="block text-xs italic text-slate-500 mt-0.5">{opt.action}</span>}
+        <span className={`block text-[clamp(14px,1.85dvh,19px)] font-bold leading-snug ${textColor}`}>&ldquo;{opt.speech}&rdquo;</span>
+        {opt.action && <span className="block text-[clamp(12px,1.45dvh,15px)] italic text-slate-500 mt-0.5">{opt.action}</span>}
       </>
     );
   }
   if (opt.action) {
-    return <span className={`block text-sm italic font-bold ${textColor}`}>{opt.action}</span>;
+    return <span className={`block text-[clamp(14px,1.85dvh,19px)] italic font-bold leading-snug ${textColor}`}>{opt.action}</span>;
   }
-  return <span className={`block text-sm font-bold ${textColor}`}>{opt.label}</span>;
+  return <span className={`block text-[clamp(14px,1.85dvh,19px)] font-bold leading-snug ${textColor}`}>{opt.label}</span>;
 }
 
 // What the other person actually says back — the spoken `reply`. `reaction` is a third-
@@ -444,6 +457,9 @@ export function SituationScreen() {
 
   const beats = situation.beats ?? [];
   const inBeats = beatIndex < beats.length;
+  // the moment the answer sheet is up: the one beat laid out after the reference, with the
+  // figure standing tall enough that its head reaches the corner the header lives in
+  const choosing = !playerLineText && !argumentText && !replay && !thoughtText && !inBeats;
   const currentBeat = beats[beatIndex];
 
   // at most one coach-mark on screen at a time — first eligible, not-yet-seen hint wins.
@@ -650,11 +666,16 @@ export function SituationScreen() {
         </div>
       </div>
 
-      <div className="relative shrink-0 px-4">
-        <p className="inline-block rounded-full bg-black/25 backdrop-blur px-3 py-1 text-[11px] font-medium text-white/90">
-          {ambientDetail}
-        </p>
-      </div>
+      {/* Left out while choosing. The reference layout has no line here, and on a small
+          phone it landed on the character's head. Removing it lengthens the frame at the
+          top only — the figure is anchored to the sheet below, so it does not move. */}
+      {!choosing && (
+        <div className="relative shrink-0 px-4">
+          <p className="inline-block rounded-full bg-black/25 backdrop-blur px-3 py-1 text-[11px] font-medium text-white/90">
+            {ambientDetail}
+          </p>
+        </div>
+      )}
 
       {playerLineText ? (
         <div role="button" tabIndex={0} onClick={handlePlayerLineTap} className={BEAT_FRAME}>
@@ -815,7 +836,7 @@ export function SituationScreen() {
             ) : (
               <Stage
                 character={
-                  <SceneCharacter name={situation.npcName} mood={outcome ? STYLE_REACTION[outcome] : "talking"} reacting={outcome !== null} alongside={playerKey} />
+                  <SceneCharacter name={situation.npcName} mood={outcome ? STYLE_REACTION[outcome] : "talking"} reacting={outcome !== null} alongside={playerKey} boxClass={CHAR_BOX_BESIDE_BUBBLE} />
                 }
                 heightClass={STAGE_GROUNDED}
               />
@@ -824,7 +845,7 @@ export function SituationScreen() {
               speakerName={situation.npcName}
               text={situation.dialogue}
               key={situation.id}
-              align={viewMode === "third" ? "right" : "center"}
+              align={viewMode === "third" ? "right" : "side"}
               typingDone={dialogueTypingDone}
               nextLabel="Chọn phản ứng ↓"
               typewriterRef={dialogueRef}
@@ -837,7 +858,7 @@ export function SituationScreen() {
 
           <div
             ref={optionsPanelRef}
-            className={`relative -mt-16 grid min-h-0 shrink grid-cols-1 gap-2 overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden rounded-t-3xl bg-white/95 backdrop-blur px-4 pt-4 pb-4 sm:grid-cols-2 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ${
+            className={`relative -mt-16 grid min-h-0 shrink grid-cols-1 gap-[clamp(6px,1.2dvh,14px)] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden mx-[5%] rounded-t-3xl bg-white/95 backdrop-blur px-4 pt-4 pb-4 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ${
               dialogueTypingDone ? "translate-y-0 opacity-100" : "translate-y-3 opacity-40 pointer-events-none"
             }`}
           >
@@ -858,12 +879,12 @@ export function SituationScreen() {
                       optionRipples.addRipple(e);
                       handlePick(opt.id);
                     }}
-                    className={`relative overflow-hidden w-full flex items-center gap-3 rounded-full bg-white p-3 pr-4 text-left shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 ${
+                    className={`relative overflow-hidden w-full flex min-h-[10.5dvh] items-center gap-[clamp(10px,1.6dvh,18px)] rounded-full bg-white py-[clamp(8px,1.3dvh,14px)] pl-[clamp(10px,1.6dvh,18px)] pr-5 text-left shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 ${
                       isChosen ? "ring-2 ring-blue-300 scale-[1.02] animate-pop" : "active:scale-[0.98]"
                     }`}
                   >
                     {optionRipples.RippleLayer}
-                    <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${meta.iconBg}`}>
+                    <span className={`flex h-[clamp(40px,5.6dvh,58px)] w-[clamp(40px,5.6dvh,58px)] shrink-0 items-center justify-center rounded-full ${meta.iconBg}`}>
                       <Icon size={20} className={meta.iconColor} />
                     </span>
                     <span className="flex-1 min-w-0 leading-snug">
