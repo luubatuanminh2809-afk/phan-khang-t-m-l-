@@ -3,7 +3,7 @@ import { TypewriterText, type TypewriterHandle } from "./TypewriterText";
 
 export const SpeechBubble = forwardRef<
   TypewriterHandle,
-  { text: string; speaker?: string; tailSide?: "left" | "right"; compact?: boolean; onTypingDone?: () => void }
+  { text: string; speaker?: string; tailSide?: "left" | "right" | "side-left"; compact?: boolean; onTypingDone?: () => void }
 >(function SpeechBubble({ text, speaker, tailSide = "right", compact = false, onTypingDone }, ref) {
   return (
     <div className={`relative animate-pop ${compact ? "" : "max-w-md"}`}>
@@ -22,9 +22,13 @@ export const SpeechBubble = forwardRef<
         </p>
       </div>
       <div
-        className={`absolute rotate-45 bg-white/95 ${compact ? "-bottom-1 h-2.5 w-2.5" : "-bottom-2 h-4 w-4"} ${
-          tailSide === "right" ? (compact ? "right-4" : "right-8") : compact ? "left-4" : "left-8"
-        }`}
+        className={
+          tailSide === "side-left"
+            ? "absolute -left-1.5 top-[58%] h-3.5 w-3.5 rotate-45 rounded-sm bg-white/95"
+            : `absolute rotate-45 bg-white/95 ${compact ? "-bottom-1 h-2.5 w-2.5" : "-bottom-2 h-4 w-4"} ${
+                tailSide === "right" ? (compact ? "right-4" : "right-8") : compact ? "left-4" : "left-8"
+              }`
+        }
       />
     </div>
   );

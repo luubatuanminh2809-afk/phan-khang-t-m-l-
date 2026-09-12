@@ -90,8 +90,8 @@ const CHAR_BOX_BESIDE_BUBBLE =
 // which is what kept the two-shot characters a third shorter than the same character
 // standing alone. The boxes overlap in the middle; the drawings do not, because each PNG
 // carries 20-38% transparent margin on either side of the body.
-const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[-11%] bottom-[calc(-1*var(--sink))] w-[78%] h-[52dvh]";
-const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-11%] bottom-[calc(-1*var(--sink))] w-[78%] h-[52dvh]";
+const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-[62dvh]";
+const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-[62dvh]";
 
 // One beat of the scene. It's a fixed-height column, not a stack of overlays: the
 // bubble (and any coach card or badge, all marked order-first) claims the top band at
@@ -109,6 +109,11 @@ const BEAT_FRAME = "relative flex min-h-0 flex-1 flex-col justify-end text-left"
  *  longer any need to sink the figure out of its way. Same band in every beat, so the
  *  character neither resizes nor jumps as the scene moves. */
 const STAGE_GROUNDED = "relative h-[52dvh] min-h-[90px] [--sink:0px]";
+/** Two people talking have no answer sheet under them, so the frame runs nearly the whole
+ *  screen; at 52dvh they stood small with an empty ceiling above them. The band has to match
+ *  the taller character boxes exactly — when the drawing is taller than its band it rises out
+ *  of the top and into the speech bubble, which is how it ended up over a girl's hair. */
+const STAGE_TWO_SHOT = "relative h-[62dvh] min-h-[90px] [--sink:0px]";
 
 // a static cutout has no pose of its own, so motion stands in for body language:
 // an active, slightly forward "making a point" loop while the NPC is delivering
@@ -288,7 +293,7 @@ function DialogueBox({
           compact
           speaker={speakerName}
           text={text}
-          tailSide={align === "left" ? "right" : "left"}
+          tailSide={align === "side" ? "side-left" : align === "left" ? "right" : "left"}
           ref={typewriterRef}
           onTypingDone={onTypingDone}
         />
@@ -617,7 +622,7 @@ export function SituationScreen() {
         seed={situation.id}
         className="absolute inset-0 h-full w-full"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-white/45" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/10" />
       {viewMode === "first" && <FirstPersonFrame />}
 
       {/* The scene stays full-bleed behind, but everything you read or tap lives in a
@@ -687,7 +692,7 @@ export function SituationScreen() {
             npcMood="idle"
             reacting={false}
             role={role}
-            heightClass={STAGE_GROUNDED}
+            heightClass={STAGE_TWO_SHOT}
             playerMood={defiant ? "angry" : "talking"}
           />
           <DialogueBox
@@ -714,7 +719,7 @@ export function SituationScreen() {
             npcMood={defiant ? "angry" : STYLE_REACTION[outcome!]}
             reacting
             role={role}
-            heightClass={STAGE_GROUNDED}
+            heightClass={STAGE_TWO_SHOT}
             playerMood={defiant ? "angry" : "idle"}
           />
           <DialogueBox
@@ -738,7 +743,7 @@ export function SituationScreen() {
             npcMood={replay.step === "line" ? "idle" : "happy"}
             reacting={replay.step === "reaction"}
             role={role}
-            heightClass={STAGE_GROUNDED}
+            heightClass={STAGE_TWO_SHOT}
             playerMood={replay.step === "line" ? "talking" : "happy"}
           />
           <span className="order-first z-30 mx-auto mt-1 shrink-0 whitespace-nowrap rounded-full bg-emerald-600 px-3 py-1 text-[11px] font-extrabold text-white shadow-lg">
@@ -759,7 +764,7 @@ export function SituationScreen() {
       ) : thoughtText ? (
         <div role="button" tabIndex={0} onClick={handleThoughtTap} className={BEAT_FRAME}>
           {/* the anger has dropped — what's left underneath is closer to hurt */}
-          <TwoShotStage npcName={situation.insideThoughtOwner} npcMood="sad" reacting={false} role={role} heightClass={STAGE_GROUNDED} />
+          <TwoShotStage npcName={situation.insideThoughtOwner} npcMood="sad" reacting={false} role={role} heightClass={STAGE_TWO_SHOT} />
           {isAdultRole && situation.coachTip ? (
             // a card rather than a bubble: nobody is saying this, it's advice to the player
             <div className="order-first z-20 mx-[6%] mt-2 shrink-0 rounded-3xl bg-white/95 p-4 shadow-xl ring-2 ring-emerald-200 animate-pop">
@@ -831,7 +836,7 @@ export function SituationScreen() {
                 npcMood={outcome ? STYLE_REACTION[outcome] : "talking"}
                 reacting={outcome !== null}
                 role={role}
-                heightClass={STAGE_GROUNDED}
+                heightClass={STAGE_TWO_SHOT}
               />
             ) : (
               <Stage
@@ -858,7 +863,7 @@ export function SituationScreen() {
 
           <div
             ref={optionsPanelRef}
-            className={`relative -mt-16 grid min-h-0 shrink grid-cols-1 gap-[clamp(6px,1.2dvh,14px)] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden mx-[5%] rounded-t-3xl bg-white/95 backdrop-blur px-4 pt-4 pb-4 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 ${
+            className={`relative -mt-16 grid min-h-0 shrink grid-cols-1 gap-[clamp(6px,1.2dvh,14px)] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden mx-[5%] rounded-t-[1.75rem] bg-slate-100/85 backdrop-blur-xl px-[clamp(10px,1.5dvh,16px)] pt-[clamp(10px,1.5dvh,16px)] pb-[clamp(10px,1.5dvh,16px)] ring-1 ring-white/60 shadow-[0_-10px_40px_rgba(15,23,42,0.18)] transition-all duration-500 ${
               dialogueTypingDone ? "translate-y-0 opacity-100" : "translate-y-3 opacity-40 pointer-events-none"
             }`}
           >
@@ -879,7 +884,7 @@ export function SituationScreen() {
                       optionRipples.addRipple(e);
                       handlePick(opt.id);
                     }}
-                    className={`relative overflow-hidden w-full flex min-h-[10.5dvh] items-center gap-[clamp(10px,1.6dvh,18px)] rounded-full bg-white py-[clamp(8px,1.3dvh,14px)] pl-[clamp(10px,1.6dvh,18px)] pr-5 text-left shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 ${
+                    className={`relative overflow-hidden w-full flex min-h-[10.5dvh] items-center gap-[clamp(10px,1.6dvh,18px)] rounded-full bg-white py-[clamp(8px,1.3dvh,14px)] pl-[clamp(10px,1.6dvh,18px)] pr-5 text-left ring-1 ring-slate-900/5 shadow-[0_3px_12px_rgba(15,23,42,0.10)] transition-all hover:shadow-[0_6px_18px_rgba(15,23,42,0.16)] hover:-translate-y-0.5 ${
                       isChosen ? "ring-2 ring-blue-300 scale-[1.02] animate-pop" : "active:scale-[0.98]"
                     }`}
                   >
