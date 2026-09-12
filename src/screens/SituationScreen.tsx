@@ -82,7 +82,7 @@ const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[calc(-1*var(
  *  sits in, so there it is drawn smaller and further left; from sm up it matches the
  *  reference layout — head level with the chips, well clear of them sideways. */
 const CHAR_BOX_BESIDE_BUBBLE =
-  "absolute left-[31%] -translate-x-1/2 bottom-[calc(-1*var(--sink))] w-[82%] h-[42dvh] sm:left-[40%] sm:h-[52dvh]";
+  "absolute left-[26%] -translate-x-1/2 bottom-[calc(-1*var(--sink))] w-[82%] h-[37dvh] sm:left-[40%] sm:h-[52dvh]";
 // two-shot framing (third-person): player and NPC standing side by side at equal
 // size, facing each other — matches the reference the user shared showing both
 // people in a conversation on screen together, replacing the earlier small corner cameo
@@ -266,7 +266,7 @@ function DialogueBox({
         // puts it: out of the flow entirely, so it takes no height from the figure, and
         // bottom-anchored 76px up — the sheet laps 64px over the frame, plus a 12px gap —
         // so it always sits just clear of the answers however tall the line runs.
-        `absolute bottom-[76px] right-[2%] z-20 w-[44%] max-h-[58%] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`
+        `absolute bottom-[76px] right-[1%] z-20 w-[52%] max-h-[80%] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:w-[44%]`
       : align === "right"
       ? `order-first z-20 -mb-1 ml-auto mr-[3%] w-[56%] ${cap}`
       : align === "left"

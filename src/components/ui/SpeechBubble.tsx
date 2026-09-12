@@ -9,15 +9,15 @@ export const SpeechBubble = forwardRef<
     <div className={`relative animate-pop ${compact ? "" : "max-w-md"}`}>
       <div
         className={`rounded-2xl bg-white/95 backdrop-blur shadow-xl ring-1 ring-black/5 ${
-          compact ? "px-3 py-2" : "px-5 py-4 rounded-3xl"
+          compact ? "px-[clamp(10px,1.6dvh,18px)] py-[clamp(6px,1.15dvh,13px)]" : "px-5 py-4 rounded-3xl"
         }`}
       >
         {speaker && (
-          <p className={`font-extrabold uppercase tracking-wide text-blue-500 ${compact ? "text-[9px] mb-0.5" : "text-[11px] mb-1"}`}>
+          <p className={`font-extrabold uppercase tracking-wide text-blue-500 ${compact ? "text-[clamp(9px,1.15dvh,12px)] mb-0.5" : "text-[11px] mb-1"}`}>
             {speaker}
           </p>
         )}
-        <p className={`text-slate-800 font-medium ${compact ? "text-[11px] leading-snug" : "text-[15px] leading-relaxed"}`}>
+        <p className={`text-slate-800 font-medium ${compact ? "text-[clamp(11px,1.7dvh,17px)] leading-snug" : "text-[15px] leading-relaxed"}`}>
           <TypewriterText ref={ref} text={text} onDone={onTypingDone} />
         </p>
       </div>
