@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode, type Ref } from "react";
-import { ArrowUp, CalendarDays, ChevronRight, Handshake, HandMetal, Lightbulb, Megaphone, MapPin, Pause, Eye, User, VenetianMask } from "lucide-react";
+import { ArrowUp, CalendarDays, ChevronRight, Eye, Lightbulb, MapPin, MessageCircle, Pause, User } from "lucide-react";
 import { useGame } from "../state/gameContext";
 import { getSituationsFor } from "../data/content";
 import { SceneIllustration } from "../components/illustrations/SceneIllustration";
@@ -17,15 +17,19 @@ import { getSettings, saveSettings, hasSeenHint, type ViewMode } from "../state/
 import { Coachmark } from "../components/ui/Coachmark";
 import type { ResponseStyle, SituationOption } from "../types";
 
-// icon + colors per resistance style, matching the reference the user provided —
-// shown directly on each option (icon, bold title, colored) plus its style name in
-// parentheses underneath, same 4-icon language already used in KeyCipherGame
-const OPTION_STYLE: Record<ResponseStyle, { icon: typeof Handshake; iconBg: string; iconColor: string; textColor: string }> = {
-  A: { icon: Handshake, iconBg: "bg-emerald-100", iconColor: "text-emerald-600", textColor: "text-emerald-600" },
-  B: { icon: VenetianMask, iconBg: "bg-sky-100", iconColor: "text-sky-600", textColor: "text-sky-600" },
-  C: { icon: Megaphone, iconBg: "bg-amber-100", iconColor: "text-amber-600", textColor: "text-amber-600" },
-  D: { icon: HandMetal, iconBg: "bg-rose-100", iconColor: "text-rose-600", textColor: "text-rose-600" },
-};
+// Colours for the four answer cards. They used to be fixed per resistance level — a green
+// handshake for A, a red raised hand for D — which told the player which answer was the
+// "good" one before they had read a word, in a game whose whole job is to catch the answer
+// they would really give. The palette is shuffled per situation and follows card position,
+// so colour carries nothing about the level. Red and green are left out altogether: they
+// read as wrong and right on their own, so a polite line landing on red would look rude.
+// Text uses the 700 shade — teal and fuchsia at 600 fall under comfortable contrast on white.
+const OPTION_PALETTE = [
+  { iconBg: "bg-sky-100", iconColor: "text-sky-600", textColor: "text-sky-700" },
+  { iconBg: "bg-violet-100", iconColor: "text-violet-600", textColor: "text-violet-700" },
+  { iconBg: "bg-teal-100", iconColor: "text-teal-600", textColor: "text-teal-700" },
+  { iconBg: "bg-fuchsia-100", iconColor: "text-fuchsia-600", textColor: "text-fuchsia-700" },
+];
 
 // how the NPC visibly reacts to the style of answer the player just picked
 const STYLE_REACTION: Record<ResponseStyle, CharacterMood> = {
@@ -441,6 +445,7 @@ export function SituationScreen() {
 
   const optionRipples = useRipples();
   const [shuffledOptions] = useState(() => shuffle(situation?.options ?? []));
+  const [optionPalette] = useState(() => shuffle(OPTION_PALETTE));
 
   // Space bar speeds up typing (skips straight to the full line), matching the
   // classic RPG-dialogue convention — whichever box is currently on screen gets it
@@ -466,6 +471,18 @@ export function SituationScreen() {
   // figure standing tall enough that its head reaches the corner the header lives in
   const choosing = !playerLineText && !argumentText && !replay && !thoughtText && !inBeats;
   const currentBeat = beats[beatIndex];
+  // Who the player is talking with at this point in the lead-in: the latest speaker who is
+  // not the player. Pairing a player line with the situation NPC regardless showed a
+  // teacher standing in the room two lines before anyone said she had walked in.
+  const beatPartner = (() => {
+    for (let i = beatIndex; i >= 0; i--) {
+      const sp = beats[i]?.speaker;
+      if (sp && sp !== PLAYER_LABEL) return sp;
+    }
+    return undefined;
+  })();
+  // a spoken lead-in line with someone to pair it with is framed as a two-shot
+  const beatIsExchange = !!currentBeat?.speaker && !!beatPartner;
 
   // at most one coach-mark on screen at a time — first eligible, not-yet-seen hint wins.
   // each is scoped to the moment it's actually useful (e.g. the options hint waits until
@@ -797,24 +814,42 @@ export function SituationScreen() {
         </div>
       ) : inBeats ? (
         <div role="button" tabIndex={0} onClick={handleBeatTap} className={BEAT_FRAME}>
-          <Stage
-            heightClass={STAGE_GROUNDED}
-            character={
-              currentBeat.speaker ? (
-                <SceneCharacter name={currentBeat.speaker} mood="talking" reacting={false} alongside={playerKey} />
-              ) : currentBeat.subjectIsNpc ? (
-                <SceneCharacter name={situation.npcName} mood="idle" reacting={false} alongside={playerKey} />
-              ) : (
-                playerCharacterOrNone(viewMode, role)
-              )
-            }
-          />
+          {beatIsExchange ? (
+            // A line between the player and the person in front of them keeps both on
+            // screen, the bubble over whoever is talking — the lead-in reads as a
+            // conversation instead of a run of solo cutaways.
+            <TwoShotStage
+              npcName={beatPartner!}
+              npcMood={currentBeat.speaker === beatPartner ? "talking" : "idle"}
+              reacting={false}
+              role={role}
+              heightClass={STAGE_TWO_SHOT}
+              playerMood={currentBeat.speaker === PLAYER_LABEL ? "talking" : "idle"}
+            />
+          ) : (
+            <Stage
+              heightClass={STAGE_GROUNDED}
+              character={
+                currentBeat.speaker === PLAYER_LABEL ? (
+                  // the player speaking before anyone else has: nobody to pair them with yet
+                  <PlayerCharacter role={role} mood="talking" />
+                ) : currentBeat.speaker ? (
+                  <SceneCharacter name={currentBeat.speaker} mood="talking" reacting={false} alongside={playerKey} />
+                ) : currentBeat.subjectIsNpc ? (
+                  <SceneCharacter name={situation.npcName} mood="idle" reacting={false} alongside={playerKey} />
+                ) : (
+                  playerCharacterOrNone(viewMode, role)
+                )
+              }
+            />
+          )}
           <DialogueBox
             key={beatIndex}
             speakerName={currentBeat.speaker}
             text={currentBeat.text}
             current={beatIndex + 1}
             total={beats.length}
+            align={!beatIsExchange ? "center" : currentBeat.speaker === PLAYER_LABEL ? "left" : "right"}
             typingDone={beatTypingDone}
             nextLabel="Tiếp →"
             typewriterRef={beatRef}
@@ -871,8 +906,9 @@ export function SituationScreen() {
               .filter((opt) => !outcome || outcome === opt.id)
               .map((opt) => {
                 const isChosen = outcome === opt.id;
-                const meta = OPTION_STYLE[opt.id];
-                const Icon = meta.icon;
+                // colour follows the card's place in this situation's shuffled order, read from
+                // the unfiltered list so the chosen card keeps its colour once the others go
+                const meta = optionPalette[shuffledOptions.indexOf(opt) % optionPalette.length];
                 return (
                   <button
                     key={opt.id}
@@ -890,7 +926,7 @@ export function SituationScreen() {
                   >
                     {optionRipples.RippleLayer}
                     <span className={`flex h-[clamp(40px,5.6dvh,58px)] w-[clamp(40px,5.6dvh,58px)] shrink-0 items-center justify-center rounded-full ${meta.iconBg}`}>
-                      <Icon size={20} className={meta.iconColor} />
+                      <MessageCircle size={20} className={meta.iconColor} />
                     </span>
                     <span className="flex-1 min-w-0 leading-snug">
                       <OptionContent opt={opt} textColor={meta.textColor} />
