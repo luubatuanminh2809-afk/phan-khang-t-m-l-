@@ -1,6 +1,8 @@
 // lightweight synthesized sound effects — no audio files, just Web Audio oscillators,
 // so the game has audio feedback without shipping any sound assets
 
+import { getSettings } from "../state/storage";
+
 let ctx: AudioContext | null = null;
 
 function getCtx(): AudioContext | null {
@@ -13,6 +15,9 @@ function getCtx(): AudioContext | null {
 }
 
 function tone(freq: number, durationMs: number, type: OscillatorType = "sine", startGain = 0.05, delayMs = 0) {
+  // the "Âm thanh" switch in Settings saved its value but nothing ever read it, so
+  // turning sound off left every tick and chime still playing
+  if (getSettings().soundOn === false) return;
   const audio = getCtx();
   if (!audio) return;
   const t0 = audio.currentTime + delayMs / 1000;
@@ -29,9 +34,11 @@ function tone(freq: number, durationMs: number, type: OscillatorType = "sine", s
   osc.stop(t0 + durationMs / 1000 + 0.02);
 }
 
-/** faint keystroke tick while text is typing out */
+/** faint keystroke tick while text is typing out — a soft low sine. It used to be a
+ *  720-800 Hz square wave, whose harmonics land right where the ear is most sensitive;
+ *  repeated through every line of dialogue it was part of what gave players a headache */
 export function playType() {
-  tone(720 + Math.random() * 80, 28, "square", 0.012);
+  tone(420 + Math.random() * 40, 24, "sine", 0.008);
 }
 
 /** tap to advance a beat/dialogue */

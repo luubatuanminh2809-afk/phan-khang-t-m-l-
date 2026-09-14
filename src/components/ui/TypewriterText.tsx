@@ -8,6 +8,9 @@ export interface TypewriterHandle {
 
 const CHARS_PER_TICK = 2;
 const TICK_MS = 18;
+// at most one typing sound per 120ms, about eight a second: the old 55ms throttle let it
+// fire fourteen times a second, which came across as a rattle rather than typing
+const SOUND_EVERY_MS = 120;
 
 export const TypewriterText = forwardRef<TypewriterHandle, { text: string; className?: string; onDone?: () => void }>(
   function TypewriterText({ text, className, onDone }, ref) {
@@ -32,7 +35,7 @@ export const TypewriterText = forwardRef<TypewriterHandle, { text: string; class
         setShown((s) => {
           const next = Math.min(text.length, s + CHARS_PER_TICK);
           // soft typing tick, throttled so it doesn't fire on every single character
-          if (Date.now() - lastTickRef.current > 55) {
+          if (Date.now() - lastTickRef.current > SOUND_EVERY_MS) {
             lastTickRef.current = Date.now();
             playType();
           }
