@@ -29,7 +29,7 @@ export function ProfileScreen() {
     saveProfile({ name: clean });
     clearSavedRun();
     dispatch({ type: "SET_GENDER", gender });
-    dispatch({ type: "GO_TO", screen: "roleSelect" });
+    dispatch({ type: "GO_TO", screen: "modeSelect" });
   }
 
   function resume() {
@@ -41,6 +41,12 @@ export function ProfileScreen() {
   const savedDate = saved
     ? new Date(saved.savedAt).toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit" })
     : "";
+  // where the saved run stands, counted the way its own mode counts
+  const savedProgress = !saved
+    ? ""
+    : saved.session.mode === "day"
+      ? `Một ngày · tình huống ${saved.session.currentIndex + 1}/${saved.session.days[0].situationIds.length}`
+      : `Ngày ${saved.session.dayIndex + 1}/${DAYS_PER_WEEK}`;
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-sky-100 via-blue-50 to-white px-5 py-8">
@@ -68,7 +74,7 @@ export function ProfileScreen() {
             <p className="text-[11px] font-extrabold uppercase tracking-wide text-blue-500 mb-1">Lượt chơi đang dở</p>
             <p className="font-bold text-slate-800">{saved.playerName}</p>
             <p className="text-xs text-slate-500 mt-0.5">
-              Vai {roleMeta[saved.role].title} · Ngày {saved.session.dayIndex + 1}/{DAYS_PER_WEEK} · lưu {savedDate}
+              Vai {roleMeta[saved.role].title} · {savedProgress} · lưu {savedDate}
             </p>
             <Button fullWidth icon={<Play size={18} />} onClick={resume} className="mt-4">
               Chơi tiếp

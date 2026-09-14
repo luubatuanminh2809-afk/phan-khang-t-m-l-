@@ -16,6 +16,7 @@ export function DayIntroScreen() {
   const schedule = getSchedule(role);
   const meta = roleMeta[role];
   const day = session.days[session.dayIndex];
+  const oneDay = session.mode === "day";
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-blue-50 to-white px-5 py-8">
@@ -32,9 +33,16 @@ export function DayIntroScreen() {
       <div className="relative mx-auto max-w-md">
         <Card className="p-4 mb-5">
           <p className="text-center text-xs font-bold text-slate-400 uppercase tracking-wide mb-3">
-            Hành trình của bạn — Ngày {session.dayIndex + 1}/{DAYS_PER_WEEK}
+            {oneDay ? "Chơi một ngày" : `Hành trình của bạn — Ngày ${session.dayIndex + 1}/${DAYS_PER_WEEK}`}
           </p>
-          <WeekProgress completedDays={session.dayIndex} currentDay={session.dayIndex} />
+          {oneDay ? (
+            // a single day has no week to chart and no codes to collect
+            <p className="text-center text-sm font-semibold text-slate-600">
+              {day.situationIds.length} tình huống từ sáng tới tối, xong là xem kết quả đánh giá
+            </p>
+          ) : (
+            <WeekProgress completedDays={session.dayIndex} currentDay={session.dayIndex} />
+          )}
           {/* carried across the whole week, so the relationship reads as something that
               accumulates rather than resetting each morning */}
           {(role === "parent" || role === "teacher") && (

@@ -6,10 +6,10 @@ import { CharacterPortrait } from "../components/illustrations/CharacterPortrait
 import { playerCharacterKey } from "../data/assetMap";
 import { Coachmark } from "../components/ui/Coachmark";
 import { CloudField, SparkleField } from "../components/illustrations/AmbientBackdrop";
-import { SITUATIONS_PER_DAY_MAX, SITUATIONS_PER_DAY_MIN, type Role } from "../types";
+import { DAYS_PER_WEEK, SITUATIONS_IN_ONE_DAY, SITUATIONS_PER_DAY_MAX, SITUATIONS_PER_DAY_MIN, type Role } from "../types";
 
 export function RoleSelectScreen() {
-  const { dispatch, gender } = useGame();
+  const { dispatch, gender, mode } = useGame();
   const cardsRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -19,7 +19,7 @@ export function RoleSelectScreen() {
 
       <div className="relative">
         <button
-          onClick={() => dispatch({ type: "GO_TO", screen: "history" })}
+          onClick={() => dispatch({ type: "GO_TO", screen: "modeSelect" })}
           className="mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md text-slate-500 active:scale-90 transition"
         >
           <ArrowLeft size={18} />
@@ -27,7 +27,9 @@ export function RoleSelectScreen() {
 
         <h2 className="text-2xl font-extrabold text-slate-800 text-center">Bạn muốn hoá thân thành ai?</h2>
         <p className="text-center text-sm text-slate-400 mt-1 mb-8">
-          Mỗi vai sẽ trải qua một ngày với {SITUATIONS_PER_DAY_MIN}-{SITUATIONS_PER_DAY_MAX} tình huống khác nhau
+          {mode === "day"
+            ? `Một ngày với ${SITUATIONS_IN_ONE_DAY} tình huống từ sáng tới tối, xong là xem kết quả đánh giá`
+            : `Cả tuần ${DAYS_PER_WEEK} ngày, mỗi ngày ${SITUATIONS_PER_DAY_MIN}–${SITUATIONS_PER_DAY_MAX} tình huống khác nhau`}
         </p>
 
         <div ref={cardsRef} className="mx-auto max-w-md space-y-4">

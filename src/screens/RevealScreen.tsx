@@ -7,7 +7,6 @@ import { Button } from "../components/ui/Button";
 import { CharacterPortrait } from "../components/illustrations/CharacterPortrait";
 import { getCharacterKey } from "../data/assetMap";
 import { Coachmark } from "../components/ui/Coachmark";
-import { DAYS_PER_WEEK } from "../types";
 
 export function RevealScreen() {
   const { dispatch, role, session, revealIndex, lastDailyCode } = useGame();
@@ -37,6 +36,7 @@ export function RevealScreen() {
     });
   const positionInRevealable = revealableIndices.indexOf(revealIndex) + 1;
   const isLastRevealable = positionInRevealable >= revealableIndices.length;
+  const isLastDay = session.dayIndex >= session.days.length - 1;
 
   function handleNext() {
     if (advancing) return;
@@ -103,9 +103,11 @@ export function RevealScreen() {
         <Button fullWidth onClick={handleNext} disabled={advancing}>
           {!isLastRevealable
             ? "Tiếp theo"
-            : session.dayIndex >= DAYS_PER_WEEK - 1
-              ? "Mở rương bí mật →"
-              : "Kết thúc ngày"}
+            : !isLastDay
+              ? "Kết thúc ngày"
+              : session.mode === "day"
+                ? "Xem kết quả đánh giá →"
+                : "Mở rương bí mật →"}
         </Button>
       </Card>
     </div>

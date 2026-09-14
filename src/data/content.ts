@@ -1,5 +1,5 @@
 import type { DayPlan, PlayerGender, Role, ScheduleItem, Situation } from "../types";
-import { DAYS_PER_WEEK, SITUATIONS_PER_DAY_MAX, SITUATIONS_PER_DAY_MIN } from "../types";
+import { DAYS_PER_WEEK, SITUATIONS_IN_ONE_DAY, SITUATIONS_PER_DAY_MAX, SITUATIONS_PER_DAY_MIN } from "../types";
 import { studentSituations } from "./situations.student";
 import { parentSituations } from "./situations.parent";
 import { teacherSituations } from "./situations.teacher";
@@ -137,7 +137,7 @@ function shuffled<T>(items: T[]): T[] {
  * Each day used to draw independently from the full pool, which meant the same situation
  * could come up twice in one day and routinely came back two or three times a week. Now
  * the week is dealt from a shuffled deck: every situation is used once before any is used
- * again. A week needs 21-28 slots against a pool of 20, so the deck does run out — when
+ * again. A week needs 21-35 slots against a pool of 20, so the deck does run out — when
  * it does it is reshuffled, and the deal then skips past anything already used today, so
  * a repeat never lands in the same day (let alone back-to-back) even when the deck runs
  * dry mid-day.
@@ -167,4 +167,32 @@ export function pickWeekPlan(role: Role): DayPlan[] {
       situationIds: Array.from({ length: randomSituationCount() }, () => deal(usedToday)),
     };
   });
+}
+
+function minutesOfDay(time: string): number {
+  const [hours, minutes] = time.split(":").map((part) => Number.parseInt(part, 10));
+  return (hours || 0) * 60 + (minutes || 0);
+}
+
+/**
+ * Generates the single day of a day-mode run: SITUATIONS_IN_ONE_DAY situations that walk
+ * through one day from morning to night.
+ *
+ * Seven drawn at random would bunch up — two thirds of the student situations happen
+ * before 10:00 — and could leave the evening empty. Instead the role's situations are
+ * laid out by clock time, cut into seven consecutive stretches as even as the pool
+ * allows, and one is drawn from each: every run covers the whole span of the role's day,
+ * in order, while still being a different seven each time.
+ */
+export function pickOneDayPlan(role: Role): DayPlan[] {
+  const byTime = [...SITUATIONS_BY_ROLE[role]].sort((a, b) => minutesOfDay(a.time) - minutesOfDay(b.time));
+  const slots = Math.min(SITUATIONS_IN_ONE_DAY, byTime.length);
+  const situationIds = Array.from({ length: slots }, (_, slot) => {
+    const from = Math.floor((slot * byTime.length) / slots);
+    const to = Math.floor(((slot + 1) * byTime.length) / slots);
+    return byTime[from + Math.floor(Math.random() * (to - from))].id;
+  });
+  // a school day, so the classroom situations never land on a Sunday
+  const weekday = WEEKDAY_NAMES[Math.floor(Math.random() * 5)];
+  return [{ weekday, situationIds }];
 }

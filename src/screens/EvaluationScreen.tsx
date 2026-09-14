@@ -23,7 +23,13 @@ export function EvaluationScreen() {
     addHistoryEntry({
       id: `H${Date.now().toString(36)}`,
       role,
-      weekday: DAYS_PER_WEEK > 1 ? `${WEEK_ORDER[0]} - ${WEEK_ORDER[DAYS_PER_WEEK - 1]}` : WEEK_ORDER[0],
+      // a week is recorded as its span of days, a one-day run as the day it was
+      weekday:
+        session.mode === "day"
+          ? `${session.days[0].weekday} · một ngày`
+          : DAYS_PER_WEEK > 1
+            ? `${WEEK_ORDER[0]} - ${WEEK_ORDER[DAYS_PER_WEEK - 1]}`
+            : WEEK_ORDER[0],
       dominant: advice.dominant,
       scoreLabel: advice.scoreLabel,
       playedAt: new Date().toISOString(),
@@ -114,7 +120,7 @@ export function EvaluationScreen() {
             fullWidth
             variant="secondary"
             icon={<RotateCcw size={18} />}
-            onClick={() => dispatch({ type: "REPLAY_WEEK" })}
+            onClick={() => dispatch({ type: "REPLAY_RUN" })}
           >
             Chơi lại từ đầu
           </Button>

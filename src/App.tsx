@@ -8,6 +8,7 @@ import { SettingsScreen } from "./screens/SettingsScreen";
 import { HistoryScreen } from "./screens/HistoryScreen";
 import { AchievementsScreen } from "./screens/AchievementsScreen";
 import { EqPointsScreen } from "./screens/EqPointsScreen";
+import { ModeSelectScreen } from "./screens/ModeSelectScreen";
 import { RoleSelectScreen } from "./screens/RoleSelectScreen";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import { DayIntroScreen } from "./screens/DayIntroScreen";
@@ -39,6 +40,8 @@ function Router() {
       return <EqPointsScreen />;
     case "profile":
       return <ProfileScreen />;
+    case "modeSelect":
+      return <ModeSelectScreen />;
     case "roleSelect":
       return <RoleSelectScreen />;
     case "dayIntro":

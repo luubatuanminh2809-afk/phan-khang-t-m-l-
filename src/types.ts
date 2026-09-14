@@ -2,6 +2,9 @@ export type Role = "student" | "parent" | "teacher";
 
 export type PlayerGender = "male" | "female";
 
+/** how long a run lasts, picked before the role: the whole week, or a single day */
+export type PlayMode = "week" | "day";
+
 export type ResponseStyle = "A" | "B" | "C" | "D";
 
 export interface ScheduleItem {
@@ -86,10 +89,10 @@ export interface DayPlan {
   situationIds: string[];
 }
 
-// a full playthrough: 7 days, each with a random 3-4 situations (varies day to day —
-// see pickWeekPlan in data/content.ts), matching the "mở rương" flow — one random
-// code collected per day, 7 codes needed to open the chest and unlock the PKTL
-// evaluation (see docs/GAME_DESCRIPTION.md section 6)
+// week mode: 7 days, each with a random 3-5 situations (varies day to day — see
+// pickWeekPlan in data/content.ts), matching the "mở rương" flow — one random code
+// collected per day, 7 codes needed to open the chest and unlock the PKTL evaluation
+// (see docs/GAME_DESCRIPTION.md section 6)
 export const DAYS_PER_WEEK = 7;
 /** starting value of the closeness meter for the adult roles (see PlaySession.closeness) */
 export const CLOSENESS_START = 55;
@@ -97,22 +100,29 @@ export const CLOSENESS_START = 55;
  *  a relationship is quicker to dent than to repair */
 export const CLOSENESS_STEP: Record<ResponseStyle, number> = { A: 6, B: 2, C: -8, D: -11 };
 export const SITUATIONS_PER_DAY_MIN = 3;
-export const SITUATIONS_PER_DAY_MAX = 4;
+export const SITUATIONS_PER_DAY_MAX = 5;
+/** day mode: a single day of this many situations, spread from morning to night (see
+ *  pickOneDayPlan in data/content.ts), then straight to the evaluation — no codes, no chest */
+export const SITUATIONS_IN_ONE_DAY = 7;
 
 export interface PlaySession {
   role: Role;
-  /** all 7 days of the week, generated up front so tomorrow's content can be teased today */
+  /** week or day, fixed for the whole run: decides how many days there are and whether
+   *  the run ends by opening the chest or goes straight to the evaluation */
+  mode: PlayMode;
+  /** every day of the run (7 in week mode, 1 in day mode), generated up front so
+   *  tomorrow's content can be teased today */
   days: DayPlan[];
-  /** which day (0-6) the player is currently on */
+  /** which day the player is currently on */
   dayIndex: number;
-  /** which situation (0-4) within the current day */
+  /** which situation within the current day */
   currentIndex: number;
-  /** every choice made this week, across all days */
+  /** every choice made this run, across all days */
   choices: { situationId: string; style: ResponseStyle }[];
   /** key fragments collected so far *today* (0..today's situation count) */
   keyFragments: number;
-  /** one random digit (0-9) granted per completed day, kept across the whole week —
-   *  once there are DAYS_PER_WEEK of these, the player can open the chest */
+  /** week mode only: one random digit (0-9) granted per completed day, kept across the
+   *  whole week — once there are DAYS_PER_WEEK of these, the player can open the chest */
   dailyCodes: number[];
   /** adult roles only: how close the child/student still feels, 0-100, starting at
    *  CLOSENESS_START. Cooperative picks raise it, harsh ones drop it. Shown in the HUD
@@ -159,6 +169,7 @@ export type Screen =
   | "achievements"
   | "eqPoints"
   | "profile"
+  | "modeSelect"
   | "roleSelect"
   | "dayIntro"
   | "situation"

@@ -5,17 +5,17 @@ import { Button } from "../components/ui/Button";
 import { CharacterPortrait } from "../components/illustrations/CharacterPortrait";
 import { PLAYER_CHARACTER_KEY } from "../data/assetMap";
 import { roleMeta } from "../data/advice";
-import { DAYS_PER_WEEK, SITUATIONS_PER_DAY_MAX, SITUATIONS_PER_DAY_MIN, type Role } from "../types";
+import { DAYS_PER_WEEK, SITUATIONS_IN_ONE_DAY, SITUATIONS_PER_DAY_MAX, SITUATIONS_PER_DAY_MIN, type Role } from "../types";
 
 const STEPS = [
   {
     icon: MessageCircleHeart,
-    title: `Trải nghiệm ${DAYS_PER_WEEK} ngày, chọn cách phản ứng`,
-    body: `Hoá thân thành Học sinh, Phụ huynh hoặc Giáo viên và trải qua ${SITUATIONS_PER_DAY_MIN}-${SITUATIONS_PER_DAY_MAX} tình huống thật mỗi ngày, suốt ${DAYS_PER_WEEK} ngày.`,
+    title: "Chơi cả tuần hoặc một ngày",
+    body: `Hoá thân thành Học sinh, Phụ huynh hoặc Giáo viên. Cả tuần: ${SITUATIONS_PER_DAY_MIN}–${SITUATIONS_PER_DAY_MAX} tình huống mỗi ngày, suốt ${DAYS_PER_WEEK} ngày. Một ngày: ${SITUATIONS_IN_ONE_DAY} tình huống từ sáng tới tối.`,
   },
   {
     icon: KeyRound,
-    title: `Trả lời hết ${SITUATIONS_PER_DAY_MIN}-${SITUATIONS_PER_DAY_MAX} tình huống mỗi ngày`,
+    title: "Trả lời hết các tình huống trong ngày",
     body: "Mỗi lựa chọn đưa bạn tiến gần hơn đến thử thách cuối ngày — nơi quyết định bạn có mở được khoá hay không.",
   },
   {
@@ -26,7 +26,7 @@ const STEPS = [
   {
     icon: Box,
     title: `Thu thập đủ ${DAYS_PER_WEEK} mã số`,
-    body: `Mỗi ngày hoàn thành thêm 1 mã số — đủ ${DAYS_PER_WEEK} mã số sẽ mở được rương bí mật chứa đánh giá PKTL cuối cùng.`,
+    body: `Chơi cả tuần thì mỗi ngày nhận thêm 1 mã số — đủ ${DAYS_PER_WEEK} mã số sẽ mở được rương bí mật chứa đánh giá PKTL cuối cùng. Chơi một ngày thì xem đánh giá ngay khi hết ngày.`,
   },
   {
     icon: Mail,

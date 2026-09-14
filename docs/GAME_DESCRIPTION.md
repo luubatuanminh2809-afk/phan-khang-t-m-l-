@@ -116,8 +116,14 @@ Ba tình huống dưới đây là bản mô tả gốc trong docx — đã hi�
 > Cập nhật theo phản hồi thực tế khi chơi thử — khác vài điểm so với
 > `Mô tả Webgame (1).docx` gốc, xem đối chiếu ở mục 6.1.
 
-1. Người chơi chọn vai → vào thẳng ngày 1 (không có màn hành lang mở đầu —
-   từng thử nhưng người chơi thấy thừa, đã bỏ).
+1. Người chơi chọn **cách chơi** (`ModeSelectScreen`, ngay sau màn hồ sơ):
+   - **Cả tuần** — 7 ngày, mỗi ngày 3–5 tình huống.
+   - **Một ngày** — 7 tình huống trải từ sáng tới tối trong một ngày
+     (`pickOneDayPlan`: xếp tình huống của vai theo giờ, chia 7 khúc liên
+     tiếp, mỗi khúc bốc 1).
+
+   Rồi chọn vai → vào thẳng ngày 1 (không có màn hành lang mở đầu — từng thử
+   nhưng người chơi thấy thừa, đã bỏ).
 2. Vào một **tình huống**: mở ở góc nhìn thứ nhất (first-person), game đưa ra
    bối cảnh, NPC đối diện, quy định/lời NPC nói ra.
 3. Game hiển thị 4 lựa chọn (keywords/câu nói + hành động) ứng với 4 mức phản
@@ -130,14 +136,14 @@ Ba tình huống dưới đây là bản mô tả gốc trong docx — đã hi�
      hồi NPC, rồi hiện luôn **suy nghĩ thật** (`insideThought`) của họ, có ghi
      tên — để người chơi thấy rõ tâm lý thật đằng sau phản ứng, không phải
      chờ đến cuối ngày.
-5. Lặp lại bước 2–4 cho đủ số tình huống hôm nay (**3–4 tình huống/ngày**,
-   random mỗi ngày).
-6. Cuối mỗi ngày, người chơi chơi 1 **minigame** để nhận **1 mã số ngẫu
-   nhiên** (dùng cho bước mở rương).
-7. Sau khi hoàn thành đủ **7 ngày**, người chơi có đủ **7 mã số** để **mở
-   rương**.
-8. Mở rương xong, game hiện **bảng đánh giá mức độ PKTL** (tổng hợp từ các
-   lựa chọn A–D đã chọn suốt 7 ngày) kèm **lời khuyên** phù hợp cho học sinh.
+5. Lặp lại bước 2–4 cho đủ số tình huống hôm nay — **cả tuần:** 3–5 tình
+   huống/ngày, random mỗi ngày; **một ngày:** 7 tình huống xếp theo giờ.
+6. **Cả tuần:** hết mỗi ngày được cấp thẳng **1 mã số ngẫu nhiên** (dùng cho
+   bước mở rương — không còn qua minigame).
+7. **Cả tuần:** đủ **7 ngày** thì có đủ **7 mã số** để **mở rương**.
+   **Một ngày:** không có mã số, không có rương — hết ngày sang thẳng bước 8.
+8. Game hiện **bảng đánh giá mức độ PKTL** (tổng hợp từ các lựa chọn A–D của
+   cả lượt chơi) kèm **lời khuyên** phù hợp.
 
 ### 6.1. Đối chiếu với code hiện tại
 
@@ -153,9 +159,11 @@ Ba tình huống dưới đây là bản mô tả gốc trong docx — đã hi�
   — chỉ đổi cục bộ trong phiên hiển thị, không ghi đè lựa chọn góc nhìn đã lưu
   của người chơi. `RevealScreen.tsx` (cuối ngày) vẫn hiện lại `insideThought`
   cho **mọi** tình huống trong ngày, kể cả các lượt chọn A.
-- Bước 5 (3-4 tình huống/ngày, random): `SITUATIONS_PER_DAY_MIN = 3`,
-  `SITUATIONS_PER_DAY_MAX = 4` (`src/types.ts`), chọn ngẫu nhiên mỗi ngày
-  trong `pickWeekPlan` (`src/data/content.ts`).
+- Bước 5: cả tuần 3–5 tình huống/ngày (`SITUATIONS_PER_DAY_MIN = 3`,
+  `SITUATIONS_PER_DAY_MAX = 5` trong `src/types.ts`, chọn ngẫu nhiên mỗi ngày
+  trong `pickWeekPlan`); một ngày `SITUATIONS_IN_ONE_DAY = 7`, chọn trong
+  `pickOneDayPlan` (cùng ở `src/data/content.ts`). Chế độ nằm ở
+  `PlaySession.mode`, người chơi chọn ở `ModeSelectScreen`.
 - Bước 6–8 (mã số theo ngày, mở rương 7 mã số, đánh giá PKTL): mỗi lần hoàn
   thành minigame cuối ngày, reducer (`FINISH_MINIGAME` trong
   `src/state/gameContext.tsx`) sinh một chữ số ngẫu nhiên 0–9, lưu vào

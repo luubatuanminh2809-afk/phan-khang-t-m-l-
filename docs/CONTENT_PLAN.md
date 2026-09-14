@@ -35,12 +35,13 @@ Bản docx mới chỉ đổi phần "Kịch bản chơi" (xem `GAME_DESCRIPTION
 3 tình huống mẫu và khung 4 mức A–D giữ nguyên. Đã triển khai, nhưng qua
 nhiều vòng chỉnh theo phản hồi thực tế nên **lệch khỏi docx gốc ở vài điểm** —
 xem đối chiếu chi tiết ở `GAME_DESCRIPTION.md` mục 6.1. Tóm tắt trạng thái
-hiện tại (không phải docx gốc): vào vai → thẳng ngày 1 (không có hành lang mở
-đầu — đã làm rồi bỏ) → mỗi tình huống mở góc nhìn thứ nhất, phản ứng tích cực
-(A) đi tiếp mượt, phản ứng tiêu cực (B–D) chuyển ngay góc nhìn thứ 3 và hiện
-luôn suy nghĩ thật của NPC → 3-4 tình huống/ngày (random, không cố định 3) →
-minigame cuối ngày sinh 1 mã số → đủ 7 ngày × 7 mã số → mở rương → đánh giá
-PKTL + lời khuyên.
+hiện tại (không phải docx gốc): chọn cách chơi (cả tuần / một ngày) → vào vai →
+thẳng ngày 1 (không có hành lang mở đầu — đã làm rồi bỏ) → mỗi tình huống mở
+góc nhìn thứ nhất, phản ứng tích cực (A) đi tiếp mượt, phản ứng tiêu cực (B–D)
+chuyển ngay góc nhìn thứ 3 và hiện luôn suy nghĩ thật của NPC. **Cả tuần:** 3-5
+tình huống/ngày (random) → hết ngày được cấp 1 mã số → đủ 7 ngày × 7 mã số →
+mở rương → đánh giá PKTL + lời khuyên. **Một ngày:** 7 tình huống xếp theo giờ
+từ sáng tới tối → đánh giá PKTL + lời khuyên luôn (không mã số, không rương).
 
 ### 3.1. Đã xây
 
@@ -54,11 +55,13 @@ PKTL + lời khuyên.
   `RevealScreen.tsx`, tổng hợp ở màn hình mới `src/screens/ChestOpenScreen.tsx`
   (Screen union thêm `"chestOpen"`) — chạy sau ngày cuối, trước
   `EvaluationScreen`.
-- `SITUATIONS_PER_DAY_MIN = 3`, `SITUATIONS_PER_DAY_MAX = 4`,
-  `DAYS_PER_WEEK = 7` (`src/types.ts`) — mỗi ngày random 3 hoặc 4 tình huống
-  (`pickWeekPlan` trong `src/data/content.ts`); mọi nơi hiển thị số ngày/tình
-  huống (`DayIntroScreen`, `RoleSelectScreen`, `ExploreScreen`,
-  `WeekProgress`...) đọc từ hằng số hoặc từ độ dài ngày thực tế, không hardcode.
+- `SITUATIONS_PER_DAY_MIN = 3`, `SITUATIONS_PER_DAY_MAX = 5`,
+  `DAYS_PER_WEEK = 7`, `SITUATIONS_IN_ONE_DAY = 7` (`src/types.ts`) — cả tuần
+  mỗi ngày random 3–5 tình huống (`pickWeekPlan`), một ngày 7 tình huống xếp
+  theo giờ (`pickOneDayPlan`, cùng ở `src/data/content.ts`); chế độ nằm ở
+  `PlaySession.mode`. Mọi nơi hiển thị số ngày/tình huống (`DayIntroScreen`,
+  `RoleSelectScreen`, `ExploreScreen`, `WeekProgress`...) đọc từ hằng số, từ
+  `mode` hoặc từ độ dài ngày thực tế, không hardcode.
 - Bong bóng thoại: đổi từ thanh ngang RPG cố định dưới màn hình sang bong
   bóng nhỏ nổi phía trên đầu nhân vật (`SpeechBubble`/`NarrationBox` tái dùng
   từ `FreeRoamDemoScreen`, thêm chế độ `compact`), phân biệt rõ lời thoại

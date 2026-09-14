@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useMemo, useReducer, type ReactNode } from "react";
-import type { AdviceEntry, Letter, PlaySession, PlayerGender, Role, ResponseStyle, Screen } from "../types";
-import { DAYS_PER_WEEK, CLOSENESS_START, CLOSENESS_STEP } from "../types";
+import type { AdviceEntry, Letter, PlayMode, PlaySession, PlayerGender, Role, ResponseStyle, Screen } from "../types";
+import { CLOSENESS_START, CLOSENESS_STEP } from "../types";
 import { adviceByRole } from "../data/advice";
-import { pickWeekPlan } from "../data/content";
+import { pickOneDayPlan, pickWeekPlan } from "../data/content";
 import { decodeLetter, letterCodeFromHash } from "./letterCode";
 import { getProfile, saveRun } from "./storage";
 
@@ -20,17 +20,20 @@ interface GameState {
   /** chosen at the profile screen, before a role is picked, so it has to live here
    *  rather than only inside the session */
   gender: PlayerGender;
+  /** chosen at the mode screen, also before a role exists — kept here for the same reason */
+  mode: PlayMode;
 }
 
 type Action =
   | { type: "GO_TO"; screen: Screen }
   | { type: "SELECT_ROLE"; role: Role }
   | { type: "SET_GENDER"; gender: PlayerGender }
+  | { type: "SET_MODE"; mode: PlayMode }
   | { type: "START_DAY" }
   | { type: "CHOOSE_OPTION"; style: ResponseStyle }
   | { type: "REVEAL_NEXT" }
   | { type: "NEXT_DAY" }
-  | { type: "REPLAY_WEEK" }
+  | { type: "REPLAY_RUN" }
   | { type: "RESUME_RUN"; role: Role; session: PlaySession }
   | { type: "GO_HOME" }
   | { type: "SET_LAST_LETTER_CODE"; code: string | null }
@@ -48,6 +51,7 @@ const initialState: GameState = {
   openedLetter: null,
   lastDailyCode: null,
   gender: "female",
+  mode: "week",
 };
 
 // if the page was opened via a shared letter link (#letter=...), jump straight to it
@@ -84,10 +88,11 @@ function findNextRevealIndex(session: PlaySession, dayIndex: number, fromIndex: 
   return idx;
 }
 
-function newSession(role: Role, gender: PlayerGender): PlaySession {
+function newSession(role: Role, gender: PlayerGender, mode: PlayMode): PlaySession {
   return {
     role,
-    days: pickWeekPlan(role),
+    mode,
+    days: mode === "day" ? pickOneDayPlan(role) : pickWeekPlan(role),
     dayIndex: 0,
     currentIndex: 0,
     choices: [],
@@ -96,6 +101,12 @@ function newSession(role: Role, gender: PlayerGender): PlaySession {
     closeness: CLOSENESS_START,
     gender,
   };
+}
+
+/** where a run goes once its last day is over: a week has collected a code a day to open
+ *  the chest with, while a one-day run has no codes and goes straight to the evaluation */
+function finishScreen(session: PlaySession): Screen {
+  return session.mode === "day" ? "evaluation" : "chestOpen";
 }
 
 function reducer(state: GameState, action: Action): GameState {
@@ -107,7 +118,7 @@ function reducer(state: GameState, action: Action): GameState {
       return {
         ...state,
         role: action.role,
-        session: newSession(action.role, state.gender),
+        session: newSession(action.role, state.gender, state.mode),
         revealIndex: 0,
         advice: null,
         lastDailyCode: null,
@@ -116,6 +127,9 @@ function reducer(state: GameState, action: Action): GameState {
 
     case "SET_GENDER":
       return { ...state, gender: action.gender };
+
+    case "SET_MODE":
+      return { ...state, mode: action.mode };
 
     case "START_DAY":
       return { ...state, screen: "situation" };
@@ -137,18 +151,24 @@ function reducer(state: GameState, action: Action): GameState {
           screen: "situation",
         };
       }
-      // last situation of the day — no more minigame gate, today's mã số (one random
-      // digit, kept for the rest of the week to open the chest on day 7) is just
-      // granted outright
-      const code = Math.floor(Math.random() * 10);
-      const session = { ...state.session, choices, keyFragments, closeness, dailyCodes: [...state.session.dailyCodes, code] };
+      // last situation of the day. A week grants today's mã số outright (one random digit,
+      // kept for the rest of the week to open the chest on day 7); a one-day run has no
+      // chest to open, so it grants none
+      const code = state.session.mode === "week" ? Math.floor(Math.random() * 10) : null;
+      const session = {
+        ...state.session,
+        choices,
+        keyFragments,
+        closeness,
+        dailyCodes: code === null ? state.session.dailyCodes : [...state.session.dailyCodes, code],
+      };
+      const isLastDay = session.dayIndex >= session.days.length - 1;
       const startIndex = findNextRevealIndex(session, session.dayIndex, 0);
       if (startIndex >= day.situationIds.length) {
         // every pick today was C/D — already revealed immediately, nothing left to recap
-        const isLastDay = session.dayIndex >= DAYS_PER_WEEK - 1;
         if (isLastDay) {
           const advice = computeAdvice(state.role, session);
-          return { ...state, session, lastDailyCode: code, advice, screen: "chestOpen" };
+          return { ...state, session, lastDailyCode: code, advice, screen: finishScreen(session) };
         }
         return { ...state, session, lastDailyCode: code, screen: "dayEnd" };
       }
@@ -162,10 +182,10 @@ function reducer(state: GameState, action: Action): GameState {
       if (nextIndex < revealDay.situationIds.length) {
         return { ...state, revealIndex: nextIndex };
       }
-      const isLastDay = state.session.dayIndex >= DAYS_PER_WEEK - 1;
+      const isLastDay = state.session.dayIndex >= state.session.days.length - 1;
       if (isLastDay) {
         const advice = computeAdvice(state.role, state.session);
-        return { ...state, advice, screen: "chestOpen" };
+        return { ...state, advice, screen: finishScreen(state.session) };
       }
       return { ...state, screen: "dayEnd" };
     }
@@ -179,11 +199,12 @@ function reducer(state: GameState, action: Action): GameState {
       };
     }
 
-    case "REPLAY_WEEK": {
+    case "REPLAY_RUN": {
       if (!state.role) return state;
+      // the same kind of run again: a week replays as a week, a single day as a day
       return {
         ...state,
-        session: newSession(state.role, state.session?.gender ?? state.gender),
+        session: newSession(state.role, state.session?.gender ?? state.gender, state.session?.mode ?? state.mode),
         revealIndex: 0,
         advice: null,
         lastDailyCode: null,
@@ -200,6 +221,7 @@ function reducer(state: GameState, action: Action): GameState {
         role: action.role,
         session: action.session,
         gender: action.session.gender ?? state.gender,
+        mode: action.session.mode,
         revealIndex: 0,
         advice: null,
         lastDailyCode: null,

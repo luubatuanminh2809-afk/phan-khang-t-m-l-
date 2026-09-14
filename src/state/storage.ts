@@ -137,7 +137,8 @@ export function getSavedRun(): SavedRun | null {
   const run = read<SavedRun | null>(KEYS.save, null);
   // guard against a save written by an older build with a different shape
   if (!run || !run.session || !run.role) return null;
-  return run;
+  // runs saved before the one-day mode existed carry no mode, and every one of them was a week
+  return { ...run, session: { ...run.session, mode: run.session.mode ?? "week" } };
 }
 
 export function saveRun(playerName: string, role: Role, session: PlaySession) {

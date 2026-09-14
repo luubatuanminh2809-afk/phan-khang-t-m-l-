@@ -222,7 +222,7 @@ export function HistoryScreen() {
               <div key={i} className="flex flex-col items-center">
                 <Comp
                   type={w.active ? "button" : undefined}
-                  onClick={w.active ? () => dispatch({ type: "GO_TO", screen: "roleSelect" }) : undefined}
+                  onClick={w.active ? () => dispatch({ type: "GO_TO", screen: "modeSelect" }) : undefined}
                   className={`flex h-24 w-20 flex-col items-center justify-center gap-1 rounded-[2rem] bg-gradient-to-b ${w.theme.grad} px-2 text-white shadow-lg transition ${
                     w.active ? "scale-105 ring-4 ring-white active:scale-95 cursor-pointer" : ""
                   }`}
@@ -247,7 +247,7 @@ export function HistoryScreen() {
                 <DayCard
                   data={d}
                   theme={WEEK_THEMES[0]}
-                  onClick={d.status === "current" ? () => dispatch({ type: "GO_TO", screen: "roleSelect" }) : undefined}
+                  onClick={d.status === "current" ? () => dispatch({ type: "GO_TO", screen: "modeSelect" }) : undefined}
                 />
               </div>
             ))}
