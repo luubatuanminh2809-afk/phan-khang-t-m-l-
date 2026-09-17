@@ -99,26 +99,28 @@ export function getCharacterImage(charKey: CharacterKey, mood: CharacterMood): s
   return CHARACTER_MOOD_IMAGES[charKey][mood] ?? CHARACTER_IMAGES[charKey];
 }
 
-// JPEG rather than PNG: these are opaque full-bleed backdrops, so alpha buys nothing
-// and the format costs a third of the bytes over the whole set
+// WebP at twice the size the art was supplied at (1448x1086 -> 2896x2172), upscaled with
+// Lanczos and sharpened once, offline. Shown full-bleed on a 3x phone or a wide desktop
+// window, the browser was stretching the old JPEGs 1.5-2.2x itself and they came out
+// soft; at this size WebP still weighs about what the small JPEGs did.
 export const SCENE_IMAGES: Record<SceneKey, string> = {
-  classroom: "/images/scenes/classroom.jpg",
-  exam_room: "/images/scenes/exam_room.jpg",
-  school_gate: "/images/scenes/school_gate.jpg",
-  hallway_yard: "/images/scenes/hallway_yard.jpg",
-  teachers_lounge: "/images/scenes/teachers_lounge.jpg",
-  living_room: "/images/scenes/living_room.jpg",
-  bedroom_desk: "/images/scenes/bedroom_desk.jpg",
-  dining_table: "/images/scenes/dining_table.jpg",
-  hallway: "/images/scenes/hallway.jpg",
-  front_door: "/images/scenes/front_door.jpg",
-  group_work: "/images/scenes/group_work.jpg",
-  classroom_morning: "/images/scenes/classroom_morning.jpg",
-  classroom_noon: "/images/scenes/classroom_noon.jpg",
-  classroom_evening: "/images/scenes/classroom_evening.jpg",
-  living_room_2: "/images/scenes/living_room_2.jpg",
-  bedroom_2: "/images/scenes/bedroom_2.jpg",
-  school_gate_2: "/images/scenes/school_gate_2.jpg",
+  classroom: "/images/scenes/classroom.webp",
+  exam_room: "/images/scenes/exam_room.webp",
+  school_gate: "/images/scenes/school_gate.webp",
+  hallway_yard: "/images/scenes/hallway_yard.webp",
+  teachers_lounge: "/images/scenes/teachers_lounge.webp",
+  living_room: "/images/scenes/living_room.webp",
+  bedroom_desk: "/images/scenes/bedroom_desk.webp",
+  dining_table: "/images/scenes/dining_table.webp",
+  hallway: "/images/scenes/hallway.webp",
+  front_door: "/images/scenes/front_door.webp",
+  group_work: "/images/scenes/group_work.webp",
+  classroom_morning: "/images/scenes/classroom_morning.webp",
+  classroom_noon: "/images/scenes/classroom_noon.webp",
+  classroom_evening: "/images/scenes/classroom_evening.webp",
+  living_room_2: "/images/scenes/living_room_2.webp",
+  bedroom_2: "/images/scenes/bedroom_2.webp",
+  school_gate_2: "/images/scenes/school_gate_2.webp",
 };
 
 
