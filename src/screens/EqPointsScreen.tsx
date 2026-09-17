@@ -46,7 +46,7 @@ export function EqPointsScreen() {
             <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3">
               Xu hướng qua các lượt đã chơi
             </h3>
-            <StyleBarChart tally={weekTally} />
+            <StyleBarChart tally={weekTally} role={session?.role} />
           </Card>
         ) : (
           <Card className="p-6 text-center">

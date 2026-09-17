@@ -62,7 +62,7 @@ export function EvaluationScreen() {
 
         <div className="grid grid-cols-3 gap-2.5 mb-4">
           <StatTile emoji="🎭" value={`${dominantPct}%`} label="Phong cách chính" valueClass={dominantMeta.color} borderClass="border-t-amber-400" delayMs={0} />
-          <StatTile emoji="🤝" value={`${empathyPct}%`} label="Đồng cảm" valueClass="text-emerald-600" borderClass="border-t-emerald-400" delayMs={80} />
+          <StatTile emoji="🤝" value={`${empathyPct}%`} label={role === "student" ? "Thương lượng" : "Tôn trọng"} valueClass="text-emerald-600" borderClass="border-t-emerald-400" delayMs={80} />
           <StatTile
             emoji="⚖️"
             value={`${deviation >= 0 ? "+" : ""}${deviation}%`}
@@ -84,7 +84,7 @@ export function EvaluationScreen() {
 
         <Card className="p-5 mb-4">
           <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wide mb-3">Xu hướng phản ứng</h3>
-          <StyleBarChart tally={tally} />
+          <StyleBarChart tally={tally} role={role ?? undefined} />
         </Card>
 
         <Card className="p-5 mb-4">

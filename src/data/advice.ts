@@ -42,17 +42,20 @@ export const adviceByRole: Record<Role, AdviceEntry[]> = {
       extraNote: "Sự thẳng thắn của bạn là điểm mạnh — chỉ cần thêm một nhịp bình tĩnh, thông điệp sẽ được đón nhận tốt hơn.",
     },
     {
+      // D for a student is outright refusal — "Em không nộp đâu thầy. Phạt sao em chịu." —
+      // not silence; this entry used to describe a quiet, enduring child, the opposite of
+      // what the player had just picked
       dominant: "D",
-      scoreLabel: "Người im lặng chịu đựng",
-      headline: "Bạn hay chọn im lặng, dù trong lòng không đồng ý",
+      scoreLabel: "Người bất hợp tác",
+      headline: "Bạn thường từ chối thẳng và chấp nhận chịu phạt",
       body:
-        "Bạn né tránh xung đột bằng cách không phản ứng gì cả, nhưng điều đó không có nghĩa là ổn — cảm xúc thật của bạn cần một chỗ để được nói ra, nếu không sẽ tích tụ dần.",
+        "Khi bị ép, bạn chọn không làm theo dù biết sẽ bị trừ điểm hay mời phụ huynh. Cách này giữ được cảm giác tự quyết, nhưng lý do thật của bạn không ai được nghe, còn hình phạt thì cứ nặng dần.",
       tips: [
-        { emoji: "📣", title: "Tập nói một câu ngắn về cảm xúc", text: "Chỉ cần 'con hơi buồn vì...' cũng đã là một bước tiến lớn." },
-        { emoji: "📓", title: "Viết nhật ký cảm xúc", text: "Ghi lại điều bạn thực sự nghĩ sau mỗi lần im lặng để hiểu rõ bản thân hơn." },
-        { emoji: "🧑‍🤝‍🧑", title: "Tìm một người bạn tin tưởng", text: "Tập chia sẻ với bạn thân trước khi nói với người lớn sẽ dễ hơn." },
+        { emoji: "🗣️", title: "Nói ra lý do trước khi từ chối", text: "Một câu 'em không đồng ý vì...' giúp người lớn hiểu bạn không chỉ đang cãi." },
+        { emoji: "⚖️", title: "Chọn việc đáng để phản đối", text: "Không phải quy định nào cũng cần chống lại — hãy dành sức cho điều thật sự quan trọng với bạn." },
+        { emoji: "🤝", title: "Thử đưa ra một cách khác", text: "Đề xuất một cách làm thay thế thường được chấp nhận hơn là từ chối hoàn toàn." },
       ],
-      extraNote: "Im lặng không có nghĩa là bạn ổn. Cảm xúc của bạn xứng đáng được lắng nghe.",
+      extraNote: "Muốn được tự quyết là chính đáng. Khi bạn nói ra điều mình cần, người lớn mới có cơ hội thay đổi.",
     },
   ],
   parent: [
@@ -83,30 +86,33 @@ export const adviceByRole: Record<Role, AdviceEntry[]> = {
       extraNote: "Nguyên tắc rõ ràng là tốt — chỉ cần thêm một chút lắng nghe để con cảm thấy được tôn trọng.",
     },
     {
+      // C is "cấm đoán & chỉ trích": a ban that comes with a label for the child
       dominant: "C",
       scoreLabel: "Phụ huynh nghiêm khắc",
-      headline: "Bạn phản ứng nhanh và dứt khoát, nhưng đôi khi thiếu giải thích",
+      headline: "Bạn hay cấm ngay và chê con để con nghe lời",
       body:
-        "Bạn thường phản ứng mạnh khi con có hành vi không như ý. Điều này có thể khiến con sợ và vâng lời trước mặt bạn, nhưng lại khiến con ngại chia sẻ thật lòng và dễ tìm cách giấu giếm về sau.",
+        "Khi con muốn làm điều gì đó, bạn thường cấm luôn, kèm những lời như 'lười', 'nhảm', 'ở bẩn'. Con có thể thôi cãi trước mặt bạn, nhưng lại thấy mình bị đánh giá và dễ làm lén sau lưng.",
       tips: [
         { emoji: "🌬️", title: "Dừng lại 3 giây trước khi phản ứng", text: "Một khoảng lặng nhỏ giúp bạn phản ứng bình tĩnh hơn." },
-        { emoji: "❓", title: "Hỏi trước khi kết luận", text: "'Chuyện gì đã xảy ra vậy con?' là câu hỏi có thể thay đổi cả cuộc trò chuyện." },
-        { emoji: "🤗", title: "Cho con biết bạn vẫn yêu thương", text: "Ngay cả khi nghiêm khắc, hãy chắc con hiểu điều đó xuất phát từ tình yêu thương." },
+        { emoji: "🏷️", title: "Nói về việc làm, đừng gán nhãn con", text: "'Con thức khuya quá' dễ nghe hơn nhiều so với 'con lười', 'con hư'." },
+        { emoji: "❓", title: "Hỏi trước khi cấm", text: "'Vì sao con muốn làm vậy?' có thể thay đổi cả cuộc trò chuyện." },
       ],
       extraNote: "Sự nghiêm khắc của bạn xuất phát từ tình yêu thương — hãy để con cảm nhận được điều đó rõ hơn.",
     },
     {
+      // D is "áp đặt & đe dọa" — confiscations, cut allowances, locked doors. This entry used
+      // to call that parent "dễ dãi", who lets things slide: the opposite of what they picked
       dominant: "D",
-      scoreLabel: "Phụ huynh dễ dãi",
-      headline: "Bạn hay bỏ qua để tránh xung đột trước mắt",
+      scoreLabel: "Phụ huynh áp đặt",
+      headline: "Bạn hay dùng hình phạt và lời doạ để con làm theo ngay",
       body:
-        "Bạn thường chọn cách không can thiệp để giữ hoà khí. Điều này giúp giảm căng thẳng tức thời, nhưng con có thể hiểu lầm rằng bạn không thực sự quan tâm đến điều con đang trải qua.",
+        "Tịch thu điện thoại, cắt tiền tiêu vặt, khoá cửa — những lời doạ này khiến con làm theo ngay lúc đó. Nhưng con càng bị ép thì càng muốn chống lại: con giấu, nói dối hoặc lén làm khi bạn không thấy.",
       tips: [
-        { emoji: "📱", title: "Chủ động hỏi thăm mỗi ngày", text: "Một câu hỏi ngắn cũng cho con biết bạn đang để ý." },
-        { emoji: "🔍", title: "Quan sát những thay đổi nhỏ", text: "Chú ý biểu cảm, thói quen của con để nhận ra khi con cần giúp đỡ." },
-        { emoji: "🕯️", title: "Đặt ra vài giới hạn nhẹ nhàng", text: "Không cần nghiêm khắc, nhưng một vài quy tắc nhỏ giúp con cảm thấy được quan tâm." },
+        { emoji: "🧊", title: "Đợi nguôi giận rồi mới nói", text: "Lời doạ thường bật ra lúc nóng, còn quy tắc tốt thì được đặt ra lúc bình tĩnh." },
+        { emoji: "📋", title: "Cùng con chốt hậu quả từ trước", text: "Thoả thuận trước nếu vi phạm thì sao, để hình phạt không đến bất ngờ." },
+        { emoji: "💬", title: "Nói nỗi lo thay vì lời doạ", text: "'Bố mẹ lo con thức khuya sẽ mệt' giúp con hiểu bạn, còn 'đập máy' chỉ khiến con giấu." },
       ],
-      extraNote: "Sự thoải mái là tốt, nhưng con vẫn cần cảm nhận được sự hiện diện và quan tâm của bạn.",
+      extraNote: "Bạn làm vậy vì lo cho con. Khi con hiểu nỗi lo đó thay vì chỉ thấy hình phạt, con sẽ tự nguyện hợp tác hơn.",
     },
   ],
   teacher: [
@@ -137,30 +143,33 @@ export const adviceByRole: Record<Role, AdviceEntry[]> = {
       extraNote: "Kỷ luật rõ ràng giúp lớp học ổn định — chỉ cần thêm sự linh hoạt đúng lúc.",
     },
     {
+      // C is "cấm đoán & chỉ trích": the remark that labels the student rather than the act
       dominant: "C",
       scoreLabel: "Người thầy nghiêm khắc",
-      headline: "Bạn xử lý nhanh và dứt khoát, đôi khi công khai trước lớp",
+      headline: "Bạn hay chê trách ngay khi học sinh làm khác ý",
       body:
-        "Bạn thường phản ứng mạnh để giữ kỷ luật ngay lập tức. Cách này hiệu quả trong việc kiểm soát lớp học, nhưng phê bình công khai dễ khiến học sinh xấu hổ trước bạn bè và mất niềm tin để chia sẻ vấn đề thật của mình.",
+        "Bạn thường nhận xét thẳng kiểu 'lười', 'thiếu trách nhiệm'. Học sinh có thể làm theo vì ngại, nhưng các em thấy mình bị đánh giá con người chứ không phải việc làm, và thôi không chia sẻ lý do thật.",
       tips: [
-        { emoji: "🤫", title: "Tách riêng học sinh trước khi xử lý", text: "Nói chuyện riêng giúp giữ được kỷ luật mà không làm học sinh xấu hổ." },
-        { emoji: "🌬️", title: "Hạ giọng trước khi phản ứng", text: "Một giọng nói bình tĩnh vẫn giữ được uy quyền mà không gây sợ hãi." },
-        { emoji: "🤝", title: "Khôi phục lại sau khi xử lý", text: "Một câu hỏi thăm sau đó giúp học sinh biết bạn không giữ ác cảm." },
+        { emoji: "🏷️", title: "Nhận xét việc làm, đừng gán nhãn", text: "'Bài này em chưa làm' khác xa 'em lười' trong mắt học sinh." },
+        { emoji: "🤫", title: "Góp ý riêng thay vì trước lớp", text: "Nói chuyện riêng giữ được kỷ luật mà không làm học sinh xấu hổ." },
+        { emoji: "❓", title: "Hỏi lý do trước khi nhận xét", text: "Nhiều hành vi có nguyên nhân mà học sinh ngại nói ra trước lớp." },
       ],
       extraNote: "Uy quyền của bạn rất rõ ràng — hãy để nó đi cùng sự tôn trọng dành cho học sinh.",
     },
     {
+      // D is "áp đặt & đe dọa" — zero marks, confiscation, calling the parents in. This entry
+      // used to describe a teacher who lets things pass: the opposite of what they picked
       dominant: "D",
-      scoreLabel: "Người thầy dễ bỏ qua",
-      headline: "Bạn hay để tình huống trôi qua để không làm gián đoạn giờ học",
+      scoreLabel: "Người thầy áp đặt",
+      headline: "Bạn hay dùng hình phạt nặng để dập vấn đề ngay tại chỗ",
       body:
-        "Bạn thường chọn không can thiệp để giữ tiến độ bài giảng. Điều này giúp lớp học trôi chảy, nhưng những học sinh đang gặp khó khăn thật sự có thể cảm thấy mình không quan trọng nếu không ai để ý đến các em.",
+        "Điểm 0, tịch thu, mời phụ huynh — cách này làm lớp im ngay lúc đó. Nhưng học sinh càng bị ép càng tìm cách chống lại: các em làm lén, giấu giếm, và lý do thật phía sau hành vi thì không bao giờ được nói ra.",
       tips: [
-        { emoji: "⏱️", title: "Dành một câu hỏi sau giờ học", text: "'Em ổn không?' không mất nhiều thời gian nhưng rất có giá trị." },
-        { emoji: "👀", title: "Quan sát học sinh im lặng", text: "Những em ít nói thường là người cần được để ý nhất." },
-        { emoji: "🗒️", title: "Ghi chú những học sinh cần quan tâm", text: "Một danh sách nhỏ giúp bạn không bỏ sót ai." },
+        { emoji: "📏", title: "Phạt vừa với lỗi", text: "Lỗi nhỏ mà bị phạt nặng khiến học sinh thấy bất công hơn là thấy mình sai." },
+        { emoji: "📋", title: "Thống nhất hậu quả từ đầu", text: "Nội quy và hình phạt nói rõ trước thì học sinh dễ chấp nhận hơn khi bị xử lý." },
+        { emoji: "🤝", title: "Hỏi riêng trước khi phạt", text: "Một câu 'có chuyện gì vậy em?' đôi khi giải quyết được nhiều hơn một lần mời phụ huynh." },
       ],
-      extraNote: "Sự dễ chịu của bạn tạo không khí thoải mái — chỉ cần thêm một chút chủ động quan tâm.",
+      extraNote: "Bạn muốn giữ lớp học nghiêm túc. Khi học sinh hiểu lý do thay vì chỉ sợ hình phạt, kỷ luật sẽ bền hơn.",
     },
   ],
 };
