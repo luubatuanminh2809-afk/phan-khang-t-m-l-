@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode, type Ref } from "react";
-import { ArrowUp, CalendarDays, ChevronRight, Eye, Lightbulb, MapPin, MessageCircle, Pause, User } from "lucide-react";
+import { ArrowUp, CalendarDays, ChevronRight, Eye, Lightbulb, Mail, MapPin, MessageCircle, Pause, Play, User } from "lucide-react";
 import { useGame } from "../state/gameContext";
 import { getSituationsFor } from "../data/content";
 import { SceneIllustration } from "../components/illustrations/SceneIllustration";
@@ -15,6 +15,7 @@ import { ClosenessMeter } from "../components/ui/ClosenessMeter";
 import { playTap, playChoice } from "../lib/sfx";
 import { getSettings, saveSettings, hasSeenHint, type ViewMode } from "../state/storage";
 import { Coachmark } from "../components/ui/Coachmark";
+import { Button } from "../components/ui/Button";
 import type { ResponseStyle, SituationOption } from "../types";
 
 // Colours for the four answer cards. They used to be fixed per resistance level — a green
@@ -79,7 +80,11 @@ function shuffle<T>(arr: T[]): T[] {
 
 // solo framing (first-person, or any moment with only one person in frame): one
 // large centered character, matching the reference the user shared for that case
-const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[calc(-1*var(--sink))] w-[82%] h-[52dvh]";
+// Every frame height below is capped at the viewport minus 300px, the room the header, the
+// ambient line and a speech bubble need above the figure. Uncapped, a short screen (a small
+// phone, the app's side panel) squeezed the stage while the art kept its full height, so
+// the heads rose into the band the bubble sits in and got covered by it.
+const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[calc(-1*var(--sink))] w-[82%] h-[min(52dvh,calc(100dvh_-_300px))]";
 /** solo figure when its speech bubble stands beside it: pulled left so the bubble on the
  *  right covers the air next to the character, not the character. On a narrow screen the
  *  figure is proportionally wider and its head rises into the corner the day/place chip
@@ -94,8 +99,8 @@ const CHAR_BOX_BESIDE_BUBBLE =
 // which is what kept the two-shot characters a third shorter than the same character
 // standing alone. The boxes overlap in the middle; the drawings do not, because each PNG
 // carries 20-38% transparent margin on either side of the body.
-const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-[62dvh]";
-const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-[62dvh]";
+const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-[min(62dvh,calc(100dvh_-_300px))]";
+const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-[min(62dvh,calc(100dvh_-_300px))]";
 
 // One beat of the scene. It's a fixed-height column, not a stack of overlays: the
 // bubble (and any coach card or badge, all marked order-first) claims the top band at
@@ -112,12 +117,14 @@ const BEAT_FRAME = "relative flex min-h-0 flex-1 flex-col justify-end text-left"
  *  columns instead of four stacked rows — that it only laps over the feet, so there is no
  *  longer any need to sink the figure out of its way. Same band in every beat, so the
  *  character neither resizes nor jumps as the scene moves. */
-const STAGE_GROUNDED = "relative h-[52dvh] min-h-[90px] [--sink:0px]";
+const STAGE_GROUNDED = "relative h-[min(52dvh,calc(100dvh_-_300px))] min-h-[90px] [--sink:0px]";
 /** Two people talking have no answer sheet under them, so the frame runs nearly the whole
  *  screen; at 52dvh they stood small with an empty ceiling above them. The band has to match
  *  the taller character boxes exactly — when the drawing is taller than its band it rises out
  *  of the top and into the speech bubble, which is how it ended up over a girl's hair. */
-const STAGE_TWO_SHOT = "relative h-[62dvh] min-h-[90px] [--sink:0px]";
+// shrink-0: a flex column may otherwise squeeze this band under a long bubble while the
+// absolutely placed art inside keeps its height, which is exactly how heads got covered
+const STAGE_TWO_SHOT = "relative h-[min(62dvh,calc(100dvh_-_300px))] min-h-[90px] shrink-0 [--sink:0px]";
 
 // a static cutout has no pose of its own, so motion stands in for body language:
 // an active, slightly forward "making a point" loop while the NPC is delivering
@@ -268,19 +275,25 @@ function DialogueBox({
   // Takes its natural height when the frame has room and shrinks into a scroll when it
   // does not, which is what keeps the screen to exactly one viewport: the character is a
   // fixed height, so the bubble is the part that has to give on a short screen.
-  const cap = "min-h-0 max-h-[60%] shrink-0 overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden";
+  // Narrow and tall rather than wide and flat, so a bubble stays over its own speaker
+  // instead of reaching across the frame. It is the part that gives way on a short screen
+  // (it shrinks and scrolls), because the stage below it may not — see STAGE_TWO_SHOT.
+  const cap = "min-h-0 max-h-[60%] shrink overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden";
   const posClass =
     align === "side"
       ? // Beside the speaker rather than over their head, the way the reference layout
         // puts it: out of the flow entirely, so it takes no height from the figure, and
         // bottom-anchored 76px up — the sheet laps 64px over the frame, plus a 12px gap —
         // so it always sits just clear of the answers however tall the line runs.
-        `absolute bottom-[76px] right-[1%] z-20 w-[52%] max-h-[80%] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:w-[44%]`
-      : align === "right"
-      ? `order-first z-20 -mb-1 ml-auto mr-[3%] w-[56%] ${cap}`
-      : align === "left"
-        ? `order-first z-20 -mb-1 mr-auto ml-[3%] w-[56%] ${cap}`
-        : `order-first z-20 -mb-1 ml-[44%] w-[68%] -translate-x-1/2 ${cap}`;
+        `absolute bottom-[76px] right-[1%] z-20 w-[44%] max-h-[80%] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:w-[36%]`
+      : // a small gap under the bubble rather than the slight overlap it used to have: some
+        // poses are drawn right up to the top of their box, and that overlap was enough to
+        // clip the top of a head on a short screen
+        align === "right"
+        ? `order-first z-20 mb-1 ml-auto mr-[3%] w-[46%] ${cap}`
+        : align === "left"
+          ? `order-first z-20 mb-1 mr-auto ml-[3%] w-[46%] ${cap}`
+          : `order-first z-20 mb-1 ml-[44%] w-[58%] -translate-x-1/2 ${cap}`;
   return (
     <div className={posClass}>
       {variant === "thought" ? (
@@ -324,12 +337,9 @@ function DialogueBox({
 // pre-split fallback for any option that hasn't been categorized
 function OptionContent({ opt, textColor }: { opt: SituationOption; textColor: string }) {
   if (opt.speech) {
-    return (
-      <>
-        <span className={`block text-[clamp(14px,1.85dvh,19px)] font-bold leading-snug ${textColor}`}>&ldquo;{opt.speech}&rdquo;</span>
-        {opt.action && <span className="block text-[clamp(12px,1.45dvh,15px)] italic text-slate-500 mt-0.5">{opt.action}</span>}
-      </>
-    );
+    // an option with both a line and an action shows the line alone — the action used to
+    // sit under it as a small grey italic caption, and that second line was asked to go
+    return <span className={`block text-[clamp(14px,1.85dvh,19px)] font-bold leading-snug ${textColor}`}>&ldquo;{opt.speech}&rdquo;</span>;
   }
   if (opt.action) {
     return <span className={`block text-[clamp(14px,1.85dvh,19px)] italic font-bold leading-snug ${textColor}`}>{opt.action}</span>;
@@ -351,7 +361,7 @@ function npcReplyText(opt: SituationOption | undefined): string {
 // would put narration like "Tỏ thái độ thách thức, tiếp tục dùng tài khoản thật..."
 // inside a speech bubble, i.e. the character appears to say their own stage direction
 // out loud. An option with nothing to say simply skips the player's line (see
-// handleConfirm) rather than faking one.
+// handlePick) rather than faking one.
 function optionSpokenText(opt: SituationOption): string | undefined {
   return opt.speech;
 }
@@ -446,6 +456,7 @@ export function SituationScreen() {
   const optionRipples = useRipples();
   const [shuffledOptions] = useState(() => shuffle(situation?.options ?? []));
   const [optionPalette] = useState(() => shuffle(OPTION_PALETTE));
+  const [pauseOpen, setPauseOpen] = useState(false);
 
   // Space bar speeds up typing (skips straight to the full line), matching the
   // classic RPG-dialogue convention — whichever box is currently on screen gets it
@@ -515,20 +526,14 @@ export function SituationScreen() {
   function handlePick(style: ResponseStyle) {
     playChoice();
     setOutcome(style);
-    // the rule text on screen doesn't change yet — just her face reacting and the
-    // other 3 options disappearing, leaving only the picked one. Still first-person
-    // here regardless of style — tapping that lone option (handleConfirm) is what
-    // actually moves things forward, and that's the moment the two paths diverge.
-  }
-
-  function handleConfirm() {
-    if (!outcome) return;
-    playTap();
-    // every pick now plays out as a real exchange — you say your line, they answer.
-    // What differs is the framing: a defiant pick cuts to third-person so you watch
-    // the argument from outside, while a cooperative one stays in your own eyes.
-    if (defiant) setViewMode("third");
-    const chosen = situation!.options.find((o) => o.id === outcome);
+    // Straight into the exchange. Picking used to leave the chosen card alone on screen
+    // waiting for a second tap to confirm, a step players found pointless. Every pick
+    // plays out as a real exchange — you say your line, they answer. What differs is the
+    // framing: a defiant pick cuts to third-person so you watch the argument from
+    // outside, while a cooperative one stays in your own eyes. The style comes from the
+    // argument, since `outcome` has not re-rendered yet inside this same tap.
+    if (style === "C" || style === "D") setViewMode("third");
+    const chosen = situation!.options.find((o) => o.id === style);
     const spoken = optionSpokenText(chosen!);
     if (!spoken) {
       // this option is a silent act with no line to deliver — skip straight to their
@@ -661,30 +666,37 @@ export function SituationScreen() {
         <div className="relative flex items-center gap-2">
           {isAdultRole && <ClosenessMeter value={session.closeness} />}
           <ProgressKey collected={session.keyFragments} total={day.situationIds.length} />
+          <span className="relative">
+            <button
+              ref={viewToggleRef}
+              onClick={revealPending ? handleRevealThought : toggleViewMode}
+              title={revealPending ? "Bước vào thế giới khác" : viewMode === "third" ? "Góc nhìn người thứ ba" : "Góc nhìn người thứ nhất"}
+              className={`flex h-10 w-10 items-center justify-center rounded-full backdrop-blur shadow-md active:scale-90 transition ${
+                revealPending ? "bg-blue-500 text-white ring-4 ring-blue-300 animate-pulse" : "bg-white/90 text-slate-500"
+              }`}
+            >
+              {revealPending || viewMode === "first" ? <Eye size={16} /> : <User size={16} />}
+            </button>
+            {/* the argument has landed and the player is being invited to look past it — the
+                arrow hangs off the eye itself, centred under it, so it points at the button
+                rather than at a spot a fixed distance from the header's edge */}
+            {revealPending && (
+              <div className="pointer-events-none absolute left-1/2 top-full z-30 mt-1 flex -translate-x-1/2 flex-col items-center animate-bounce">
+                <ArrowUp size={20} className="text-blue-600 drop-shadow" />
+                <span className="mt-0.5 whitespace-nowrap rounded-full bg-blue-600 px-2.5 py-1 text-[11px] font-extrabold text-white shadow-lg">
+                  Bước vào thế giới khác
+                </span>
+              </div>
+            )}
+          </span>
           <button
-            ref={viewToggleRef}
-            onClick={revealPending ? handleRevealThought : toggleViewMode}
-            title={revealPending ? "Bước vào thế giới khác" : viewMode === "third" ? "Góc nhìn người thứ ba" : "Góc nhìn người thứ nhất"}
-            className={`flex h-10 w-10 items-center justify-center rounded-full backdrop-blur shadow-md active:scale-90 transition ${
-              revealPending ? "bg-blue-500 text-white ring-4 ring-blue-300 animate-pulse" : "bg-white/90 text-slate-500"
-            }`}
+            onClick={() => setPauseOpen(true)}
+            title="Tạm dừng"
+            aria-label="Tạm dừng"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur shadow-md text-slate-500 active:scale-90 transition"
           >
-            {revealPending || viewMode === "first" ? <Eye size={16} /> : <User size={16} />}
-          </button>
-          <button className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur shadow-md text-slate-500">
             <Pause size={16} />
           </button>
-
-          {/* the argument has landed and the player is being invited to look past it —
-              the arrow points up at the eye above rather than adding a competing button */}
-          {revealPending && (
-            <div className="absolute right-11 top-12 z-30 flex flex-col items-center animate-bounce">
-              <ArrowUp size={20} className="text-blue-600 drop-shadow" />
-              <span className="mt-0.5 whitespace-nowrap rounded-full bg-blue-600 px-2.5 py-1 text-[11px] font-extrabold text-white shadow-lg">
-                Bước vào thế giới khác
-              </span>
-            </div>
-          )}
         </div>
       </div>
 
@@ -784,7 +796,7 @@ export function SituationScreen() {
           <TwoShotStage npcName={situation.insideThoughtOwner} npcMood="sad" reacting={false} role={role} heightClass={STAGE_TWO_SHOT} />
           {isAdultRole && situation.coachTip ? (
             // a card rather than a bubble: nobody is saying this, it's advice to the player
-            <div className="order-first z-20 mx-[6%] mt-2 shrink-0 rounded-3xl bg-white/95 p-4 shadow-xl ring-2 ring-emerald-200 animate-pop">
+            <div className="order-first z-20 mx-[6%] mt-2 min-h-0 shrink overflow-y-auto rounded-3xl bg-white/95 p-4 shadow-xl ring-2 ring-emerald-200 animate-pop [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <p className="mb-1.5 flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wide text-emerald-600">
                 <Lightbulb size={13} /> Thử nói thế này
               </p>
@@ -902,27 +914,17 @@ export function SituationScreen() {
               dialogueTypingDone ? "translate-y-0 opacity-100" : "translate-y-3 opacity-40 pointer-events-none"
             }`}
           >
-            {shuffledOptions
-              .filter((opt) => !outcome || outcome === opt.id)
-              .map((opt) => {
-                const isChosen = outcome === opt.id;
-                // colour follows the card's place in this situation's shuffled order, read from
-                // the unfiltered list so the chosen card keeps its colour once the others go
+            {shuffledOptions.map((opt) => {
+                // colour follows the card's place in this situation's shuffled order
                 const meta = optionPalette[shuffledOptions.indexOf(opt) % optionPalette.length];
                 return (
                   <button
                     key={opt.id}
                     onClick={(e) => {
-                      if (isChosen) {
-                        handleConfirm();
-                        return;
-                      }
                       optionRipples.addRipple(e);
                       handlePick(opt.id);
                     }}
-                    className={`relative overflow-hidden w-full flex min-h-[10.5dvh] items-center gap-[clamp(10px,1.6dvh,18px)] rounded-full bg-white py-[clamp(8px,1.3dvh,14px)] pl-[clamp(10px,1.6dvh,18px)] pr-5 text-left ring-1 ring-slate-900/5 shadow-[0_3px_12px_rgba(15,23,42,0.10)] transition-all hover:shadow-[0_6px_18px_rgba(15,23,42,0.16)] hover:-translate-y-0.5 ${
-                      isChosen ? "ring-2 ring-blue-300 scale-[1.02] animate-pop" : "active:scale-[0.98]"
-                    }`}
+                    className="relative overflow-hidden w-full flex min-h-[10.5dvh] items-center gap-[clamp(10px,1.6dvh,18px)] rounded-full bg-white py-[clamp(8px,1.3dvh,14px)] pl-[clamp(10px,1.6dvh,18px)] pr-5 text-left ring-1 ring-slate-900/5 shadow-[0_3px_12px_rgba(15,23,42,0.10)] transition-all hover:shadow-[0_6px_18px_rgba(15,23,42,0.16)] hover:-translate-y-0.5 active:scale-[0.98]"
                   >
                     {optionRipples.RippleLayer}
                     <span className={`flex h-[clamp(40px,5.6dvh,58px)] w-[clamp(40px,5.6dvh,58px)] shrink-0 items-center justify-center rounded-full ${meta.iconBg}`}>
@@ -949,6 +951,39 @@ export function SituationScreen() {
           text={activeHint.text}
           onDismiss={() => forceHintRecheck((n) => n + 1)}
         />
+      )}
+
+      {/* The pause button used to do nothing. It opens this menu, mainly so a player who wants
+          to write a letter mid-run can step out and come back: the letter screen returns to
+          this situation rather than to an evaluation that does not exist yet. The pick in
+          progress lives only in this screen's state, so the situation starts over on return. */}
+      {pauseOpen && (
+        <div
+          role="dialog"
+          aria-label="Tạm dừng"
+          onClick={() => setPauseOpen(false)}
+          className="fixed inset-0 z-[90] flex items-center justify-center bg-slate-900/50 px-6 backdrop-blur-sm"
+        >
+          <div onClick={(e) => e.stopPropagation()} className="w-full max-w-xs rounded-3xl bg-white p-5 shadow-2xl animate-pop">
+            <p className="mb-4 text-center text-lg font-extrabold text-slate-800">Tạm dừng</p>
+            <div className="space-y-2.5">
+              <Button fullWidth icon={<Play size={18} />} onClick={() => setPauseOpen(false)}>
+                Tiếp tục chơi
+              </Button>
+              <Button
+                fullWidth
+                variant="secondary"
+                icon={<Mail size={18} />}
+                onClick={() => dispatch({ type: "OPEN_LETTER", returnTo: "situation" })}
+              >
+                Viết thư
+              </Button>
+            </div>
+            <p className="mt-3 text-center text-[11px] leading-snug text-slate-400">
+              Viết xong bấm &ldquo;Quay lại chơi&rdquo; để chơi tiếp tình huống này từ đầu.
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );

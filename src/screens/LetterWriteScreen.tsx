@@ -14,7 +14,7 @@ import type { Letter, LetterTheme } from "../types";
 const THEME_KEYS = Object.keys(LETTER_THEMES) as LetterTheme[];
 
 export function LetterWriteScreen() {
-  const { dispatch, role } = useGame();
+  const { dispatch, role, letterReturn } = useGame();
   // no templates any more: a pre-filled letter is the writer's words, not the player's,
   // and most people just tweak whatever is already in the box. Starting blank is the
   // point — the letter is supposed to be the one thing they say for themselves.
@@ -109,11 +109,18 @@ export function LetterWriteScreen() {
       <HillField />
 
       <div className="relative">
+        {/* opened from the pause menu mid-run, the way back is to the game, not to an
+            evaluation that has not happened yet */}
         <button
-          onClick={() => dispatch(role ? { type: "GO_TO", screen: "evaluation" } : { type: "GO_HOME" })}
-          className="mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md text-slate-500 active:scale-90 transition"
+          onClick={() =>
+            dispatch(letterReturn ? { type: "CLOSE_LETTER" } : role ? { type: "GO_TO", screen: "evaluation" } : { type: "GO_HOME" })
+          }
+          className={`mb-6 flex h-10 items-center justify-center gap-1.5 rounded-full bg-white shadow-md text-slate-500 active:scale-90 transition ${
+            letterReturn ? "px-4 text-sm font-bold" : "w-10"
+          }`}
         >
           <ArrowLeft size={18} />
+          {letterReturn && "Quay lại chơi"}
         </button>
 
         {(

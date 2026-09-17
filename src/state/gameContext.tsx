@@ -22,6 +22,9 @@ interface GameState {
   gender: PlayerGender;
   /** chosen at the mode screen, also before a role exists — kept here for the same reason */
   mode: PlayMode;
+  /** where the letter screen goes back to when it was opened from the pause menu mid-run;
+   *  null means it was opened from the cover or the evaluation, which it already handles */
+  letterReturn: Screen | null;
 }
 
 type Action =
@@ -29,6 +32,8 @@ type Action =
   | { type: "SELECT_ROLE"; role: Role }
   | { type: "SET_GENDER"; gender: PlayerGender }
   | { type: "SET_MODE"; mode: PlayMode }
+  | { type: "OPEN_LETTER"; returnTo: Screen }
+  | { type: "CLOSE_LETTER" }
   | { type: "START_DAY" }
   | { type: "CHOOSE_OPTION"; style: ResponseStyle }
   | { type: "REVEAL_NEXT" }
@@ -52,6 +57,7 @@ const initialState: GameState = {
   lastDailyCode: null,
   gender: "female",
   mode: "week",
+  letterReturn: null,
 };
 
 // if the page was opened via a shared letter link (#letter=...), jump straight to it
@@ -130,6 +136,13 @@ function reducer(state: GameState, action: Action): GameState {
 
     case "SET_MODE":
       return { ...state, mode: action.mode };
+
+    case "OPEN_LETTER":
+      // stepping out of a run to write a letter: remember where to come back to
+      return { ...state, letterReturn: action.returnTo, screen: "letterWrite" };
+
+    case "CLOSE_LETTER":
+      return { ...state, screen: state.letterReturn ?? "cover", letterReturn: null };
 
     case "START_DAY":
       return { ...state, screen: "situation" };
