@@ -11,7 +11,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Khang",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, bài văn này em có dùng ChatGPT viết dàn ý trước, rồi em viết lại theo ý em mà, không phải chép nguyên xi đâu ạ.",
+    dialogue: "Thầy ơi, em chỉ nhờ ChatGPT lập dàn ý thôi, bài là em tự viết mà.",
     options: [
       {
         id: "A",
@@ -59,7 +59,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Hoa",
     npcRole: "Học sinh",
-    dialogue: "Em đang nhắn cho mẹ có chút xíu thôi mà thầy, có gì to tát đâu ạ.",
+    dialogue: "Em nhắn cho mẹ chút xíu thôi mà thầy, có gì to tát đâu ạ.",
     options: [
       {
         id: "A",
@@ -107,7 +107,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Tuấn",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, bài nhóm này để bạn khác làm cũng được mà, em không giỏi phần này đâu.",
+    dialogue: "Thầy ơi, phần này để bạn khác làm đi, em không giỏi phần này đâu.",
     options: [
       {
         id: "A",
@@ -155,7 +155,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Vy",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, môn này em không thi đại học. Giờ tự học thầy cho em làm đề Toán nha, bài của thầy em làm đủ rồi mà.",
+    dialogue: "Thầy ơi, môn này em không thi, giờ tự học cho em làm đề Toán nha.",
     options: [
       {
         id: "A",
@@ -201,7 +201,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Hải",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, em không bắt tay làm hòa với Phong trước lớp đâu ạ. Chuyện của tụi em, để tụi em tự giải quyết.",
+    dialogue: "Thầy ơi, em không bắt tay Phong trước lớp đâu, để tụi em tự giải quyết.",
     options: [
       {
         id: "A",
@@ -247,7 +247,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Ngọc",
     npcRole: "Học sinh",
-    dialogue: "Dạ… thầy gọi bạn khác được không ạ? Câu này em chưa muốn trả lời trước lớp đâu.",
+    dialogue: "Dạ… thầy gọi bạn khác đi ạ, em chưa muốn trả lời trước lớp.",
     options: [
       {
         id: "A",
@@ -295,7 +295,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Đạt",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, câu ba em giải cách khác mà vẫn ra đúng đáp án, sao thầy gạch hết vậy ạ? Bắt làm đúng cách thầy dạy thì em không phục.",
+    dialogue: "Thầy ơi, câu ba em giải cách khác vẫn ra đúng, sao thầy gạch hết vậy ạ?",
     options: [
       {
         id: "A",
@@ -341,7 +341,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Bình",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, cho em ghi bài bằng iPad nha. Em viết tay chậm lắm, chép không kịp, em hứa không mở cái gì khác đâu.",
+    dialogue: "Thầy ơi, cho em ghi bài bằng iPad nha, em viết tay chép không kịp.",
     options: [
       {
         id: "A",
@@ -387,7 +387,7 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Kiên",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, điểm bài kiểm tra này thầy đừng nhắn cho bố mẹ em được không ạ? Để em tự nói với bố mẹ.",
+    dialogue: "Thầy đừng nhắn điểm bài này cho bố mẹ em nha, để em tự nói ạ.",
     options: [
       {
         id: "A",
@@ -433,7 +433,7 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Thảo",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, em muốn đăng ký câu lạc bộ Mỹ thuật của trường, nhưng em sợ thầy nghĩ em ham chơi bỏ bê học.",
+    dialogue: "Thầy ơi, em đăng ký câu lạc bộ Mỹ thuật nha, em không bỏ bê học đâu.",
     options: [
       {
         id: "A",
@@ -481,7 +481,7 @@ export const teacherSituations: Situation[] = [
     location: "Hành lang lớp học",
     npcName: "Nam",
     npcRole: "Học sinh",
-    dialogue: "Dạ thầy gọi em ạ? Giờ ra chơi mà thầy, em đeo tai nghe nghe nhạc chút thôi, có phiền ai đâu ạ.",
+    dialogue: "Giờ ra chơi mà thầy, em đeo tai nghe chút thôi, có phiền ai đâu ạ.",
     options: [
       {
         id: "A",
@@ -529,7 +529,7 @@ export const teacherSituations: Situation[] = [
     location: "Sân trường giờ ra chơi",
     npcName: "My",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, tụi em đang quay clip nhảy cho lớp để dự thi văn nghệ thôi ạ, xíu là xong.",
+    dialogue: "Thầy cho tụi em quay nốt clip nhảy thi văn nghệ nha, xíu là xong ạ.",
     options: [
       {
         id: "A",
@@ -577,7 +577,7 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Trâm",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, em không vào đội tuyển Văn đâu ạ. Em thích viết, nhưng em không muốn ôn thi tới khuya nữa, thầy chọn bạn khác giùm em.",
+    dialogue: "Thầy ơi, em không vào đội tuyển Văn đâu, thầy chọn bạn khác giùm em.",
     options: [
       {
         id: "A",
@@ -623,7 +623,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Việt",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, nói chuyện trong giờ mà bắt chép phạt năm lần nội quy thì em chép cho có thôi. Em xin làm việc khác thay được không ạ?",
+    dialogue: "Thầy ơi, em không chép phạt nội quy đâu, cho em sửa lỗi cách khác nha.",
     options: [
       {
         id: "A",
@@ -669,7 +669,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Chi",
     npcRole: "Lớp trưởng",
-    dialogue: "Thầy ơi, giờ sinh hoạt lớp tuần này để tụi em tự điều hành được không ạ? Tuần nào cũng chỉ đọc lỗi rồi phê bình, cả lớp ngán lắm.",
+    dialogue: "Thầy để tụi em tự điều hành giờ sinh hoạt nha, đọc lỗi mãi cả lớp ngán lắm.",
     options: [
       {
         id: "A",
@@ -715,7 +715,7 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Khoa",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, bài thuyết trình Sử nhóm em làm podcast được không ạ? Làm slide rồi đứng đọc chán lắm, tụi em muốn làm theo kiểu của tụi em.",
+    dialogue: "Thầy ơi, bài thuyết trình Sử nhóm em làm podcast nha, làm slide chán lắm.",
     options: [
       {
         id: "A",
@@ -761,7 +761,7 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Lâm",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, cuối tuần này em với vài bạn đi xem concert xa nhà, thầy cho em nghỉ buổi học thêm sáng thứ Bảy được không ạ?",
+    dialogue: "Thầy ơi, cho em nghỉ học thêm sáng thứ Bảy nha, em đi xem concert ạ.",
     options: [
       {
         id: "A",
@@ -809,7 +809,7 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Phương",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, bài văn của em thầy đừng đọc trước lớp được không ạ? Bài đó em viết chuyện nhà em, em không muốn cả lớp biết.",
+    dialogue: "Thầy đừng đọc bài văn của em trước lớp nha, bài đó em viết chuyện nhà em.",
     options: [
       {
         id: "A",
@@ -855,7 +855,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Quân",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, em làm xong hết bài tập ở lớp phụ đạo rồi, em chơi game một chút trên máy tính thư viện được không ạ?",
+    dialogue: "Thầy ơi, em làm xong bài rồi, cho em chơi game chút trên máy thư viện nha.",
     options: [
       {
         id: "A",
@@ -903,7 +903,7 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Trúc",
     npcRole: "Học sinh",
-    dialogue: "Thầy ơi, cho em ở lại lớp một mình ôn bài đến tối được không ạ, em cần chỗ yên tĩnh.",
+    dialogue: "Thầy cho em ở lại lớp một mình ôn bài đến tối nha, em cần yên tĩnh.",
     options: [
       {
         id: "A",

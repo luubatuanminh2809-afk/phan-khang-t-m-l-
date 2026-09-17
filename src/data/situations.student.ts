@@ -11,8 +11,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học — làm bài nhóm",
     npcName: "Cô Hạnh",
     npcRole: "Giáo viên phụ trách dự án nhóm",
-    dialogue:
-      "Cô đã chia nhóm và giao đề tài sẵn cho từng nhóm rồi, các em cứ theo đúng danh sách mà làm, không tự đổi nhóm hay đổi đề tài được đâu.",
+    dialogue: "Nhóm với đề tài cô chia sẵn rồi, cứ thế mà làm, không ai được đổi đâu.",
     options: [
       {
         id: "A",
@@ -63,7 +62,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Minh",
     npcRole: "Giáo viên chủ nhiệm",
-    dialogue: "Từ hôm nay, tất cả điện thoại phải để trong tủ khoá suốt giờ học, không có ngoại lệ nào hết.",
+    dialogue: "Từ hôm nay điện thoại nộp hết vào tủ khoá suốt giờ học, không ngoại lệ.",
     options: [
       {
         id: "A",
@@ -111,7 +110,7 @@ export const studentSituations: Situation[] = [
     location: "Sân trường giờ ra chơi",
     npcName: "Thầy Hòa",
     npcRole: "Tổng phụ trách Đội",
-    dialogue: "Chủ Nhật này toàn trường tham gia hoạt động tình nguyện, lớp mình phải cử đủ sĩ số, không được vắng.",
+    dialogue: "Chủ Nhật này cả trường đi tình nguyện, lớp mình phải đi đủ, không ai được vắng.",
     options: [
       {
         id: "A",
@@ -159,7 +158,7 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Thầy Đức",
     npcRole: "Giám thị",
-    dialogue: "Dù trời nóng thế nào, học sinh vẫn phải mặc đúng đồng phục quy định, không được tự ý thay đổi.",
+    dialogue: "Nóng mấy cũng phải mặc đúng đồng phục, không ai được tự ý thay áo đâu.",
     options: [
       {
         id: "A",
@@ -207,7 +206,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hạnh",
     npcRole: "Giáo viên Toán",
-    dialogue: "Cô giao thêm ba đề ôn tập, sáng thứ Hai các em nộp đủ cho cô nhé. Đừng ai lấy lý do bận thi môn khác, thiếu đề nào là cô cho điểm không đề đó.",
+    dialogue: "Cô giao thêm ba đề, sáng mai nộp đủ. Thiếu đề nào là điểm không đề đó.",
     options: [
       {
         id: "A",
@@ -255,7 +254,7 @@ export const studentSituations: Situation[] = [
     location: "Bàn học",
     npcName: "Thầy Minh",
     npcRole: "Giáo viên chủ nhiệm",
-    dialogue: "Thầy nhắc lại trong nhóm lớp nhé: thầy nhắn gì thì các em trả lời trong mười lăm phút, mười giờ tối cũng vậy. Em nào đọc mà im lặng là thầy trừ điểm thi đua đấy.",
+    dialogue: "Thầy nhắn nhóm lớp là trả lời ngay, mười giờ tối cũng vậy, không là trừ điểm.",
     options: [
       {
         id: "A",
@@ -302,7 +301,7 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Cô Vân",
     npcRole: "Giám thị",
-    dialogue: "Nội quy trường cấm tuyệt đối nhuộm tóc, kiểu tóc lạ và trang điểm khi đến lớp, ai vi phạm sẽ bị lập biên bản.",
+    dialogue: "Tóc nhuộm, son phấn là cô lập biên bản liền, không có nhẹ hay đậm gì hết.",
     options: [
       {
         id: "A",
@@ -351,13 +350,13 @@ export const studentSituations: Situation[] = [
     npcName: "Cô Hiệu",
     npcRole: "Ban Giám hiệu",
     beats: [
-      { speaker: "Khánh", text: "Ê, hai hôm nay không thấy cô chủ nhiệm lên lớp. Cậu biết cô đi đâu không?" },
-      { speaker: "Bạn", text: "Mình cũng không rõ nữa. Nghe nói cô xin nghỉ gì đó, mà chưa ai nói gì với lớp." },
-      { speaker: "Khánh", text: "Suỵt, cô Hiệu lên kìa. Sáng sớm lên lớp thế này chắc có chuyện rồi." },
-      { speaker: "Cô Hiệu", text: "Cả lớp ổn định chỗ ngồi. Cô lên đây có việc cần thông báo với các em." },
+      { speaker: "Khánh", text: "Ê, hai hôm nay không thấy cô chủ nhiệm. Cô đi đâu vậy?" },
+      { speaker: "Bạn", text: "Mình cũng không biết, chưa ai nói gì với lớp." },
+      { speaker: "Khánh", text: "Suỵt, cô Hiệu lên kìa. Chắc có chuyện rồi." },
+      { speaker: "Cô Hiệu", text: "Cả lớp ngồi yên, cô có việc cần thông báo." },
       { speaker: "Bạn", text: "Dạ… có chuyện gì vậy cô?" },
     ],
-    dialogue: "Tuần sau lớp mình có cô chủ nhiệm mới, nhà trường quyết rồi, các em không phải bàn nữa đâu. Cô nói trước, đừng ai làm đơn xin giữ cô cũ, cô mà nghe ai bàn tán là cô ghi tên đấy.",
+    dialogue: "Tuần sau lớp có chủ nhiệm mới, trường quyết rồi, đừng ai làm đơn xin giữ cô cũ.",
     options: [
       {
         id: "A",
@@ -408,7 +407,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Minh",
     npcRole: "Giáo viên chủ nhiệm",
-    dialogue: "Từ tuần sau lớp mình ôn thi buổi chiều, thứ Hai đến thứ Sáu. Trường tổ chức miễn phí nên em nào cũng phải đi đủ, ai đang học trung tâm thì tự xếp lại lịch, thầy không duyệt nghỉ đâu.",
+    dialogue: "Từ tuần sau chiều nào cũng ôn thi, ai cũng phải đi, đừng lấy cớ học trung tâm.",
     options: [
       {
         id: "A",
@@ -456,7 +455,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Vân",
     npcRole: "Giáo viên Giáo dục công dân",
-    dialogue: "Cả lớp viết bài thu hoạch cảm nghĩ về buổi ngoại khoá, phải viết đúng theo dàn ý và cảm nghĩ tích cực cô đã phát.",
+    dialogue: "Bài cảm nghĩ ngoại khoá viết đúng dàn ý cô phát, chỉ được khen thôi nhé.",
     options: [
       {
         id: "A",
@@ -504,7 +503,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Minh",
     npcRole: "Giáo viên chủ nhiệm",
-    dialogue: "Sơ đồ chỗ ngồi thầy đã xếp từ đầu năm sẽ giữ nguyên suốt cả năm học, không ai được tự ý đổi chỗ.",
+    dialogue: "Chỗ ngồi thầy xếp là giữ nguyên cả năm, không ai được tự ý đổi.",
     options: [
       {
         id: "A",
@@ -552,7 +551,7 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Thầy Đức",
     npcRole: "Giám thị",
-    dialogue: "Từ nay cấm mang đồ ăn, thức uống mua bên ngoài vào trường, chỉ được dùng đồ trong căng tin.",
+    dialogue: "Từ nay cấm mang đồ ăn mua ngoài vào trường, muốn ăn thì mua căng tin.",
     options: [
       {
         id: "A",
@@ -599,7 +598,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Yến",
     npcRole: "Trưởng ban đại diện phụ huynh lớp",
-    dialogue: "Kỳ này quỹ lớp mỗi con đóng năm trăm nghìn, để liên hoan với mua quà cho thầy cô. Nhà nào cũng đóng đủ nhé, không có chuyện đóng một nửa đâu.",
+    dialogue: "Quỹ lớp mỗi con năm trăm nghìn để liên hoan, nhà nào cũng phải đóng đủ.",
     options: [
       {
         id: "A",
@@ -651,7 +650,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hiệu",
     npcRole: "Ban Giám hiệu",
-    dialogue: "Tổ hợp môn lớp mình trường chốt rồi nhé: Lý, Hóa, Sinh. Em nào lỡ đăng ký Sử, Địa thì gạch đi, không có chuyện mỗi em chọn một kiểu đâu.",
+    dialogue: "Lớp mình trường chốt học Lý, Hóa, Sinh rồi, ai đăng ký Sử, Địa thì gạch đi.",
     options: [
       {
         id: "A",
@@ -700,7 +699,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hiệu",
     npcRole: "Ban Giám hiệu",
-    dialogue: "Nhà trường yêu cầu học sinh không được đăng bài hay bàn luận chuyện trường lớp lên mạng xã hội dưới mọi hình thức.",
+    dialogue: "Từ nay cấm đăng chuyện trường lớp lên mạng, em nào đăng là cô xử lý.",
     options: [
       {
         id: "A",
@@ -749,7 +748,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Đức",
     npcRole: "Giám thị",
-    dialogue: "Cả lớp để cặp lên bàn, kéo khoá ra hết cho thầy kiểm tra. Không ai được mang cặp ra ngoài, em nào không chịu mở là có vấn đề đấy.",
+    dialogue: "Cả lớp mở hết cặp ra cho thầy kiểm tra, em nào không mở là có vấn đề.",
     options: [
       {
         id: "A",
@@ -795,7 +794,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Vân",
     npcRole: "Giáo viên Hóa học",
-    dialogue: "Các em cất hết sách vở đi, lấy giấy ra kiểm tra mười lăm phút. Điểm này cô vào sổ luôn, đừng ai xin làm lại hay xin để hôm khác nhé.",
+    dialogue: "Cất sách vở, kiểm tra mười lăm phút, lấy điểm luôn. Đừng ai xin dời nhé.",
     options: [
       {
         id: "A",
@@ -846,7 +845,7 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Bạn Kỳ",
     npcRole: "Đội Sao đỏ",
-    dialogue: "Từ tuần này tụi mình trừ điểm luôn, không nhắc trước nữa đâu nha. Vào lớp trễ một phút, ngăn bàn còn rác, chào cờ mà nói chuyện là mình ghi tên liền, khỏi giải thích.",
+    dialogue: "Từ tuần này lỗi gì mình cũng ghi tên trừ điểm luôn, không nhắc trước nữa nha.",
     options: [
       {
         id: "A",
@@ -893,7 +892,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Hòa",
     npcRole: "Tổng phụ trách Đội",
-    dialogue: "Tuần này lớp các em đứng bét thi đua, nên cả lớp cấm ra chơi, ngồi yên trong lớp cho thầy. Mấy bạn làm ồn thì cả lớp chịu chung, đừng ai kêu oan.",
+    dialogue: "Lớp đứng bét thi đua vì mấy bạn ồn, nên cả lớp cấm ra chơi, đừng ai kêu oan.",
     options: [
       {
         id: "A",
@@ -939,7 +938,7 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Vân",
     npcRole: "Giám thị",
-    dialogue: "Từ mai cấm mang truyện tranh với tiểu thuyết lên trường. Cô thấy quyển nào là cô thu quyển đó, cuối năm mới trả, đừng em nào năn nỉ.",
+    dialogue: "Từ mai cấm mang truyện lên trường, thấy quyển nào cô thu tới cuối năm.",
     options: [
       {
         id: "A",

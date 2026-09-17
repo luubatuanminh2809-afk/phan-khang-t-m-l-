@@ -15,7 +15,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Mẹ ơi cho con xem nốt video này thôi, sắp hết rồi mà, con ngủ liền á!",
+    dialogue: "Mẹ ơi cho con xem nốt video này thôi, sắp hết rồi mà!",
     options: [
       {
         id: "A",
@@ -66,7 +66,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Mẹ ơi, dạo này con thấy đủ bài trên trường rồi, con chưa muốn đăng ký thêm lớp IELTS đâu.",
+    dialogue: "Mẹ ơi, bài trên trường đủ mệt rồi, con chưa muốn học thêm IELTS đâu.",
     options: [
       {
         id: "A",
@@ -114,7 +114,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Mẹ đừng cấm con chơi với Duy nữa mà. Bạn ấy học hơi đuối thôi, chứ không có hư như mẹ nghĩ đâu.",
+    dialogue: "Mẹ đừng cấm con chơi với Duy nữa. Bạn ấy học đuối thôi, đâu có hư.",
     options: [
       {
         id: "A",
@@ -160,7 +160,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Mẹ ơi, mẹ gỡ tấm ảnh con ngủ há miệng trên Facebook xuống giùm con. Lớp con thấy hết rồi, lần sau mẹ hỏi con trước khi đăng nha.",
+    dialogue: "Mẹ gỡ ảnh con ngủ trên Facebook xuống đi, lần sau hỏi con trước khi đăng nha.",
     options: [
       {
         id: "A",
@@ -206,7 +206,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Mẹ ơi, con muốn đăng ký học boxing ở phòng tập đầu ngõ, tuần ba buổi. Con tự đạp xe đi được, mẹ đừng lo con bị đánh.",
+    dialogue: "Mẹ ơi, con muốn học boxing ở phòng tập đầu ngõ, con tự đạp xe đi được.",
     options: [
       {
         id: "A",
@@ -252,7 +252,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Mẹ ơi, tối nay con xin ở nhà ôn bài, con không đi đám giỗ đâu. Mai con kiểm tra Văn mà con chưa ôn xong.",
+    dialogue: "Mẹ ơi, tối nay con ở nhà ôn bài, không đi đám giỗ đâu, mai con kiểm tra.",
     options: [
       {
         id: "A",
@@ -300,7 +300,7 @@ export const parentSituations: Situation[] = [
     location: "Cửa nhà",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Mẹ ơi cho con đi sinh nhật bạn Chi tối nay, mấy bạn định ngủ lại nhà bạn ấy luôn.",
+    dialogue: "Mẹ ơi, tối nay con đi sinh nhật Chi rồi ngủ lại nhà bạn ấy luôn nha.",
     options: [
       {
         id: "A",
@@ -348,7 +348,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Mẹ ơi sao mẹ cứ đòi xem điện thoại của con vậy, con có làm gì đâu mà mẹ phải kiểm tra?",
+    dialogue: "Sao mẹ cứ đòi xem điện thoại con vậy, con có làm gì sai đâu?",
     options: [
       {
         id: "A",
@@ -396,7 +396,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Mẹ ơi có mô hình phiên bản giới hạn của nhóm con thích, con dùng tiền tiết kiệm mua được không mẹ?",
+    dialogue: "Mẹ ơi, con dùng tiền tiết kiệm mua mô hình nhóm nhạc con thích nha.",
     options: [
       {
         id: "A",
@@ -444,7 +444,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Mẹ ơi lát con dọn phòng sau, giờ con đang đánh dở trận game với tụi bạn mà.",
+    dialogue: "Mẹ ơi, đánh xong trận game này con dọn phòng sau nha.",
     options: [
       {
         id: "A",
@@ -492,7 +492,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Mẹ ơi, con với Khôi lớp bên đang tìm hiểu nhau. Thứ Bảy này con xin đi xem phim với bạn ấy, mẹ đừng cấm tụi con nha.",
+    dialogue: "Mẹ ơi, thứ Bảy con đi xem phim với Khôi nha, tụi con đang tìm hiểu nhau.",
     options: [
       {
         id: "A",
@@ -538,7 +538,7 @@ export const parentSituations: Situation[] = [
     location: "Bàn ăn",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Con no rồi mẹ ơi, con không ăn hết chén canh bổ này được đâu.",
+    dialogue: "Con no rồi mẹ ơi, chén canh bổ này con không ăn hết đâu.",
     options: [
       {
         id: "A",
@@ -586,7 +586,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Mẹ ơi, con muốn thi ngành Truyền thông đa phương tiện. Con tìm hiểu kỹ rồi, mẹ đừng bắt con thi Y nữa nha.",
+    dialogue: "Mẹ ơi, con muốn thi Truyền thông chứ không thi Y đâu, con tìm hiểu kỹ rồi.",
     options: [
       {
         id: "A",
@@ -634,7 +634,7 @@ export const parentSituations: Situation[] = [
     location: "Bàn học",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Mẹ ơi, con với Tùng tính làm móc khóa bán trên mạng. Con tự lập shop, tự gói hàng, tiền lời con giữ, mẹ để tụi con tự làm nha.",
+    dialogue: "Mẹ ơi, con với Tùng mở shop bán móc khóa online, mẹ để tụi con tự làm nha.",
     options: [
       {
         id: "A",
@@ -680,7 +680,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Mẹ ơi, mẹ tắt chia sẻ vị trí trên điện thoại con được không? Con lớn rồi, đi đâu con cũng nhắn mẹ mà.",
+    dialogue: "Mẹ tắt định vị trên máy con đi, đi đâu con cũng nhắn mẹ mà.",
     options: [
       {
         id: "A",
@@ -726,7 +726,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Mẹ ơi, con muốn mở kênh TikTok đăng video giải Rubik, để công khai thì mới có người xem. Mẹ đừng bắt con để chế độ riêng tư nha.",
+    dialogue: "Mẹ ơi, con mở kênh TikTok giải Rubik, để công khai nha, riêng tư thì ai xem.",
     options: [
       {
         id: "A",
@@ -772,7 +772,7 @@ export const parentSituations: Situation[] = [
     location: "Cửa nhà",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Mẹ ơi cho con tự đi xe điện đến trường được không, đi xe buýt lâu quá con hay trễ giờ.",
+    dialogue: "Mẹ ơi, cho con tự đi xe điện đi học nha, xe buýt lâu quá con toàn trễ.",
     options: [
       {
         id: "A",
@@ -820,7 +820,7 @@ export const parentSituations: Situation[] = [
     location: "Cửa nhà",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Mẹ ơi, cho con nhận nuôi con mèo hoang ngoài ngõ nha. Con tự cho ăn, tự dọn cát, không phiền mẹ đâu.",
+    dialogue: "Mẹ ơi, con nuôi con mèo hoang ngoài ngõ nha, con tự lo hết mà.",
     options: [
       {
         id: "A",
@@ -866,7 +866,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
-    dialogue: "Mẹ ơi, áo sơ mi mẹ mua con không mặc đi chơi đâu, trông quê lắm. Quần áo con mặc thì để con tự chọn được không mẹ?",
+    dialogue: "Mẹ ơi, đồ con mặc đi chơi để con tự chọn nha, áo sơ mi mẹ mua quê lắm.",
     options: [
       {
         id: "A",
@@ -912,7 +912,7 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
-    dialogue: "Ơ mẹ ơi, sao đồ trên bàn học của con bị xáo hết vậy, con để đúng chỗ mà.",
+    dialogue: "Mẹ đừng dọn bàn học của con nữa, con để đúng chỗ hết mà.",
     options: [
       {
         id: "A",
