@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useGame } from "../state/gameContext";
 import { Coachmark } from "../components/ui/Coachmark";
 
-// size the cover art was drawn at (cover.webp is the same picture upscaled 2x, so the
+// size the cover art was drawn at (cover.jpg is the same picture upscaled, so the
 // ratio is unchanged) — used to keep the artwork's aspect ratio locked so the
 // invisible hit-areas below stay aligned to the drawing
 const COVER_W = 1672;
@@ -22,7 +22,7 @@ export function CoverScreen() {
   const playRef = useRef<HTMLButtonElement>(null);
 
   // hotspot boxes were located by sampling the actual pixel art (the original 1672x941
-  // cover, since upscaled 2x to cover.webp; they are percentages, so they still line up)
+  // cover, since the shipped cover.jpg is upscaled; they are percentages, so they still line up)
   // for the button-fill colors, not eyeballed — see chat history.
   const hotspots: Hotspot[] = [
     {
@@ -81,7 +81,7 @@ export function CoverScreen() {
     <div
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900"
       style={{
-        backgroundImage: "url(/images/cover.webp)",
+        backgroundImage: "url(/images/cover.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         filter: "none",
@@ -95,7 +95,7 @@ export function CoverScreen() {
           width: `min(100%, calc(100vh * ${COVER_W} / ${COVER_H}))`,
         }}
       >
-        <img src="/images/cover.webp" alt="Moralyn" className="h-full w-full object-contain select-none" draggable={false} />
+        <img src="/images/cover.jpg" alt="Moralyn" className="h-full w-full object-contain select-none" draggable={false} />
         {hotspots.map((h) => (
           <button
             key={h.label}

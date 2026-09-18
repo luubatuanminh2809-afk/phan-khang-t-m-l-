@@ -107,10 +107,13 @@ body {
   animation: char-shake 0.4s ease-in-out infinite;
 }
 
+/* The drift is deliberately shallow. Every extra percent of zoom is the backdrop being
+   enlarged past the pixels it actually has, and the art is a soft painting to begin with —
+   at the old 1.04-1.11 the scene behind the characters read as blurred on a tall phone. */
 @keyframes scene-kenburns {
-  0% { transform: scale(1.04) translate(0, 0); }
-  50% { transform: scale(1.11) translate(-0.8%, -0.6%); }
-  100% { transform: scale(1.04) translate(0, 0); }
+  0% { transform: scale(1.01) translate(0, 0); }
+  50% { transform: scale(1.06) translate(-0.8%, -0.6%); }
+  100% { transform: scale(1.01) translate(0, 0); }
 }
 .animate-scene-kenburns {
   animation: scene-kenburns 22s ease-in-out infinite;

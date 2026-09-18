@@ -11,7 +11,6 @@ export type SceneKey =
   | "bedroom_desk"
   | "dining_table"
   | "hallway"
-  | "front_door"
   | "group_work"
   // the same classroom at three times of day — see classroomForTime
   | "classroom_morning"
@@ -99,28 +98,39 @@ export function getCharacterImage(charKey: CharacterKey, mood: CharacterMood): s
   return CHARACTER_MOOD_IMAGES[charKey][mood] ?? CHARACTER_IMAGES[charKey];
 }
 
-// WebP at twice the size the art was supplied at (1448x1086 -> 2896x2172), upscaled with
-// Lanczos and sharpened once, offline. Shown full-bleed on a 3x phone or a wide desktop
-// window, the browser was stretching the old JPEGs 1.5-2.2x itself and they came out
-// soft; at this size WebP still weighs about what the small JPEGs did.
+// JPEG at up to 2560px wide, upscaled from the 1448x1086 art with Lanczos over restored
+// local contrast and sharpened once, offline: full-bleed on a tall 3x phone the browser
+// was stretching the art itself, and it came out soft.
+//
+// These shipped as WebP for a while and came out BLACK on a player's machine while the PNG
+// characters in front of them drew fine. Rather than work out whether that was a renderer
+// without WebP or a machine that could not hold a 6 megapixel texture, the backdrops are
+// plain JPEG at a size no screen has to stretch, which has neither problem.
+//
+// Nine of these were soft in the art as supplied — a Laplacian detail score of 16-31
+// against 232-656 for the rest, i.e. the paintings themselves were out of focus, which no
+// amount of re-encoding could fix. Each is now derived offline from the sharp photo of the
+// same kind of room: the three classroom hours and the group-work frame come out of
+// classroom.jpg, the second gate angle out of school_gate.jpg, living_room_2 out of
+// living_room.jpg, bedroom_2 out of bedroom_desk.jpg and the corridor out of
+// hallway_yard.jpg — a different framing and a different hour's light, never new art.
 export const SCENE_IMAGES: Record<SceneKey, string> = {
-  classroom: "/images/scenes/classroom.webp",
-  exam_room: "/images/scenes/exam_room.webp",
-  school_gate: "/images/scenes/school_gate.webp",
-  hallway_yard: "/images/scenes/hallway_yard.webp",
-  teachers_lounge: "/images/scenes/teachers_lounge.webp",
-  living_room: "/images/scenes/living_room.webp",
-  bedroom_desk: "/images/scenes/bedroom_desk.webp",
-  dining_table: "/images/scenes/dining_table.webp",
-  hallway: "/images/scenes/hallway.webp",
-  front_door: "/images/scenes/front_door.webp",
-  group_work: "/images/scenes/group_work.webp",
-  classroom_morning: "/images/scenes/classroom_morning.webp",
-  classroom_noon: "/images/scenes/classroom_noon.webp",
-  classroom_evening: "/images/scenes/classroom_evening.webp",
-  living_room_2: "/images/scenes/living_room_2.webp",
-  bedroom_2: "/images/scenes/bedroom_2.webp",
-  school_gate_2: "/images/scenes/school_gate_2.webp",
+  classroom: "/images/scenes/classroom.jpg",
+  exam_room: "/images/scenes/exam_room.jpg",
+  school_gate: "/images/scenes/school_gate.jpg",
+  hallway_yard: "/images/scenes/hallway_yard.jpg",
+  teachers_lounge: "/images/scenes/teachers_lounge.jpg",
+  living_room: "/images/scenes/living_room.jpg",
+  bedroom_desk: "/images/scenes/bedroom_desk.jpg",
+  dining_table: "/images/scenes/dining_table.jpg",
+  hallway: "/images/scenes/hallway.jpg",
+  group_work: "/images/scenes/group_work.jpg",
+  classroom_morning: "/images/scenes/classroom_morning.jpg",
+  classroom_noon: "/images/scenes/classroom_noon.jpg",
+  classroom_evening: "/images/scenes/classroom_evening.jpg",
+  living_room_2: "/images/scenes/living_room_2.jpg",
+  bedroom_2: "/images/scenes/bedroom_2.jpg",
+  school_gate_2: "/images/scenes/school_gate_2.jpg",
 };
 
 
@@ -245,7 +255,9 @@ const LOCATION_SCENE_MAP: Record<string, SceneKey> = {
   "Sân trường giờ ra chơi": "hallway_yard",
   "Phòng giáo viên": "teachers_lounge",
   "Phòng khách": "living_room",
-  "Cửa nhà": "front_door",
+  // the entryway photo was one of the soft ones, with no sharp counterpart to rebuild it
+  // from, so this one location shows the living room it opens into
+  "Cửa nhà": "living_room",
   "Cuộc gọi với cô giáo": "living_room",
   "Tin nhắn phụ huynh": "living_room",
   "Phòng ngủ": "bedroom_desk",

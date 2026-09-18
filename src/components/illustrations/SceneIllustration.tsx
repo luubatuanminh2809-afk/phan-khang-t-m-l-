@@ -17,8 +17,11 @@ interface Props {
  *  LOCATION_SCENE_MAP (both in data/assetMap.ts). */
 export function SceneIllustration({ location, context, time, seed, className = "" }: Props) {
   const sceneKey = getSceneKey(location, context, time, seed);
+  // the gradient is a safety net, not decoration: when a backdrop fails to draw — an old
+  // renderer, a machine that cannot hold the texture — what showed through was the black
+  // of the screen behind, and the characters looked like they were floating in a void
   return (
-    <div className={`overflow-hidden ${className}`}>
+    <div className={`overflow-hidden bg-gradient-to-b from-sky-200 via-sky-100 to-slate-300 ${className}`}>
       <img src={SCENE_IMAGES[sceneKey]} alt="" className="h-full w-full object-cover animate-scene-kenburns" />
     </div>
   );
