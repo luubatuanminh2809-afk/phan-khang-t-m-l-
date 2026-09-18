@@ -100,9 +100,13 @@ export function resetAllProgress() {
   write(KEYS.letters, []);
 }
 
-/** ids of coach-mark hints the player has already dismissed — each hint shows once ever */
+/** ids of coach-mark hints the player has already dismissed — each hint shows once ever.
+ *  Anything but a list is treated as nothing seen: this value is read while the very first
+ *  screen renders, so a key left behind in a shape this version doesn't expect would blank
+ *  the game out rather than merely re-show a hint. */
 export function getSeenHints(): string[] {
-  return read<string[]>(KEYS.onboarding, []);
+  const seen = read<string[]>(KEYS.onboarding, []);
+  return Array.isArray(seen) ? seen : [];
 }
 
 export function hasSeenHint(id: string): boolean {
