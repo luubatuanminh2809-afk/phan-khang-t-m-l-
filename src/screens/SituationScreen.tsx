@@ -16,7 +16,7 @@ import { playTap, playChoice } from "../lib/sfx";
 import { getSettings, saveSettings, hasSeenHint, type ViewMode } from "../state/storage";
 import { Coachmark } from "../components/ui/Coachmark";
 import { Button } from "../components/ui/Button";
-import type { ResponseStyle, SituationOption } from "../types";
+import type { ExchangeBeat, ResponseStyle, SituationOption } from "../types";
 
 // Colours for the four answer cards. They used to be fixed per resistance level — a green
 // handshake for A, a red raised hand for D — which told the player which answer was the
@@ -354,6 +354,19 @@ function npcReplyText(opt: SituationOption | undefined): string {
   return opt?.reply ?? opt?.reaction ?? "";
 }
 
+/** the scene a pick plays out as: your line, their answer, and whatever is said back after
+ *  that — so a choice lands as a short conversation between the two of them rather than one
+ *  line each, and the scene has somewhere to go before the reaction takes over */
+function exchangeFor(opt: SituationOption): ExchangeBeat[] {
+  const script: ExchangeBeat[] = [];
+  const spoken = optionSpokenText(opt);
+  // an option that is a silent act has nothing to deliver — the scene opens on the other
+  // person answering what they saw, rather than on words the player never said
+  if (spoken) script.push({ who: "player", text: spoken });
+  script.push({ who: "npc", text: npcReplyText(opt) });
+  return script.concat(opt.followUp ?? []);
+}
+
 // the single line to put in the player's own third-person speech bubble — same
 // speech-first, action-fallback priority as OptionContent above, just flattened to
 // plain text instead of styled JSX
@@ -407,13 +420,14 @@ export function SituationScreen() {
     role && day ? getSituationsFor(role, session!.gender).find((s) => s.id === day.situationIds[session!.currentIndex]) : undefined;
 
   const [outcome, setOutcome] = useState<ResponseStyle | null>(null);
-  // the player's own chosen line, said out loud first — every pick is a two-way
-  // exchange now, not just the NPC's side of it
-  const [playerLineText, setPlayerLineText] = useState<string | null>(null);
-  // the NPC's spoken answer, right after — completes the exchange
-  const [argumentText, setArgumentText] = useState<string | null>(null);
+  // What plays once an answer is picked: the short scene between the two of them — your
+  // line, their answer, and whatever is said back after that. Held as one script of beats
+  // rather than a pair of "your line"/"their line" slots, so a situation can run the
+  // exchange as long as its writing needs before the scene hands over to the reaction.
+  const [exchange, setExchange] = useState<ExchangeBeat[] | null>(null);
+  const [exchangeIndex, setExchangeIndex] = useState(0);
   // C/D picks only: their real inside thought, shown right after — visually distinct
-  // from argumentText (ThoughtBubble vs SpeechBubble) so speech and thought never look
+  // from the spoken beats (ThoughtBubble vs SpeechBubble) so speech and thought never look
   // like the same kind of thing. A/B picks skip both of these entirely and go straight
   // to the next situation — there's nothing to hide there, so nothing to reveal either.
   const [thoughtText, setThoughtText] = useState<string | null>(null);
@@ -424,6 +438,9 @@ export function SituationScreen() {
   // remounts on every situation->situation transition, so no extra reset effect
   // is needed when moving to the next situation.
   const [beatIndex, setBeatIndex] = useState(0);
+  // the card that names the situation, shown once as it opens. The screen remounts for
+  // every situation, so this starts true again each time without needing a reset.
+  const [showTitle, setShowTitle] = useState(true);
   const [ambientDetail] = useState(() => pickAmbientDetail(situation?.context ?? "school"));
   const [viewMode, setViewMode] = useState<ViewMode>(() => getSettings().viewMode);
 
@@ -434,14 +451,12 @@ export function SituationScreen() {
   }
 
   const [beatTypingDone, setBeatTypingDone] = useState(false);
-  const [playerLineTypingDone, setPlayerLineTypingDone] = useState(false);
-  const [argumentTypingDone, setArgumentTypingDone] = useState(false);
+  const [exchangeTypingDone, setExchangeTypingDone] = useState(false);
   const [thoughtTypingDone, setThoughtTypingDone] = useState(false);
   const [replayTypingDone, setReplayTypingDone] = useState(false);
   const [dialogueTypingDone, setDialogueTypingDone] = useState(false);
   const beatRef = useRef<TypewriterHandle>(null);
-  const playerLineRef = useRef<TypewriterHandle>(null);
-  const argumentRef = useRef<TypewriterHandle>(null);
+  const exchangeRef = useRef<TypewriterHandle>(null);
   const thoughtRef = useRef<TypewriterHandle>(null);
   const replayRef = useRef<TypewriterHandle>(null);
   const dialogueRef = useRef<TypewriterHandle>(null);
@@ -464,8 +479,7 @@ export function SituationScreen() {
     function onKeyDown(e: KeyboardEvent) {
       if (e.code !== "Space") return;
       e.preventDefault();
-      playerLineRef.current?.skip();
-      argumentRef.current?.skip();
+      exchangeRef.current?.skip();
       thoughtRef.current?.skip();
       beatRef.current?.skip();
       dialogueRef.current?.skip();
@@ -480,7 +494,12 @@ export function SituationScreen() {
   const inBeats = beatIndex < beats.length;
   // the moment the answer sheet is up: the one beat laid out after the reference, with the
   // figure standing tall enough that its head reaches the corner the header lives in
-  const choosing = !playerLineText && !argumentText && !replay && !thoughtText && !inBeats;
+  const choosing = !exchange && !replay && !thoughtText && !inBeats;
+  // where the picked answer's scene has got to: which line is on screen, who says it, and
+  // whether the other person has already answered (their face stays reacting from then on)
+  const exchangeBeat = exchange?.[exchangeIndex];
+  const exchangeIsLast = !!exchange && exchangeIndex >= exchange.length - 1;
+  const npcHasAnswered = !!exchange && exchange.slice(0, exchangeIndex).some((b) => b.who === "npc");
   const currentBeat = beats[beatIndex];
   // Who the player is talking with at this point in the lead-in: the latest speaker who is
   // not the player. Pairing a player line with the situation NPC regardless showed a
@@ -500,7 +519,7 @@ export function SituationScreen() {
   // the options are actually tappable), and tapping the highlighted element itself also
   // dismisses it (see Coachmark), so this naturally paces one hint per beat instead of
   // dumping the whole tutorial on the very first situation.
-  const inMainDialogue = !inBeats && !outcome && !playerLineText && !argumentText && !thoughtText;
+  const inMainDialogue = !inBeats && !outcome && !exchange && !thoughtText;
   // C and D are the openly defiant picks: those cut to third-person and end on the
   // NPC's hidden thought. A and B play out the same exchange, but in first person and
   // without a reveal — there is nothing being hidden to look behind.
@@ -508,9 +527,14 @@ export function SituationScreen() {
   // playing a grown-up: the reveal is not "what were they hiding" but "what could you
   // have said", and the relationship itself is on screen as a meter
   const isAdultRole = role === "parent" || role === "teacher";
-  // their retort has finished typing: the eye in the header turns into the way to look
-  // past the anger, and an arrow points up at it
-  const revealPending = defiant && !!argumentText && argumentTypingDone;
+  // their face turns the moment they answer and stays turned for the rest of the scene,
+  // rather than flipping back to neutral whenever the player gets another line
+  const npcReacting = !!exchangeBeat && (npcHasAnswered || exchangeBeat.who === "npc");
+  const exchangeNpcMood = !npcReacting ? "idle" : defiant ? "angry" : STYLE_REACTION[outcome!];
+  const exchangePlayerMood = defiant ? "angry" : exchangeBeat?.who === "player" ? "talking" : "idle";
+  // the scene has played out to its last line: the eye in the header turns into the way to
+  // look past the anger, and an arrow points up at it
+  const revealPending = defiant && exchangeIsLast && exchangeTypingDone;
   const hintCandidates = [
     { id: "situation-dialogue-tap", ref: dialogueBoxRef, text: "Chạm vào lời thoại để đọc tiếp — chạm lần nữa để bỏ qua hiệu ứng gõ chữ.", active: inMainDialogue },
     {
@@ -533,34 +557,21 @@ export function SituationScreen() {
     // outside, while a cooperative one stays in your own eyes. The style comes from the
     // argument, since `outcome` has not re-rendered yet inside this same tap.
     if (style === "C" || style === "D") setViewMode("third");
-    const chosen = situation!.options.find((o) => o.id === style);
-    const spoken = optionSpokenText(chosen!);
-    if (!spoken) {
-      // this option is a silent act with no line to deliver — skip straight to their
-      // reaction rather than inventing words for the player
-      setArgumentTypingDone(false);
-      setArgumentText(npcReplyText(chosen));
-      return;
-    }
-    setPlayerLineTypingDone(false);
-    setPlayerLineText(spoken);
+    setExchangeTypingDone(false);
+    setExchangeIndex(0);
+    setExchange(exchangeFor(situation!.options.find((o) => o.id === style)!));
   }
 
-  function handlePlayerLineTap() {
-    if (!playerLineTypingDone) {
-      playerLineRef.current?.skip();
+  function handleExchangeTap() {
+    if (!exchangeTypingDone) {
+      exchangeRef.current?.skip();
       return;
     }
-    playTap();
-    setPlayerLineText(null);
-    setArgumentTypingDone(false);
-    const chosen = situation!.options.find((o) => o.id === outcome);
-    setArgumentText(npcReplyText(chosen));
-  }
-
-  function handleArgumentTap() {
-    if (!argumentTypingDone) {
-      argumentRef.current?.skip();
+    if (!exchangeIsLast) {
+      // one more line of the scene to play
+      playTap();
+      setExchangeTypingDone(false);
+      setExchangeIndex((i) => i + 1);
       return;
     }
     // after a defiant pick, tapping the scene deliberately does nothing: the eye button
@@ -571,12 +582,12 @@ export function SituationScreen() {
     playTap();
     dispatch({ type: "CHOOSE_OPTION", style: outcome });
     setOutcome(null);
-    setArgumentText(null);
+    setExchange(null);
   }
 
   function handleRevealThought() {
     playTap();
-    setArgumentText(null);
+    setExchange(null);
     setThoughtTypingDone(false);
     // Playing a child, the payoff is seeing what the adult was really thinking. Playing
     // the adult, that framing would be backwards — you already know your own side, so
@@ -635,17 +646,71 @@ export function SituationScreen() {
     setBeatIndex((i) => i + 1);
   }
 
+  const scene = (
+    <SceneIllustration
+      location={situation.location}
+      context={situation.context}
+      time={situation.time}
+      seed={situation.id}
+      className="absolute inset-0 h-full w-full"
+    />
+  );
+
+  // Every situation opens on its own card: which of today's scenes this is, what it is
+  // about, when and where. A day used to run one scene straight into the next with nothing
+  // between them, so the jump from the school gate at 06:50 to the dinner table at 19:30
+  // read as one unbroken conversation. Held as its own render rather than an overlay so
+  // the scene underneath doesn't start typing its first line behind the card.
+  if (showTitle) {
+    return (
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={() => {
+          playTap();
+          setShowTitle(false);
+        }}
+        className="relative h-[100dvh] overflow-hidden bg-slate-900"
+      >
+        {scene}
+        {/* the scene keeps its own light: only the same gentle vignette the rest of the
+            screen uses, with the words carried on their own panel instead of on a curtain
+            drawn over the room. Dimming the whole frame to 70% made every situation open on
+            what read as a black screen. */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/25" />
+        <div className="relative flex h-full flex-col items-center justify-center px-6">
+          <div className="max-w-sm rounded-3xl bg-slate-900/55 px-6 py-5 text-center shadow-2xl ring-1 ring-white/20 backdrop-blur-[1px] animate-pop">
+            <p className="mb-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-blue-100">
+              Tình huống {session.currentIndex + 1}/{day.situationIds.length}
+            </p>
+            <h2 className="text-2xl font-black leading-snug text-white drop-shadow sm:text-3xl">
+              {situation.title ?? situation.location}
+            </h2>
+            <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[13px] font-semibold text-white/90">
+              <span className="flex items-center gap-1.5">
+                <CalendarDays size={14} className="text-blue-200" />
+                {day.weekday}, {situation.time}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <MapPin size={14} className="text-blue-200" />
+                {situation.location}
+              </span>
+            </div>
+          </div>
+          <p className="mt-6 flex items-center gap-1.5 rounded-full bg-slate-900/50 px-3 py-1.5 text-xs font-bold text-white/90 animate-bounce">
+            Chạm để vào <ChevronRight size={14} />
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative h-[100dvh] overflow-hidden bg-slate-900">
-      <SceneIllustration
-        location={situation.location}
-        context={situation.context}
-        time={situation.time}
-        seed={situation.id}
-        className="absolute inset-0 h-full w-full"
-      />
+      {scene}
       <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/10" />
       {viewMode === "first" && <FirstPersonFrame />}
+
 
       {/* The scene stays full-bleed behind, but everything you read or tap lives in a
           phone-width column. Without it, a desktop window stretched each answer into a
@@ -711,56 +776,32 @@ export function SituationScreen() {
         </div>
       )}
 
-      {playerLineText ? (
-        <div role="button" tabIndex={0} onClick={handlePlayerLineTap} className={BEAT_FRAME}>
-          {/* every pick plays out as a conversation between two people you can both see,
-              cooperative or not — only the faces differ. Scowling rather than merely
-              "talking" when the line being delivered is a confrontational one. */}
+      {exchangeBeat ? (
+        <div role="button" tabIndex={0} onClick={handleExchangeTap} className={BEAT_FRAME}>
+          {/* The whole scene plays as a conversation between two people you can both see,
+              cooperative or not — only the faces change as it goes. On a defiant pick both
+              faces are hard: they are angry at being openly defied, and the player is angry
+              too, having just said the confrontational line. On a cooperative pick the
+              player has already softened, and the other face follows their own answer —
+              which is why it only turns once they have actually answered. */}
           <TwoShotStage
             npcName={situation.npcName}
-            npcMood="idle"
-            reacting={false}
+            npcMood={exchangeNpcMood}
+            reacting={npcReacting}
             role={role}
             heightClass={STAGE_TWO_SHOT}
-            playerMood={defiant ? "angry" : "talking"}
+            playerMood={exchangePlayerMood}
           />
           <DialogueBox
-            key={playerLineText}
-            speakerName={PLAYER_LABEL}
-            text={playerLineText}
-            align="left"
+            key={exchangeIndex}
+            speakerName={exchangeBeat.who === "player" ? PLAYER_LABEL : situation.npcName}
+            text={exchangeBeat.text}
+            align={exchangeBeat.who === "player" ? "left" : "right"}
             variant="speech"
-            typingDone={playerLineTypingDone}
-            nextLabel="Tiếp →"
-            typewriterRef={playerLineRef}
-            onTypingDone={() => setPlayerLineTypingDone(true)}
-          />
-        </div>
-      ) : argumentText ? (
-        <div role="button" tabIndex={0} onClick={handleArgumentTap} className={BEAT_FRAME}>
-          {/* on a defiant pick both faces are hard: the other side is angry at being
-              openly defied (C and D alike), and the player is angry too — they just said
-              the confrontational line, so standing there placid would read as a different
-              person. The next beat is where that anger drops away. On a cooperative pick
-              the player has already softened, and the other face follows the answer. */}
-          <TwoShotStage
-            npcName={situation.npcName}
-            npcMood={defiant ? "angry" : STYLE_REACTION[outcome!]}
-            reacting
-            role={role}
-            heightClass={STAGE_TWO_SHOT}
-            playerMood={defiant ? "angry" : "idle"}
-          />
-          <DialogueBox
-            key={argumentText}
-            speakerName={situation.npcName}
-            text={argumentText}
-            align="right"
-            variant="speech"
-            typingDone={argumentTypingDone}
-            nextLabel={defiant ? "Bước vào thế giới khác 👁" : "Tiếp →"}
-            typewriterRef={argumentRef}
-            onTypingDone={() => setArgumentTypingDone(true)}
+            typingDone={exchangeTypingDone}
+            nextLabel={exchangeIsLast && defiant ? "Bước vào thế giới khác 👁" : "Tiếp →"}
+            typewriterRef={exchangeRef}
+            onTypingDone={() => setExchangeTypingDone(true)}
           />
         </div>
       ) : replay ? (
@@ -792,8 +833,17 @@ export function SituationScreen() {
         </div>
       ) : thoughtText ? (
         <div role="button" tabIndex={0} onClick={handleThoughtTap} className={BEAT_FRAME}>
-          {/* the anger has dropped — what's left underneath is closer to hurt */}
-          <TwoShotStage npcName={situation.insideThoughtOwner} npcMood="sad" reacting={false} role={role} heightClass={STAGE_TWO_SHOT} />
+          {/* Their anger has dropped — what's left underneath is closer to hurt. The player
+              is not over it yet though: this beat follows straight on from a row they just
+              had, so standing there pleased with themselves read as a different person. */}
+          <TwoShotStage
+            npcName={situation.insideThoughtOwner}
+            npcMood="sad"
+            reacting={false}
+            role={role}
+            heightClass={STAGE_TWO_SHOT}
+            playerMood={defiant ? "angry" : "idle"}
+          />
           {isAdultRole && situation.coachTip ? (
             // a card rather than a bubble: nobody is saying this, it's advice to the player
             <div className="order-first z-20 mx-[6%] mt-2 min-h-0 shrink overflow-y-auto rounded-3xl bg-white/95 p-4 shadow-xl ring-2 ring-emerald-200 animate-pop [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

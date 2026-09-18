@@ -31,6 +31,17 @@ export interface SituationOption {
   /** the same response as the line the other person actually says out loud, in their own
    *  voice. This is what the speech bubble shows; `reaction` is the fallback only. */
   reply?: string;
+  /** what is still said after their reply, so the pick plays out as a short scene between
+   *  the two of them rather than one line each. Usually a single line back from the player,
+   *  landing on the stance the choice actually takes, before the scene hands over to the
+   *  reaction (the hidden thought for a defiant pick, the next situation otherwise). */
+  followUp?: ExchangeBeat[];
+}
+
+/** one spoken line of the scene that plays after a pick: who says it, and what they say */
+export interface ExchangeBeat {
+  who: "player" | "npc";
+  text: string;
 }
 
 export interface DialogueBeat {
@@ -47,6 +58,9 @@ export interface Situation {
   context: "school" | "home";
   time: string;
   location: string;
+  /** a few words naming what this one is about ("Điện thoại vào tủ khoá"), shown on the
+   *  title card that leads into the scene. Falls back to the location when missing. */
+  title?: string;
   npcName: string;
   npcRole: string;
   /** narration/dialogue beats that play before the main dialogue + choices, building up the scene */

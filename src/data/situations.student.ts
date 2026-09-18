@@ -11,6 +11,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học — làm bài nhóm",
     npcName: "Cô Hạnh",
     npcRole: "Giáo viên phụ trách dự án nhóm",
+    title: "Đề tài đã chia sẵn",
+    beats: [
+      { text: "Cô Hạnh dán tờ danh sách chia nhóm lên bảng, cả lớp xúm lại xem.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Nhóm mình toàn bạn chưa làm chung bao giờ..." },
+      { speaker: "Cô Hạnh", text: "Danh sách này trường đưa xuống, cô chia theo đó." },
+    ],
     dialogue: "Nhóm với đề tài cô chia sẵn rồi, cứ thế mà làm, không ai được đổi đâu.",
     options: [
       {
@@ -21,6 +27,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Cô giáo cân nhắc, có thể đồng ý nếu thấy lý do hợp lý và nhóm có cam kết rõ ràng. Hoặc cô đề nghị nhóm trình bày kế hoạch cụ thể rồi mới quyết định.",
         reply: "Đổi cũng được, nhưng nhóm em lên kế hoạch cụ thể cho cô xem trước đã. Cô thấy ổn thì cô cho.",
+        followUp: [{ who: "player", text: "Dạ, chiều nay nhóm em gửi kế hoạch cho cô ạ." }],
       },
       {
         id: "B",
@@ -30,6 +37,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Giáo viên khó phát hiện vì bề ngoài học sinh vẫn hợp tác. Nếu phát hiện, cô sẽ nhắc nhở hoặc yêu cầu làm lại từ đầu.",
         reply: "Bài này cô nhìn là biết không phải em làm. Tuần sau cả nhóm làm lại từ đầu cho cô.",
+        followUp: [{ who: "player", text: "Dạ… tại em bận quá nên nhờ bạn phụ một chút thôi ạ." }],
       },
       {
         id: "C",
@@ -39,6 +47,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Cô giáo bực mình vì bị thách thức trước lớp, có thể phạt cảnh cáo, mời lên phòng hội đồng hoặc giữ nguyên quyết định để khẳng định uy quyền.",
         reply: "Em nói với cô bằng giọng đó giữa lớp à? Danh sách giữ nguyên, hết giờ em lên phòng hội đồng gặp cô.",
+        followUp: [{ who: "player", text: "Em chỉ hỏi cho công bằng thôi mà cô!" }],
       },
       {
         id: "D",
@@ -49,6 +58,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Cô giáo cho điểm 0 phần làm việc nhóm, ghi sổ đầu bài, mời phụ huynh hoặc hạ hạnh kiểm. Đồng thời các bạn trong nhóm cũng bị ảnh hưởng vì thiếu thành viên.",
         reply: "Không họp thì phần làm nhóm của em là điểm không. Cô ghi sổ đầu bài và báo phụ huynh em đấy.",
+        followUp: [{ who: "player", text: "Cô báo đi ạ. Em vẫn không họp nhóm đó đâu." }],
       },
     ],
     insideThought:
@@ -62,6 +72,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Minh",
     npcRole: "Giáo viên chủ nhiệm",
+    title: "Điện thoại vào tủ khoá",
+    beats: [
+      { text: "Đầu giờ, thầy Minh xách một cái tủ nhựa có ổ khoá đặt lên bàn giáo viên.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Tủ này để làm gì vậy thầy?" },
+      { speaker: "Thầy Minh", text: "Trường vừa có thông tư mới về điện thoại đó em." },
+    ],
     dialogue: "Từ hôm nay điện thoại nộp hết vào tủ khoá suốt giờ học, không ngoại lệ.",
     options: [
       {
@@ -71,6 +87,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể đồng ý nếu lớp cam kết kỷ luật, hoặc yêu cầu nộp hẳn để tránh cám dỗ nhưng không phạt nặng.",
         reply: "Được, nhưng cả lớp phải giữ kỷ luật. Thầy thấy ai lướt mạng là thu hết, không nói nhiều.",
+        followUp: [{ who: "player", text: "Dạ, tụi em chỉ mở khi cần tra bài thôi ạ." }],
       },
       {
         id: "B",
@@ -79,6 +96,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Khó phát hiện. Nếu bắt được, thầy sẽ tịch thu điện thoại thật và xử phạt nặng hơn vì hành vi lừa dối.",
         reply: "Máy trong tủ là máy hỏng, máy thật nằm trong cặp em. Lừa thầy thế này thì phạt nặng hơn đấy.",
+        followUp: [{ who: "player", text: "Dạ… máy kia em để quên trong cặp thôi ạ." }],
       },
       {
         id: "C",
@@ -88,6 +106,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy tức giận, tịch thu điện thoại ngay tại lớp, ghi sổ đầu bài và báo lên Ban Giám hiệu.",
         reply: "Em đưa máy đây cho thầy. Thầy ghi sổ đầu bài và báo lên Ban Giám hiệu luôn.",
+        followUp: [{ who: "player", text: "Cấm sạch vậy thì tụi em tra bài kiểu gì ạ?" }],
       },
       {
         id: "D",
@@ -97,6 +116,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Thầy mời phụ huynh lên làm việc, đề nghị hạ hạnh kiểm hoặc xử lý kỷ luật theo quy định của nhà trường.",
         reply: "Vậy thầy mời bố mẹ em lên làm việc. Hạnh kiểm của em tháng này thầy phải xem lại.",
+        followUp: [{ who: "player", text: "Thầy mời bố mẹ em cũng vậy thôi. Máy này em không nộp." }],
       },
     ],
     insideThought:
@@ -110,6 +130,12 @@ export const studentSituations: Situation[] = [
     location: "Sân trường giờ ra chơi",
     npcName: "Thầy Hòa",
     npcRole: "Tổng phụ trách Đội",
+    title: "Chủ Nhật của ai",
+    beats: [
+      { text: "Giờ ra chơi, thầy Hòa cầm tờ danh sách đi tới chỗ tụi mình.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Cuối tuần này lớp mình có gì hả thầy?" },
+      { speaker: "Thầy Hòa", text: "Trường phát động đợt tình nguyện, lớp nào cũng phải góp mặt." },
+    ],
     dialogue: "Chủ Nhật này cả trường đi tình nguyện, lớp mình phải đi đủ, không ai được vắng.",
     options: [
       {
@@ -119,6 +145,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy thấy hợp lý vì vẫn có người tham gia, có thể đồng ý hoặc đề nghị em thuyết phục thêm vài bạn làm cùng.",
         reply: "Hậu cần cũng là tham gia, thầy đồng ý. Em rủ thêm vài bạn làm cùng cho đủ người nhé.",
+        followUp: [{ who: "player", text: "Dạ, tối nay em rủ thêm mấy bạn làm hậu cần ạ." }],
       },
       {
         id: "B",
@@ -127,6 +154,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy phát hiện khi điểm danh cuối buổi thấy vắng, sẽ yêu cầu giải trình và phạt bù hoặc trừ điểm thi đua.",
         reply: "Đầu giờ có mặt, cuối buổi mất tăm. Mai em lên văn phòng giải trình cho thầy, lớp bị trừ điểm rồi.",
+        followUp: [{ who: "player", text: "Dạ… trưa đó em mệt quá nên về sớm thôi ạ." }],
       },
       {
         id: "C",
@@ -136,6 +164,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Thầy giải thích đây là hoạt động chung của trường, nếu không tham gia sẽ bị trừ điểm hạnh kiểm. Đồng thời nhắc nhở thái độ của em.",
         reply: "Đây là hoạt động chung của cả trường, không phải thầy ép riêng em. Em ăn nói cẩn thận, không là trừ hạnh kiểm đấy.",
+        followUp: [{ who: "player", text: "Vậy bạn nào bận thật thì sao ạ? Thầy hỏi tụi em chưa?" }],
       },
       {
         id: "D",
@@ -145,6 +174,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Thầy ghi nhận vắng mặt không phép, hạ hạnh kiểm và mời phụ huynh làm việc.",
         reply: "Vắng không phép là thầy ghi. Hạnh kiểm hạ, và thầy sẽ mời phụ huynh em lên.",
+        followUp: [{ who: "player", text: "Thầy mời phụ huynh em cũng vậy ạ. Chủ Nhật em nghỉ." }],
       },
     ],
     insideThought:
@@ -158,6 +188,12 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Thầy Đức",
     npcRole: "Giám thị",
+    title: "Nóng cũng phải đúng đồng phục",
+    beats: [
+      { text: "Mới bảy giờ mà nắng đã gắt, áo đồng phục dày bết cả lưng." },
+      { speaker: "Bạn", text: "Thầy ơi, nóng quá tụi em chịu hết nổi." },
+      { speaker: "Thầy Đức", text: "Thầy biết, nhưng đồng phục là quy định chung của trường." },
+    ],
     dialogue: "Nóng mấy cũng phải mặc đúng đồng phục, không ai được tự ý thay áo đâu.",
     options: [
       {
@@ -167,6 +203,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể linh động cho phép vào những ngày nắng nóng hoặc yêu cầu hỏi ý kiến Ban Giám hiệu trước.",
         reply: "Để thầy hỏi Ban Giám hiệu. Hôm nào nắng quá thì thầy linh động cho, còn giờ cứ mặc đúng đã.",
+        followUp: [{ who: "player", text: "Dạ, tụi em chờ thầy hỏi. Bữa nào nắng thầy nhớ tụi em nha ạ." }],
       },
       {
         id: "B",
@@ -175,6 +212,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy có thể nhắc nhở hoặc ghi tên nếu đi kiểm tra lớp và phát hiện. Nếu thấy tái phạm sẽ xử phạt.",
         reply: "Thầy vừa đi kiểm tra lớp đấy. Lần này thầy nhắc, lần sau thầy ghi tên.",
+        followUp: [{ who: "player", text: "Dạ… tại lớp nóng quá em cởi ra một chút thôi ạ." }],
       },
       {
         id: "C",
@@ -184,6 +222,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy ghi tên, báo lên Ban Giám hiệu xử lý kỷ luật và yêu cầu học sinh thay đồ ngay tại phòng giám thị.",
         reply: "Còn cãi à? Vào phòng giám thị thay đồ ngay, thầy ghi tên báo Ban Giám hiệu.",
+        followUp: [{ who: "player", text: "Em nóng muốn xỉu mà thầy bắt mặc y vậy ạ?" }],
       },
       {
         id: "D",
@@ -193,6 +232,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Nhà trường không cho vào lớp, ghi nhận vi phạm, mời phụ huynh lên làm việc và đề xuất các biện pháp kỷ luật.",
         reply: "Mặc vậy thì không vào lớp. Thầy lập biên bản và mời phụ huynh em lên làm việc.",
+        followUp: [{ who: "player", text: "Vậy em đứng ngoài ạ. Em không thay đâu." }],
       },
     ],
     insideThought:
@@ -206,6 +246,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hạnh",
     npcRole: "Giáo viên Toán",
+    title: "Ba đề trước sáng mai",
+    beats: [
+      { text: "Cuối tiết, cô Hạnh phát thêm một xấp đề xuống từng bàn.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Tối nay em có lịch học thêm rồi cô ơi." },
+      { speaker: "Cô Hạnh", text: "Tuần sau kiểm tra chương này rồi, cô phải cho các em luyện thêm." },
+    ],
     dialogue: "Cô giao thêm ba đề, sáng mai nộp đủ. Thiếu đề nào là điểm không đề đó.",
     options: [
       {
@@ -215,6 +261,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Cô có thể chấp nhận lùi hạn nếu thấy học sinh đông đảo đề xuất và có lý do chính đáng. Có thể giảm bớt số lượng bài tập.",
         reply: "Nếu cả lớp cùng đề nghị thì cô xem lại. Cô có thể bớt một đề, nhưng hạn nộp thì vẫn phải có.",
+        followUp: [{ who: "player", text: "Dạ, để em hỏi cả lớp rồi xin cô bớt một đề ạ." }],
       },
       {
         id: "B",
@@ -223,6 +270,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Cô có thể phát hiện vì bài làm giống nhau hoặc quá sáo rỗng. Sẽ yêu cầu làm lại hoặc cho điểm thấp từng thành viên.",
         reply: "Bài của cả nhóm giống nhau từng chữ. Làm lại hết cho cô, lần này cô chấm riêng từng người.",
+        followUp: [{ who: "player", text: "Dạ… em tham khảo trên mạng một chút thôi ạ." }],
       },
       {
         id: "C",
@@ -232,6 +280,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Cô bức xúc vì bị nói xấu trên mạng. Có thể báo lên Ban Giám hiệu, mời phụ huynh và yêu cầu học sinh gỡ bài, xin lỗi.",
         reply: "Em nói với cô kiểu gì đấy? Cô còn nghe em lên nhóm nói xấu cô nữa. Gỡ bài đi, cô mời phụ huynh em lên.",
+        followUp: [{ who: "player", text: "Em nói thật chứ có nói xấu gì cô đâu ạ!" }],
       },
       {
         id: "D",
@@ -241,6 +290,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Cô cho điểm 0, ghi sổ đầu bài, mời phụ huynh và yêu cầu học sinh bù bài hoặc chịu hình thức kỷ luật theo quy định.",
         reply: "Vậy em nhận điểm không, cô ghi sổ đầu bài. Còn bài vẫn phải bù, không trốn được đâu.",
+        followUp: [{ who: "player", text: "Dạ em nhận điểm không. Bù em cũng không làm đâu ạ." }],
       },
     ],
     insideThought:
@@ -254,6 +304,12 @@ export const studentSituations: Situation[] = [
     location: "Bàn học",
     npcName: "Thầy Minh",
     npcRole: "Giáo viên chủ nhiệm",
+    title: "Tin nhắn nhóm lớp lúc khuya",
+    beats: [
+      { text: "Nhóm lớp nổi thông báo liên tục, có bạn bị nhắc vì trả lời trễ." },
+      { speaker: "Bạn", text: "Tối qua em ngủ sớm nên chưa đọc tin ạ." },
+      { speaker: "Thầy Minh", text: "Thông báo của trường thầy phải chuyển ngay trong ngày, không chờ được." },
+    ],
     dialogue: "Thầy nhắn nhóm lớp là trả lời ngay, mười giờ tối cũng vậy, không là trừ điểm.",
     options: [
       {
@@ -263,6 +319,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể đồng ý nếu lớp cam kết đọc thông báo đều đặn, và chỉ nhắn sau chín giờ khi thật sự có việc gấp.",
         reply: "Được, sau chín giờ thầy chỉ nhắn việc gấp. Nhưng sáng ra em nào cũng phải đọc hết, không ai được kêu không biết.",
+        followUp: [{ who: "player", text: "Dạ, sáng ra là em đọc hết tin của thầy ạ." }],
       },
       {
         id: "B",
@@ -271,6 +328,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy phát hiện khi nhiều em đã thả tim mà vẫn làm sai thông báo, sẽ nhắc nhở và yêu cầu trả lời bằng chữ.",
         reply: "Cả chục em thả tim mà sáng nay vẫn quên nộp đơn. Từ giờ trả lời bằng chữ cho thầy, thả tim không tính.",
+        followUp: [{ who: "player", text: "Dạ… em thả tim là em có đọc mà thầy." }],
       },
       {
         id: "C",
@@ -280,6 +338,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy thấy bị chất vấn trước cả lớp, nhắn riêng yêu cầu em giữ thái độ và vẫn giữ nguyên quy định.",
         reply: "Em nhắn kiểu đó trong nhóm lớp à? Mai thầy nói chuyện riêng với em, còn quy định thì vẫn giữ.",
+        followUp: [{ who: "player", text: "Mười giờ đêm là giờ nghỉ của tụi em mà thầy!" }],
       },
       {
         id: "D",
@@ -289,6 +348,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Thầy trừ điểm thi đua, liên hệ phụ huynh để thêm em lại vào nhóm và nhắc về việc nhận thông báo của lớp.",
         reply: "Rời nhóm thì thầy báo bố mẹ em, điểm thi đua vẫn trừ. Thông báo nào em lỡ thì em tự chịu.",
+        followUp: [{ who: "player", text: "Dạ thầy cứ báo. Tối em không mở nhóm đâu ạ." }],
       },
     ],
     insideThought: "Có lần phụ huynh trách mình báo lịch thi muộn, trong khi mình nhắn từ chín giờ tối mà cả lớp chẳng ai đọc. Mình đâu muốn làm phiền buổi tối của các em, mình chỉ sợ lại bị trách thêm lần nữa.",
@@ -301,6 +361,12 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Cô Vân",
     npcRole: "Giám thị",
+    title: "Tóc và son",
+    beats: [
+      { text: "Cô Vân đứng ngay cổng, nhìn kỹ từng bạn đi vào.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Em có làm gì đâu cô, em vào lớp thôi mà." },
+      { speaker: "Cô Vân", text: "Trường đang siết lại tác phong, cô phải kiểm tra từng em." },
+    ],
     dialogue: "Tóc nhuộm, son phấn là cô lập biên bản liền, không có nhẹ hay đậm gì hết.",
     options: [
       {
@@ -310,6 +376,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Cô có thể xem xét cho phép nếu mức độ nhẹ và kín đáo, hoặc nhắc nhở chỉ nên dùng son dưỡng trong phạm vi cho phép.",
         reply: "Kín đáo thế này thì cô cho qua. Nhưng chỉ son dưỡng thôi nhé, đậm hơn là cô nhắc đấy.",
+        followUp: [{ who: "player", text: "Dạ, em chỉ dùng son dưỡng thôi ạ." }],
       },
       {
         id: "B",
@@ -318,6 +385,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Cô khó phát hiện, nhưng nếu bắt gặp có thể nhắc nhở hoặc ghi tên vào sổ.",
         reply: "Cô thấy rồi đấy, lau cũng không kịp đâu. Lần này cô nhắc, lần sau cô ghi tên.",
+        followUp: [{ who: "player", text: "Dạ… em thoa chút cho đỡ khô môi thôi ạ." }],
       },
       {
         id: "C",
@@ -327,6 +395,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Cô thẳng thắn giải thích đây là nội quy nhà trường, không phải đánh giá đạo đức. Yêu cầu em tuân thủ, nếu không sẽ báo lên Ban Giám hiệu xử lý.",
         reply: "Không ai chấm đạo đức em qua mái tóc cả. Nhưng nội quy là nội quy, em không sửa thì cô báo lên trên.",
+        followUp: [{ who: "player", text: "Nội quy này cô hỏi ý tụi em lần nào chưa ạ?" }],
       },
       {
         id: "D",
@@ -336,6 +405,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Nhà trường mời phụ huynh nhiều lần, nếu vẫn không thay đổi có thể tạm đình chỉ học để chấn chỉnh nội quy.",
         reply: "Cô đã mời phụ huynh em mấy lần rồi. Còn giữ vậy thì nhà trường phải đình chỉ em vài hôm đấy.",
+        followUp: [{ who: "player", text: "Đình chỉ thì em nghỉ ạ. Tóc này em không sửa đâu." }],
       },
     ],
     insideThought:
@@ -356,6 +426,7 @@ export const studentSituations: Situation[] = [
       { speaker: "Cô Hiệu", text: "Cả lớp ngồi yên, cô có việc cần thông báo." },
       { speaker: "Bạn", text: "Dạ… có chuyện gì vậy cô?" },
     ],
+    title: "Lớp có chủ nhiệm mới",
     dialogue: "Tuần sau lớp có chủ nhiệm mới, trường quyết rồi, đừng ai làm đơn xin giữ cô cũ.",
     options: [
       {
@@ -365,6 +436,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Ban Giám hiệu tiếp nhận kiến nghị, cân nhắc khả năng thu xếp. Nếu không thể đáp ứng, sẽ giải thích lý do và trấn an học sinh.",
         reply: "Cô nhận đơn của lớp rồi. Cô sẽ xem thu xếp được không, không được thì cô nói rõ lý do cho các em.",
+        followUp: [{ who: "player", text: "Dạ, cô xem giúp tụi em nha cô. Tụi em chờ ạ." }],
       },
       {
         id: "B",
@@ -374,6 +446,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Giáo viên mới có thể cảm nhận sự thiếu kết nối. Sẽ cố gắng tạo mối quan hệ và tìm cách tiếp cận lớp nhiều hơn, hoặc hỏi thăm tâm tư nguyện vọng của học sinh.",
         reply: "Cô chủ nhiệm mới nói với cô là lớp mình còn xa cô ấy lắm. Các em có gì khúc mắc thì nói thẳng với cô nhé.",
+        followUp: [{ who: "player", text: "Dạ… tại tụi em chưa quen cô mới thôi ạ." }],
       },
       {
         id: "C",
@@ -384,6 +457,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Giáo viên mới có thể bối rối, nhưng vẫn giữ bình tĩnh trả lời. Sau tiết học, có thể nói chuyện riêng với lớp trưởng để hiểu tình hình và giảm căng thẳng.",
         reply: "Cô nghe rồi, lớp mình đang thử cô chủ nhiệm mới phải không. Cô sẽ nói chuyện riêng với lớp trưởng.",
+        followUp: [{ who: "player", text: "Tụi em có làm gì đâu ạ, chỉ hỏi bài thôi mà." }],
       },
       {
         id: "D",
@@ -394,6 +468,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Giáo viên mới báo cáo tình hình lên Ban Giám hiệu. Ban Giám hiệu tổ chức họp giữa giáo viên và ban cán sự lớp để giải quyết mâu thuẫn, yêu cầu học sinh có thái độ học tập nghiêm túc hơn.",
         reply: "Cô chủ nhiệm mới báo lên cô hết rồi. Chiều nay cô họp với ban cán sự, lớp mình phải nghiêm túc lại ngay.",
+        followUp: [{ who: "player", text: "Dạ, cô hỏi gì tụi em cũng ngồi im vậy thôi ạ." }],
       },
     ],
     insideThought:
@@ -407,6 +482,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Minh",
     npcRole: "Giáo viên chủ nhiệm",
+    title: "Chiều nào cũng ôn thi",
+    beats: [
+      { text: "Thầy Minh dán thời khoá biểu mới, kín cả mấy buổi chiều.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Chiều nào cũng học hả thầy? Em có lớp ngoài rồi." },
+      { speaker: "Thầy Minh", text: "Trường xếp lịch phụ đạo cho cả khối, không riêng lớp mình." },
+    ],
     dialogue: "Từ tuần sau chiều nào cũng ôn thi, ai cũng phải đi, đừng lấy cớ học trung tâm.",
     options: [
       {
@@ -416,6 +497,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Nhà trường có thể yêu cầu học sinh cung cấp giấy tờ chứng minh để xem xét cho miễn nếu thấy hợp lý.",
         reply: "Em nộp giấy xác nhận của trung tâm cho thầy. Có giấy tờ đầy đủ thì nhà trường xem xét miễn.",
+        followUp: [{ who: "player", text: "Dạ, mai em xin giấy trung tâm nộp cho thầy ạ." }],
       },
       {
         id: "B",
@@ -424,6 +506,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy nghi ngờ nhưng khó xác minh. Có thể yêu cầu giấy xác nhận của bố mẹ hoặc bệnh viện nếu nghỉ quá nhiều.",
         reply: "Tuần này em xin nghỉ ba buổi rồi đấy. Buổi sau nghỉ nữa thì mang giấy của bố mẹ hoặc bệnh viện cho thầy.",
+        followUp: [{ who: "player", text: "Dạ… mấy bữa đó em mệt thiệt mà thầy." }],
       },
       {
         id: "C",
@@ -433,6 +516,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Thầy giải thích đây là chương trình hỗ trợ cho học sinh yếu, được nhà trường tổ chức chứ không phải học thêm trái quy định. Nếu gia đình không có nhu cầu có thể viết đơn xin miễn.",
         reply: "Đây là lớp phụ đạo trường tổ chức, không phải học thêm trái quy định. Nhà em không cần thì viết đơn xin miễn.",
+        followUp: [{ who: "player", text: "Trường tổ chức thì cũng phải hỏi tụi em chứ ạ!" }],
       },
       {
         id: "D",
@@ -442,6 +526,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Nhà trường làm việc với phụ huynh, nếu thực sự không có nhu cầu sẽ tạo điều kiện miễn. Nếu không, xử lý theo nội quy trường.",
         reply: "Vậy thầy làm việc với bố mẹ em. Thật sự không có nhu cầu thì miễn, còn không thì làm theo nội quy.",
+        followUp: [{ who: "player", text: "Dạ thầy cứ gọi. Chiều em vẫn không lên lớp đâu ạ." }],
       },
     ],
     insideThought:
@@ -455,6 +540,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Vân",
     npcRole: "Giáo viên Giáo dục công dân",
+    title: "Bài cảm nghĩ chỉ được khen",
+    beats: [
+      { text: "Buổi ngoại khoá vừa xong, cô Vân phát tờ dàn ý cho cả lớp.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Bài này viết theo ý mình được không cô?" },
+      { speaker: "Cô Vân", text: "Bài này cô phải nộp lên trường làm báo cáo hoạt động." },
+    ],
     dialogue: "Bài cảm nghĩ ngoại khoá viết đúng dàn ý cô phát, chỉ được khen thôi nhé.",
     options: [
       {
@@ -464,6 +555,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Cô có thể đồng ý nếu em cam kết giữ thái độ khách quan, tôn trọng chương trình và chỉ đóng góp mang tính xây dựng.",
         reply: "Được, em cứ viết cả hai mặt. Miễn là khách quan và góp ý cho tử tế, đừng chê bai.",
+        followUp: [{ who: "player", text: "Dạ, em viết cả hai mặt cho thật lòng ạ." }],
       },
       {
         id: "B",
@@ -472,6 +564,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Cô có thể phát hiện bài viết quá sáo rỗng, đúng chuẩn mẫu, không có dấu ấn cá nhân. Sẽ nhắc nhở và yêu cầu viết lại.",
         reply: "Bài này đúng từng chữ như văn mẫu, chẳng thấy em đâu cả. Viết lại cho cô bằng suy nghĩ của em.",
+        followUp: [{ who: "player", text: "Dạ… em đọc mẫu rồi viết lại thôi ạ." }],
       },
       {
         id: "C",
@@ -481,6 +574,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Cô đọc bài và bực mình. Có thể cho điểm kém, yêu cầu làm lại, hoặc mời lên phòng hội đồng nếu bài có lời lẽ xúc phạm.",
         reply: "Viết thật thì được, nhưng không theo dàn ý là cô cho điểm kém. Em viết lại, đừng để cô phải mời lên phòng hội đồng.",
+        followUp: [{ who: "player", text: "Bắt khen hết thì đâu còn là cảm nghĩ nữa ạ!" }],
       },
       {
         id: "D",
@@ -490,6 +584,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Cô cho điểm 0, ghi sổ đầu bài, mời phụ huynh và yêu cầu hoàn thành bù nếu có thời gian.",
         reply: "Giấy trắng thì điểm không, cô ghi sổ đầu bài. Có thời gian thì em làm bù cho cô.",
+        followUp: [{ who: "player", text: "Dạ em để trống. Viết theo mẫu em viết không nổi ạ." }],
       },
     ],
     insideThought:
@@ -503,6 +598,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Minh",
     npcRole: "Giáo viên chủ nhiệm",
+    title: "Chỗ ngồi cố định cả năm",
+    beats: [
+      { text: "Sơ đồ lớp mới dán ở cửa, mấy bạn xúm lại tìm tên mình." },
+      { speaker: "Bạn", text: "Em ngồi cuối lớp, nhìn bảng không rõ thầy ơi." },
+      { speaker: "Thầy Minh", text: "Sơ đồ này thầy xếp theo chiều cao với học lực cả lớp." },
+    ],
     dialogue: "Chỗ ngồi thầy xếp là giữ nguyên cả năm, không ai được tự ý đổi.",
     options: [
       {
@@ -512,6 +613,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể xem xét nếu lý do chính đáng và em có cam kết rõ ràng. Có thể đổi thử một thời gian ngắn để kiểm chứng.",
         reply: "Lý do đó được. Thầy cho em đổi thử hai tuần, không ổn thì em về chỗ cũ nhé.",
+        followUp: [{ who: "player", text: "Dạ em cảm ơn thầy. Hai tuần em ngồi thử ạ." }],
       },
       {
         id: "B",
@@ -520,6 +622,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy có thể phát hiện qua bạn bè mách hoặc kiểm tra đột xuất. Sẽ nhắc nhở và phạt nếu tái phạm.",
         reply: "Bạn trong lớp nói với thầy rồi. Thầy vắng là em đổi chỗ đúng không? Lần sau thầy phạt.",
+        followUp: [{ who: "player", text: "Dạ… em mượn vở bạn chút rồi về chỗ liền ạ." }],
       },
       {
         id: "C",
@@ -529,6 +632,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Thầy giữ vững quan điểm là xếp chỗ theo nhu cầu học tập và kỷ luật. Yêu cầu học sinh tôn trọng quyết định hoặc đưa lý do cụ thể nếu muốn thay đổi.",
         reply: "Thầy xếp theo việc học của cả lớp, không phải cho vui. Muốn đổi thì em đưa lý do cụ thể.",
+        followUp: [{ who: "player", text: "Vậy thầy cho tụi em nói lý do rồi hẵng xếp ạ." }],
       },
       {
         id: "D",
@@ -538,6 +642,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Thầy ghi nhận vi phạm, mời phụ huynh và có thể hạ hạnh kiểm của học sinh nếu không tuân thủ.",
         reply: "Không chấp hành thì thầy ghi vi phạm và mời phụ huynh em. Hạnh kiểm em thầy phải xem lại đấy.",
+        followUp: [{ who: "player", text: "Thầy mời ai cũng được ạ. Em ngồi chỗ này." }],
       },
     ],
     insideThought:
@@ -551,6 +656,12 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Thầy Đức",
     npcRole: "Giám thị",
+    title: "Cấm đồ ăn mang ngoài vào",
+    beats: [
+      { text: "Thầy Đức đứng ở cổng phụ, nhìn mấy bịch đồ ăn trên tay học sinh.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Em mua bánh mì ăn sáng thôi mà thầy." },
+      { speaker: "Thầy Đức", text: "Trường vừa nhắc chuyện an toàn thực phẩm, thầy phải làm căng." },
+    ],
     dialogue: "Từ nay cấm mang đồ ăn mua ngoài vào trường, muốn ăn thì mua căng tin.",
     options: [
       {
@@ -560,6 +671,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể cho phép nếu đồ ăn hợp vệ sinh và đóng gói kín, nhưng yêu cầu ăn trong khu vực bán trú hoặc căng tin.",
         reply: "Cơm nhà thì được, nhưng hộp đậy kín và ăn ở khu bán trú nhé, không mang lên lớp.",
+        followUp: [{ who: "player", text: "Dạ, mai em mang cơm nhà, ăn dưới bán trú ạ." }],
       },
       {
         id: "B",
@@ -568,6 +680,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Nếu phát hiện, thầy sẽ thu đồ ăn và nhắc nhở. Tái phạm sẽ báo lên giáo viên chủ nhiệm.",
         reply: "Mở cặp ra thầy xem nào. Thầy thu hộp này, lần sau là thầy báo cô chủ nhiệm đấy.",
+        followUp: [{ who: "player", text: "Dạ… em mua từ sáng rồi bỏ quên trong cặp thôi ạ." }],
       },
       {
         id: "C",
@@ -576,6 +689,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy giữ vững lập trường, giải thích đây là nội quy. Nếu học sinh vẫn cãi cố, sẽ ghi tên và báo lên Ban Giám hiệu xử lý.",
         reply: "Nội quy là nội quy, thầy không tranh luận với em. Em còn cãi nữa là thầy ghi tên báo lên trên.",
+        followUp: [{ who: "player", text: "Tụi em ăn gì mà trường cũng cấm được ạ?" }],
       },
       {
         id: "D",
@@ -585,6 +699,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Lập biên bản vi phạm, mời phụ huynh, và có thể áp dụng hình thức kỷ luật theo nội quy.",
         reply: "Vậy thầy lập biên bản. Bố mẹ em sẽ nhận được giấy mời của nhà trường.",
+        followUp: [{ who: "player", text: "Dạ thầy lập biên bản đi ạ. Mai em vẫn mang." }],
       },
     ],
     insideThought:
@@ -598,6 +713,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Yến",
     npcRole: "Trưởng ban đại diện phụ huynh lớp",
+    title: "Quỹ lớp năm trăm nghìn",
+    beats: [
+      { text: "Họp phụ huynh vừa tan, cô Yến gọi mấy bạn ở lại nhắc chuyện quỹ.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Dạ, quỹ lớp năm nay đóng bao nhiêu vậy cô?" },
+      { speaker: "Cô Yến", text: "Ban đại diện họp chốt rồi, có gửi giấy về từng nhà đó con." },
+    ],
     dialogue: "Quỹ lớp mỗi con năm trăm nghìn để liên hoan, nhà nào cũng phải đóng đủ.",
     options: [
       {
@@ -607,6 +728,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Ban đại diện có thể xem xét chia nhỏ nếu gia đình có khó khăn thực sự, hoặc minh bạch các khoản chi để tạo sự đồng thuận.",
         reply: "Nhà con khó khăn thật thì cô cho chia làm hai ba lần. Cô cũng sẽ công khai từng khoản chi cho cả lớp xem.",
+        followUp: [{ who: "player", text: "Dạ, con xin đóng làm hai lần ạ." }],
       },
       {
         id: "B",
@@ -617,6 +739,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Lớp trưởng nhắc nhở nhiều lần, khi phát hiện lý do trì hoãn kéo dài sẽ thông báo cho giáo viên chủ nhiệm để làm việc trực tiếp với phụ huynh.",
         reply: "Tuần thứ ba rồi con vẫn bảo bố mẹ chưa gửi. Cô sẽ nhờ cô chủ nhiệm gọi thẳng cho bố mẹ con.",
+        followUp: [{ who: "player", text: "Dạ… chắc bố mẹ con lại quên nữa rồi ạ." }],
       },
       {
         id: "C",
@@ -627,6 +750,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Giáo viên chủ nhiệm mời học sinh lên làm việc, yêu cầu gỡ bài. Ban đại diện sẽ giải trình công khai các khoản thu chi để tránh hiểu lầm.",
         reply: "Con đăng bảng thu chi lên mạng à? Gỡ xuống đi con. Cô sẽ công khai hết các khoản để không ai hiểu lầm.",
+        followUp: [{ who: "player", text: "Con gỡ, nhưng cô công khai hết cho tụi con xem nha cô." }],
       },
       {
         id: "D",
@@ -637,6 +761,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Nhà trường và ban đại diện sẽ làm việc với phụ huynh. Nếu không đóng được vì hoàn cảnh khó khăn, có thể xem xét miễn giảm. Nếu vì lý do cá nhân, học sinh sẽ không được tham gia các hoạt động tập thể.",
         reply: "Nhà khó khăn thì cô xem xét miễn. Còn không đóng vì không thích thì con không đi liên hoan với lớp được đâu.",
+        followUp: [{ who: "player", text: "Dạ con không đi liên hoan cũng được ạ." }],
       },
     ],
     insideThought:
@@ -650,6 +775,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hiệu",
     npcRole: "Ban Giám hiệu",
+    title: "Khối thi trường chọn sẵn",
+    beats: [
+      { text: "Danh sách phân lớp dán ở bảng tin, nhiều bạn đứng ngẩn ra nhìn." },
+      { speaker: "Bạn", text: "Em đăng ký Sử Địa mà sao tên em nằm lớp Tự nhiên ạ?" },
+      { speaker: "Cô Hiệu", text: "Trường xếp theo chỉ tiêu từng tổ hợp, không chiều từng em được." },
+    ],
     dialogue: "Lớp mình trường chốt học Lý, Hóa, Sinh rồi, ai đăng ký Sử, Địa thì gạch đi.",
     options: [
       {
@@ -659,6 +790,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Ban Giám hiệu xem xét số lượng học sinh đăng ký, nếu đủ điều kiện có thể mở thêm lớp hoặc hướng dẫn học sinh chuyển sang lớp phù hợp.",
         reply: "Nếu đủ bạn đăng ký thì trường sẽ tính mở thêm. Em làm danh sách những bạn muốn học Xã hội cho cô.",
+        followUp: [{ who: "player", text: "Dạ, mai em nộp danh sách các bạn muốn học Xã hội ạ." }],
       },
       {
         id: "B",
@@ -667,6 +799,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Giáo viên bộ môn phát hiện học sinh không tập trung trong giờ, có thể nhắc nhở hoặc trao đổi riêng để tìm hiểu nguyên nhân.",
         reply: "Thầy bộ môn báo em không tập trung giờ Tự nhiên. Có chuyện gì thì em nói với cô, mình cùng tìm cách.",
+        followUp: [{ who: "player", text: "Dạ… giờ Lý em hơi mệt thôi ạ, không có gì đâu cô." }],
       },
       {
         id: "C",
@@ -676,6 +809,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Nhà trường giải thích rõ lý do về cơ sở vật chất, giáo viên và mục tiêu định hướng. Nếu có nhiều ý kiến, có thể tổ chức họp phụ huynh để lắng nghe và điều chỉnh.",
         reply: "Trường xếp vậy vì còn thiếu giáo viên và phòng học. Nhiều bạn có ý kiến thì cô sẽ họp phụ huynh để nghe.",
+        followUp: [{ who: "player", text: "Vậy cô họp sớm giùm tụi em, sắp hết học kỳ rồi ạ." }],
       },
       {
         id: "D",
@@ -686,6 +820,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Giáo viên chủ nhiệm nhận thấy kết quả học tập sa sút, mời phụ huynh trao đổi và tìm phương án hỗ trợ học sinh, hoặc đề xuất chuyển lớp nếu có thể.",
         reply: "Điểm em đang tụt thấy rõ. Cô sẽ mời phụ huynh em lên, xem có chuyển lớp được không.",
+        followUp: [{ who: "player", text: "Dạ cô mời bố mẹ em cũng được. Khối này em học không vô." }],
       },
     ],
     insideThought:
@@ -699,6 +834,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Hiệu",
     npcRole: "Ban Giám hiệu",
+    title: "Cấm đăng chuyện trường",
+    beats: [
+      { text: "Một bài đăng về trường lan khắp mạng từ tối qua, sáng nay ai cũng bàn." },
+      { speaker: "Bạn", text: "Cô ơi, chuyện trên mạng hôm qua là sao vậy ạ?" },
+      { speaker: "Cô Hiệu", text: "Bài đó ảnh hưởng tới trường, sáng nay họp hội đồng nhắc rồi." },
+    ],
     dialogue: "Từ nay cấm đăng chuyện trường lớp lên mạng, em nào đăng là cô xử lý.",
     options: [
       {
@@ -708,6 +849,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Nhà trường có thể áp dụng ý tưởng này để tạo kênh góp ý chính thức, giảm thiểu tình trạng đăng bài công khai trên mạng xã hội.",
         reply: "Ý hay đó em. Trường sẽ đặt hòm thư góp ý ẩn danh, các em có gì bức xúc thì gửi vào đó.",
+        followUp: [{ who: "player", text: "Dạ, có hòm thư là tụi em gửi vào đó ạ." }],
       },
       {
         id: "B",
@@ -716,6 +858,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Khó phát hiện, nhưng nếu bài viết gây ảnh hưởng tiêu cực, nhà trường có thể điều tra và yêu cầu các em xóa bài.",
         reply: "Group kín của các em cô biết rồi. Bài nào ảnh hưởng tới trường thì các em phải xoá đi.",
+        followUp: [{ who: "player", text: "Dạ… group đó tụi em lập cho vui thôi ạ." }],
       },
       {
         id: "C",
@@ -726,6 +869,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Nhà trường mời học sinh lên phòng hiệu trưởng, yêu cầu gỡ bài và giải thích quyền tự do ngôn luận trong khuôn khổ pháp luật và nội quy nhà trường.",
         reply: "Em lên phòng cô. Tự do ngôn luận là có, nhưng phải trong khuôn khổ. Bài đó em gỡ xuống.",
+        followUp: [{ who: "player", text: "Em gỡ, nhưng chuyện đó có sai đâu mà cấm ạ?" }],
       },
       {
         id: "D",
@@ -735,6 +879,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Nhà trường tiến hành xử lý kỷ luật theo quy định, có thể đình chỉ học một thời gian và mời phụ huynh đến làm việc.",
         reply: "Vậy nhà trường phải xử lý kỷ luật. Em có thể bị đình chỉ vài ngày, và cô mời phụ huynh em lên.",
+        followUp: [{ who: "player", text: "Dạ em không gỡ. Cô xử lý sao em chịu vậy ạ." }],
       },
     ],
     insideThought:
@@ -748,6 +893,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Đức",
     npcRole: "Giám thị",
+    title: "Mở cặp cho thầy kiểm tra",
+    beats: [
+      { text: "Thầy Đức bước vào ngay đầu tiết, đứng ở đầu dãy bàn.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Có chuyện gì vậy thầy?" },
+      { speaker: "Thầy Đức", text: "Trên trường có đợt kiểm tra đột xuất, thầy làm theo chỉ đạo." },
+    ],
     dialogue: "Cả lớp mở hết cặp ra cho thầy kiểm tra, em nào không mở là có vấn đề.",
     options: [
       {
@@ -757,6 +908,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể đồng ý để học sinh tự lấy đồ ra, miễn là mở hết các ngăn trước mặt thầy.",
         reply: "Được, từng em tự lấy ra cho thầy xem. Nhưng ngăn nào cũng phải mở, thầy không bỏ qua ngăn nào đâu.",
+        followUp: [{ who: "player", text: "Dạ, tụi em lấy hết đồ ra cho thầy xem ạ." }],
       },
       {
         id: "B",
@@ -765,6 +917,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Nếu thầy kiểm tra cả ngăn bàn sẽ phát hiện, học sinh bị nhắc nhở và ghi tên vì cố tình che giấu.",
         reply: "Cặp thì sạch, còn cái hộp trong ngăn bàn này là của em đúng không? Giấu thế này thầy ghi tên đấy.",
+        followUp: [{ who: "player", text: "Dạ… hộp đó của bạn gửi em giữ giùm thôi ạ." }],
       },
       {
         id: "C",
@@ -773,6 +926,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy giải thích việc kiểm tra theo chỉ đạo của nhà trường vì an toàn chung, yêu cầu em ngồi xuống và báo giáo viên chủ nhiệm về thái độ.",
         reply: "Thầy kiểm tra theo chỉ đạo của trường, vì an toàn cả lớp. Em ngồi xuống, còn nói nữa là thầy báo cô chủ nhiệm.",
+        followUp: [{ who: "player", text: "Vậy thầy cho tụi em tự mở, đừng lục ạ." }],
       },
       {
         id: "D",
@@ -782,6 +936,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Thầy đưa học sinh lên phòng giám thị, mời phụ huynh đến chứng kiến việc kiểm tra và lập biên bản vì không hợp tác.",
         reply: "Vậy em lên phòng giám thị với thầy. Thầy mời phụ huynh em đến, mở cặp trước mặt bố mẹ em.",
+        followUp: [{ who: "player", text: "Dạ mời bố mẹ em lên cũng vậy. Cặp em, em giữ." }],
       },
     ],
     insideThought: "Tuần trước trường bắt được hai em có thuốc lá điện tử trong cặp, phụ huynh cả khối gọi lên hỏi. Mình biết lục cặp làm các em thấy bị xúc phạm, nhưng mình sợ hơn là để lọt thứ gì đó ra.",
@@ -794,6 +949,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Vân",
     npcRole: "Giáo viên Hóa học",
+    title: "Kiểm tra mười lăm phút",
+    beats: [
+      { text: "Buổi sáng vừa thi xong, cả lớp còn chưa kịp cất đề." },
+      { speaker: "Bạn", text: "Tiết này mình học bài mới hả cô?" },
+      { speaker: "Cô Vân", text: "Cô còn thiếu một cột điểm miệng của các em." },
+    ],
     dialogue: "Cất sách vở, kiểm tra mười lăm phút, lấy điểm luôn. Đừng ai xin dời nhé.",
     options: [
       {
@@ -804,6 +965,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Cô có thể xem xét hoãn nếu nhiều học sinh gặp khó khăn và lý do hợp lý. Hoặc vẫn giữ ý định kiểm tra nhưng nội dung sẽ đơn giản hơn.",
         reply: "Nhiều bạn mệt thật thì cô cho dời. Nhưng tiết sau vẫn kiểm tra, cô chỉ cho đề dễ hơn thôi.",
+        followUp: [{ who: "player", text: "Dạ tụi em cảm ơn cô. Tiết sau em làm nghiêm túc ạ." }],
       },
       {
         id: "B",
@@ -813,6 +975,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Nếu phát hiện, cô sẽ thu bài và cho điểm 0 ngay lập tức.",
         reply: "Tài liệu dưới gầm bàn là của ai đây? Cô thu bài, điểm không.",
+        followUp: [{ who: "player", text: "Dạ… tờ đó em để từ tiết trước, em có mở ra đâu ạ." }],
       },
       {
         id: "C",
@@ -823,6 +986,7 @@ export const studentSituations: Situation[] = [
         reaction:
           "Cô yêu cầu học sinh ngồi xuống, giải thích đây là quyền của giáo viên để kiểm tra kiến thức và tiếp tục cho làm bài. Nếu học sinh tiếp tục gây rối sẽ xử lý kỷ luật.",
         reply: "Kiểm tra kiến thức là quyền của giáo viên. Em ngồi xuống làm bài, còn gây rối là cô xử lý đấy.",
+        followUp: [{ who: "player", text: "Kiểm tra bất ngờ vậy thì tụi em nhớ gì mà làm ạ!" }],
       },
       {
         id: "D",
@@ -832,6 +996,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Cho điểm 0 và ghi sổ đầu bài, mời phụ huynh và có thể cho làm bài kiểm tra bù nếu học sinh hối cải.",
         reply: "Giấy trắng thì điểm không, cô ghi sổ đầu bài. Em biết lỗi thì cô cho làm bù.",
+        followUp: [{ who: "player", text: "Dạ cô ghi đi ạ. Bài này em không làm." }],
       },
     ],
     insideThought:
@@ -845,6 +1010,12 @@ export const studentSituations: Situation[] = [
     location: "Cổng trường",
     npcName: "Bạn Kỳ",
     npcRole: "Đội Sao đỏ",
+    title: "Sao đỏ ghi tên",
+    beats: [
+      { text: "Bạn Kỳ đứng ở cổng với cuốn sổ trực, nhìn từng bạn đi qua.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Sáng nay trực gắt vậy bạn?" },
+      { speaker: "Bạn Kỳ", text: "Thầy Tổng phụ trách vừa nhắc tụi mình làm chặt hơn đó." },
+    ],
     dialogue: "Từ tuần này lỗi gì mình cũng ghi tên trừ điểm luôn, không nhắc trước nữa nha.",
     options: [
       {
@@ -854,6 +1025,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Bạn Kỳ có thể đồng ý nhắc nhở trước cho các lần đầu vi phạm, nhưng sẽ trừ điểm nếu tái phạm nhiều lần.",
         reply: "Được, lần đầu mình nhắc trước. Nhưng tái phạm là mình ghi luôn nha, đừng trách mình.",
+        followUp: [{ who: "player", text: "Ừ, lần sau tụi mình sửa liền, khỏi phải ghi nha." }],
       },
       {
         id: "B",
@@ -862,6 +1034,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Sao đỏ có thể nhận thấy và bắt lỗi các hành vi khác để trừ điểm. Có thể ghi nhận lớp thường xuyên vi phạm.",
         reply: "Mấy bạn canh mình kỹ ghê ha. Nhưng lớp mình vẫn dính lỗi khác, mình ghi rồi đó.",
+        followUp: [{ who: "player", text: "Lỗi đó tụi mình sửa rồi mà, ghi làm gì căng vậy." }],
       },
       {
         id: "C",
@@ -870,6 +1043,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Bạn Kỳ ghi tên, báo lại với Giáo viên Tổng phụ trách. Thầy tổng phụ trách sẽ mời học sinh lên làm việc và nhắc nhở về thái độ.",
         reply: "Bạn nói vậy là mình ghi tên và báo thầy Tổng phụ trách. Thầy sẽ gọi bạn lên nói chuyện đó.",
+        followUp: [{ who: "player", text: "Báo thầy đi. Mình nói đúng chứ sai chỗ nào!" }],
       },
       {
         id: "D",
@@ -879,6 +1053,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Trừ điểm tối đa, báo cáo lớp vi phạm lên Ban Giám hiệu, đề nghị hạ hạnh kiểm của các em nếu có hành vi không hợp tác.",
         reply: "Vậy mình trừ tối đa và báo lên Ban Giám hiệu. Hạnh kiểm của bạn bị ảnh hưởng đó nha.",
+        followUp: [{ who: "player", text: "Ghi đi. Mình không sợ trừ điểm đâu." }],
       },
     ],
     insideThought:
@@ -892,6 +1067,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Thầy Hòa",
     npcRole: "Tổng phụ trách Đội",
+    title: "Cả lớp mất giờ ra chơi",
+    beats: [
+      { text: "Bảng thi đua tuần này vừa dán lên, lớp mình đứng cuối bảng." },
+      { speaker: "Bạn", text: "Lớp mình bị trừ nhiều điểm vậy hả thầy?" },
+      { speaker: "Thầy Hòa", text: "Tuần nào lớp mình cũng bị ghi ồn, thầy bị nhắc trước cả hội đồng." },
+    ],
     dialogue: "Lớp đứng bét thi đua vì mấy bạn ồn, nên cả lớp cấm ra chơi, đừng ai kêu oan.",
     options: [
       {
@@ -901,6 +1082,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Thầy có thể cho lớp thử một tuần với cam kết cụ thể, nếu không cải thiện sẽ áp dụng lại hình phạt.",
         reply: "Được, lớp tự viết cam kết nộp thầy. Tuần sau không lên hạng thì cả lớp ngồi trong lớp thật đấy.",
+        followUp: [{ who: "player", text: "Dạ, chiều nay lớp em viết cam kết nộp thầy ạ." }],
       },
       {
         id: "B",
@@ -909,6 +1091,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Thầy phát hiện khi quay lại kiểm tra, ghi tên những em ra ngoài và kéo dài thời gian phạt.",
         reply: "Thầy vừa quay lại là thiếu năm em. Em nào có tên thì cấm ra chơi thêm một tuần nữa.",
+        followUp: [{ who: "player", text: "Dạ… em ra ngoài lấy nước thôi ạ." }],
       },
       {
         id: "C",
@@ -917,6 +1100,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Thầy khó chịu vì bị chất vấn, giữ nguyên hình phạt để giữ kỷ luật và nhắc nhở em về thái độ.",
         reply: "Tập thể thì chịu trách nhiệm chung. Em còn cãi nữa là em ở lại cả giờ trưa với thầy.",
+        followUp: [{ who: "player", text: "Phạt cả lớp vậy thì bạn ồn đâu có sửa ạ!" }],
       },
       {
         id: "D",
@@ -926,6 +1110,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Thầy ghi tên, trừ điểm hạnh kiểm, báo giáo viên chủ nhiệm và mời phụ huynh nếu còn tái diễn.",
         reply: "Thầy ghi tên em, trừ hạnh kiểm. Mai còn ra nữa là thầy mời phụ huynh em lên.",
+        followUp: [{ who: "player", text: "Dạ thầy ghi tên em cũng được. Em có làm ồn đâu ạ." }],
       },
     ],
     insideThought: "Họp giao ban, lớp này bị nêu tên ba tuần liền, lần nào mình cũng phải đứng lên nhận. Tìm từng em làm ồn thì mất cả buổi, phạt chung là cách nhanh nhất mình nghĩ ra, dù biết vậy là thiệt cho mấy em ngoan.",
@@ -938,6 +1123,12 @@ export const studentSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Cô Vân",
     npcRole: "Giám thị",
+    title: "Truyện tranh trong cặp",
+    beats: [
+      { text: "Đầu giờ chiều, một quyển truyện rơi khỏi cặp lúc cô Vân đi ngang." },
+      { speaker: "Bạn", text: "Dạ… truyện này em đọc lúc ra chơi thôi ạ." },
+      { speaker: "Cô Vân", text: "Trường vừa có quy định mới về sách truyện ngoài chương trình." },
+    ],
     dialogue: "Từ mai cấm mang truyện lên trường, thấy quyển nào cô thu tới cuối năm.",
     options: [
       {
@@ -947,6 +1138,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Thương lượng & thỏa thuận",
         reaction: "Cô có thể đồng ý nếu lớp cam kết không đọc trong giờ học, sách để trong tủ lớp và có người giữ.",
         reply: "Ra chơi thì cô cho. Nhưng để trong tủ lớp, cô mà thấy mở ra trong giờ học là thu luôn đấy.",
+        followUp: [{ who: "player", text: "Dạ, tụi em để trong tủ lớp, ra chơi mới lấy ạ." }],
       },
       {
         id: "B",
@@ -955,6 +1147,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng mềm — lách luật",
         reaction: "Cô khó phát hiện ngay, nhưng nếu thấy em đọc quá chăm chú sẽ kiểm tra và thu cả sách.",
         reply: "Sách Địa gì mà toàn tranh đánh nhau thế này? Cô thu, còn bọc bìa lừa cô thì cô báo chủ nhiệm.",
+        followUp: [{ who: "player", text: "Dạ… quyển này em mượn bạn, chưa kịp cất ạ." }],
       },
       {
         id: "C",
@@ -963,6 +1156,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Phản ứng cứng — chống đối công khai",
         reaction: "Cô giải thích lý do là nội dung không kiểm soát được và làm mất tập trung, khó chịu vì bị cãi trước lớp và yêu cầu em chấp hành.",
         reply: "Có những quyển nội dung không hợp tuổi các em, cô không kiểm soát nổi. Em chấp hành đi, đừng cãi cô trước lớp.",
+        followUp: [{ who: "player", text: "Truyện em đọc có gì đâu cô, cô coi thử đi ạ." }],
       },
       {
         id: "D",
@@ -972,6 +1166,7 @@ export const studentSituations: Situation[] = [
         sublabel: "Bất hợp tác hoàn toàn",
         reaction: "Cô thu sách, ghi tên vào sổ vi phạm, báo giáo viên chủ nhiệm và mời phụ huynh vì cố tình không chấp hành.",
         reply: "Cô thu hết, ghi sổ vi phạm. Em cố tình thế này thì cô mời phụ huynh em lên nhận sách.",
+        followUp: [{ who: "player", text: "Dạ cô thu đi ạ. Nhà em còn nhiều quyển lắm." }],
       },
     ],
     insideThought: "Tháng trước có phụ huynh mang lên phòng một quyển truyện con họ mượn của bạn, nội dung không hợp tuổi, rồi hỏi nhà trường quản lý kiểu gì. Mình đâu đọc hết được từng quyển, nên cấm hết là cách duy nhất để không bị hỏi lần nữa.",

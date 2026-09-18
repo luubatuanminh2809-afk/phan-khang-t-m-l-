@@ -11,6 +11,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Khang",
     npcRole: "Học sinh",
+    title: "Bài văn có bàn tay AI",
+    beats: [
+      { text: "Bài của Khang đọc trôi chảy lạ thường, khác hẳn mọi lần." },
+      { speaker: "Bạn", text: "Bài này em tự làm hết hả Khang?" },
+      { speaker: "Khang", text: "Dạ… em có nhờ ChatGPT một chút thôi ạ." },
+    ],
     dialogue: "Thầy ơi, em chỉ nhờ ChatGPT lập dàn ý thôi, bài là em tự viết mà.",
     options: [
       {
@@ -20,6 +26,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Khang chủ động điều chỉnh cách sử dụng AI và hợp tác với giáo viên. Em cảm thấy ý kiến của mình được tôn trọng, có xu hướng tự điều chỉnh cách sử dụng AI.",
         reply: "Dạ, AI giúp em có ý nhanh, nhưng dễ lười nghĩ. Em sẽ chỉ dùng để lập dàn ý thôi thầy.",
+        followUp: [{ who: "player", text: "Ừ, em ghi rõ chỗ nào nhờ AI là được." }],
       },
       {
         id: "B",
@@ -28,6 +35,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Khang sử dụng AI đúng mục đích hơn. Em cảm thấy quy định hợp lý và có không gian để tự quyết, dễ hợp tác.",
         reply: "Dạ, em tự viết trước, kẹt chỗ nào mới hỏi nó ạ.",
+        followUp: [{ who: "player", text: "Ừ, tự viết trước đã. Kẹt chỗ nào mới hỏi nó nha em." }],
       },
       {
         id: "C",
@@ -36,6 +44,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Khang miễn cưỡng nghe theo hoặc vẫn sử dụng AI nhưng không chia sẻ với giáo viên. Em cảm thấy bị đánh giá năng lực thay vì góp ý về hành vi.",
         reply: "Em có lười đâu thầy… Dạ, em biết rồi.",
+        followUp: [{ who: "player", text: "Biết rồi thì lo mà tự nghĩ. Dựa mãi rồi quen." }],
       },
       {
         id: "D",
@@ -44,6 +53,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Khang tiếp tục sử dụng AI nhưng tìm cách che giấu hoặc đối phó. Em cảm thấy quyền lựa chọn bị tước bỏ hoàn toàn, dễ phản kháng mạnh.",
         reply: "Dạ. Em không nói với thầy nữa là được chứ gì.",
+        followUp: [{ who: "player", text: "Em nói vậy hả? Thầy bắt gặp lần nữa là điểm không đó!" }],
       },
     ],
     insideThought:
@@ -59,6 +69,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Hoa",
     npcRole: "Học sinh",
+    title: "Điện thoại trong giờ học",
+    beats: [
+      { text: "Dưới bàn cuối, ánh màn hình hắt lên mặt Hoa.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Hoa, em cất điện thoại giùm thầy." },
+      { speaker: "Hoa", text: "Dạ… em đang nhắn dở một chút ạ." },
+    ],
     dialogue: "Em nhắn cho mẹ chút xíu thôi mà thầy, có gì to tát đâu ạ.",
     options: [
       {
@@ -68,6 +84,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Hoa chủ động cất điện thoại và tập trung học. Em cảm thấy được lắng nghe và có quyền tham gia vào cách giải quyết.",
         reply: "Dạ, không gấp đâu thầy, em nhắn xong rồi. Em cất máy học đây ạ.",
+        followUp: [{ who: "player", text: "Ừ, cất máy đi em. Có việc gấp thì nói thầy nha." }],
       },
       {
         id: "B",
@@ -76,6 +93,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Hoa cất điện thoại và tuân thủ. Em cảm thấy yêu cầu có giới hạn rõ ràng và hợp lý.",
         reply: "Dạ, em cất đến hết tiết ạ.",
+        followUp: [{ who: "player", text: "Ừ, hết tiết em dùng bình thường." }],
       },
       {
         id: "C",
@@ -84,6 +102,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Hoa làm theo vì sợ bị phạt nhưng trong lòng không đồng tình. Em cảm thấy bị quy kết và chỉ trích.",
         reply: "Em nhắn cho mẹ thôi mà thầy… Dạ, em cất.",
+        followUp: [{ who: "player", text: "Lần nào cũng có lý do. Điểm kém rồi đừng trách." }],
       },
       {
         id: "D",
@@ -92,6 +111,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Hoa tức giận và tìm cách lén sử dụng điện thoại lần sau. Em cảm thấy tức giận vì bị tước quyền sở hữu, dễ chống đối.",
         reply: "Cuối kỳ luôn hả thầy? Máy của em mà…",
+        followUp: [{ who: "player", text: "Máy ai cũng vậy! Mang vào lớp thầy là thầy giữ." }],
       },
     ],
     insideThought:
@@ -107,6 +127,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Tuấn",
     npcRole: "Học sinh",
+    title: "Phần việc không ai nhận",
+    beats: [
+      { text: "Nhóm của Tuấn cãi nhau nhỏ tiếng khi chia phần thuyết trình.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Nhóm này phân công tới đâu rồi các em?" },
+      { speaker: "Tuấn", text: "Dạ, tụi em còn kẹt phần vẽ sơ đồ thầy ơi." },
+    ],
     dialogue: "Thầy ơi, phần này để bạn khác làm đi, em không giỏi phần này đâu.",
     options: [
       {
@@ -116,6 +142,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Tuấn chủ động nhận việc và tham gia cùng nhóm. Em cảm thấy năng lực cá nhân được tôn trọng, có xu hướng chủ động hợp tác.",
         reply: "Dạ, em làm phần thiết kế slide được ạ. Phần đó em tự tin hơn.",
+        followUp: [{ who: "player", text: "Ừ, em nhận phần đó. Thầy ghi vào bảng phân công." }],
       },
       {
         id: "B",
@@ -124,6 +151,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Tuấn hợp tác hơn. Em cảm thấy mình vẫn có quyền lựa chọn trong phạm vi trách nhiệm, dễ hợp tác hơn.",
         reply: "Dạ, vậy em đổi phần với bạn, em vẫn làm đủ phần của em.",
+        followUp: [{ who: "player", text: "Ừ, đổi thì đổi, nhưng phần của em vẫn phải đủ nha." }],
       },
       {
         id: "C",
@@ -132,6 +160,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Tuấn làm việc một cách đối phó hoặc tiếp tục né tránh. Em cảm thấy bị gán nhãn tiêu cực, có thể không hợp tác.",
         reply: "Em có trốn đâu thầy, em chỉ không giỏi phần đó thôi.",
+        followUp: [{ who: "player", text: "Không giỏi thì tập, đừng đẩy cho bạn hoài." }],
       },
       {
         id: "D",
@@ -140,6 +169,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Tuấn mặc kệ hoặc bất mãn. Em có thể cảm thấy bị cô lập và ép buộc, dễ nảy sinh tâm lý bất mãn hoặc mặc kệ.",
         reply: "Gạch thì gạch đi thầy. Em cũng không muốn làm.",
+        followUp: [{ who: "player", text: "Được, thầy gạch tên. Điểm không thì em tự chịu đó." }],
       },
     ],
     insideThought:
@@ -155,6 +185,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Vy",
     npcRole: "Học sinh",
+    title: "Giờ thầy và đề Toán",
+    beats: [
+      { text: "Vy kê quyển đề Toán dưới ngăn bàn, mắt không rời khỏi nó.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Vy, em đang làm gì trong giờ của thầy vậy?" },
+      { speaker: "Vy", text: "Dạ… em làm đề Toán ạ." },
+    ],
     dialogue: "Thầy ơi, môn này em không thi, giờ tự học cho em làm đề Toán nha.",
     options: [
       {
@@ -164,6 +200,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Vy giữ đúng phần đã cam kết và ôn thi hiệu quả hơn. Em cảm thấy lựa chọn của mình được tôn trọng.",
         reply: "Dạ, bài kiểm tra giữa kỳ em vẫn làm đủ. Còn giờ tự học em ôn Toán, em cảm ơn thầy.",
+        followUp: [{ who: "player", text: "Ừ, phần cần thì em nắm, còn lại em tự sắp xếp." }],
       },
       {
         id: "B",
@@ -172,6 +209,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Vy làm đủ phần yêu cầu rồi mới chuyển sang ôn Toán. Em thấy thầy có nhượng bộ nên dễ hợp tác.",
         reply: "Dạ, nửa đầu em làm bài của thầy, nửa sau em làm đề ạ.",
+        followUp: [{ who: "player", text: "Ừ, làm đúng vậy nha. Thầy không nói thêm." }],
       },
       {
         id: "C",
@@ -180,6 +218,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Vy cất đề Toán nhưng ngồi không, không tiếp thu bài. Em cảm thấy bị chê là thực dụng thay vì được hiểu áp lực thi cử.",
         reply: "Em đâu có bỏ môn của thầy… Thôi, em cất ạ.",
+        followUp: [{ who: "player", text: "Học kiểu chọn môn vậy rồi sau này hổng kiến thức." }],
       },
       {
         id: "D",
@@ -188,6 +227,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Vy giấu đề Toán dưới sách và vẫn làm lén. Em cảm thấy thời gian ôn thi của mình bị tước đi.",
         reply: "Dạ… em cất. Nhưng tối về em lại phải thức khuya làm bù.",
+        followUp: [{ who: "player", text: "Thức khuya là việc của em. Giờ thầy thì học môn thầy!" }],
       },
     ],
     insideThought: "Còn tám tháng nữa là thi, điểm Toán thi thử của mình thiếu đúng hai điểm vào trường mình muốn. Mình không coi thường môn của thầy, chỉ là lúc này mỗi giờ đều quý quá.",
@@ -201,6 +241,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Hải",
     npcRole: "Học sinh",
+    title: "Cái bắt tay trước lớp",
+    beats: [
+      { text: "Hải với Phong vừa xô xát ngoài sân, giờ ngồi hai đầu lớp." },
+      { speaker: "Bạn", text: "Hai em lên đây, nói cho rõ ràng." },
+      { speaker: "Hải", text: "Dạ, tụi em hết giận nhau rồi thầy." },
+    ],
     dialogue: "Thầy ơi, em không bắt tay Phong trước lớp đâu, để tụi em tự giải quyết.",
     options: [
       {
@@ -210,6 +256,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Hải chủ động gặp Phong nói chuyện riêng. Em cảm thấy cảm xúc của mình được tôn trọng nên sẵn sàng giải quyết mâu thuẫn.",
         reply: "Dạ, để em nói riêng với Phong giờ ra chơi. Nếu không xong em nhờ thầy ạ.",
+        followUp: [{ who: "player", text: "Ừ, em nói riêng với bạn đi. Cần thầy thì gọi thầy." }],
       },
       {
         id: "B",
@@ -218,6 +265,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Hải đồng ý ngồi lại nói chuyện. Em thấy thầy hiểu mình ngại nhưng vẫn muốn giải quyết dứt điểm.",
         reply: "Dạ, cuối buổi em ở lại. Miễn không phải đứng trước cả lớp ạ.",
+        followUp: [{ who: "player", text: "Ừ, không phải đứng trước lớp. Cuối buổi mình ngồi lại." }],
       },
       {
         id: "C",
@@ -226,6 +274,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Hải im lặng, càng ghét Phong hơn và ngại nói chuyện với thầy. Em cảm thấy bị chê là ích kỷ trong khi mình mới là người bị trêu.",
         reply: "Em không có tự ái… Bạn ấy trêu em trước mà thầy.",
+        followUp: [{ who: "player", text: "Ai trêu ai thầy không rõ. Nhưng tính đó thì khó sống lắm." }],
       },
       {
         id: "D",
@@ -234,6 +283,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Hải bắt tay cho có rồi quay đi, sau giờ học mâu thuẫn còn căng hơn. Em cảm thấy bị làm nhục trước lớp.",
         reply: "Dạ, em bắt tay. Nhưng em không tha thứ gì hết.",
+        followUp: [{ who: "player", text: "Tha hay không kệ em. Còn gây chuyện là thầy mời phụ huynh!" }],
       },
     ],
     insideThought: "Phong đăng ảnh chế về mình vào nhóm lớp, cả lớp cười. Giờ bắt tay trước mặt tụi nó thì như mình mới là người có lỗi. Mình cần bạn ấy xin lỗi thật, chứ không phải diễn cho thầy xem.",
@@ -247,6 +297,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Ngọc",
     npcRole: "Học sinh",
+    title: "Câu hỏi và người được gọi",
+    beats: [
+      { text: "Cả lớp im, Ngọc cúi mặt xuống vở khi tới lượt mình.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Ngọc, em thử trả lời câu này cho thầy." },
+      { speaker: "Ngọc", text: "Dạ… em ạ?" },
+    ],
     dialogue: "Dạ… thầy gọi bạn khác đi ạ, em chưa muốn trả lời trước lớp.",
     options: [
       {
@@ -256,6 +312,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Ngọc sẵn sàng phát biểu hơn. Em cảm thấy mình có quyền lựa chọn và được tôn trọng, có xu hướng sẵn sàng phát biểu hơn.",
         reply: "Dạ… cho em một phút nữa ạ.",
+        followUp: [{ who: "player", text: "Ừ, em cứ nghĩ. Một phút nữa thầy hỏi lại nha." }],
       },
       {
         id: "B",
@@ -264,6 +321,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Ngọc chủ động tham gia. Em cảm thấy áp lực giảm đi và việc phát biểu trở nên an toàn hơn, dễ chủ động tham gia.",
         reply: "Dạ, em nghĩ là… đáp án là C ạ.",
+        followUp: [{ who: "player", text: "Ừ, đúng rồi đó. Lần sau cứ mạnh dạn nói nha em." }],
       },
       {
         id: "C",
@@ -272,6 +330,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Ngọc càng thu mình hơn hoặc chỉ phát biểu để đối phó. Em cảm thấy bị đánh giá về năng lực và thái độ, có thể càng thu mình hơn.",
         reply: "…Dạ, em không biết ạ.",
+        followUp: [{ who: "player", text: "Ngồi im hoài vậy thì lớp học được gì từ em." }],
       },
       {
         id: "D",
@@ -280,6 +339,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Ngọc im lặng, trả lời qua loa hoặc mất động lực tham gia. Em có thể cảm thấy bị ép buộc và xấu hổ trước lớp.",
         reply: "…Em đứng cũng được ạ.",
+        followUp: [{ who: "player", text: "Vậy đứng đó tới hết tiết cho nhớ!" }],
       },
     ],
     insideThought:
@@ -295,6 +355,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Đạt",
     npcRole: "Học sinh",
+    title: "Cách giải bị gạch",
+    beats: [
+      { text: "Đạt cầm bài kiểm tra lên bàn giáo viên, mặt đỏ gay.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Bài của em có gì thắc mắc hả Đạt?" },
+      { speaker: "Đạt", text: "Dạ, câu ba thầy gạch hết mà đáp số của em vẫn đúng ạ." },
+    ],
     dialogue: "Thầy ơi, câu ba em giải cách khác vẫn ra đúng, sao thầy gạch hết vậy ạ?",
     options: [
       {
@@ -304,6 +370,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Đạt hào hứng trình bày, chấp nhận góp ý ở bước còn thiếu. Em cảm thấy tư duy riêng của mình được coi trọng.",
         reply: "Dạ, em dùng hằng đẳng thức nên ngắn hơn. Thầy xem giúp em bước này ạ.",
+        followUp: [{ who: "player", text: "Ừ, để thầy xem lại. Đúng thì thầy trả điểm cho em." }],
       },
       {
         id: "B",
@@ -312,6 +379,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Đạt chấp nhận nửa điểm và ghi đủ bước ở bài sau. Em thấy yêu cầu có lý do rõ ràng.",
         reply: "Dạ, vậy lần sau em ghi đủ bước. Nửa điểm cũng được ạ.",
+        followUp: [{ who: "player", text: "Ừ, đủ bước là thầy cho trọn điểm." }],
       },
       {
         id: "C",
@@ -320,6 +388,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Đạt thôi không thử cách giải mới, chỉ làm theo mẫu cho an toàn. Em cảm thấy sự sáng tạo của mình bị dập tắt.",
         reply: "Em đâu có dám nghĩ vậy… Thôi, lần sau em làm y mẫu.",
+        followUp: [{ who: "player", text: "Cứ theo mẫu đi, đừng bày đặt sáng tạo." }],
       },
       {
         id: "D",
@@ -328,6 +397,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Đạt ngồi xuống nhưng không phục, nói với cả lớp là thầy chấm sai. Em cảm thấy bị áp đặt và mất lòng tin vào sự công bằng.",
         reply: "Dạ… em ngồi. Nhưng cách của em đúng mà.",
+        followUp: [{ who: "player", text: "Còn nói nữa là thầy trừ điểm thái độ thật đó!" }],
       },
     ],
     insideThought: "Cách đó mình tự tìm trên mạng, mất cả buổi tối mới hiểu. Mình không cần điểm lắm, chỉ muốn biết cách mình tự tìm ra có thật sự đúng hay không.",
@@ -341,6 +411,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Bình",
     npcRole: "Học sinh",
+    title: "iPad trong giờ ghi bài",
+    beats: [
+      { text: "Bình lấy iPad ra khỏi cặp, mấy bạn xung quanh quay lại nhìn.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Em định dùng cái đó ghi bài hả Bình?" },
+      { speaker: "Bình", text: "Dạ, em viết tay chậm lắm thầy." },
+    ],
     dialogue: "Thầy ơi, cho em ghi bài bằng iPad nha, em viết tay chép không kịp.",
     options: [
       {
@@ -350,6 +426,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bình dùng iPad đúng mục đích và chủ động cho thầy xem bài ghi. Em cảm thấy được tin tưởng và có trách nhiệm với lời hứa.",
         reply: "Dạ, em bật chế độ tập trung rồi. Cuối tiết em cho thầy xem bài ghi luôn ạ.",
+        followUp: [{ who: "player", text: "Ừ, cuối tiết cho thầy xem bài ghi là được." }],
       },
       {
         id: "B",
@@ -358,6 +435,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bình đồng ý đổi chỗ để được dùng iPad. Em thấy điều kiện hơi gò bó nhưng hợp lý.",
         reply: "Dạ, em lên bàn đầu ngồi. Thầy nhìn màn hình em lúc nào cũng được ạ.",
+        followUp: [{ who: "player", text: "Ừ, ngồi bàn đầu, màn hình để thầy thấy nha." }],
       },
       {
         id: "C",
@@ -366,6 +444,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bình cất máy, chép thiếu bài rồi mượn vở bạn chụp lại. Em cảm thấy bị nghi ngờ dù đã nói thật.",
         reply: "Em nói thật mà thầy không tin… Dạ, em chép tay.",
+        followUp: [{ who: "player", text: "Chép tay đi. Cầm máy vô là lại lướt mạng thôi." }],
       },
       {
         id: "D",
@@ -374,6 +453,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bình giấu iPad trong ngăn bàn để chụp bảng lén. Em cảm thấy cách học hợp với mình bị cấm đoán vô lý.",
         reply: "Dạ… em cất. Vậy em chụp bảng rồi về nhà chép sau.",
+        followUp: [{ who: "player", text: "Chụp cũng cấm luôn! Giờ thầy không có thiết bị nào hết." }],
       },
     ],
     insideThought: "Mình viết chậm từ nhỏ, chép được nửa bảng là tay đã mỏi nhừ. Mình ngại nói ra trước lớp, nên chỉ dám xin dùng iPad như chuyện bình thường.",
@@ -387,6 +467,12 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Kiên",
     npcRole: "Học sinh",
+    title: "Điểm số và tin nhắn về nhà",
+    beats: [
+      { text: "Kiên gõ cửa phòng giáo viên, tay còn cầm bài kiểm tra.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Em ở lại có việc gì không Kiên?" },
+      { speaker: "Kiên", text: "Dạ, em muốn hỏi thầy chuyện điểm bài vừa rồi ạ." },
+    ],
     dialogue: "Thầy đừng nhắn điểm bài này cho bố mẹ em nha, để em tự nói ạ.",
     options: [
       {
@@ -396,6 +482,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Kiên tự nói với bố mẹ ngay tối đó và báo lại thầy. Em cảm thấy được trao cơ hội tự chịu trách nhiệm.",
         reply: "Dạ, tối nay ăn cơm xong em nói. Mai em nhắn thầy biết ạ.",
+        followUp: [{ who: "player", text: "Ừ, em nói đi. Mai nhắn thầy một tiếng là được." }],
       },
       {
         id: "B",
@@ -404,6 +491,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Kiên tranh thủ nói với bố mẹ trước khi điểm hiện lên. Em thấy thầy tôn trọng mình trong giới hạn của quy định.",
         reply: "Dạ, hai ngày là đủ ạ. Em cảm ơn thầy.",
+        followUp: [{ who: "player", text: "Ừ, hai ngày. Nói xong rồi báo thầy nha." }],
       },
       {
         id: "C",
@@ -412,6 +500,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Kiên im lặng, về nhà tìm cách xóa thông báo điểm trên điện thoại bố mẹ. Em cảm thấy bị xem như đứa gian dối.",
         reply: "Em đâu có định giấu… Em chỉ muốn tự nói thôi mà.",
+        followUp: [{ who: "player", text: "Điểm thế này thì giấu gì cũng lộ. Lo học đi em." }],
       },
       {
         id: "D",
@@ -420,6 +509,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Kiên hoảng sợ, về nhà nói dối là hệ thống nhập nhầm điểm và tránh mặt bố mẹ. Em cảm thấy bị dồn vào đường cùng.",
         reply: "Dạ… thầy nhắn đi. Chắc tối nay em không dám về nhà.",
+        followUp: [{ who: "player", text: "Nói vậy mà nghe được hả? Còn xin nữa là thầy mời phụ huynh!" }],
       },
     ],
     insideThought: "Lần trước điểm hiện lên điện thoại, bố gọi mình ra giữa nhà mắng trước mặt cả nhà. Mình không định giấu, mình chỉ muốn được tự nói, lúc chỉ có bố mẹ với mình.",
@@ -433,6 +523,12 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Thảo",
     npcRole: "Học sinh",
+    title: "Câu lạc bộ Mỹ thuật",
+    beats: [
+      { text: "Thảo cầm tờ đơn câu lạc bộ, gấp lại rồi mở ra mấy lần.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Đơn gì đó em?" },
+      { speaker: "Thảo", text: "Dạ, đơn đăng ký câu lạc bộ ạ." },
+    ],
     dialogue: "Thầy ơi, em đăng ký câu lạc bộ Mỹ thuật nha, em không bỏ bê học đâu.",
     options: [
       {
@@ -442,6 +538,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Thảo chủ động xây dựng kế hoạch phù hợp và thực hiện cam kết. Em cảm thấy được lắng nghe và tin tưởng.",
         reply: "Dạ, vẽ giúp em thư giãn sau giờ học. Em hứa không để điểm tụt ạ.",
+        followUp: [{ who: "player", text: "Ừ, em cứ đăng ký. Đuối chỗ nào thì nói thầy." }],
       },
       {
         id: "B",
@@ -450,6 +547,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Thảo hợp tác. Em cảm thấy mong muốn của mình được ghi nhận nhưng vẫn có trách nhiệm cân bằng.",
         reply: "Dạ, em cảm ơn thầy! Em vẫn học đầy đủ ạ.",
+        followUp: [{ who: "player", text: "Ừ, giữ đúng lời nha em." }],
       },
       {
         id: "C",
@@ -458,6 +556,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Thảo miễn cưỡng từ bỏ nhưng vẫn giữ tâm lý tiếc nuối và không đồng tình. Em cảm thấy đam mê của mình không được tôn trọng.",
         reply: "Dạ… vậy em không đăng ký nữa ạ.",
+        followUp: [{ who: "player", text: "Ừ, bỏ đi. Thời gian đó để ôn bài còn hơn." }],
       },
       {
         id: "D",
@@ -466,6 +565,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Thảo giấu thầy để tham gia hoặc bất mãn với quyết định. Em cảm thấy sở thích và mong muốn của mình bị phủ nhận.",
         reply: "Dạ, em không tham gia ạ.",
+        followUp: [{ who: "player", text: "Giờ là lo học. Thầy thấy tên em trong danh sách là thầy gạch!" }],
       },
     ],
     insideThought:
@@ -481,6 +581,12 @@ export const teacherSituations: Situation[] = [
     location: "Hành lang lớp học",
     npcName: "Nam",
     npcRole: "Học sinh",
+    title: "Tai nghe giờ ra chơi",
+    beats: [
+      { text: "Nam ngồi một mình ngoài hành lang, tai nghe chụp kín hai bên.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Nam, thầy gọi em nãy giờ đó." },
+      { speaker: "Nam", text: "Dạ, em xin lỗi, em không nghe thấy ạ." },
+    ],
     dialogue: "Giờ ra chơi mà thầy, em đeo tai nghe chút thôi, có phiền ai đâu ạ.",
     options: [
       {
@@ -490,6 +596,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Nam chủ động tháo tai nghe và lắng nghe. Em cảm thấy thời gian và sở thích của mình được tôn trọng.",
         reply: "Dạ, em tháo ra rồi, thầy nói đi ạ.",
+        followUp: [{ who: "player", text: "Ừ, thầy nói vài phút thôi rồi em nghe tiếp." }],
       },
       {
         id: "B",
@@ -498,6 +605,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Nam hợp tác. Em cảm thấy yêu cầu hợp lý vì không cấm hoàn toàn việc nghe nhạc.",
         reply: "Dạ, em tháo ạ.",
+        followUp: [{ who: "player", text: "Ừ, thầy nói xong em đeo lại cũng được." }],
       },
       {
         id: "C",
@@ -506,6 +614,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Nam làm theo vì áp lực nhưng vẫn cảm thấy bực bội. Em cảm thấy bị trách móc và không được giải thích.",
         reply: "Em đâu có biết thầy gọi đâu. Dạ, em tháo rồi.",
+        followUp: [{ who: "player", text: "Đeo suốt vậy thì ai gọi em cũng đâu nghe." }],
       },
       {
         id: "D",
@@ -514,6 +623,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Nam miễn cưỡng làm theo hoặc tiếp tục sử dụng khi không có thầy cô. Em cảm thấy quyền tự do cá nhân bị hạn chế quá mức.",
         reply: "Cấm luôn hả thầy? Dạ… em tháo.",
+        followUp: [{ who: "player", text: "Cấm luôn. Thầy thấy trong trường là thầy thu!" }],
       },
     ],
     insideThought:
@@ -529,6 +639,12 @@ export const teacherSituations: Situation[] = [
     location: "Sân trường giờ ra chơi",
     npcName: "My",
     npcRole: "Học sinh",
+    title: "Clip nhảy giữa sân trường",
+    beats: [
+      { text: "Giữa sân trường, nhóm của My quay đi quay lại một đoạn nhảy.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Mấy em quay cái gì ngoài đó vậy?" },
+      { speaker: "My", text: "Dạ, tụi em tập bài nhảy cho hội diễn văn nghệ ạ." },
+    ],
     dialogue: "Thầy cho tụi em quay nốt clip nhảy thi văn nghệ nha, xíu là xong ạ.",
     options: [
       {
@@ -538,6 +654,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "My tuân thủ những nguyên tắc đã thống nhất. Em cảm thấy mong muốn của mình được tôn trọng.",
         reply: "Dạ, tụi em quay ở sân sau giờ ra chơi, không làm phiền lớp nào đâu ạ.",
+        followUp: [{ who: "player", text: "Ừ, quay ở sân đi. Xong nhớ dọn lại cho gọn nha." }],
       },
       {
         id: "B",
@@ -546,6 +663,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "My hợp tác. Em cảm thấy vẫn được duy trì sở thích trong khuôn khổ phù hợp.",
         reply: "Dạ, tụi em quay giờ ra chơi thôi ạ.",
+        followUp: [{ who: "player", text: "Ừ, ra chơi thôi. Đừng làm ồn lớp bên nha." }],
       },
       {
         id: "C",
@@ -554,6 +672,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "My không đồng tình và cho rằng giáo viên không hiểu sở thích của mình. Em cảm thấy bị đánh giá phiến diện.",
         reply: "Tụi em quay cho lớp đi thi mà thầy, đâu phải TikTok đâu.",
+        followUp: [{ who: "player", text: "Thi thố gì cũng vậy. Lo bài vở trước đi." }],
       },
       {
         id: "D",
@@ -562,6 +681,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "My chống đối hoặc tiếp tục quay ở nơi kín đáo hơn. Em có thể cảm thấy mình bị ngăn cản quá mức.",
         reply: "Dạ, em xoá. Tụi em qua nhà bạn quay vậy.",
+        followUp: [{ who: "player", text: "Còn quay nữa là thầy mời phụ huynh lên thật đó!" }],
       },
     ],
     insideThought:
@@ -577,6 +697,12 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Trâm",
     npcRole: "Học sinh",
+    title: "Suất trong đội tuyển Văn",
+    beats: [
+      { text: "Bài văn của Trâm là bài thầy tâm đắc nhất tuần này." },
+      { speaker: "Bạn", text: "Thầy tính đưa em vào đội tuyển Văn của trường." },
+      { speaker: "Trâm", text: "Dạ… thầy cho em suy nghĩ được không ạ?" },
+    ],
     dialogue: "Thầy ơi, em không vào đội tuyển Văn đâu, thầy chọn bạn khác giùm em.",
     options: [
       {
@@ -586,6 +712,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Trâm nhẹ nhõm, chia sẻ muốn viết cho báo tường của lớp. Em cảm thấy niềm yêu thích được giữ nguyên mà không biến thành gánh nặng.",
         reply: "Dạ, em muốn viết cho báo tường của lớp. Viết vậy em thấy vui hơn nhiều ạ.",
+        followUp: [{ who: "player", text: "Ừ, vậy em viết cho báo tường. Thầy để tên bạn khác." }],
       },
       {
         id: "B",
@@ -594,6 +721,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Trâm đồng ý thử và thấy thoải mái hơn vì có đường lui. Em cảm thấy quyết định cuối cùng vẫn thuộc về mình.",
         reply: "Dạ, hai tuần thôi ạ. Nếu mệt quá thì thầy cho em rút nha.",
+        followUp: [{ who: "player", text: "Ừ, hai tuần. Không hợp thì thầy cho em rút." }],
       },
       {
         id: "C",
@@ -602,6 +730,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Trâm miễn cưỡng vào đội nhưng ôn hời hợt, dần ngại cầm bút. Em cảm thấy bị trách là lười trong khi chỉ muốn giữ niềm vui viết.",
         reply: "Dạ… em đâu có lười. Em chỉ muốn viết cho vui thôi.",
+        followUp: [{ who: "player", text: "Vui thì được gì? Có khiếu mà bỏ thì phí lắm." }],
       },
       {
         id: "D",
@@ -610,6 +739,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Trâm đi ôn cho có, cố tình làm bài thi thật kém để lần sau không bị chọn nữa. Em cảm thấy bị ép và mất hứng với chính môn mình từng thích.",
         reply: "Dạ, em đi. Nhưng thi được bao nhiêu thì được bấy nhiêu ạ.",
+        followUp: [{ who: "player", text: "Được bao nhiêu cũng phải đi. Nghỉ buổi nào là thầy trừ điểm!" }],
       },
     ],
     insideThought: "Năm lớp tám mình vào đội tuyển, ôn tới mười hai giờ đêm suốt ba tháng, thi xong mình không muốn cầm bút nữa. Mình sợ lại đánh mất thứ duy nhất mình thật sự thích.",
@@ -623,6 +753,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Việt",
     npcRole: "Học sinh",
+    title: "Bản chép phạt nội quy",
+    beats: [
+      { text: "Việt đứng trước bàn giáo viên, cuốn vở chép phạt còn trắng tinh.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Nội quy thầy bảo chép, em chép tới đâu rồi?" },
+      { speaker: "Việt", text: "Dạ, em chưa chép thầy ơi." },
+    ],
     dialogue: "Thầy ơi, em không chép phạt nội quy đâu, cho em sửa lỗi cách khác nha.",
     options: [
       {
@@ -632,6 +768,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Việt tự đề xuất trực nhật một tuần và chuyển lên bàn đầu, rồi làm đúng cam kết. Em cảm thấy được tôn trọng nên nhận lỗi thật lòng.",
         reply: "Dạ, em trực nhật thay bạn một tuần, với lại em xin chuyển lên bàn đầu ngồi ạ.",
+        followUp: [{ who: "player", text: "Ừ, vậy cũng được. Thầy ghi lại, em làm cho đủ nha." }],
       },
       {
         id: "B",
@@ -640,6 +777,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Việt viết bản cam kết nghiêm túc. Em thấy vẫn bị phạt nhưng hình phạt có ý nghĩa hơn.",
         reply: "Dạ, em viết cam kết. Vậy có ích hơn chép lại nguyên văn ạ.",
+        followUp: [{ who: "player", text: "Ừ, trước giờ về em nộp thầy nha." }],
       },
       {
         id: "C",
@@ -648,6 +786,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Việt chép phạt cẩu thả, nhờ bạn chép hộ một nửa. Em cảm thấy bị mắng vì đã nói thật suy nghĩ của mình.",
         reply: "Em chỉ góp ý thôi mà thầy… Dạ, em chép.",
+        followUp: [{ who: "player", text: "Góp ý gì lúc đang mắc lỗi. Chép đi rồi nói sau." }],
       },
       {
         id: "D",
@@ -656,6 +795,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Việt chép qua loa, nộp muộn và từ đó không muốn nói chuyện với thầy. Em cảm thấy bị trừng phạt vì dám lên tiếng.",
         reply: "Dạ… mười lần thì em chép tới tối. Lần sau em không nói gì nữa.",
+        followUp: [{ who: "player", text: "Không đủ mười lần là thầy mời phụ huynh, nhớ đó!" }],
       },
     ],
     insideThought: "Năm lớp bảy mình chép phạt cả chục trang, tới giờ vẫn chẳng nhớ nổi một dòng nội quy. Mình nhận lỗi chứ, mình chỉ muốn bị phạt theo cách làm mình sửa được thật.",
@@ -669,6 +809,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Chi",
     npcRole: "Lớp trưởng",
+    title: "Giờ sinh hoạt của lớp",
+    beats: [
+      { text: "Cuối tuần, cả lớp uể oải chờ tới phần đọc tên vi phạm." },
+      { speaker: "Bạn", text: "Rồi, tới giờ sinh hoạt. Lớp trưởng lên đây." },
+      { speaker: "Chi", text: "Dạ, thầy cho em xin ý kiến một chút ạ." },
+    ],
     dialogue: "Thầy để tụi em tự điều hành giờ sinh hoạt nha, đọc lỗi mãi cả lớp ngán lắm.",
     options: [
       {
@@ -678,6 +824,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Chi cùng ban cán sự tổ chức buổi sinh hoạt sôi nổi, lớp tự nhận lỗi và đề xuất cách sửa. Em cảm thấy được tin tưởng giao quyền.",
         reply: "Dạ, tụi em làm trò chơi đầu giờ, rồi mỗi tổ tự nói tuần này làm được gì ạ.",
+        followUp: [{ who: "player", text: "Ừ, em lên kế hoạch rồi đưa thầy xem trước nha." }],
       },
       {
         id: "B",
@@ -686,6 +833,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Chi đồng ý chia thời gian. Em thấy lớp được tự chủ một phần mà thầy vẫn nắm được tình hình.",
         reply: "Dạ, vậy tụi em làm phần đầu, mười phút cuối để thầy ạ.",
+        followUp: [{ who: "player", text: "Ừ, mười phút cuối để thầy. Phần đầu là của lớp." }],
       },
       {
         id: "C",
@@ -694,6 +842,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Chi thôi không đề xuất gì nữa, buổi sinh hoạt vẫn nặng nề như cũ. Em cảm thấy ý kiến của lớp bị gạt đi.",
         reply: "Dạ… vậy thầy cứ đọc lỗi như mọi tuần ạ.",
+        followUp: [{ who: "player", text: "Sửa được lỗi rồi hẵng đòi tự điều hành." }],
       },
       {
         id: "D",
@@ -702,6 +851,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Chi xin thôi làm lớp trưởng, cả lớp ngồi im lặng trong các giờ sinh hoạt sau. Em cảm thấy vai trò của mình chỉ là hình thức.",
         reply: "Dạ, vậy thầy bầu lại đi ạ. Em cũng không muốn làm nữa.",
+        followUp: [{ who: "player", text: "Em nói vậy hả? Vậy tuần sau lớp bầu lại thật đó!" }],
       },
     ],
     insideThought: "Các bạn trách mình làm lớp trưởng mà chỉ biết đi ghi lỗi. Mình muốn có một buổi cả lớp được nói chuyện với nhau thật, để các bạn thấy mình cũng đứng về phía lớp.",
@@ -715,6 +865,12 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Khoa",
     npcRole: "Học sinh",
+    title: "Bài Sử làm thành podcast",
+    beats: [
+      { text: "Nhóm Khoa xin gặp thầy giờ ra chơi, đứa nào cũng hào hứng.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Nhóm em tính làm bài thuyết trình thế nào?" },
+      { speaker: "Khoa", text: "Dạ, tụi em định làm khác kiểu slide mọi khi ạ." },
+    ],
     dialogue: "Thầy ơi, bài thuyết trình Sử nhóm em làm podcast nha, làm slide chán lắm.",
     options: [
       {
@@ -724,6 +880,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Khoa hào hứng lên kịch bản, cả nhóm tìm tư liệu kỹ hơn hẳn. Em cảm thấy sự sáng tạo của nhóm được coi trọng.",
         reply: "Dạ, tụi em làm ba tập, mỗi tập kể một trận đánh. Tụi em gửi thầy kịch bản trước ạ.",
+        followUp: [{ who: "player", text: "Ừ, gửi thầy kịch bản trước. Tiêu chí chấm thầy ghi rõ cho nhóm." }],
       },
       {
         id: "B",
@@ -732,6 +889,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Khoa đồng ý nộp thêm dàn ý. Em thấy yêu cầu công bằng với các nhóm khác.",
         reply: "Dạ, tụi em nộp dàn ý với nguồn đầy đủ ạ.",
+        followUp: [{ who: "player", text: "Ừ, có nguồn đầy đủ thì thầy chấm như bài thuyết trình." }],
       },
       {
         id: "C",
@@ -740,6 +898,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Khoa làm slide cho có, cả nhóm mất hứng với bài. Em cảm thấy ý tưởng của nhóm bị xem là trò đùa.",
         reply: "Tụi em làm nghiêm túc mà thầy… Dạ, tụi em làm slide.",
+        followUp: [{ who: "player", text: "Slide cho đồng đều. Bày trò rồi nhóm khác lại kêu." }],
       },
       {
         id: "D",
@@ -748,6 +907,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Khoa nộp bài slide sơ sài, còn podcast thì cả nhóm làm riêng cho vui. Em cảm thấy nỗ lực của nhóm bị áp đặt và coi thường.",
         reply: "Dạ, làm slide. Còn podcast tụi em làm riêng, khỏi nộp thầy.",
+        followUp: [{ who: "player", text: "Làm riêng gì cũng vậy. Không theo mẫu là thầy không chấm!" }],
       },
     ],
     insideThought: "Trong nhóm có Lộc dựng âm thanh rất giỏi mà môn nào cũng điểm thấp. Mình muốn cả nhóm được làm đúng thứ tụi mình giỏi, để Lộc thấy mình cũng có giá trị.",
@@ -761,6 +921,12 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Lâm",
     npcRole: "Học sinh",
+    title: "Buổi học bù và tấm vé",
+    beats: [
+      { text: "Lâm lên bàn thầy, tay giấu cái điện thoại đang mở trang bán vé.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Em có gì muốn xin thầy hả Lâm?" },
+      { speaker: "Lâm", text: "Dạ… thứ Bảy này em xin nghỉ một buổi được không thầy?" },
+    ],
     dialogue: "Thầy ơi, cho em nghỉ học thêm sáng thứ Bảy nha, em đi xem concert ạ.",
     options: [
       {
@@ -770,6 +936,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Lâm chuẩn bị kế hoạch chu đáo hơn. Em cảm thấy được tin tưởng và có động lực chuẩn bị kế hoạch chu đáo hơn.",
         reply: "Dạ, em đi với ba bạn, có anh em dẫn. Chủ nhật em về, thứ Ba em học bù ạ.",
+        followUp: [{ who: "player", text: "Ừ, đi an toàn nha em. Thứ Ba em học bù." }],
       },
       {
         id: "B",
@@ -778,6 +945,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Lâm hợp tác. Em cảm thấy được tôn trọng nhưng vẫn có trách nhiệm tuân thủ những nguyên tắc đã thống nhất.",
         reply: "Dạ, em học bù chiều thứ Tư được không thầy?",
+        followUp: [{ who: "player", text: "Ừ, chiều thứ Tư thầy dạy bù cho em." }],
       },
       {
         id: "C",
@@ -786,6 +954,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Lâm giữ thái độ không đồng tình và khó chia sẻ với thầy. Em cảm thấy sở thích bị xem thường.",
         reply: "Dạ… vậy thôi em không nói với thầy nữa.",
+        followUp: [{ who: "player", text: "Thì đừng nói. Tiền đó để ôn thi còn hơn." }],
       },
       {
         id: "D",
@@ -794,6 +963,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Lâm tranh luận hoặc tự ý nghỉ mà không xin phép. Em cảm thấy mong muốn của mình bị bác bỏ hoàn toàn.",
         reply: "Em chỉ xin nghỉ một buổi thôi mà thầy.",
+        followUp: [{ who: "player", text: "Một buổi cũng không. Thầy nói rồi, khỏi bàn nữa!" }],
       },
     ],
     insideThought:
@@ -809,6 +979,12 @@ export const teacherSituations: Situation[] = [
     location: "Phòng giáo viên",
     npcName: "Phương",
     npcRole: "Học sinh",
+    title: "Bài văn viết chuyện nhà",
+    beats: [
+      { text: "Bài của Phương viết thật tới mức thầy đọc xong ngồi lặng một lúc." },
+      { speaker: "Bạn", text: "Bài này thầy muốn đọc cho cả lớp nghe." },
+      { speaker: "Phương", text: "Dạ?! Đọc trước lớp hả thầy?" },
+    ],
     dialogue: "Thầy đừng đọc bài văn của em trước lớp nha, bài đó em viết chuyện nhà em.",
     options: [
       {
@@ -818,6 +994,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Phương nhẹ nhõm, chọn để thầy giữ riêng và tin tưởng viết thật ở những bài sau. Em cảm thấy câu chuyện của mình được tôn trọng.",
         reply: "Dạ, thầy giữ riêng giùm em. Em cảm ơn thầy đã hỏi em ạ.",
+        followUp: [{ who: "player", text: "Ừ, thầy giữ riêng. Cảm ơn em đã tin thầy." }],
       },
       {
         id: "B",
@@ -826,6 +1003,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Phương đồng ý cho đọc đoạn không liên quan chuyện nhà. Em thấy thầy có cân nhắc cảm xúc của mình.",
         reply: "Dạ, đoạn mở bài thì được ạ. Đoạn sau thầy đừng đọc giùm em.",
+        followUp: [{ who: "player", text: "Ừ, thầy chỉ đọc mở bài, không nhắc tên em." }],
       },
       {
         id: "C",
@@ -834,6 +1012,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Phương cúi mặt suốt lúc thầy đọc, những bài sau chỉ viết chung chung cho an toàn. Em cảm thấy chuyện riêng bị đem ra làm ví dụ.",
         reply: "Dạ… lần sau em không viết chuyện thật nữa.",
+        followUp: [{ who: "player", text: "Viết hay thì chia sẻ, giấu làm gì cho uổng." }],
       },
       {
         id: "D",
@@ -842,6 +1021,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Phương bỏ ra ngoài khi thầy đọc, từ đó chỉ nộp văn mẫu chép trên mạng. Em cảm thấy lòng tin của mình bị phụ.",
         reply: "Vậy từ giờ em chép văn mẫu nộp thầy, khỏi ai biết gì.",
+        followUp: [{ who: "player", text: "Chép văn mẫu thử coi! Thầy cho điểm không ngay." }],
       },
     ],
     insideThought: "Đề bảo kể một kỷ niệm khó quên, nên mình viết thật chuyện bố mẹ ly thân. Viết cho thầy đọc thì được, nhưng đọc cho cả lớp nghe thì mai ai cũng nhìn mình khác.",
@@ -855,6 +1035,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Quân",
     npcRole: "Học sinh",
+    title: "Máy thư viện và ván game",
+    beats: [
+      { text: "Quân làm xong bài sớm, cứ ngó hoài về phía thư viện.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Bài xong hết rồi hả Quân?" },
+      { speaker: "Quân", text: "Dạ rồi ạ, em nộp cho thầy nãy giờ." },
+    ],
     dialogue: "Thầy ơi, em làm xong bài rồi, cho em chơi game chút trên máy thư viện nha.",
     options: [
       {
@@ -864,6 +1050,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Quân tự kiểm soát thời gian chơi. Em cảm thấy được tin tưởng và có trách nhiệm với quyết định của mình.",
         reply: "Dạ, em chơi ba mươi phút thôi, hết giờ em tự tắt ạ.",
+        followUp: [{ who: "player", text: "Ừ, ba mươi phút. Em tự tắt, thầy tin em." }],
       },
       {
         id: "B",
@@ -872,6 +1059,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Quân hợp tác. Em cảm thấy quyền giải trí vẫn được tôn trọng trong khuôn khổ phù hợp.",
         reply: "Dạ, em chơi tới giờ về thì tắt ạ.",
+        followUp: [{ who: "player", text: "Ừ, tới giờ về là tắt nha em." }],
       },
       {
         id: "C",
@@ -880,6 +1068,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Quân không đồng tình và giảm mong muốn chia sẻ với thầy. Em cảm thấy sở thích của mình bị phủ nhận hoàn toàn.",
         reply: "Em làm xong bài rồi mà thầy… Dạ, em không chơi.",
+        followUp: [{ who: "player", text: "Xong bài thì đọc sách. Game chỉ tổ nghiện thôi." }],
       },
       {
         id: "D",
@@ -888,6 +1077,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Quân phản kháng bằng cách chơi lén trên điện thoại hoặc tranh cãi. Em cảm thấy quyền giải trí bị tước bỏ hoàn toàn.",
         reply: "Dạ, em không chơi trên máy thư viện nữa ạ.",
+        followUp: [{ who: "player", text: "Trong trường là cấm hết. Thầy thấy là thầy tịch thu máy!" }],
       },
     ],
     insideThought:
@@ -903,6 +1093,12 @@ export const teacherSituations: Situation[] = [
     location: "Lớp học",
     npcName: "Trúc",
     npcRole: "Học sinh",
+    title: "Ở lại lớp tới tối",
+    beats: [
+      { text: "Tan học đã lâu, lớp chỉ còn Trúc ngồi lại với chồng sách.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Sao giờ này em còn ở đây Trúc?" },
+      { speaker: "Trúc", text: "Dạ, ở nhà ồn quá em không học được thầy." },
+    ],
     dialogue: "Thầy cho em ở lại lớp một mình ôn bài đến tối nha, em cần yên tĩnh.",
     options: [
       {
@@ -912,6 +1108,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Trúc cởi mở, hợp tác và chủ động báo thầy khi cần. Em cảm thấy được tôn trọng nhu cầu riêng tư và được tin tưởng.",
         reply: "Dạ, em ở tới bảy giờ. Có gì em lên phòng thầy ạ.",
+        followUp: [{ who: "player", text: "Ừ, bảy giờ thầy khoá cửa. Cần gì em lên phòng thầy." }],
       },
       {
         id: "B",
@@ -920,6 +1117,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Trúc hợp tác. Em cảm thấy nhu cầu riêng tư được ghi nhận nhưng vẫn đảm bảo sự kết nối với thầy.",
         reply: "Dạ, em cảm ơn thầy. Về em nhắn thầy ạ.",
+        followUp: [{ who: "player", text: "Ừ, thầy xếp cho em góc cuối lớp. Về nhớ nhắn thầy." }],
       },
       {
         id: "C",
@@ -928,6 +1126,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Trúc buồn bực hoặc không muốn chia sẻ với thầy nữa. Em cảm thấy bị nghi ngờ và thiếu sự tin tưởng.",
         reply: "Em chỉ muốn học yên thôi mà thầy nghĩ vậy…",
+        followUp: [{ who: "player", text: "Thầy hỏi cho chắc thôi. Ở lại một mình ai mà yên tâm." }],
       },
       {
         id: "D",
@@ -936,6 +1135,7 @@ export const teacherSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Trúc phản kháng hoặc tìm cách ôn bài giấu thầy ở nơi khác. Em cảm thấy quyền riêng tư bị xâm phạm.",
         reply: "Dạ… vậy thôi em về nhà học ạ.",
+        followUp: [{ who: "player", text: "Về nhà học đi. Ở lại một mình là thầy không cho đâu." }],
       },
     ],
     insideThought:

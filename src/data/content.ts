@@ -58,31 +58,28 @@ const VOICE_SWAP: Record<Role, Record<PlayerGender, [RegExp, string][]>> = {
 };
 
 // npcName and id are identity, not prose — a child called "Bo" must stay "Bo"
-const VERBATIM_FIELDS = new Set(["id", "npcName", "insideThoughtOwner", "context", "time"]);
+const VERBATIM_FIELDS = new Set(["id", "npcName", "insideThoughtOwner", "context", "time", "who"]);
 
 function swapText(text: string, rules: [RegExp, string][]): string {
   return rules.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), text);
 }
 
-function adaptSituation(situation: Situation, rules: [RegExp, string][]): Situation {
-  const out = { ...situation } as Record<string, unknown>;
-  for (const [key, value] of Object.entries(out)) {
-    if (VERBATIM_FIELDS.has(key)) continue;
-    if (typeof value === "string") out[key] = swapText(value, rules);
-    else if (Array.isArray(value)) {
-      out[key] = value.map((item) =>
-        typeof item === "object" && item !== null
-          ? Object.fromEntries(
-              Object.entries(item as Record<string, unknown>).map(([k, v]) => [
-                k,
-                typeof v === "string" && !VERBATIM_FIELDS.has(k) ? swapText(v, rules) : v,
-              ]),
-            )
-          : item,
-      );
-    }
+// walks the whole situation rather than its top two levels: an option's follow-up lines
+// are an array of objects nested inside an array of objects, and a depth-limited walk
+// left those calling a male parent "mẹ" while the rest of the same scene said "bố"
+function adaptValue(value: unknown, rules: [RegExp, string][]): unknown {
+  if (typeof value === "string") return swapText(value, rules);
+  if (Array.isArray(value)) return value.map((item) => adaptValue(item, rules));
+  if (typeof value === "object" && value !== null) {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>).map(([k, v]) => [k, VERBATIM_FIELDS.has(k) ? v : adaptValue(v, rules)]),
+    );
   }
-  return out as unknown as Situation;
+  return value;
+}
+
+function adaptSituation(situation: Situation, rules: [RegExp, string][]): Situation {
+  return adaptValue(situation, rules) as Situation;
 }
 
 // the swap runs over every string of all 20 situations, so it's done once per
@@ -162,11 +159,17 @@ export function pickWeekPlan(role: Role): DayPlan[] {
 
   return WEEK_ORDER.map((weekday) => {
     const usedToday = new Set<string>();
-    return {
-      weekday,
-      situationIds: Array.from({ length: randomSituationCount() }, () => deal(usedToday)),
-    };
+    const dealt = Array.from({ length: randomSituationCount() }, () => deal(usedToday));
+    // played in the order the clock puts them, so a day runs from morning to night rather
+    // than bouncing from the dinner table back to the school gate
+    return { weekday, situationIds: byClock(role, dealt) };
   });
+}
+
+/** the ids sorted by the time of day their situation happens */
+function byClock(role: Role, ids: string[]): string[] {
+  const timeOf = new Map(SITUATIONS_BY_ROLE[role].map((s) => [s.id, minutesOfDay(s.time)]));
+  return [...ids].sort((a, b) => (timeOf.get(a) ?? 0) - (timeOf.get(b) ?? 0));
 }
 
 function minutesOfDay(time: string): number {

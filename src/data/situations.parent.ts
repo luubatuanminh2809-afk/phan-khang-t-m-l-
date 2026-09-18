@@ -15,6 +15,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Tối muộn vẫn còn clip",
+    beats: [
+      { text: "Đèn phòng Bo vẫn sáng, tiếng video vọng ra tới ngoài hành lang.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Chín giờ rồi đó con." },
+      { speaker: "Bo", text: "Dạ… con vẫn đang coi dở nè mẹ." },
+    ],
     dialogue: "Mẹ ơi cho con xem nốt video này thôi, sắp hết rồi mà!",
     options: [
       {
@@ -25,6 +31,7 @@ export const parentSituations: Situation[] = [
         reaction:
           "Bo tự đặt báo thức/hẹn giờ và vui vẻ cất máy đúng cam kết. Con cảm thấy bản thân có quyền tự quyết và được tin tưởng, chủ động quản lý thời gian.",
         reply: "Dạ, mười giờ rưỡi con cất máy. Con tự hẹn giờ luôn nè mẹ.",
+        followUp: [{ who: "player", text: "Ừ, con tự hẹn giờ là mẹ yên tâm rồi." }],
       },
       {
         id: "B",
@@ -33,6 +40,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo chấp nhận thỏa thuận, sau 10 phút chủ động cất máy. Con cảm thấy được tôn trọng một phần vì có khoảng nghỉ, dễ chấp nhận tuân thủ.",
         reply: "Dạ, mười phút thôi. Hết là con cất liền.",
+        followUp: [{ who: "player", text: "Ừ, mười phút thôi nha. Mẹ canh giờ đó." }],
       },
       {
         id: "C",
@@ -42,6 +50,7 @@ export const parentSituations: Situation[] = [
         reaction:
           "Bo cố lướt thêm vài phút hoặc ấm ức cất máy nhưng giận dỗi không chịu ngủ. Con cảm thấy sở thích giải trí bị coi thường, dễ phản ứng bằng cách lách luật hoặc chống đối.",
         reply: "Có mấy phút nữa thôi mà mẹ… Thôi được, con cất là được chứ gì.",
+        followUp: [{ who: "player", text: "Còn cằn nhằn nữa hả? Học thì không lo, chỉ giỏi cãi." }],
       },
       {
         id: "D",
@@ -51,6 +60,7 @@ export const parentSituations: Situation[] = [
         reaction:
           "Bo giả vờ tắt máy, đợi mẹ đi khỏi sẽ trùm chăn bật độ sáng tối nhất để tiếp tục lướt. Con cảm thấy tức giận, bị đe dọa nghiêm trọng, dễ dẫn đến bất hợp tác hoàn toàn.",
         reply: "Rồi rồi, con tắt rồi nè. Mẹ ra ngoài đi.",
+        followUp: [{ who: "player", text: "Lần sau mẹ bắt gặp là mẹ cắt wifi cả nhà luôn đó!" }],
       },
     ],
     insideThought:
@@ -66,6 +76,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Lớp IELTS mẹ vừa hỏi",
+    beats: [
+      { text: "Tờ rơi trung tâm tiếng Anh còn để trên bàn phòng khách." },
+      { speaker: "Bạn", text: "Trung tâm chỗ này người ta khen dữ lắm, con thấy sao?" },
+      { speaker: "An", text: "Mẹ tính cho con đi học thêm nữa hả?" },
+    ],
     dialogue: "Mẹ ơi, bài trên trường đủ mệt rồi, con chưa muốn học thêm IELTS đâu.",
     options: [
       {
@@ -75,6 +91,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An chủ động chia sẻ mong muốn và tự giác lên lộ trình học tập. Con cảm thấy năng lực được công nhận và làm chủ kế hoạch cá nhân.",
         reply: "Chắc lên lớp mười con học. Giờ con muốn chắc môn trên trường trước đã mẹ.",
+        followUp: [{ who: "player", text: "Ừ, vậy mình để sang năm. Con cần gì thì nói mẹ." }],
       },
       {
         id: "B",
@@ -83,6 +100,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An cùng mẹ cân đối lại thời gian biểu để thu xếp đi học. Con nhận thức được tầm quan trọng nhưng vẫn lo lắng về lịch trình.",
         reply: "Hai buổi thì chắc con xếp được. Nhưng mẹ đừng cho thêm lớp nào nữa nha.",
+        followUp: [{ who: "player", text: "Được, hai buổi thôi. Mẹ không ghi thêm lớp nào nữa." }],
       },
       {
         id: "C",
@@ -91,6 +109,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An miễn cưỡng đến lớp ngồi đối phó nhưng hoàn toàn không tiếp thu bài. Con cảm thấy tự ti và bị thua kém qua góc nhìn của mẹ.",
         reply: "Dạ, con đi. Nhưng con học không vô đâu mẹ.",
+        followUp: [{ who: "player", text: "Không vô cũng phải học. Bạn người ta làm được sao con không?" }],
       },
       {
         id: "D",
@@ -99,6 +118,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An bỏ học, cố tình làm bài kém hoặc đến lớp chỉ nằm ngủ/chơi game. Con phẫn nộ, cảm thấy tương lai bị áp đặt và áp lực đè nặng.",
         reply: "Mẹ đóng tiền rồi thì mẹ đi học đi. Con không đi đâu.",
+        followUp: [{ who: "player", text: "Con nói lại câu đó coi! Không đi thì đừng xin mẹ tiền nữa!" }],
       },
     ],
     insideThought:
@@ -114,6 +134,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Người bạn mẹ không thích",
+    beats: [
+      { text: "Bo vừa về tới, kể cả buổi chiều đi sửa xe với Duy.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Cái bạn Duy đó… học hành sao rồi con?" },
+      { speaker: "Bo", text: "Mẹ hỏi vậy là lại sắp cấm con chơi với bạn ấy đúng không." },
+    ],
     dialogue: "Mẹ đừng cấm con chơi với Duy nữa. Bạn ấy học đuối thôi, đâu có hư.",
     options: [
       {
@@ -123,6 +149,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bo hào hứng kể về bạn và rủ Duy về nhà. Con cảm thấy mẹ tôn trọng lựa chọn bạn bè của mình, sẵn sàng chia sẻ khi có chuyện.",
         reply: "Duy sửa xe đạp giỏi lắm mẹ, xe con hỏng toàn nhờ bạn. Chủ nhật con rủ bạn qua nha.",
+        followUp: [{ who: "player", text: "Ừ, chủ nhật rủ bạn qua, mẹ nấu gì đó cho hai đứa ăn." }],
       },
       {
         id: "B",
@@ -131,6 +158,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo đồng ý và rủ bạn về nhà chơi. Con thấy mẹ còn lo nhưng vẫn cho mình giữ tình bạn.",
         reply: "Dạ, vậy tụi con chơi ở nhà mình. Miễn mẹ đừng hỏi bạn ấy điểm là được.",
+        followUp: [{ who: "player", text: "Ừ, mẹ không hỏi điểm bạn. Chơi ở nhà mình thôi nha." }],
       },
       {
         id: "C",
@@ -139,6 +167,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bo vẫn chơi với Duy nhưng giấu mẹ, nói dối là đi học nhóm. Con bực vì bạn thân bị đánh giá qua điểm số.",
         reply: "Bạn con mà mẹ gọi là nó. Được, chuyện bạn bè con không kể với mẹ nữa.",
+        followUp: [{ who: "player", text: "Mẹ nói vậy đó. Bạn bè kiểu đó thì bỏ đi cho mẹ nhờ." }],
       },
       {
         id: "D",
@@ -147,6 +176,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bo lén gặp bạn ở chỗ khác, càng gắn bó với Duy hơn vì thấy cả hai cùng bị cấm. Con cảm thấy bị kiểm soát và tức giận.",
         reply: "Mẹ càng cấm con càng chơi. Mẹ đâu có biết Duy tốt với con thế nào.",
+        followUp: [{ who: "player", text: "Giỏi! Mẹ khoá xe luôn, coi con đi kiểu gì." }],
       },
     ],
     insideThought: "Hồi đầu năm bị cả nhóm cô lập, chỉ có Duy ngồi ăn trưa với mình. Mẹ chỉ nhìn điểm của bạn ấy, còn mình thì nhớ ai đứng về phía mình lúc đó.",
@@ -160,6 +190,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Tấm ảnh trên Facebook",
+    beats: [
+      { text: "An cầm điện thoại bước ra, mặt xị xuống.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Gì mà mặt mày quạu vậy con?" },
+      { speaker: "An", text: "Tụi bạn con gửi cho con tấm ảnh mẹ đăng hôm qua." },
+    ],
     dialogue: "Mẹ gỡ ảnh con ngủ trên Facebook xuống đi, lần sau hỏi con trước khi đăng nha.",
     options: [
       {
@@ -169,6 +205,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An nhẹ nhõm và chủ động chọn ảnh đẹp cho mẹ đăng. Con cảm thấy hình ảnh của mình được tôn trọng.",
         reply: "Dạ, mẹ gỡ giùm con nha. Để con gửi mẹ mấy tấm con thích, mẹ đăng mấy tấm đó nè.",
+        followUp: [{ who: "player", text: "Ừ, con gửi đi, mẹ đăng mấy tấm đó thôi." }],
       },
       {
         id: "B",
@@ -177,6 +214,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An miễn cưỡng đồng ý, dặn mẹ những ảnh không được đăng. Con thấy mẹ có nhượng bộ nhưng vẫn còn ngại.",
         reply: "Dạ… vậy mẹ để chỉ người nhà xem thôi. Mà mấy tấm lúc ngủ thì mẹ đừng đăng nữa nha.",
+        followUp: [{ who: "player", text: "Ừ, mẹ để chế độ người nhà, ảnh con ngủ mẹ gỡ rồi." }],
       },
       {
         id: "C",
@@ -185,6 +223,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An cáu, chặn mẹ khỏi xem tin, không cho mẹ chụp ảnh mình nữa. Con cảm thấy cảm xúc của mình bị xem nhẹ.",
         reply: "Mẹ đâu có bị tụi nó chọc cả ngày. Từ giờ mẹ đừng chụp con nữa.",
+        followUp: [{ who: "player", text: "Có gì đâu mà con làm quá vậy? Nhạy cảm vừa thôi." }],
       },
       {
         id: "D",
@@ -193,6 +232,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An chặn mẹ trên mạng, lập tài khoản riêng và thôi chia sẻ chuyện của mình với mẹ. Con cảm thấy bị xúc phạm và mất lòng tin.",
         reply: "Vậy con chặn mẹ luôn. Chuyện gì của con mẹ cũng đem lên mạng hết.",
+        followUp: [{ who: "player", text: "Con dám chặn mẹ hả? Chặn thì mẹ thu máy luôn!" }],
       },
     ],
     insideThought: "Sáng nay vào lớp, tụi nó lấy tấm đó làm ảnh chế gửi khắp nhóm. Mình biết mẹ thương mới đăng, nhưng người bị cười cả ngày là mình chứ đâu phải mẹ.",
@@ -206,6 +246,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Lớp boxing đầu ngõ",
+    beats: [
+      { text: "Bo mở đi mở lại một đoạn video tập boxing trên điện thoại.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Coi gì mà say sưa vậy con?" },
+      { speaker: "Bo", text: "Phòng tập đầu ngõ mới mở lớp đó mẹ." },
+    ],
     dialogue: "Mẹ ơi, con muốn học boxing ở phòng tập đầu ngõ, con tự đạp xe đi được.",
     options: [
       {
@@ -215,6 +261,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bo háo hức dẫn mẹ đi xem, tự tìm hiểu đồ bảo hộ. Con cảm thấy sở thích của mình được coi trọng.",
         reply: "Dạ! Thứ Bảy mẹ đi với con nha. Con hỏi luôn họ có bắt đeo mũ bảo hộ không.",
+        followUp: [{ who: "player", text: "Ừ, thứ Bảy mình qua coi. Con hỏi kỹ giùm mẹ nha." }],
       },
       {
         id: "B",
@@ -223,6 +270,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo đồng ý điều kiện, tập đều và giữ giờ học. Con thấy được tin tưởng trong giới hạn rõ ràng.",
         reply: "Dạ, một tháng thôi, con không bỏ bài đâu. Hết tháng con cho mẹ xem điểm.",
+        followUp: [{ who: "player", text: "Ừ, một tháng. Có đồ bảo hộ đủ mẹ mới cho tập." }],
       },
       {
         id: "C",
@@ -231,6 +279,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bo ấm ức, lên mạng xem video tự tập trong phòng. Con cảm thấy bị nghĩ xấu về ý định của mình.",
         reply: "Con học cho khỏe chứ có đi đánh ai đâu. Thôi, con tự tập theo video.",
+        followUp: [{ who: "player", text: "Khỏe gì mà khỏe. Đấm đá vô rồi sinh hư, mẹ nói không là không." }],
       },
       {
         id: "D",
@@ -239,6 +288,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bo mượn tiền bạn để lén đi học, giấu đồ tập ở nhà bạn. Con cảm thấy bị kiểm soát và tức giận.",
         reply: "Mẹ khóa xe thì con đi bộ. Con vẫn tập, mẹ không cản được đâu.",
+        followUp: [{ who: "player", text: "Đi bộ thử coi! Mẹ cắt luôn tiền tiêu vặt của con." }],
       },
     ],
     insideThought: "Ở lớp có mấy đứa to con hay chặn đường xin tiền mình. Mình không dám kể vì sợ mẹ lên trường làm lớn chuyện, nên chỉ muốn tự mạnh lên thôi.",
@@ -252,6 +302,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Đám giỗ hay bài kiểm tra",
+    beats: [
+      { text: "Bốn giờ chiều, cả nhà bắt đầu thay đồ để qua nhà ông bà." },
+      { speaker: "Bạn", text: "Con thay đồ đi, lát nhà mình qua ông bà." },
+      { speaker: "An", text: "Mai con có bài kiểm tra mà mẹ." },
+    ],
     dialogue: "Mẹ ơi, tối nay con ở nhà ôn bài, không đi đám giỗ đâu, mai con kiểm tra.",
     options: [
       {
@@ -261,6 +317,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An tự giác sắp xếp công việc để có mặt nếu rảnh. Con cảm thấy vị thế cá nhân và lịch trình học tập được tôn trọng.",
         reply: "Dạ, học xong mà còn sớm thì con qua. Không thì mẹ xin ông bà giùm con nha.",
+        followUp: [{ who: "player", text: "Ừ, con học đi. Mẹ xin ông bà giùm cho." }],
       },
       {
         id: "B",
@@ -269,6 +326,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An chấp nhận sang chào hỏi chu đáo rồi xin phép về sớm. Con thấy mẹ linh hoạt, không bắt ở lại trọn vẹn.",
         reply: "Dạ, vậy con qua chào ông bà xong con về học liền nha mẹ.",
+        followUp: [{ who: "player", text: "Ừ, chào ông bà một tiếng rồi mẹ chở về liền." }],
       },
       {
         id: "C",
@@ -277,6 +335,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An đi theo nhưng ngồi cắm mặt vào điện thoại suốt buổi. Con khó chịu vì bị gán nhãn 'lười/không biết phép tắc'.",
         reply: "Con lười hồi nào đâu mẹ, con có bài kiểm tra mà. Thôi, con đi là được.",
+        followUp: [{ who: "player", text: "Bài vở gì cũng viện cớ. Đi cho mẹ khỏi mất mặt với họ hàng." }],
       },
       {
         id: "D",
@@ -285,6 +344,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An cố thủ trong phòng không ra, hoặc đến tiệc với bộ mặt sưng sỉu. Con tức giận vì bị đe dọa tài chính.",
         reply: "Mẹ cắt tiền thì cắt đi. Con đi cũng ngồi một góc thôi.",
+        followUp: [{ who: "player", text: "Ngồi đâu thì ngồi. Năm giờ không lên xe là mẹ cắt tiền thật đó." }],
       },
     ],
     insideThought:
@@ -300,6 +360,12 @@ export const parentSituations: Situation[] = [
     location: "Cửa nhà",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Sinh nhật và đêm ngủ lại",
+    beats: [
+      { text: "An đứng tần ngần ở cửa, xoay xoay cái điện thoại trong tay.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Có gì thì nói đi con, đứng đó nãy giờ." },
+      { speaker: "An", text: "Dạ… tối nay sinh nhật nhỏ Chi mẹ ơi." },
+    ],
     dialogue: "Mẹ ơi, tối nay con đi sinh nhật Chi rồi ngủ lại nhà bạn ấy luôn nha.",
     options: [
       {
@@ -309,6 +375,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An chủ động minh bạch thông tin bạn bè và thảo luận với mẹ. Con cảm thấy mẹ quan tâm đến an toàn thực tế chứ không cấm đoán mù mịt.",
         reply: "Dạ, con gửi mẹ địa chỉ nhà Chi với số điện thoại nhà bạn ấy luôn. Mẹ gọi hỏi cũng được á.",
+        followUp: [{ who: "player", text: "Ừ, con gửi đi. Mẹ gọi hỏi một tiếng rồi mình tính tiếp." }],
       },
       {
         id: "B",
@@ -317,6 +384,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An vui vẻ dự tiệc đến 10h rồi chủ động về. Con thấy an tâm vì mẹ vẫn cho đi chơi nhưng có giới hạn an toàn.",
         reply: "Dạ, mười giờ mẹ đón con nha. Vậy cũng được rồi.",
+        followUp: [{ who: "player", text: "Ừ, mười giờ mẹ tới đón, con ra cổng sẵn nha." }],
       },
       {
         id: "C",
@@ -325,6 +393,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An nói dối lý do để vẫn được đi. Con thấy mẹ cổ hủ, khắt khe vô lý.",
         reply: "Dạ… tối nay con qua nhà Chi học nhóm thôi, không ngủ lại đâu mẹ.",
+        followUp: [{ who: "player", text: "Học nhóm gì giờ đó! Chín giờ mẹ không thấy con ở nhà là biết tay." }],
       },
       {
         id: "D",
@@ -333,6 +402,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An cố tình đi luôn bất chấp, tắt máy không liên lạc để trả đũa. Con bức xúc vì bị đối xử như đứa trẻ mất tự do.",
         reply: "Mẹ khoá thì khoá. Con đi rồi, mẹ gọi con không nghe đâu.",
+        followUp: [{ who: "player", text: "Con bước ra là mẹ khoá cửa thật đó, đừng gọi mẹ mở!" }],
       },
     ],
     insideThought:
@@ -348,6 +418,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Mật khẩu điện thoại của con",
+    beats: [
+      { text: "Bo vừa để điện thoại xuống bàn thì màn hình sáng lên một loạt tin." },
+      { speaker: "Bạn", text: "Nhóm nào mà nhắn dữ vậy con?" },
+      { speaker: "Bo", text: "Nhóm lớp thôi mà mẹ, mẹ đừng cầm máy con." },
+    ],
     dialogue: "Sao mẹ cứ đòi xem điện thoại con vậy, con có làm gì sai đâu?",
     options: [
       {
@@ -357,6 +433,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bo tự nguyện tìm mẹ tâm sự khi gặp khó khăn. Con cảm thấy có chỗ dựa an toàn khi gặp rắc rối.",
         reply: "Dạ. Có vụ này trên nhóm lớp con đang thấy kỳ kỳ, để lát con kể mẹ nghe.",
+        followUp: [{ who: "player", text: "Ừ, lát kể mẹ nghe. Có gì mẹ con mình cùng tính." }],
       },
       {
         id: "B",
@@ -365,6 +442,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo đồng ý kết bạn nhưng cài đặt hạn chế một số bài đăng. Con hiểu nỗi lo của mẹ về cạm bẫy mạng.",
         reply: "Dạ, con kết bạn mẹ. Mà mẹ đừng bình luận vô bài con nha.",
+        followUp: [{ who: "player", text: "Ừ, mẹ không bình luận đâu. Mẹ coi cho yên tâm thôi." }],
       },
       {
         id: "C",
@@ -373,6 +451,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bo đưa tài khoản 'sạch' cho mẹ, dời mọi chuyện sang nick phụ. Con cảm thấy không được tin tưởng.",
         reply: "Dạ đây, mẹ xem đi. Có gì đâu mà mẹ lo.",
+        followUp: [{ who: "player", text: "Con nít thì đừng bày đặt khoá máy. Mẹ xem là quyền của mẹ." }],
       },
       {
         id: "D",
@@ -381,6 +460,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bo khóa máy hoàn toàn, xóa sạch dữ liệu hoặc đặt mật khẩu nhiều lớp hơn. Con bị xúc phạm quyền riêng tư nghiêm trọng.",
         reply: "Máy của con mà mẹ. Mẹ thu thì thu, con không mở đâu.",
+        followUp: [{ who: "player", text: "Không mở hả? Mẹ thu máy, cắt mạng luôn cho biết!" }],
       },
     ],
     insideThought:
@@ -396,6 +476,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Mô hình nhóm nhạc",
+    beats: [
+      { text: "An mở giỏ hàng khoe cái mô hình để dành mấy tháng nay.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Cái này bao nhiêu mà con để dành lâu vậy?" },
+      { speaker: "An", text: "Tám trăm ngàn á mẹ, con để dành gần đủ rồi." },
+    ],
     dialogue: "Mẹ ơi, con dùng tiền tiết kiệm mua mô hình nhóm nhạc con thích nha.",
     options: [
       {
@@ -405,6 +491,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An cân nhắc cẩn thận trước khi mua. Con học được cách quản lý tài chính cá nhân.",
         reply: "Để con tính lại, còn thiếu một chút. Chắc con để dành thêm tháng nữa mẹ.",
+        followUp: [{ who: "player", text: "Ừ, để dành thêm đi. Đủ rồi mua, mẹ không cản." }],
       },
       {
         id: "B",
@@ -413,6 +500,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An tập trung học tập để đạt kết quả tốt. Con có mục tiêu rõ ràng để phấn đấu.",
         reply: "Thật hả mẹ? Vậy học kỳ này con cố lên học sinh giỏi.",
+        followUp: [{ who: "player", text: "Ừ, cố lên. Đạt là mẹ bù phần còn thiếu cho con." }],
       },
       {
         id: "C",
@@ -421,6 +509,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An lén lút mua và nhờ bạn nhận hộ. Con uất ức vì cảm xúc cá nhân bị bác bỏ.",
         reply: "Tiền con tự để dành mà mẹ. Con thích nhóm đó thì có sao đâu.",
+        followUp: [{ who: "player", text: "Tiền gì cũng là tiền mẹ cho. Đu idol miết rồi học hành ra sao?" }],
       },
       {
         id: "D",
@@ -429,6 +518,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An tranh cãi nảy lửa hoặc giấu đồ gửi sang nhà bạn. Con tức giận vì sở thích tinh thần bị xem thường.",
         reply: "Đồ con thích mà mẹ gọi là rác. Được, con không gửi về nhà nữa.",
+        followUp: [{ who: "player", text: "Rác chứ gì nữa! Còn gửi về nhà là mẹ vứt hết đó!" }],
       },
     ],
     insideThought:
@@ -444,6 +534,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Phòng chưa dọn, trận chưa xong",
+    beats: [
+      { text: "Phòng Bo đồ bày kín sàn, tiếng game vọng ra tới phòng khách." },
+      { speaker: "Bạn", text: "Phòng ốc gì vầy nè con." },
+      { speaker: "Bo", text: "Con đang giữa trận mà mẹ." },
+    ],
     dialogue: "Mẹ ơi, đánh xong trận game này con dọn phòng sau nha.",
     options: [
       {
@@ -453,6 +549,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bo chủ động hẹn giờ dọn dẹp. Con cảm thấy được tôn trọng khi đang dở việc của mình.",
         reply: "Mười lăm phút nữa xong trận là con dọn liền. Mẹ nhắc con nha.",
+        followUp: [{ who: "player", text: "Ừ, mười lăm phút nữa mẹ nhắc con một tiếng." }],
       },
       {
         id: "B",
@@ -461,6 +558,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo chơi xong trận rồi vui vẻ dọn dẹp. Con nhận ra lợi ích của việc ngăn nắp.",
         reply: "Ờ cũng đúng. Để con dọn sơ rồi học.",
+        followUp: [{ who: "player", text: "Ừ, dọn sơ thôi rồi ngồi vào bàn nha con." }],
       },
       {
         id: "C",
@@ -469,6 +567,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bo dọn dẹp qua loa, nhét hết đồ vào hộc tủ. Con cảm thấy bị ép buộc.",
         reply: "Rồi, con dọn rồi. Con ra được chưa?",
+        followUp: [{ who: "player", text: "Lớn rồi mà nhắc cả chục lần mới chịu làm." }],
       },
       {
         id: "D",
@@ -477,6 +576,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bo bướng bỉnh không dọn, cố tình để phòng bừa hơn. Con mất hứng hoàn toàn, ức chế vì lời lẽ nặng nề.",
         reply: "Chuồng heo thì con ở chuồng heo. Mẹ vứt đi, con không dọn đâu.",
+        followUp: [{ who: "player", text: "Con nói lại coi! Mai mẹ vứt hết đống đồ đó ra đường!" }],
       },
     ],
     insideThought:
@@ -492,6 +592,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Buổi xem phim thứ Bảy",
+    beats: [
+      { text: "An ngồi kế bên, ngập ngừng một hồi mới mở lời.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Nói đi con, có gì mà úp mở." },
+      { speaker: "An", text: "Dạ… con quen một bạn học chung lớp tiếng Anh." },
+    ],
     dialogue: "Mẹ ơi, thứ Bảy con đi xem phim với Khôi nha, tụi con đang tìm hiểu nhau.",
     options: [
       {
@@ -501,6 +607,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An cởi mở kể về bạn, chủ động báo giờ về. Con cảm thấy được tin tưởng nên không cần giấu mẹ.",
         reply: "Bạn ấy học chung lớp tiếng Anh với con á. Tụi con xem suất bảy giờ, chín giờ là con về.",
+        followUp: [{ who: "player", text: "Ừ, chín giờ con về nha. Đi vui rồi kể mẹ nghe." }],
       },
       {
         id: "B",
@@ -509,6 +616,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An đồng ý rủ thêm bạn đi cùng. Con thấy mẹ còn lo nhưng vẫn tôn trọng chuyện tình cảm của mình.",
         reply: "Dạ, con rủ thêm Chi đi chung. Chín giờ con về, mà mẹ đừng gọi con liên tục nha.",
+        followUp: [{ who: "player", text: "Ừ, mẹ gọi một lần thôi. Chín giờ con về là được." }],
       },
       {
         id: "C",
@@ -517,6 +625,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An nói dối là đi học nhóm để gặp bạn. Con cảm thấy tình cảm của mình bị coi thường, càng muốn giấu kín.",
         reply: "Con có bỏ học đâu mà mẹ nói vậy. Thôi, từ giờ chuyện của con, con không kể nữa.",
+        followUp: [{ who: "player", text: "Chưa gì đã giận. Lo thi vô mười đi, yêu đương gì tuổi này!" }],
       },
       {
         id: "D",
@@ -525,6 +634,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An lén nhắn tin bằng máy của bạn, càng gắn bó với Khôi vì thấy mình bị cấm cản. Con cảm thấy xấu hổ và giận dữ.",
         reply: "Mẹ lên trường là cả trường biết. Mẹ làm vậy thì con không dám nhìn mặt ai nữa.",
+        followUp: [{ who: "player", text: "Cho cả trường biết luôn! Còn đi với nó là mẹ lên thật đó." }],
       },
     ],
     insideThought: "Mình kể thật là vì không muốn phải nói dối mẹ. Nếu lần này bị cấm, lần sau có chuyện gì mình cũng sẽ tự giấu, kể cả chuyện mình cần mẹ nhất.",
@@ -538,6 +648,12 @@ export const parentSituations: Situation[] = [
     location: "Bàn ăn",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Chén canh bổ trên bàn",
+    beats: [
+      { text: "Chén canh thuốc bắc nguội dần trên bàn, vẫn còn đầy." },
+      { speaker: "Bạn", text: "Canh này mẹ hầm từ chiều đó, ăn đi con." },
+      { speaker: "Bo", text: "Mùi thuốc bắc nồng quá mẹ ơi." },
+    ],
     dialogue: "Con no rồi mẹ ơi, chén canh bổ này con không ăn hết đâu.",
     options: [
       {
@@ -547,6 +663,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bo thoải mái góp ý cách chế biến. Con cảm thấy khẩu vị và cơ thể mình được tôn trọng.",
         reply: "Canh này hơi đắng mẹ ơi. Lần sau mẹ bỏ ít thuốc bắc thôi được không?",
+        followUp: [{ who: "player", text: "Ừ, lần sau mẹ bỏ ít thuốc bắc lại cho dễ ăn." }],
       },
       {
         id: "B",
@@ -555,6 +672,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo cố gắng ăn hết dù không thích. Con cảm nhận được tình thương của mẹ.",
         reply: "Dạ… để con ráng uống hết.",
+        followUp: [{ who: "player", text: "Ráng chút thôi con, mai mẹ nấu món con thích." }],
       },
       {
         id: "C",
@@ -563,6 +681,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bo đẩy bát đĩa ra, nhất quyết không ăn. Con tự ti về ngoại hình, bức xúc.",
         reply: "Con không ăn nữa. Lúc nào mẹ cũng chê con gầy.",
+        followUp: [{ who: "player", text: "Gầy thật chứ mẹ chê gì. Ăn hết đi cho mẹ nhờ." }],
       },
       {
         id: "D",
@@ -571,6 +690,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bo giả vờ uống rồi nhè ra, hoặc đổ lén vào nhà vệ sinh. Con sợ hãi, thấy bị cưỡng ép.",
         reply: "Dạ con uống rồi nè mẹ.",
+        followUp: [{ who: "player", text: "Còn bỏ mứa nữa là khỏi đi chơi đâu hết, nghe chưa!" }],
       },
     ],
     insideThought:
@@ -586,6 +706,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng khách",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Nguyện vọng của con",
+    beats: [
+      { text: "An đưa tờ đăng ký nguyện vọng, tay còn cầm cây bút.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Rồi, con tính ghi ngành gì đây?" },
+      { speaker: "An", text: "Con tìm hiểu mấy tháng nay rồi mẹ." },
+    ],
     dialogue: "Mẹ ơi, con muốn thi Truyền thông chứ không thi Y đâu, con tìm hiểu kỹ rồi.",
     options: [
       {
@@ -595,6 +721,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An nghiêm túc làm kế hoạch nghề nghiệp. Con có trách nhiệm với ước mơ của mình.",
         reply: "Con đọc kỹ rồi mẹ. Con liệt kê mấy trường có ngành đó, tối nay con đưa mẹ xem nha.",
+        followUp: [{ who: "player", text: "Ừ, tối con đưa mẹ xem. Con thích thì mẹ theo con." }],
       },
       {
         id: "B",
@@ -603,6 +730,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An nghiên cứu lại thị trường lao động. Con cần thêm thông tin thực tế.",
         reply: "Dạ, để con tìm hiểu thêm ra trường làm gì, lương sao rồi con nói lại mẹ.",
+        followUp: [{ who: "player", text: "Ừ, tìm hiểu kỹ rồi nói lại mẹ, mình bàn tiếp." }],
       },
       {
         id: "C",
@@ -611,6 +739,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An đăng ký ngành mẹ chọn nhưng học đối phó. Con mất định hướng, học trong hoài nghi.",
         reply: "Dạ, con đăng ký như mẹ muốn. Nhưng con không biết học để làm gì nữa.",
+        followUp: [{ who: "player", text: "Học rồi khắc biết. Ngành đó vô là thất nghiệp, nghe mẹ đi." }],
       },
       {
         id: "D",
@@ -619,6 +748,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An bỏ học, buông xuôi kết quả thi cử. Con tuyệt vọng về tương lai, phẫn nộ.",
         reply: "Vậy mẹ đi thi Y đi. Con không học nữa.",
+        followUp: [{ who: "player", text: "Hỗn vừa thôi! Không thi Y thì mẹ không lo cho học nữa!" }],
       },
     ],
     insideThought:
@@ -634,6 +764,12 @@ export const parentSituations: Situation[] = [
     location: "Bàn học",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Shop online của hai đứa",
+    beats: [
+      { text: "Trên bàn Bo bày một đống móc khoá với mấy cuộn dây." },
+      { speaker: "Bạn", text: "Chỗ này là gì vậy con?" },
+      { speaker: "Bo", text: "Hàng của tụi con đó mẹ, con với Tùng mới lấy về." },
+    ],
     dialogue: "Mẹ ơi, con với Tùng mở shop bán móc khóa online, mẹ để tụi con tự làm nha.",
     options: [
       {
@@ -643,6 +779,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bo tự lập bảng tính vốn, tiền lời, chia giờ làm và giờ học. Con cảm thấy được coi như người lớn, có trách nhiệm với việc mình chọn.",
         reply: "Dạ, vốn hai trăm nghìn, con với Tùng chia đôi. Tối thứ Bảy mới làm, ngày thường con học.",
+        followUp: [{ who: "player", text: "Ừ, giữ đúng vậy nha. Cần gì con nói mẹ phụ." }],
       },
       {
         id: "B",
@@ -651,6 +788,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo đồng ý cho mẹ cùng quản lý tài khoản. Con thấy mẹ ủng hộ nhưng vẫn muốn kiểm soát một phần.",
         reply: "Dạ, mẹ giữ mật khẩu cũng được. Mà mẹ đừng tự nhắn trả lời khách giùm con nha.",
+        followUp: [{ who: "player", text: "Ừ, mẹ không nhắn khách đâu. Một tháng rồi mình xem lại." }],
       },
       {
         id: "C",
@@ -659,6 +797,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bo vẫn bán lén qua tài khoản của Tùng. Con cảm thấy bị xem là trẻ con, không đủ khả năng.",
         reply: "Con tìm hiểu kỹ rồi mà mẹ. Thôi, con để Tùng đứng tên bán vậy.",
+        followUp: [{ who: "player", text: "Kỹ gì mà kỹ. Lo học đi, buôn bán để lớn rồi tính." }],
       },
       {
         id: "D",
@@ -667,6 +806,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bo giấu đồ ở nhà Tùng, lập tài khoản khác để bán. Con tức giận vì công sức và ý tưởng của mình bị dập tắt.",
         reply: "Tiền vốn là tiền con tự để dành mà. Mẹ tịch thu thì con qua nhà Tùng làm.",
+        followUp: [{ who: "player", text: "Còn bán nữa là mẹ khoá máy, qua nhà Tùng mẹ cũng nói chuyện luôn!" }],
       },
     ],
     insideThought: "Lớp mình có mấy đứa bán sticker kiếm được tiền, tụi nó được nể lắm. Mình chỉ muốn tự làm ra một thứ của riêng mình, chứ không phải lúc nào cũng chìa tay xin tiền.",
@@ -680,6 +820,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Định vị trên máy con",
+    beats: [
+      { text: "An đi học thêm về, vừa để cặp xuống là quay qua hỏi ngay.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Sao vậy con, đi học vui không?" },
+      { speaker: "An", text: "Tụi bạn nói mẹ coi định vị của con hoài." },
+    ],
     dialogue: "Mẹ tắt định vị trên máy con đi, đi đâu con cũng nhắn mẹ mà.",
     options: [
       {
@@ -689,6 +835,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An tự đề xuất cách báo tin và giữ đúng lời hứa. Con cảm thấy được tin tưởng nên chủ động liên lạc.",
         reply: "Đi đâu con nhắn mẹ trước, tới nơi con chụp ảnh gửi mẹ. Vậy mẹ tắt định vị cho con nha.",
+        followUp: [{ who: "player", text: "Ừ, làm vậy là được. Mẹ tắt định vị cho con." }],
       },
       {
         id: "B",
@@ -697,6 +844,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An đồng ý bật định vị khi đi tối. Con thấy mẹ có giới hạn hợp lý, không theo dõi từng bước.",
         reply: "Dạ, đi tối con bật. Còn đi học thì mẹ đừng mở ra coi con đang ở đâu nha.",
+        followUp: [{ who: "player", text: "Ừ, ngày thường mẹ không mở coi. Đi xa thì con bật nha." }],
       },
       {
         id: "C",
@@ -705,6 +853,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An để điện thoại ở nhà bạn khi đi chơi hoặc tắt máy. Con cảm thấy bị nghi ngờ, không được tin.",
         reply: "Con có làm gì sai đâu. Mẹ không tin con thì thôi, đi đâu con để máy ở nhà luôn.",
+        followUp: [{ who: "player", text: "Không sai thì sợ gì? Mẹ vẫn để đó, khỏi bàn nữa." }],
       },
       {
         id: "D",
@@ -713,6 +862,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An tìm cách làm giả vị trí và giấu lịch trình thật. Con cảm thấy như bị giám sát, mất hết riêng tư.",
         reply: "Vậy mẹ thu máy đi. Con mượn máy bạn liên lạc, mẹ theo dõi cũng không được.",
+        followUp: [{ who: "player", text: "Mượn máy bạn hả? Mẹ gọi mẹ bạn luôn cho biết!" }],
       },
     ],
     insideThought: "Hôm trước mình ghé nhà sách có năm phút mà mẹ gọi liền hỏi sao không về thẳng. Mình chẳng làm gì sai, chỉ thấy như lúc nào cũng có người đứng sau lưng.",
@@ -726,6 +876,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Kênh TikTok giải Rubik",
+    beats: [
+      { text: "Bo quay xong một đoạn giải Rubik, ngồi cắt clip trên máy.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Quay để làm gì vậy con?" },
+      { speaker: "Bo", text: "Con mở kênh riêng rồi mẹ, được mấy trăm người coi lận." },
+    ],
     dialogue: "Mẹ ơi, con mở kênh TikTok giải Rubik, để công khai nha, riêng tư thì ai xem.",
     options: [
       {
@@ -735,6 +891,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bo cùng mẹ tắt vị trí trong video, chặn tin nhắn người lạ và tự tin quản lý kênh. Con cảm thấy được tin tưởng và biết cách tự bảo vệ.",
         reply: "Dạ, con chỉ quay tay thôi, không quay mặt. Tin nhắn người lạ con tắt luôn, mẹ yên tâm nha.",
+        followUp: [{ who: "player", text: "Ừ, vậy mẹ yên tâm. Có ai nhắn lạ thì nói mẹ nha." }],
       },
       {
         id: "B",
@@ -743,6 +900,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo đồng ý cho mẹ theo dõi kênh. Con thấy mẹ ủng hộ nhưng vẫn hơi ngại vì bị nhìn.",
         reply: "Dạ, mẹ theo dõi cũng được. Mà mẹ đừng vào bình luận trên video của con nha.",
+        followUp: [{ who: "player", text: "Ừ, mẹ chỉ coi thôi, không bình luận đâu." }],
       },
       {
         id: "C",
@@ -751,6 +909,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bo lập kênh khác bằng tên giả mà mẹ không biết. Con cảm thấy đam mê của mình bị xem là vô bổ.",
         reply: "Con quay có mười phút mỗi tối thôi mà. Thôi, con lập kênh khác mẹ khỏi biết.",
+        followUp: [{ who: "player", text: "Mười phút gì, cả buổi cầm máy. Để riêng tư, mẹ nói một lần thôi." }],
       },
       {
         id: "D",
@@ -759,6 +918,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bo mượn điện thoại bạn để quay và đăng lén. Con tức giận vì sở thích bị cấm đoán hoàn toàn.",
         reply: "Mẹ thu máy thì con quay bằng máy bạn. Kênh của con, con vẫn đăng.",
+        followUp: [{ who: "player", text: "Còn đăng là mẹ xoá app, thu điện thoại thật đó!" }],
       },
     ],
     insideThought: "Mình giải Rubik nhanh nhất lớp mà chẳng ai biết. Có một video được vài trăm lượt thích, lần đầu tiên mình thấy mình giỏi một thứ gì đó. Mình sợ bị tắt mất cảm giác ấy.",
@@ -772,6 +932,12 @@ export const parentSituations: Situation[] = [
     location: "Cửa nhà",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Chiếc xe điện đi học",
+    beats: [
+      { text: "Sáng nào An cũng chạy vội ra bến xe buýt, hôm nay lại trễ." },
+      { speaker: "Bạn", text: "Lại trễ xe nữa hả con?" },
+      { speaker: "An", text: "Xe buýt đông với chạy lâu quá mẹ." },
+    ],
     dialogue: "Mẹ ơi, cho con tự đi xe điện đi học nha, xe buýt lâu quá con toàn trễ.",
     options: [
       {
@@ -781,6 +947,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An đi xe cẩn thận, đội mũ bảo hiểm. Con nhận thức sâu sắc về an toàn.",
         reply: "Dạ, con thuộc luật mà. Con hứa đội mũ, chạy chậm, tới trường con nhắn mẹ.",
+        followUp: [{ who: "player", text: "Ừ, đội mũ với chạy chậm giùm mẹ. Tới trường nhắn mẹ một tiếng." }],
       },
       {
         id: "B",
@@ -789,6 +956,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An đồng ý để mẹ chở hoặc đi xe buýt. Con thông cảm cho nỗi lo của mẹ.",
         reply: "Dạ… thôi mẹ chở con cũng được. Con hiểu mẹ lo.",
+        followUp: [{ who: "player", text: "Ừ, để mẹ chở thêm ít bữa rồi mình tính lại." }],
       },
       {
         id: "C",
@@ -797,6 +965,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An đi xe buýt với thái độ hậm hực. Con bất mãn vì sự cấm đoán cứng nhắc.",
         reply: "Bạn con đi xe điện hết rồi mẹ. Thôi, con đi xe buýt vậy.",
+        followUp: [{ who: "player", text: "Bạn con là chuyện của bạn con. Chưa đủ tuổi thì đừng đòi." }],
       },
       {
         id: "D",
@@ -805,6 +974,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An lén lấy chìa khóa đi chui hoặc mượn xe bạn. Con uất ức vì bị coi thường năng lực.",
         reply: "Mẹ tịch thu thì con mượn xe bạn. Con đi được mà.",
+        followUp: [{ who: "player", text: "Con mà đụng vô xe là mẹ nhốt xe, cấm đi đâu hết!" }],
       },
     ],
     insideThought:
@@ -820,6 +990,12 @@ export const parentSituations: Situation[] = [
     location: "Cửa nhà",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Con mèo ngoài ngõ",
+    beats: [
+      { text: "Bo ngồi xổm ngoài ngõ, đút cơm cho một con mèo gầy.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Con mèo này ở đâu ra vậy con?" },
+      { speaker: "Bo", text: "Nó ở ngoài ngõ mấy bữa nay, không ai nuôi hết mẹ." },
+    ],
     dialogue: "Mẹ ơi, con nuôi con mèo hoang ngoài ngõ nha, con tự lo hết mà.",
     options: [
       {
@@ -829,6 +1005,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bo tự lập lịch chăm mèo, tìm hiểu chi phí tiêm phòng. Con cảm thấy được tin là đủ lớn để chịu trách nhiệm.",
         reply: "Con tính rồi, sáng con cho ăn, tối con dọn cát. Tiền tiêm con lấy tiền để dành, mẹ chở con đi nha.",
+        followUp: [{ who: "player", text: "Ừ, cuối tuần mẹ chở con đi tiêm cho nó." }],
       },
       {
         id: "B",
@@ -837,6 +1014,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo chăm mèo đều đặn để được giữ lại. Con thấy điều kiện rõ ràng và công bằng.",
         reply: "Dạ, một tháng thôi. Con làm được thì mẹ cho con giữ luôn nha.",
+        followUp: [{ who: "player", text: "Ừ, một tháng con lo được thì mình giữ nó." }],
       },
       {
         id: "C",
@@ -845,6 +1023,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bo lén cho mèo ăn ngoài ngõ mỗi ngày, giấu thức ăn trong cặp. Con cảm thấy bị coi là vô trách nhiệm.",
         reply: "Con đã nuôi đâu mà mẹ biết con không lo được. Thôi, con cho nó ăn ngoài ngõ vậy.",
+        followUp: [{ who: "player", text: "Mẹ biết tính con rồi. Lo học đi, mèo với chó gì tầm này." }],
       },
       {
         id: "D",
@@ -853,6 +1032,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bo nhờ bạn nuôi hộ và giận mẹ nhiều ngày. Con cảm thấy tổn thương vì thứ mình thương bị đe dọa.",
         reply: "Mẹ đem bỏ thì con đi tìm nó về. Con gửi nó qua nhà bạn nuôi, mẹ khỏi thấy.",
+        followUp: [{ who: "player", text: "Mang vô nhà là mẹ đem bỏ thiệt, cấm ra ngõ luôn!" }],
       },
     ],
     insideThought: "Con mèo đó chiều nào cũng ngồi chờ mình đi học về. Ở nhà ai cũng bận, nó là đứa duy nhất lúc nào cũng mừng khi thấy mình. Mình muốn được tin là mình lo được cho một thứ.",
@@ -866,6 +1046,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "Bo",
     npcRole: "Con trai, lớp 8",
+    title: "Cái áo đi chơi",
+    beats: [
+      { text: "Bo lục tủ một hồi, lôi ra cái hoodie rộng thùng thình.", subjectIsNpc: true },
+      { speaker: "Bạn", text: "Mẹ mới mua cho con cái sơ mi, sao không mặc?" },
+      { speaker: "Bo", text: "Đi chơi với bạn mà mặc sơ mi kỳ lắm mẹ." },
+    ],
     dialogue: "Mẹ ơi, đồ con mặc đi chơi để con tự chọn nha, áo sơ mi mẹ mua quê lắm.",
     options: [
       {
@@ -875,6 +1061,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "Bo vui vẻ hẹn mẹ đi mua đồ, tự chọn đồ hợp với mình. Con cảm thấy gu của mình được tôn trọng.",
         reply: "Dạ! Cuối tuần mình đi nha mẹ. Con chọn, mẹ trả giá giùm con.",
+        followUp: [{ who: "player", text: "Ừ, con chọn, mẹ trả giá. Đi cho vui." }],
       },
       {
         id: "B",
@@ -883,6 +1070,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "Bo đồng ý mặc sơ mi khi có dịp. Con thấy có phạm vi rõ ràng để được tự quyết.",
         reply: "Dạ, đi thăm ông bà con mặc áo mẹ mua. Còn đi với tụi bạn thì con mặc hoodie của con.",
+        followUp: [{ who: "player", text: "Ừ, vậy đi. Đi chơi với bạn con mặc gì mẹ không nói." }],
       },
       {
         id: "C",
@@ -891,6 +1079,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "Bo thay áo cho mẹ vừa lòng, ra khỏi ngõ thì đổi lại chiếc áo giấu trong cặp. Con cảm thấy gu của mình bị chê bai.",
         reply: "Áo con thích mà mẹ bảo như ma. Được, con thay, ra ngoài con đổi lại.",
+        followUp: [{ who: "player", text: "Thì như ma thật chứ sao. Thay đồ đàng hoàng vô." }],
       },
       {
         id: "D",
@@ -899,6 +1088,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "Bo ở lì trong phòng, không đi chơi nữa, cố tình mặc đồ mẹ ghét nhất khi ở nhà. Con cảm thấy bị áp đặt cả cách thể hiện bản thân.",
         reply: "Vậy con ở nhà. Mẹ vứt áo con thì con cũng không mặc đồ mẹ mua đâu.",
+        followUp: [{ who: "player", text: "Ở nhà thì ở! Mẹ vứt cái áo đó luôn cho rảnh!" }],
       },
     ],
     insideThought: "Hôm trước mặc áo sơ mi mẹ chọn đi chơi, tụi nó gọi mình là chú cả buổi. Mình đâu có chê mẹ, mình chỉ muốn trông giống chính mình, chứ không giống người khác chọn cho mình.",
@@ -912,6 +1102,12 @@ export const parentSituations: Situation[] = [
     location: "Phòng con",
     npcName: "An",
     npcRole: "Con gái, lớp 9",
+    title: "Bàn học vừa được dọn",
+    beats: [
+      { text: "Bàn học của An đã gọn gàng, sách xếp thành chồng ngay ngắn." },
+      { speaker: "Bạn", text: "Mẹ dọn bàn cho con rồi đó." },
+      { speaker: "An", text: "Ủa, mấy tờ giấy con để trên bàn đâu rồi mẹ?" },
+    ],
     dialogue: "Mẹ đừng dọn bàn học của con nữa, con để đúng chỗ hết mà.",
     options: [
       {
@@ -921,6 +1117,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Tối thiểu — đặt quyền tự chủ & thỏa thuận",
         reaction: "An vui vẻ hẹn lịch dọn dẹp. Con cảm thấy không gian riêng được tôn trọng.",
         reply: "Dạ, cuối tuần con với mẹ dọn nha. Mà mẹ để con xếp theo kiểu của con.",
+        followUp: [{ who: "player", text: "Ừ, con xếp theo ý con, mẹ chỉ phụ thôi." }],
       },
       {
         id: "B",
@@ -929,6 +1126,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Trung bình — giới hạn có thương lượng",
         reaction: "An cảm ơn mẹ và tự sắp xếp lại. Con biết ơn nhưng hơi ngại vì đồ bị dời.",
         reply: "Dạ, con cảm ơn mẹ. Để con xếp lại mấy cái con cần.",
+        followUp: [{ who: "player", text: "Ừ, giấy rác mẹ gom rồi, còn lại con tự xếp nha." }],
       },
       {
         id: "C",
@@ -937,6 +1135,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cao — cấm đoán & chỉ trích",
         reaction: "An bày bừa lại sau vài ngày. Con khó chịu vì đồ bị xáo trộn.",
         reply: "Con để vậy là có thứ tự của con mà mẹ. Thôi, để con bày lại.",
+        followUp: [{ who: "player", text: "Thứ tự gì cái đống đó. Bày ra nữa là mẹ dọn tiếp." }],
       },
       {
         id: "D",
@@ -945,6 +1144,7 @@ export const parentSituations: Situation[] = [
         sublabel: "Cực đại — áp đặt & đe dọa",
         reaction: "An xáo trộn lại toàn bộ đồ đạc như cũ trước mặt mẹ. Con cảm thấy ranh giới cá nhân bị xâm phạm thô bạo.",
         reply: "Đồ của con mà mẹ vứt. Đây, con để lại y như cũ.",
+        followUp: [{ who: "player", text: "Còn bày ra nữa là mẹ vứt hết, khỏi bàn ghế gì luôn!" }],
       },
     ],
     insideThought:
