@@ -17,6 +17,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Tối muộn vẫn còn clip",
     beats: [
+      { speaker: "Bạn", text: "Chín giờ là cả nhà cất điện thoại đi ngủ nha con!" },
       { text: "Đèn phòng Bo vẫn sáng, tiếng video vọng ra tới ngoài hành lang.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Chín giờ rồi đó con." },
       { speaker: "Bo", text: "Dạ… con vẫn đang coi dở nè mẹ." },
@@ -78,6 +79,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Lớp IELTS mẹ vừa hỏi",
     beats: [
+      { speaker: "Bạn", text: "Hè này mẹ tính cho con học thêm tiếng Anh nha!" },
       { text: "Tờ rơi trung tâm tiếng Anh còn để trên bàn phòng khách." },
       { speaker: "Bạn", text: "Trung tâm chỗ này người ta khen dữ lắm, con thấy sao?" },
       { speaker: "An", text: "Mẹ tính cho con đi học thêm nữa hả?" },
@@ -136,6 +138,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Người bạn mẹ không thích",
     beats: [
+      { speaker: "Bạn", text: "Bạn nào tới nhà mình chơi thì mẹ phải biết mặt nha con!" },
       { text: "Bo vừa về tới, kể cả buổi chiều đi sửa xe với Duy.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Cái bạn Duy đó… học hành sao rồi con?" },
       { speaker: "Bo", text: "Mẹ hỏi vậy là lại sắp cấm con chơi với bạn ấy đúng không." },
@@ -192,6 +195,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Tấm ảnh trên Facebook",
     beats: [
+      { speaker: "Bạn", text: "Mẹ mới đăng mấy tấm hình cả nhà lên Facebook nha!" },
       { text: "An cầm điện thoại bước ra, mặt xị xuống.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Gì mà mặt mày quạu vậy con?" },
       { speaker: "An", text: "Tụi bạn con gửi cho con tấm ảnh mẹ đăng hôm qua." },
@@ -248,6 +252,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Lớp boxing đầu ngõ",
     beats: [
+      { speaker: "Bạn", text: "Con muốn học thêm môn gì thì nói mẹ, đừng tự đi đăng ký nha!" },
       { text: "Bo mở đi mở lại một đoạn video tập boxing trên điện thoại.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Coi gì mà say sưa vậy con?" },
       { speaker: "Bo", text: "Phòng tập đầu ngõ mới mở lớp đó mẹ." },
@@ -304,6 +309,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Đám giỗ hay bài kiểm tra",
     beats: [
+      { speaker: "Bạn", text: "Chiều nay cả nhà qua nhà ông bà ăn giỗ nha con!" },
       { text: "Bốn giờ chiều, cả nhà bắt đầu thay đồ để qua nhà ông bà." },
       { speaker: "Bạn", text: "Con thay đồ đi, lát nhà mình qua ông bà." },
       { speaker: "An", text: "Mai con có bài kiểm tra mà mẹ." },
@@ -362,6 +368,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Sinh nhật và đêm ngủ lại",
     beats: [
+      { speaker: "Bạn", text: "Đi đâu buổi tối thì phải xin phép mẹ trước nha con!" },
       { text: "An đứng tần ngần ở cửa, xoay xoay cái điện thoại trong tay.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Có gì thì nói đi con, đứng đó nãy giờ." },
       { speaker: "An", text: "Dạ… tối nay sinh nhật nhỏ Chi mẹ ơi." },
@@ -420,6 +427,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Mật khẩu điện thoại của con",
     beats: [
+      { speaker: "Bạn", text: "Trên mạng có chuyện gì thì nói mẹ nghe nha con!" },
       { text: "Bo vừa để điện thoại xuống bàn thì màn hình sáng lên một loạt tin." },
       { speaker: "Bạn", text: "Nhóm nào mà nhắn dữ vậy con?" },
       { speaker: "Bo", text: "Nhóm lớp thôi mà mẹ, mẹ đừng cầm máy con." },
@@ -478,6 +486,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Mô hình nhóm nhạc",
     beats: [
+      { speaker: "Bạn", text: "Tiền để dành con tự giữ, nhưng mua gì lớn thì hỏi mẹ nha!" },
       { text: "An mở giỏ hàng khoe cái mô hình để dành mấy tháng nay.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Cái này bao nhiêu mà con để dành lâu vậy?" },
       { speaker: "An", text: "Tám trăm ngàn á mẹ, con để dành gần đủ rồi." },
@@ -536,6 +545,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Phòng chưa dọn, trận chưa xong",
     beats: [
+      { speaker: "Bạn", text: "Phòng ai nấy dọn, dọn xong mới được chơi nha con!" },
       { text: "Phòng Bo đồ bày kín sàn, tiếng game vọng ra tới phòng khách." },
       { speaker: "Bạn", text: "Phòng ốc gì vầy nè con." },
       { speaker: "Bo", text: "Con đang giữa trận mà mẹ." },
@@ -594,6 +604,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Buổi xem phim thứ Bảy",
     beats: [
+      { speaker: "Bạn", text: "Đi chơi với bạn thì cho mẹ biết đi với ai nha con!" },
       { text: "An ngồi kế bên, ngập ngừng một hồi mới mở lời.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Nói đi con, có gì mà úp mở." },
       { speaker: "An", text: "Dạ… con quen một bạn học chung lớp tiếng Anh." },
@@ -650,6 +661,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Chén canh bổ trên bàn",
     beats: [
+      { speaker: "Bạn", text: "Bữa nay mẹ hầm canh bổ, cả nhà ăn cho có sức nha!" },
       { text: "Chén canh thuốc bắc nguội dần trên bàn, vẫn còn đầy." },
       { speaker: "Bạn", text: "Canh này mẹ hầm từ chiều đó, ăn đi con." },
       { speaker: "Bo", text: "Mùi thuốc bắc nồng quá mẹ ơi." },
@@ -708,6 +720,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Nguyện vọng của con",
     beats: [
+      { speaker: "Bạn", text: "Sắp tới hạn đăng ký nguyện vọng rồi, mình bàn nha con!" },
       { text: "An đưa tờ đăng ký nguyện vọng, tay còn cầm cây bút.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Rồi, con tính ghi ngành gì đây?" },
       { speaker: "An", text: "Con tìm hiểu mấy tháng nay rồi mẹ." },
@@ -766,6 +779,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Shop online của hai đứa",
     beats: [
+      { speaker: "Bạn", text: "Con muốn làm gì ra tiền thì nói mẹ trước nha!" },
       { text: "Trên bàn Bo bày một đống móc khoá với mấy cuộn dây." },
       { speaker: "Bạn", text: "Chỗ này là gì vậy con?" },
       { speaker: "Bo", text: "Hàng của tụi con đó mẹ, con với Tùng mới lấy về." },
@@ -822,6 +836,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Định vị trên máy con",
     beats: [
+      { speaker: "Bạn", text: "Đi đâu con nhắn mẹ một tiếng là mẹ yên tâm rồi nha!" },
       { text: "An đi học thêm về, vừa để cặp xuống là quay qua hỏi ngay.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Sao vậy con, đi học vui không?" },
       { speaker: "An", text: "Tụi bạn nói mẹ coi định vị của con hoài." },
@@ -878,6 +893,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Kênh TikTok giải Rubik",
     beats: [
+      { speaker: "Bạn", text: "Đăng gì lên mạng thì cho mẹ coi trước nha con!" },
       { text: "Bo quay xong một đoạn giải Rubik, ngồi cắt clip trên máy.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Quay để làm gì vậy con?" },
       { speaker: "Bo", text: "Con mở kênh riêng rồi mẹ, được mấy trăm người coi lận." },
@@ -934,6 +950,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Chiếc xe điện đi học",
     beats: [
+      { speaker: "Bạn", text: "Chưa đủ tuổi lái xe thì đi xe buýt hoặc mẹ chở nha con!" },
       { text: "Sáng nào An cũng chạy vội ra bến xe buýt, hôm nay lại trễ." },
       { speaker: "Bạn", text: "Lại trễ xe nữa hả con?" },
       { speaker: "An", text: "Xe buýt đông với chạy lâu quá mẹ." },
@@ -992,6 +1009,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Con mèo ngoài ngõ",
     beats: [
+      { speaker: "Bạn", text: "Nuôi con gì trong nhà thì phải bàn với mẹ trước nha!" },
       { text: "Bo ngồi xổm ngoài ngõ, đút cơm cho một con mèo gầy.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Con mèo này ở đâu ra vậy con?" },
       { speaker: "Bo", text: "Nó ở ngoài ngõ mấy bữa nay, không ai nuôi hết mẹ." },
@@ -1048,6 +1066,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con trai, lớp 8",
     title: "Cái áo đi chơi",
     beats: [
+      { speaker: "Bạn", text: "Mẹ mua cho con mấy bộ đồ rồi, đi đâu mặc cho đàng hoàng nha!" },
       { text: "Bo lục tủ một hồi, lôi ra cái hoodie rộng thùng thình.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Mẹ mới mua cho con cái sơ mi, sao không mặc?" },
       { speaker: "Bo", text: "Đi chơi với bạn mà mặc sơ mi kỳ lắm mẹ." },
@@ -1104,6 +1123,7 @@ export const parentSituations: Situation[] = [
     npcRole: "Con gái, lớp 9",
     title: "Bàn học vừa được dọn",
     beats: [
+      { speaker: "Bạn", text: "Bàn học bừa quá thì mẹ dọn giùm cho nha con!" },
       { text: "Bàn học của An đã gọn gàng, sách xếp thành chồng ngay ngắn." },
       { speaker: "Bạn", text: "Mẹ dọn bàn cho con rồi đó." },
       { speaker: "An", text: "Ủa, mấy tờ giấy con để trên bàn đâu rồi mẹ?" },

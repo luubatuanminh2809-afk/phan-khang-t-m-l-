@@ -13,6 +13,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giáo viên phụ trách dự án nhóm",
     title: "Đề tài đã chia sẵn",
     beats: [
+      { speaker: "Cô Hạnh", text: "Cả lớp chú ý, đề tài với danh sách nhóm cô chốt xong rồi nha!" },
       { text: "Cô Hạnh dán tờ danh sách chia nhóm lên bảng, cả lớp xúm lại xem.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Nhóm mình toàn bạn chưa làm chung bao giờ..." },
       { speaker: "Cô Hạnh", text: "Danh sách này trường đưa xuống, cô chia theo đó." },
@@ -74,6 +75,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giáo viên chủ nhiệm",
     title: "Điện thoại vào tủ khoá",
     beats: [
+      { speaker: "Thầy Minh", text: "Cả lớp chú ý! Từ hôm nay không ai được dùng điện thoại trong giờ học nha!" },
       { text: "Đầu giờ, thầy Minh xách một cái tủ nhựa có ổ khoá đặt lên bàn giáo viên.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Tủ này để làm gì vậy thầy?" },
       { speaker: "Thầy Minh", text: "Trường vừa có thông tư mới về điện thoại đó em." },
@@ -132,6 +134,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Tổng phụ trách Đội",
     title: "Chủ Nhật của ai",
     beats: [
+      { speaker: "Thầy Hòa", text: "Cả lớp nghe thầy phổ biến kế hoạch tình nguyện Chủ Nhật nha!" },
       { text: "Giờ ra chơi, thầy Hòa cầm tờ danh sách đi tới chỗ tụi mình.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Cuối tuần này lớp mình có gì hả thầy?" },
       { speaker: "Thầy Hòa", text: "Trường phát động đợt tình nguyện, lớp nào cũng phải góp mặt." },
@@ -190,6 +193,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giám thị",
     title: "Nóng cũng phải đúng đồng phục",
     beats: [
+      { speaker: "Thầy Đức", text: "Các em dừng lại, thầy kiểm tra đồng phục trước khi vào cổng!" },
       { text: "Mới bảy giờ mà nắng đã gắt, áo đồng phục dày bết cả lưng." },
       { speaker: "Bạn", text: "Thầy ơi, nóng quá tụi em chịu hết nổi." },
       { speaker: "Thầy Đức", text: "Thầy biết, nhưng đồng phục là quy định chung của trường." },
@@ -248,6 +252,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giáo viên Toán",
     title: "Ba đề trước sáng mai",
     beats: [
+      { speaker: "Cô Hạnh", text: "Cả lớp chú ý, cô giao thêm bài tập về nhà nha!" },
       { text: "Cuối tiết, cô Hạnh phát thêm một xấp đề xuống từng bàn.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Tối nay em có lịch học thêm rồi cô ơi." },
       { speaker: "Cô Hạnh", text: "Tuần sau kiểm tra chương này rồi, cô phải cho các em luyện thêm." },
@@ -306,6 +311,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giáo viên chủ nhiệm",
     title: "Tin nhắn nhóm lớp lúc khuya",
     beats: [
+      { speaker: "Thầy Minh", text: "Cả lớp vô nhóm lớp đọc quy định nhắn tin thầy mới gửi nha!" },
       { text: "Nhóm lớp nổi thông báo liên tục, có bạn bị nhắc vì trả lời trễ." },
       { speaker: "Bạn", text: "Tối qua em ngủ sớm nên chưa đọc tin ạ." },
       { speaker: "Thầy Minh", text: "Thông báo của trường thầy phải chuyển ngay trong ngày, không chờ được." },
@@ -363,6 +369,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giám thị",
     title: "Tóc và son",
     beats: [
+      { speaker: "Cô Vân", text: "Các em xếp hàng lại, cô kiểm tra tác phong đầu giờ!" },
       { text: "Cô Vân đứng ngay cổng, nhìn kỹ từng bạn đi vào.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Em có làm gì đâu cô, em vào lớp thôi mà." },
       { speaker: "Cô Vân", text: "Trường đang siết lại tác phong, cô phải kiểm tra từng em." },
@@ -484,6 +491,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giáo viên chủ nhiệm",
     title: "Chiều nào cũng ôn thi",
     beats: [
+      { speaker: "Thầy Minh", text: "Cả lớp chú ý, trường mở lớp ôn thi buổi chiều cho cả khối nha!" },
       { text: "Thầy Minh dán thời khoá biểu mới, kín cả mấy buổi chiều.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Chiều nào cũng học hả thầy? Em có lớp ngoài rồi." },
       { speaker: "Thầy Minh", text: "Trường xếp lịch phụ đạo cho cả khối, không riêng lớp mình." },
@@ -542,6 +550,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giáo viên Giáo dục công dân",
     title: "Bài cảm nghĩ chỉ được khen",
     beats: [
+      { speaker: "Cô Vân", text: "Cả lớp lấy giấy ra, cô phát dàn ý bài thu hoạch ngoại khoá!" },
       { text: "Buổi ngoại khoá vừa xong, cô Vân phát tờ dàn ý cho cả lớp.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Bài này viết theo ý mình được không cô?" },
       { speaker: "Cô Vân", text: "Bài này cô phải nộp lên trường làm báo cáo hoạt động." },
@@ -600,6 +609,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giáo viên chủ nhiệm",
     title: "Chỗ ngồi cố định cả năm",
     beats: [
+      { speaker: "Thầy Minh", text: "Cả lớp về đúng chỗ theo sơ đồ mới thầy dán ngoài cửa nha!" },
       { text: "Sơ đồ lớp mới dán ở cửa, mấy bạn xúm lại tìm tên mình." },
       { speaker: "Bạn", text: "Em ngồi cuối lớp, nhìn bảng không rõ thầy ơi." },
       { speaker: "Thầy Minh", text: "Sơ đồ này thầy xếp theo chiều cao với học lực cả lớp." },
@@ -658,6 +668,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giám thị",
     title: "Cấm đồ ăn mang ngoài vào",
     beats: [
+      { speaker: "Thầy Đức", text: "Các em nghe đây, từ nay trường cấm mang đồ ăn mua ngoài vào!" },
       { text: "Thầy Đức đứng ở cổng phụ, nhìn mấy bịch đồ ăn trên tay học sinh.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Em mua bánh mì ăn sáng thôi mà thầy." },
       { speaker: "Thầy Đức", text: "Trường vừa nhắc chuyện an toàn thực phẩm, thầy phải làm căng." },
@@ -715,6 +726,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Trưởng ban đại diện phụ huynh lớp",
     title: "Quỹ lớp năm trăm nghìn",
     beats: [
+      { speaker: "Cô Yến", text: "Các con ở lại chút, cô phổ biến chuyện quỹ lớp năm nay!" },
       { text: "Họp phụ huynh vừa tan, cô Yến gọi mấy bạn ở lại nhắc chuyện quỹ.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Dạ, quỹ lớp năm nay đóng bao nhiêu vậy cô?" },
       { speaker: "Cô Yến", text: "Ban đại diện họp chốt rồi, có gửi giấy về từng nhà đó con." },
@@ -777,6 +789,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Ban Giám hiệu",
     title: "Khối thi trường chọn sẵn",
     beats: [
+      { speaker: "Cô Hiệu", text: "Cả lớp chú ý, trường đã chốt tổ hợp môn cho lớp mình rồi nha!" },
       { text: "Danh sách phân lớp dán ở bảng tin, nhiều bạn đứng ngẩn ra nhìn." },
       { speaker: "Bạn", text: "Em đăng ký Sử Địa mà sao tên em nằm lớp Tự nhiên ạ?" },
       { speaker: "Cô Hiệu", text: "Trường xếp theo chỉ tiêu từng tổ hợp, không chiều từng em được." },
@@ -836,6 +849,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Ban Giám hiệu",
     title: "Cấm đăng chuyện trường",
     beats: [
+      { speaker: "Cô Hiệu", text: "Cả trường nghe đây, nhà trường có thông báo về chuyện đăng mạng!" },
       { text: "Một bài đăng về trường lan khắp mạng từ tối qua, sáng nay ai cũng bàn." },
       { speaker: "Bạn", text: "Cô ơi, chuyện trên mạng hôm qua là sao vậy ạ?" },
       { speaker: "Cô Hiệu", text: "Bài đó ảnh hưởng tới trường, sáng nay họp hội đồng nhắc rồi." },
@@ -895,6 +909,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giám thị",
     title: "Mở cặp cho thầy kiểm tra",
     beats: [
+      { speaker: "Thầy Đức", text: "Cả lớp đứng dậy, để cặp lên bàn, thầy kiểm tra đột xuất!" },
       { text: "Thầy Đức bước vào ngay đầu tiết, đứng ở đầu dãy bàn.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Có chuyện gì vậy thầy?" },
       { speaker: "Thầy Đức", text: "Trên trường có đợt kiểm tra đột xuất, thầy làm theo chỉ đạo." },
@@ -951,6 +966,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giáo viên Hóa học",
     title: "Kiểm tra mười lăm phút",
     beats: [
+      { speaker: "Cô Vân", text: "Cả lớp cất hết sách vở, lấy giấy kiểm tra ra nha!" },
       { text: "Buổi sáng vừa thi xong, cả lớp còn chưa kịp cất đề." },
       { speaker: "Bạn", text: "Tiết này mình học bài mới hả cô?" },
       { speaker: "Cô Vân", text: "Cô còn thiếu một cột điểm miệng của các em." },
@@ -1012,6 +1028,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Đội Sao đỏ",
     title: "Sao đỏ ghi tên",
     beats: [
+      { speaker: "Bạn Kỳ", text: "Các bạn ơi, tuần này Sao đỏ trực theo quy định mới nha!" },
       { text: "Bạn Kỳ đứng ở cổng với cuốn sổ trực, nhìn từng bạn đi qua.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Sáng nay trực gắt vậy bạn?" },
       { speaker: "Bạn Kỳ", text: "Thầy Tổng phụ trách vừa nhắc tụi mình làm chặt hơn đó." },
@@ -1069,6 +1086,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Tổng phụ trách Đội",
     title: "Cả lớp mất giờ ra chơi",
     beats: [
+      { speaker: "Thầy Hòa", text: "Cả lớp ngồi yên, thầy công bố kết quả thi đua tuần này!" },
       { text: "Bảng thi đua tuần này vừa dán lên, lớp mình đứng cuối bảng." },
       { speaker: "Bạn", text: "Lớp mình bị trừ nhiều điểm vậy hả thầy?" },
       { speaker: "Thầy Hòa", text: "Tuần nào lớp mình cũng bị ghi ồn, thầy bị nhắc trước cả hội đồng." },
@@ -1125,6 +1143,7 @@ export const studentSituations: Situation[] = [
     npcRole: "Giám thị",
     title: "Truyện tranh trong cặp",
     beats: [
+      { speaker: "Cô Vân", text: "Các em nghe đây, từ mai trường cấm mang truyện lên lớp!" },
       { text: "Đầu giờ chiều, một quyển truyện rơi khỏi cặp lúc cô Vân đi ngang." },
       { speaker: "Bạn", text: "Dạ… truyện này em đọc lúc ra chơi thôi ạ." },
       { speaker: "Cô Vân", text: "Trường vừa có quy định mới về sách truyện ngoài chương trình." },
