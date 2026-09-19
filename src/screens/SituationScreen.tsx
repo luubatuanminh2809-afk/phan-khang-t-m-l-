@@ -84,7 +84,7 @@ function shuffle<T>(arr: T[]): T[] {
 // ambient line and a speech bubble need above the figure. Uncapped, a short screen (a small
 // phone, the app's side panel) squeezed the stage while the art kept its full height, so
 // the heads rose into the band the bubble sits in and got covered by it.
-const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[calc(-1*var(--sink))] w-[82%] h-[min(52dvh,calc(100dvh_-_300px))]";
+const CHAR_BOX_SOLO = "absolute left-[44%] -translate-x-1/2 bottom-[calc(-1*var(--sink))] w-[82%] h-full";
 /** solo figure when its speech bubble stands beside it: pulled left so the bubble on the
  *  right covers the air next to the character, not the character. On a narrow screen the
  *  figure is proportionally wider and its head rises into the corner the day/place chip
@@ -99,8 +99,8 @@ const CHAR_BOX_BESIDE_BUBBLE =
 // which is what kept the two-shot characters a third shorter than the same character
 // standing alone. The boxes overlap in the middle; the drawings do not, because each PNG
 // carries 20-38% transparent margin on either side of the body.
-const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-[min(62dvh,calc(100dvh_-_300px))]";
-const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-[min(62dvh,calc(100dvh_-_300px))]";
+const CHAR_BOX_TWO_SHOT_LEFT = "absolute left-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-full";
+const CHAR_BOX_TWO_SHOT_RIGHT = "absolute right-[-6%] bottom-[calc(-1*var(--sink))] w-[78%] h-full";
 
 // One beat of the scene. It's a fixed-height column, not a stack of overlays: the
 // bubble (and any coach card or badge, all marked order-first) claims the top band at
@@ -117,14 +117,14 @@ const BEAT_FRAME = "relative flex min-h-0 flex-1 flex-col justify-end text-left"
  *  columns instead of four stacked rows — that it only laps over the feet, so there is no
  *  longer any need to sink the figure out of its way. Same band in every beat, so the
  *  character neither resizes nor jumps as the scene moves. */
-const STAGE_GROUNDED = "relative h-[min(52dvh,calc(100dvh_-_300px))] min-h-[90px] [--sink:0px]";
+const STAGE_GROUNDED = "relative min-h-[90px] max-h-[52dvh] flex-1 [--sink:0px]";
 /** Two people talking have no answer sheet under them, so the frame runs nearly the whole
  *  screen; at 52dvh they stood small with an empty ceiling above them. The band has to match
  *  the taller character boxes exactly — when the drawing is taller than its band it rises out
  *  of the top and into the speech bubble, which is how it ended up over a girl's hair. */
 // shrink-0: a flex column may otherwise squeeze this band under a long bubble while the
 // absolutely placed art inside keeps its height, which is exactly how heads got covered
-const STAGE_TWO_SHOT = "relative h-[min(62dvh,calc(100dvh_-_300px))] min-h-[90px] shrink-0 [--sink:0px]";
+const STAGE_TWO_SHOT = "relative min-h-[90px] max-h-[62dvh] flex-1 [--sink:0px]";
 
 // a static cutout has no pose of its own, so motion stands in for body language:
 // an active, slightly forward "making a point" loop while the NPC is delivering
@@ -252,6 +252,7 @@ function DialogueBox({
   onTypingDone,
   align = "center",
   variant = "speech",
+  highlight = false,
 }: {
   speakerName?: string;
   text: string;
@@ -261,6 +262,8 @@ function DialogueBox({
   nextLabel: string;
   typewriterRef: Ref<TypewriterHandle>;
   onTypingDone: () => void;
+  /** the demand the four answers are answering — drawn in amber, in heavy type */
+  highlight?: boolean;
   // "right" hovers the bubble over the NPC's head in the third-person two-shot (NPC
   // stands on the right); "left" hovers it over the player's own head (player stands
   // on the left); "center" is the solo/first-person framing
@@ -278,7 +281,7 @@ function DialogueBox({
   // Narrow and tall rather than wide and flat, so a bubble stays over its own speaker
   // instead of reaching across the frame. It is the part that gives way on a short screen
   // (it shrinks and scrolls), because the stage below it may not — see STAGE_TWO_SHOT.
-  const cap = "min-h-0 max-h-[60%] shrink overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden";
+  const cap = "shrink-0 max-h-[55%] overflow-x-hidden overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden";
   const posClass =
     align === "side"
       ? // Beside the speaker rather than over their head, the way the reference layout
@@ -310,6 +313,7 @@ function DialogueBox({
           compact
           speaker={speakerName}
           text={text}
+          highlight={highlight}
           tailSide={align === "side" ? "side-left" : align === "left" ? "right" : "left"}
           ref={typewriterRef}
           onTypingDone={onTypingDone}
@@ -646,6 +650,55 @@ export function SituationScreen() {
     setBeatIndex((i) => i + 1);
   }
 
+  // One pause control, reachable from every beat of a situation — the title card included,
+  // which used to be the one screen with no way out — and one menu behind it: keep playing,
+  // or step out to write a letter.
+  const pauseButton = (
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+        setPauseOpen(true);
+      }}
+      title="Tạm dừng"
+      aria-label="Tạm dừng"
+      className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur shadow-md text-slate-500 active:scale-90 transition"
+    >
+      <Pause size={16} />
+    </button>
+  );
+
+  const pauseMenu = pauseOpen && (
+    <div
+      role="dialog"
+      aria-label="Tạm dừng"
+      onClick={(e) => {
+        e.stopPropagation();
+        setPauseOpen(false);
+      }}
+      className="fixed inset-0 z-[90] flex items-center justify-center bg-slate-900/50 px-6 backdrop-blur-sm"
+    >
+      <div onClick={(e) => e.stopPropagation()} className="w-full max-w-xs rounded-3xl bg-white p-5 shadow-2xl animate-pop">
+        <p className="mb-4 text-center text-lg font-extrabold text-slate-800">Tạm dừng</p>
+        <div className="space-y-2.5">
+          <Button fullWidth icon={<Play size={18} />} onClick={() => setPauseOpen(false)}>
+            Tiếp tục chơi
+          </Button>
+          <Button
+            fullWidth
+            variant="secondary"
+            icon={<Mail size={18} />}
+            onClick={() => dispatch({ type: "OPEN_LETTER", returnTo: "situation" })}
+          >
+            Viết thư
+          </Button>
+        </div>
+        <p className="mt-3 text-center text-[11px] leading-snug text-slate-400">
+          Viết xong bấm &ldquo;Quay lại chơi&rdquo; để chơi tiếp tình huống này từ đầu.
+        </p>
+      </div>
+    </div>
+  );
+
   const scene = (
     <SceneIllustration
       location={situation.location}
@@ -673,6 +726,7 @@ export function SituationScreen() {
         className="relative h-[100dvh] overflow-hidden bg-slate-900"
       >
         {scene}
+        <div className="absolute right-4 top-4 z-20">{pauseButton}</div>
         {/* the scene keeps its own light: only the same gentle vignette the rest of the
             screen uses, with the words carried on their own panel instead of on a curtain
             drawn over the room. Dimming the whole frame to 70% made every situation open on
@@ -701,6 +755,7 @@ export function SituationScreen() {
             Chạm để vào <ChevronRight size={14} />
           </p>
         </div>
+        {pauseMenu}
       </div>
     );
   }
@@ -754,14 +809,7 @@ export function SituationScreen() {
               </div>
             )}
           </span>
-          <button
-            onClick={() => setPauseOpen(true)}
-            title="Tạm dừng"
-            aria-label="Tạm dừng"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur shadow-md text-slate-500 active:scale-90 transition"
-          >
-            <Pause size={16} />
-          </button>
+          {pauseButton}
         </div>
       </div>
 
@@ -948,6 +996,7 @@ export function SituationScreen() {
               text={situation.dialogue}
               key={situation.id}
               align={viewMode === "third" ? "right" : "side"}
+              highlight
               typingDone={dialogueTypingDone}
               nextLabel="Chọn phản ứng ↓"
               typewriterRef={dialogueRef}
@@ -1003,38 +1052,7 @@ export function SituationScreen() {
         />
       )}
 
-      {/* The pause button used to do nothing. It opens this menu, mainly so a player who wants
-          to write a letter mid-run can step out and come back: the letter screen returns to
-          this situation rather than to an evaluation that does not exist yet. The pick in
-          progress lives only in this screen's state, so the situation starts over on return. */}
-      {pauseOpen && (
-        <div
-          role="dialog"
-          aria-label="Tạm dừng"
-          onClick={() => setPauseOpen(false)}
-          className="fixed inset-0 z-[90] flex items-center justify-center bg-slate-900/50 px-6 backdrop-blur-sm"
-        >
-          <div onClick={(e) => e.stopPropagation()} className="w-full max-w-xs rounded-3xl bg-white p-5 shadow-2xl animate-pop">
-            <p className="mb-4 text-center text-lg font-extrabold text-slate-800">Tạm dừng</p>
-            <div className="space-y-2.5">
-              <Button fullWidth icon={<Play size={18} />} onClick={() => setPauseOpen(false)}>
-                Tiếp tục chơi
-              </Button>
-              <Button
-                fullWidth
-                variant="secondary"
-                icon={<Mail size={18} />}
-                onClick={() => dispatch({ type: "OPEN_LETTER", returnTo: "situation" })}
-              >
-                Viết thư
-              </Button>
-            </div>
-            <p className="mt-3 text-center text-[11px] leading-snug text-slate-400">
-              Viết xong bấm &ldquo;Quay lại chơi&rdquo; để chơi tiếp tình huống này từ đầu.
-            </p>
-          </div>
-        </div>
-      )}
+      {pauseMenu}
     </div>
   );
 }
