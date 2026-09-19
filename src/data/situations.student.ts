@@ -17,6 +17,7 @@ export const studentSituations: Situation[] = [
       { text: "Cô Hạnh dán tờ danh sách chia nhóm lên bảng, cả lớp xúm lại xem.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Nhóm mình toàn bạn chưa làm chung bao giờ..." },
       { speaker: "Cô Hạnh", text: "Danh sách này trường đưa xuống, cô chia theo đó." },
+      { speaker: "Cô Hạnh", text: "Em nào không chịu thì khỏi làm, cô cho luôn điểm không." },
     ],
     dialogue: "Nhóm với đề tài cô chia sẵn rồi, cứ thế mà làm, không ai được đổi đâu.",
     options: [
@@ -79,6 +80,7 @@ export const studentSituations: Situation[] = [
       { text: "Đầu giờ, thầy Minh xách một cái tủ nhựa có ổ khoá đặt lên bàn giáo viên.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Tủ này để làm gì vậy thầy?" },
       { speaker: "Thầy Minh", text: "Trường vừa có thông tư mới về điện thoại đó em." },
+      { speaker: "Thầy Minh", text: "Khỏi thắc mắc, cũng đừng em nào tới xin ngoại lệ với thầy." },
     ],
     dialogue: "Từ hôm nay điện thoại nộp hết vào tủ khoá suốt giờ học, không ngoại lệ.",
     options: [
@@ -138,6 +140,7 @@ export const studentSituations: Situation[] = [
       { text: "Giờ ra chơi, thầy Hòa cầm tờ danh sách đi tới chỗ tụi mình.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Cuối tuần này lớp mình có gì hả thầy?" },
       { speaker: "Thầy Hòa", text: "Trường phát động đợt tình nguyện, lớp nào cũng phải góp mặt." },
+      { speaker: "Thầy Hòa", text: "Em nào vắng thì đừng trách thầy hạ hạnh kiểm nha." },
     ],
     dialogue: "Chủ Nhật này cả trường đi tình nguyện, lớp mình phải đi đủ, không ai được vắng.",
     options: [
@@ -197,6 +200,7 @@ export const studentSituations: Situation[] = [
       { text: "Mới bảy giờ mà nắng đã gắt, áo đồng phục dày bết cả lưng." },
       { speaker: "Bạn", text: "Thầy ơi, nóng quá tụi em chịu hết nổi." },
       { speaker: "Thầy Đức", text: "Thầy biết, nhưng đồng phục là quy định chung của trường." },
+      { speaker: "Thầy Đức", text: "Thầy không nghe lý do đâu, nóng hay không cũng vậy hết." },
     ],
     dialogue: "Nóng mấy cũng phải mặc đúng đồng phục, không ai được tự ý thay áo đâu.",
     options: [
@@ -256,6 +260,7 @@ export const studentSituations: Situation[] = [
       { text: "Cuối tiết, cô Hạnh phát thêm một xấp đề xuống từng bàn.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Tối nay em có lịch học thêm rồi cô ơi." },
       { speaker: "Cô Hạnh", text: "Tuần sau kiểm tra chương này rồi, cô phải cho các em luyện thêm." },
+      { speaker: "Cô Hạnh", text: "Cô không nhận bất kỳ lời xin hoãn nào đâu nha." },
     ],
     dialogue: "Cô giao thêm ba đề, sáng mai nộp đủ. Thiếu đề nào là điểm không đề đó.",
     options: [
@@ -315,6 +320,7 @@ export const studentSituations: Situation[] = [
       { text: "Nhóm lớp nổi thông báo liên tục, có bạn bị nhắc vì trả lời trễ." },
       { speaker: "Bạn", text: "Tối qua em ngủ sớm nên chưa đọc tin ạ." },
       { speaker: "Thầy Minh", text: "Thông báo của trường thầy phải chuyển ngay trong ngày, không chờ được." },
+      { speaker: "Thầy Minh", text: "Em nào không trả lời là thầy trừ điểm, khỏi giải thích." },
     ],
     dialogue: "Thầy nhắn nhóm lớp là trả lời ngay, mười giờ tối cũng vậy, không là trừ điểm.",
     options: [
@@ -373,6 +379,7 @@ export const studentSituations: Situation[] = [
       { text: "Cô Vân đứng ngay cổng, nhìn kỹ từng bạn đi vào.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Em có làm gì đâu cô, em vào lớp thôi mà." },
       { speaker: "Cô Vân", text: "Trường đang siết lại tác phong, cô phải kiểm tra từng em." },
+      { speaker: "Cô Vân", text: "Cô nói một lần thôi, không có nhẹ hay đậm gì hết." },
     ],
     dialogue: "Tóc nhuộm, son phấn là cô lập biên bản liền, không có nhẹ hay đậm gì hết.",
     options: [
@@ -432,6 +439,7 @@ export const studentSituations: Situation[] = [
       { speaker: "Khánh", text: "Suỵt, cô Hiệu lên kìa. Chắc có chuyện rồi." },
       { speaker: "Cô Hiệu", text: "Cả lớp ngồi yên, cô có việc cần thông báo." },
       { speaker: "Bạn", text: "Dạ… có chuyện gì vậy cô?" },
+      { speaker: "Cô Hiệu", text: "Chuyện này trường quyết rồi, các em không có quyền đòi hỏi." },
     ],
     title: "Lớp có chủ nhiệm mới",
     dialogue: "Tuần sau lớp có chủ nhiệm mới, trường quyết rồi, đừng ai làm đơn xin giữ cô cũ.",
@@ -495,6 +503,7 @@ export const studentSituations: Situation[] = [
       { text: "Thầy Minh dán thời khoá biểu mới, kín cả mấy buổi chiều.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Chiều nào cũng học hả thầy? Em có lớp ngoài rồi." },
       { speaker: "Thầy Minh", text: "Trường xếp lịch phụ đạo cho cả khối, không riêng lớp mình." },
+      { speaker: "Thầy Minh", text: "Không có chuyện xin miễn đâu, ai cũng phải đi đủ." },
     ],
     dialogue: "Từ tuần sau chiều nào cũng ôn thi, ai cũng phải đi, đừng lấy cớ học trung tâm.",
     options: [
@@ -554,6 +563,7 @@ export const studentSituations: Situation[] = [
       { text: "Buổi ngoại khoá vừa xong, cô Vân phát tờ dàn ý cho cả lớp.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Bài này viết theo ý mình được không cô?" },
       { speaker: "Cô Vân", text: "Bài này cô phải nộp lên trường làm báo cáo hoạt động." },
+      { speaker: "Cô Vân", text: "Viết lệch dàn ý là cô cho điểm kém, đừng trách cô." },
     ],
     dialogue: "Bài cảm nghĩ ngoại khoá viết đúng dàn ý cô phát, chỉ được khen thôi nhé.",
     options: [
@@ -613,6 +623,7 @@ export const studentSituations: Situation[] = [
       { text: "Sơ đồ lớp mới dán ở cửa, mấy bạn xúm lại tìm tên mình." },
       { speaker: "Bạn", text: "Em ngồi cuối lớp, nhìn bảng không rõ thầy ơi." },
       { speaker: "Thầy Minh", text: "Sơ đồ này thầy xếp theo chiều cao với học lực cả lớp." },
+      { speaker: "Thầy Minh", text: "Ai tự ý đổi chỗ là thầy ghi tên, khỏi thắc mắc." },
     ],
     dialogue: "Chỗ ngồi thầy xếp là giữ nguyên cả năm, không ai được tự ý đổi.",
     options: [
@@ -672,6 +683,7 @@ export const studentSituations: Situation[] = [
       { text: "Thầy Đức đứng ở cổng phụ, nhìn mấy bịch đồ ăn trên tay học sinh.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Em mua bánh mì ăn sáng thôi mà thầy." },
       { speaker: "Thầy Đức", text: "Trường vừa nhắc chuyện an toàn thực phẩm, thầy phải làm căng." },
+      { speaker: "Thầy Đức", text: "Thầy thấy là thầy thu, không cần biết của em nào." },
     ],
     dialogue: "Từ nay cấm mang đồ ăn mua ngoài vào trường, muốn ăn thì mua căng tin.",
     options: [
@@ -730,6 +742,7 @@ export const studentSituations: Situation[] = [
       { text: "Họp phụ huynh vừa tan, cô Yến gọi mấy bạn ở lại nhắc chuyện quỹ.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Dạ, quỹ lớp năm nay đóng bao nhiêu vậy cô?" },
       { speaker: "Cô Yến", text: "Ban đại diện họp chốt rồi, có gửi giấy về từng nhà đó con." },
+      { speaker: "Cô Yến", text: "Nhà nào cũng phải đóng, cô không nghe lý do đâu con." },
     ],
     dialogue: "Quỹ lớp mỗi con năm trăm nghìn để liên hoan, nhà nào cũng phải đóng đủ.",
     options: [
@@ -793,6 +806,7 @@ export const studentSituations: Situation[] = [
       { text: "Danh sách phân lớp dán ở bảng tin, nhiều bạn đứng ngẩn ra nhìn." },
       { speaker: "Bạn", text: "Em đăng ký Sử Địa mà sao tên em nằm lớp Tự nhiên ạ?" },
       { speaker: "Cô Hiệu", text: "Trường xếp theo chỉ tiêu từng tổ hợp, không chiều từng em được." },
+      { speaker: "Cô Hiệu", text: "Trường xếp sao học vậy, các em chưa tới tuổi tự chọn." },
     ],
     dialogue: "Lớp mình trường chốt học Lý, Hóa, Sinh rồi, ai đăng ký Sử, Địa thì gạch đi.",
     options: [
@@ -853,6 +867,7 @@ export const studentSituations: Situation[] = [
       { text: "Một bài đăng về trường lan khắp mạng từ tối qua, sáng nay ai cũng bàn." },
       { speaker: "Bạn", text: "Cô ơi, chuyện trên mạng hôm qua là sao vậy ạ?" },
       { speaker: "Cô Hiệu", text: "Bài đó ảnh hưởng tới trường, sáng nay họp hội đồng nhắc rồi." },
+      { speaker: "Cô Hiệu", text: "Em nào còn đăng là nhà trường xử lý kỷ luật ngay." },
     ],
     dialogue: "Từ nay cấm đăng chuyện trường lớp lên mạng, em nào đăng là cô xử lý.",
     options: [
@@ -913,6 +928,7 @@ export const studentSituations: Situation[] = [
       { text: "Thầy Đức bước vào ngay đầu tiết, đứng ở đầu dãy bàn.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Có chuyện gì vậy thầy?" },
       { speaker: "Thầy Đức", text: "Trên trường có đợt kiểm tra đột xuất, thầy làm theo chỉ đạo." },
+      { speaker: "Thầy Đức", text: "Em nào không mở là coi như có vấn đề, thầy báo lên trên." },
     ],
     dialogue: "Cả lớp mở hết cặp ra cho thầy kiểm tra, em nào không mở là có vấn đề.",
     options: [
@@ -970,6 +986,7 @@ export const studentSituations: Situation[] = [
       { text: "Buổi sáng vừa thi xong, cả lớp còn chưa kịp cất đề." },
       { speaker: "Bạn", text: "Tiết này mình học bài mới hả cô?" },
       { speaker: "Cô Vân", text: "Cô còn thiếu một cột điểm miệng của các em." },
+      { speaker: "Cô Vân", text: "Không ai được xin dời, cũng đừng hỏi cô lý do." },
     ],
     dialogue: "Cất sách vở, kiểm tra mười lăm phút, lấy điểm luôn. Đừng ai xin dời nhé.",
     options: [
@@ -1032,6 +1049,7 @@ export const studentSituations: Situation[] = [
       { text: "Bạn Kỳ đứng ở cổng với cuốn sổ trực, nhìn từng bạn đi qua.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Sáng nay trực gắt vậy bạn?" },
       { speaker: "Bạn Kỳ", text: "Thầy Tổng phụ trách vừa nhắc tụi mình làm chặt hơn đó." },
+      { speaker: "Bạn Kỳ", text: "Ai nói nhiều là mình ghi thêm lỗi thái độ luôn đó nha." },
     ],
     dialogue: "Từ tuần này lỗi gì mình cũng ghi tên trừ điểm luôn, không nhắc trước nữa nha.",
     options: [
@@ -1090,6 +1108,7 @@ export const studentSituations: Situation[] = [
       { text: "Bảng thi đua tuần này vừa dán lên, lớp mình đứng cuối bảng." },
       { speaker: "Bạn", text: "Lớp mình bị trừ nhiều điểm vậy hả thầy?" },
       { speaker: "Thầy Hòa", text: "Tuần nào lớp mình cũng bị ghi ồn, thầy bị nhắc trước cả hội đồng." },
+      { speaker: "Thầy Hòa", text: "Cả lớp chịu chung, em nào cãi thì ở lại luôn giờ trưa." },
     ],
     dialogue: "Lớp đứng bét thi đua vì mấy bạn ồn, nên cả lớp cấm ra chơi, đừng ai kêu oan.",
     options: [
@@ -1147,6 +1166,7 @@ export const studentSituations: Situation[] = [
       { text: "Đầu giờ chiều, một quyển truyện rơi khỏi cặp lúc cô Vân đi ngang." },
       { speaker: "Bạn", text: "Dạ… truyện này em đọc lúc ra chơi thôi ạ." },
       { speaker: "Cô Vân", text: "Trường vừa có quy định mới về sách truyện ngoài chương trình." },
+      { speaker: "Cô Vân", text: "Cô thu là thu tới cuối năm, khỏi xin lại nha." },
     ],
     dialogue: "Từ mai cấm mang truyện lên trường, thấy quyển nào cô thu tới cuối năm.",
     options: [

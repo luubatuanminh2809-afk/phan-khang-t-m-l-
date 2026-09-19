@@ -17,6 +17,7 @@ export const teacherSituations: Situation[] = [
       { text: "Bài của Khang đọc trôi chảy lạ thường, khác hẳn mọi lần." },
       { speaker: "Bạn", text: "Bài này em tự làm hết hả Khang?" },
       { speaker: "Khang", text: "Dạ… em có nhờ ChatGPT một chút thôi ạ." },
+      { speaker: "Khang", text: "Bài của em thì em làm kiểu nào là quyền em mà thầy." },
     ],
     dialogue: "Thầy ơi, em chỉ nhờ ChatGPT lập dàn ý thôi, bài là em tự viết mà.",
     options: [
@@ -76,6 +77,7 @@ export const teacherSituations: Situation[] = [
       { text: "Dưới bàn cuối, ánh màn hình hắt lên mặt Hoa.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Hoa, em cất điện thoại giùm thầy." },
       { speaker: "Hoa", text: "Dạ… em đang nhắn dở một chút ạ." },
+      { speaker: "Hoa", text: "Điện thoại của em mà, em nhắn chút có ảnh hưởng ai đâu." },
     ],
     dialogue: "Em nhắn cho mẹ chút xíu thôi mà thầy, có gì to tát đâu ạ.",
     options: [
@@ -135,6 +137,7 @@ export const teacherSituations: Situation[] = [
       { text: "Nhóm của Tuấn cãi nhau nhỏ tiếng khi chia phần thuyết trình.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Nhóm này phân công tới đâu rồi các em?" },
       { speaker: "Tuấn", text: "Dạ, tụi em còn kẹt phần vẽ sơ đồ thầy ơi." },
+      { speaker: "Tuấn", text: "Phần nào em làm được thì em làm, sao bắt hết vậy thầy." },
     ],
     dialogue: "Thầy ơi, phần này để bạn khác làm đi, em không giỏi phần này đâu.",
     options: [
@@ -194,6 +197,7 @@ export const teacherSituations: Situation[] = [
       { text: "Vy kê quyển đề Toán dưới ngăn bàn, mắt không rời khỏi nó.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Vy, em đang làm gì trong giờ của thầy vậy?" },
       { speaker: "Vy", text: "Dạ… em làm đề Toán ạ." },
+      { speaker: "Vy", text: "Giờ tự học mà thầy, em ôn môn nào là việc của em chứ." },
     ],
     dialogue: "Thầy ơi, môn này em không thi, giờ tự học cho em làm đề Toán nha.",
     options: [
@@ -251,6 +255,7 @@ export const teacherSituations: Situation[] = [
       { text: "Hải với Phong vừa xô xát ngoài sân, giờ ngồi hai đầu lớp." },
       { speaker: "Bạn", text: "Hai em lên đây, nói cho rõ ràng." },
       { speaker: "Hải", text: "Dạ, tụi em hết giận nhau rồi thầy." },
+      { speaker: "Hải", text: "Xin lỗi hay không là chuyện của tụi em mà thầy." },
     ],
     dialogue: "Thầy ơi, em không bắt tay Phong trước lớp đâu, để tụi em tự giải quyết.",
     options: [
@@ -308,6 +313,7 @@ export const teacherSituations: Situation[] = [
       { text: "Cả lớp im, Ngọc cúi mặt xuống vở khi tới lượt mình.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Ngọc, em thử trả lời câu này cho thầy." },
       { speaker: "Ngọc", text: "Dạ… em ạ?" },
+      { speaker: "Ngọc", text: "Em không muốn nói trước lớp, sao thầy ép em vậy." },
     ],
     dialogue: "Dạ… thầy gọi bạn khác đi ạ, em chưa muốn trả lời trước lớp.",
     options: [
@@ -367,6 +373,7 @@ export const teacherSituations: Situation[] = [
       { text: "Đạt cầm bài kiểm tra lên bàn giáo viên, mặt đỏ gay.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Bài của em có gì thắc mắc hả Đạt?" },
       { speaker: "Đạt", text: "Dạ, câu ba thầy gạch hết mà đáp số của em vẫn đúng ạ." },
+      { speaker: "Đạt", text: "Làm cách nào ra đúng là được mà thầy, sao bắt y mẫu." },
     ],
     dialogue: "Thầy ơi, câu ba em giải cách khác vẫn ra đúng, sao thầy gạch hết vậy ạ?",
     options: [
@@ -424,6 +431,7 @@ export const teacherSituations: Situation[] = [
       { text: "Bình lấy iPad ra khỏi cặp, mấy bạn xung quanh quay lại nhìn.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Em định dùng cái đó ghi bài hả Bình?" },
       { speaker: "Bình", text: "Dạ, em viết tay chậm lắm thầy." },
+      { speaker: "Bình", text: "Em ghi bằng gì kệ em chứ thầy, miễn em ghi đủ bài." },
     ],
     dialogue: "Thầy ơi, cho em ghi bài bằng iPad nha, em viết tay chép không kịp.",
     options: [
@@ -481,6 +489,7 @@ export const teacherSituations: Situation[] = [
       { text: "Kiên gõ cửa phòng giáo viên, tay còn cầm bài kiểm tra.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Em ở lại có việc gì không Kiên?" },
       { speaker: "Kiên", text: "Dạ, em muốn hỏi thầy chuyện điểm bài vừa rồi ạ." },
+      { speaker: "Kiên", text: "Điểm của em mà, để em tự nói với bố mẹ được không thầy." },
     ],
     dialogue: "Thầy đừng nhắn điểm bài này cho bố mẹ em nha, để em tự nói ạ.",
     options: [
@@ -538,6 +547,7 @@ export const teacherSituations: Situation[] = [
       { text: "Thảo cầm tờ đơn câu lạc bộ, gấp lại rồi mở ra mấy lần.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Đơn gì đó em?" },
       { speaker: "Thảo", text: "Dạ, đơn đăng ký câu lạc bộ ạ." },
+      { speaker: "Thảo", text: "Ngoài giờ học là thời gian của em mà thầy." },
     ],
     dialogue: "Thầy ơi, em đăng ký câu lạc bộ Mỹ thuật nha, em không bỏ bê học đâu.",
     options: [
@@ -597,6 +607,7 @@ export const teacherSituations: Situation[] = [
       { text: "Nam ngồi một mình ngoài hành lang, tai nghe chụp kín hai bên.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Nam, thầy gọi em nãy giờ đó." },
       { speaker: "Nam", text: "Dạ, em xin lỗi, em không nghe thấy ạ." },
+      { speaker: "Nam", text: "Giờ ra chơi là giờ của em, em nghe nhạc đâu có sai." },
     ],
     dialogue: "Giờ ra chơi mà thầy, em đeo tai nghe chút thôi, có phiền ai đâu ạ.",
     options: [
@@ -656,6 +667,7 @@ export const teacherSituations: Situation[] = [
       { text: "Giữa sân trường, nhóm của My quay đi quay lại một đoạn nhảy.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Mấy em quay cái gì ngoài đó vậy?" },
       { speaker: "My", text: "Dạ, tụi em tập bài nhảy cho hội diễn văn nghệ ạ." },
+      { speaker: "My", text: "Tụi em quay ngoài giờ, đâu ảnh hưởng gì tới lớp đâu thầy." },
     ],
     dialogue: "Thầy cho tụi em quay nốt clip nhảy thi văn nghệ nha, xíu là xong ạ.",
     options: [
@@ -715,6 +727,7 @@ export const teacherSituations: Situation[] = [
       { text: "Bài văn của Trâm là bài thầy tâm đắc nhất tuần này." },
       { speaker: "Bạn", text: "Thầy tính đưa em vào đội tuyển Văn của trường." },
       { speaker: "Trâm", text: "Dạ… thầy cho em suy nghĩ được không ạ?" },
+      { speaker: "Trâm", text: "Em không muốn thi, thầy đừng ghi tên em được không." },
     ],
     dialogue: "Thầy ơi, em không vào đội tuyển Văn đâu, thầy chọn bạn khác giùm em.",
     options: [
@@ -772,6 +785,7 @@ export const teacherSituations: Situation[] = [
       { text: "Việt đứng trước bàn giáo viên, cuốn vở chép phạt còn trắng tinh.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Nội quy thầy bảo chép, em chép tới đâu rồi?" },
       { speaker: "Việt", text: "Dạ, em chưa chép thầy ơi." },
+      { speaker: "Việt", text: "Chép phạt đâu làm em bớt sai, thầy cho cách khác đi." },
     ],
     dialogue: "Thầy ơi, em không chép phạt nội quy đâu, cho em sửa lỗi cách khác nha.",
     options: [
@@ -829,6 +843,7 @@ export const teacherSituations: Situation[] = [
       { text: "Cuối tuần, cả lớp uể oải chờ tới phần đọc tên vi phạm." },
       { speaker: "Bạn", text: "Rồi, tới giờ sinh hoạt. Lớp trưởng lên đây." },
       { speaker: "Chi", text: "Dạ, thầy cho em xin ý kiến một chút ạ." },
+      { speaker: "Chi", text: "Giờ sinh hoạt là của lớp em mà, sao thầy quyết hết vậy." },
     ],
     dialogue: "Thầy để tụi em tự điều hành giờ sinh hoạt nha, đọc lỗi mãi cả lớp ngán lắm.",
     options: [
@@ -886,6 +901,7 @@ export const teacherSituations: Situation[] = [
       { text: "Nhóm Khoa xin gặp thầy giờ ra chơi, đứa nào cũng hào hứng.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Nhóm em tính làm bài thuyết trình thế nào?" },
       { speaker: "Khoa", text: "Dạ, tụi em định làm khác kiểu slide mọi khi ạ." },
+      { speaker: "Khoa", text: "Làm kiểu nào cũng ra bài mà thầy, sao bắt y khuôn." },
     ],
     dialogue: "Thầy ơi, bài thuyết trình Sử nhóm em làm podcast nha, làm slide chán lắm.",
     options: [
@@ -943,6 +959,7 @@ export const teacherSituations: Situation[] = [
       { text: "Lâm lên bàn thầy, tay giấu cái điện thoại đang mở trang bán vé.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Em có gì muốn xin thầy hả Lâm?" },
       { speaker: "Lâm", text: "Dạ… thứ Bảy này em xin nghỉ một buổi được không thầy?" },
+      { speaker: "Lâm", text: "Cuối tuần là thời gian của em, sao thầy cấm luôn vậy." },
     ],
     dialogue: "Thầy ơi, cho em nghỉ học thêm sáng thứ Bảy nha, em đi xem concert ạ.",
     options: [
@@ -1002,6 +1019,7 @@ export const teacherSituations: Situation[] = [
       { text: "Bài của Phương viết thật tới mức thầy đọc xong ngồi lặng một lúc." },
       { speaker: "Bạn", text: "Bài này thầy muốn đọc cho cả lớp nghe." },
       { speaker: "Phương", text: "Dạ?! Đọc trước lớp hả thầy?" },
+      { speaker: "Phương", text: "Bài em viết thì em có quyền giữ riêng chứ thầy." },
     ],
     dialogue: "Thầy đừng đọc bài văn của em trước lớp nha, bài đó em viết chuyện nhà em.",
     options: [
@@ -1059,6 +1077,7 @@ export const teacherSituations: Situation[] = [
       { text: "Quân làm xong bài sớm, cứ ngó hoài về phía thư viện.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Bài xong hết rồi hả Quân?" },
       { speaker: "Quân", text: "Dạ rồi ạ, em nộp cho thầy nãy giờ." },
+      { speaker: "Quân", text: "Em làm xong bài rồi mà, giờ đó là giờ của em chứ." },
     ],
     dialogue: "Thầy ơi, em làm xong bài rồi, cho em chơi game chút trên máy thư viện nha.",
     options: [
@@ -1118,6 +1137,7 @@ export const teacherSituations: Situation[] = [
       { text: "Tan học đã lâu, lớp chỉ còn Trúc ngồi lại với chồng sách.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Sao giờ này em còn ở đây Trúc?" },
       { speaker: "Trúc", text: "Dạ, ở nhà ồn quá em không học được thầy." },
+      { speaker: "Trúc", text: "Em ở lại học thôi mà, sao thầy cũng không cho." },
     ],
     dialogue: "Thầy cho em ở lại lớp một mình ôn bài đến tối nha, em cần yên tĩnh.",
     options: [

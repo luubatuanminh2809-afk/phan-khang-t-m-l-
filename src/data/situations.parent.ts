@@ -21,6 +21,7 @@ export const parentSituations: Situation[] = [
       { text: "Đèn phòng Bo vẫn sáng, tiếng video vọng ra tới ngoài hành lang.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Chín giờ rồi đó con." },
       { speaker: "Bo", text: "Dạ… con vẫn đang coi dở nè mẹ." },
+      { speaker: "Bo", text: "Cái gì mẹ cũng quyết giùm con hết vậy." },
     ],
     dialogue: "Mẹ ơi cho con xem nốt video này thôi, sắp hết rồi mà!",
     options: [
@@ -83,6 +84,7 @@ export const parentSituations: Situation[] = [
       { text: "Tờ rơi trung tâm tiếng Anh còn để trên bàn phòng khách." },
       { speaker: "Bạn", text: "Trung tâm chỗ này người ta khen dữ lắm, con thấy sao?" },
       { speaker: "An", text: "Mẹ tính cho con đi học thêm nữa hả?" },
+      { speaker: "An", text: "Chuyện học của con, mẹ để con tự tính được mà." },
     ],
     dialogue: "Mẹ ơi, bài trên trường đủ mệt rồi, con chưa muốn học thêm IELTS đâu.",
     options: [
@@ -142,6 +144,7 @@ export const parentSituations: Situation[] = [
       { text: "Bo vừa về tới, kể cả buổi chiều đi sửa xe với Duy.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Cái bạn Duy đó… học hành sao rồi con?" },
       { speaker: "Bo", text: "Mẹ hỏi vậy là lại sắp cấm con chơi với bạn ấy đúng không." },
+      { speaker: "Bo", text: "Con chơi với ai là chuyện của con mà mẹ." },
     ],
     dialogue: "Mẹ đừng cấm con chơi với Duy nữa. Bạn ấy học đuối thôi, đâu có hư.",
     options: [
@@ -199,6 +202,7 @@ export const parentSituations: Situation[] = [
       { text: "An cầm điện thoại bước ra, mặt xị xuống.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Gì mà mặt mày quạu vậy con?" },
       { speaker: "An", text: "Tụi bạn con gửi cho con tấm ảnh mẹ đăng hôm qua." },
+      { speaker: "An", text: "Hình của con thì con phải được quyết chứ mẹ." },
     ],
     dialogue: "Mẹ gỡ ảnh con ngủ trên Facebook xuống đi, lần sau hỏi con trước khi đăng nha.",
     options: [
@@ -256,6 +260,7 @@ export const parentSituations: Situation[] = [
       { text: "Bo mở đi mở lại một đoạn video tập boxing trên điện thoại.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Coi gì mà say sưa vậy con?" },
       { speaker: "Bo", text: "Phòng tập đầu ngõ mới mở lớp đó mẹ." },
+      { speaker: "Bo", text: "Con lớn rồi, con tự biết cái nào nguy hiểm mà." },
     ],
     dialogue: "Mẹ ơi, con muốn học boxing ở phòng tập đầu ngõ, con tự đạp xe đi được.",
     options: [
@@ -313,6 +318,7 @@ export const parentSituations: Situation[] = [
       { text: "Bốn giờ chiều, cả nhà bắt đầu thay đồ để qua nhà ông bà." },
       { speaker: "Bạn", text: "Con thay đồ đi, lát nhà mình qua ông bà." },
       { speaker: "An", text: "Mai con có bài kiểm tra mà mẹ." },
+      { speaker: "An", text: "Sao lúc nào con cũng phải đi theo ý mẹ vậy." },
     ],
     dialogue: "Mẹ ơi, tối nay con ở nhà ôn bài, không đi đám giỗ đâu, mai con kiểm tra.",
     options: [
@@ -372,6 +378,7 @@ export const parentSituations: Situation[] = [
       { text: "An đứng tần ngần ở cửa, xoay xoay cái điện thoại trong tay.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Có gì thì nói đi con, đứng đó nãy giờ." },
       { speaker: "An", text: "Dạ… tối nay sinh nhật nhỏ Chi mẹ ơi." },
+      { speaker: "An", text: "Bạn con ai cũng được đi, mỗi con là bị cấm." },
     ],
     dialogue: "Mẹ ơi, tối nay con đi sinh nhật Chi rồi ngủ lại nhà bạn ấy luôn nha.",
     options: [
@@ -431,6 +438,7 @@ export const parentSituations: Situation[] = [
       { text: "Bo vừa để điện thoại xuống bàn thì màn hình sáng lên một loạt tin." },
       { speaker: "Bạn", text: "Nhóm nào mà nhắn dữ vậy con?" },
       { speaker: "Bo", text: "Nhóm lớp thôi mà mẹ, mẹ đừng cầm máy con." },
+      { speaker: "Bo", text: "Điện thoại của con mà, mẹ coi vậy kỳ lắm." },
     ],
     dialogue: "Sao mẹ cứ đòi xem điện thoại con vậy, con có làm gì sai đâu?",
     options: [
@@ -490,6 +498,7 @@ export const parentSituations: Situation[] = [
       { text: "An mở giỏ hàng khoe cái mô hình để dành mấy tháng nay.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Cái này bao nhiêu mà con để dành lâu vậy?" },
       { speaker: "An", text: "Tám trăm ngàn á mẹ, con để dành gần đủ rồi." },
+      { speaker: "An", text: "Tiền con tự để dành mà, con mua gì kệ con chứ." },
     ],
     dialogue: "Mẹ ơi, con dùng tiền tiết kiệm mua mô hình nhóm nhạc con thích nha.",
     options: [
@@ -549,6 +558,7 @@ export const parentSituations: Situation[] = [
       { text: "Phòng Bo đồ bày kín sàn, tiếng game vọng ra tới phòng khách." },
       { speaker: "Bạn", text: "Phòng ốc gì vầy nè con." },
       { speaker: "Bo", text: "Con đang giữa trận mà mẹ." },
+      { speaker: "Bo", text: "Phòng của con, để sao là chuyện của con mà mẹ." },
     ],
     dialogue: "Mẹ ơi, đánh xong trận game này con dọn phòng sau nha.",
     options: [
@@ -608,6 +618,7 @@ export const parentSituations: Situation[] = [
       { text: "An ngồi kế bên, ngập ngừng một hồi mới mở lời.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Nói đi con, có gì mà úp mở." },
       { speaker: "An", text: "Dạ… con quen một bạn học chung lớp tiếng Anh." },
+      { speaker: "An", text: "Con quen ai con tự biết mà, đâu cần mẹ cấm." },
     ],
     dialogue: "Mẹ ơi, thứ Bảy con đi xem phim với Khôi nha, tụi con đang tìm hiểu nhau.",
     options: [
@@ -665,6 +676,7 @@ export const parentSituations: Situation[] = [
       { text: "Chén canh thuốc bắc nguội dần trên bàn, vẫn còn đầy." },
       { speaker: "Bạn", text: "Canh này mẹ hầm từ chiều đó, ăn đi con." },
       { speaker: "Bo", text: "Mùi thuốc bắc nồng quá mẹ ơi." },
+      { speaker: "Bo", text: "Con không muốn ăn thì thôi, sao mẹ ép con hoài vậy." },
     ],
     dialogue: "Con no rồi mẹ ơi, chén canh bổ này con không ăn hết đâu.",
     options: [
@@ -724,6 +736,7 @@ export const parentSituations: Situation[] = [
       { text: "An đưa tờ đăng ký nguyện vọng, tay còn cầm cây bút.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Rồi, con tính ghi ngành gì đây?" },
       { speaker: "An", text: "Con tìm hiểu mấy tháng nay rồi mẹ." },
+      { speaker: "An", text: "Đời con mà, để con chọn ngành con thích đi mẹ." },
     ],
     dialogue: "Mẹ ơi, con muốn thi Truyền thông chứ không thi Y đâu, con tìm hiểu kỹ rồi.",
     options: [
@@ -783,6 +796,7 @@ export const parentSituations: Situation[] = [
       { text: "Trên bàn Bo bày một đống móc khoá với mấy cuộn dây." },
       { speaker: "Bạn", text: "Chỗ này là gì vậy con?" },
       { speaker: "Bo", text: "Hàng của tụi con đó mẹ, con với Tùng mới lấy về." },
+      { speaker: "Bo", text: "Con tự làm tự chịu, mẹ đừng cấm được không." },
     ],
     dialogue: "Mẹ ơi, con với Tùng mở shop bán móc khóa online, mẹ để tụi con tự làm nha.",
     options: [
@@ -840,6 +854,7 @@ export const parentSituations: Situation[] = [
       { text: "An đi học thêm về, vừa để cặp xuống là quay qua hỏi ngay.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Sao vậy con, đi học vui không?" },
       { speaker: "An", text: "Tụi bạn nói mẹ coi định vị của con hoài." },
+      { speaker: "An", text: "Mẹ coi con như tù vậy đó, đi đâu cũng bị dòm." },
     ],
     dialogue: "Mẹ tắt định vị trên máy con đi, đi đâu con cũng nhắn mẹ mà.",
     options: [
@@ -897,6 +912,7 @@ export const parentSituations: Situation[] = [
       { text: "Bo quay xong một đoạn giải Rubik, ngồi cắt clip trên máy.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Quay để làm gì vậy con?" },
       { speaker: "Bo", text: "Con mở kênh riêng rồi mẹ, được mấy trăm người coi lận." },
+      { speaker: "Bo", text: "Kênh của con mà, đăng gì là quyền của con chứ." },
     ],
     dialogue: "Mẹ ơi, con mở kênh TikTok giải Rubik, để công khai nha, riêng tư thì ai xem.",
     options: [
@@ -954,6 +970,7 @@ export const parentSituations: Situation[] = [
       { text: "Sáng nào An cũng chạy vội ra bến xe buýt, hôm nay lại trễ." },
       { speaker: "Bạn", text: "Lại trễ xe nữa hả con?" },
       { speaker: "An", text: "Xe buýt đông với chạy lâu quá mẹ." },
+      { speaker: "An", text: "Ai cũng tự đi được, mỗi con là mẹ không cho." },
     ],
     dialogue: "Mẹ ơi, cho con tự đi xe điện đi học nha, xe buýt lâu quá con toàn trễ.",
     options: [
@@ -1013,6 +1030,7 @@ export const parentSituations: Situation[] = [
       { text: "Bo ngồi xổm ngoài ngõ, đút cơm cho một con mèo gầy.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Con mèo này ở đâu ra vậy con?" },
       { speaker: "Bo", text: "Nó ở ngoài ngõ mấy bữa nay, không ai nuôi hết mẹ." },
+      { speaker: "Bo", text: "Con nuôi thì con tự lo, mẹ đâu phải làm gì đâu." },
     ],
     dialogue: "Mẹ ơi, con nuôi con mèo hoang ngoài ngõ nha, con tự lo hết mà.",
     options: [
@@ -1070,6 +1088,7 @@ export const parentSituations: Situation[] = [
       { text: "Bo lục tủ một hồi, lôi ra cái hoodie rộng thùng thình.", subjectIsNpc: true },
       { speaker: "Bạn", text: "Mẹ mới mua cho con cái sơ mi, sao không mặc?" },
       { speaker: "Bo", text: "Đi chơi với bạn mà mặc sơ mi kỳ lắm mẹ." },
+      { speaker: "Bo", text: "Đồ con mặc mà mẹ cũng chọn giùm luôn hả." },
     ],
     dialogue: "Mẹ ơi, đồ con mặc đi chơi để con tự chọn nha, áo sơ mi mẹ mua quê lắm.",
     options: [
@@ -1127,6 +1146,7 @@ export const parentSituations: Situation[] = [
       { text: "Bàn học của An đã gọn gàng, sách xếp thành chồng ngay ngắn." },
       { speaker: "Bạn", text: "Mẹ dọn bàn cho con rồi đó." },
       { speaker: "An", text: "Ủa, mấy tờ giấy con để trên bàn đâu rồi mẹ?" },
+      { speaker: "An", text: "Bàn của con, mẹ đừng đụng vô đồ của con nữa." },
     ],
     dialogue: "Mẹ đừng dọn bàn học của con nữa, con để đúng chỗ hết mà.",
     options: [
