@@ -1,6 +1,6 @@
-import type { ReactNode, Ref } from "react";
+import type { PointerEvent as ReactPointerEvent, ReactNode, Ref } from "react";
 import { LETTER_THEMES, STICKER_SLOT_CLASS } from "../../data/letterTemplates";
-import type { LetterTheme } from "../../types";
+import type { LetterTheme, PlacedSticker } from "../../types";
 
 /** one grid square, in px — also the value letterImage.ts draws with, so the exported
  *  PNG rules out to the same paper the player was writing on */
@@ -13,6 +13,9 @@ export function LetterCard({
   theme,
   toWhom,
   stickers = [],
+  placed,
+  selectedSticker = null,
+  onStickerDown,
   signOff,
   dateLabel,
   children,
@@ -21,6 +24,13 @@ export function LetterCard({
   theme: LetterTheme;
   toWhom?: string;
   stickers?: string[];
+  /** stickers the player positioned themselves; falls back to the old fixed corners when
+   *  a letter predates that (see PlacedSticker) */
+  placed?: PlacedSticker[];
+  /** index of the sticker being fiddled with, so it can show it is the one selected */
+  selectedSticker?: number | null;
+  /** present only while writing: makes the stickers grabbable */
+  onStickerDown?: (index: number, event: ReactPointerEvent<HTMLSpanElement>) => void;
   signOff?: string;
   dateLabel?: string;
   children: ReactNode;
@@ -54,11 +64,31 @@ export function LetterCard({
       {signOff && <p className="relative mt-5 whitespace-pre-line text-right text-sm font-semibold text-slate-500">{signOff}</p>}
       {dateLabel && <p className="relative mt-2 text-right text-[11px] italic text-slate-400">{dateLabel}</p>}
 
-      {stickers.slice(0, 4).map((s, i) => (
-        <span key={i} className={`absolute text-2xl drop-shadow-sm ${STICKER_SLOT_CLASS[i % STICKER_SLOT_CLASS.length]}`}>
-          {s}
-        </span>
-      ))}
+      {placed
+        ? placed.map((s, i) => (
+            <span
+              key={i}
+              onPointerDown={onStickerDown ? (e) => onStickerDown(i, e) : undefined}
+              style={{
+                left: `${s.x * 100}%`,
+                top: `${s.y * 100}%`,
+                transform: `translate(-50%, -50%) rotate(${s.rotate ?? 0}deg) scale(${s.scale ?? 1})`,
+                touchAction: onStickerDown ? "none" : undefined,
+              }}
+              className={`absolute select-none text-3xl drop-shadow-sm ${
+                onStickerDown ? "cursor-grab active:cursor-grabbing" : ""
+              } ${selectedSticker === i ? "rounded-xl outline-2 outline-dashed outline-offset-4 outline-blue-400" : ""}`}
+            >
+              {s.emoji}
+            </span>
+          ))
+        : stickers
+            .slice(0, 4)
+            .map((s, i) => (
+              <span key={i} className={`absolute text-2xl drop-shadow-sm ${STICKER_SLOT_CLASS[i % STICKER_SLOT_CLASS.length]}`}>
+                {s}
+              </span>
+            ))}
     </div>
   );
 }

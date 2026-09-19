@@ -1,4 +1,4 @@
-import type { LetterTheme } from "../types";
+import type { LetterTheme, Role } from "../types";
 
 export interface LetterTemplate {
   id: string;
@@ -88,7 +88,7 @@ export const LETTER_THEMES: Record<
     ring: "ring-blue-200",
     dot: "bg-blue-400",
     paper: { tint: "#f8fbff", grid: "#dbeafe", margin: "#93c5fd" },
-    signOff: "Yêu thương,\nCon của bố/mẹ",
+    signOff: "Yêu thương,",
     png: { from: "#eff6ff", to: "#f0f9ff", tape: "#bfdbfe", accent: "#3b82f6", ring: "#bfdbfe" },
   },
   green: {
@@ -98,7 +98,7 @@ export const LETTER_THEMES: Record<
     ring: "ring-emerald-200",
     dot: "bg-emerald-400",
     paper: { tint: "#f7fdfa", grid: "#d1fae5", margin: "#6ee7b7" },
-    signOff: "Yêu thương,\nCon của bố/mẹ",
+    signOff: "Yêu thương,",
     png: { from: "#ecfdf5", to: "#f0fdf4", tape: "#a7f3d0", accent: "#059669", ring: "#a7f3d0" },
   },
   amber: {
@@ -108,7 +108,7 @@ export const LETTER_THEMES: Record<
     ring: "ring-amber-200",
     dot: "bg-amber-400",
     paper: { tint: "#fffdf6", grid: "#fef3c7", margin: "#fcd34d" },
-    signOff: "Yêu thương,\nCon của bố/mẹ",
+    signOff: "Yêu thương,",
     png: { from: "#fffbeb", to: "#fff7ed", tape: "#fde68a", accent: "#d97706", ring: "#fde68a" },
   },
   pink: {
@@ -118,7 +118,7 @@ export const LETTER_THEMES: Record<
     ring: "ring-rose-200",
     dot: "bg-rose-400",
     paper: { tint: "#fff9fb", grid: "#fce7f3", margin: "#f9a8d4" },
-    signOff: "Yêu thương,\nCon của bố/mẹ",
+    signOff: "Yêu thương,",
     png: { from: "#fff1f2", to: "#fdf2f8", tape: "#fecdd3", accent: "#f43f5e", ring: "#fecdd3" },
   },
   violet: {
@@ -143,3 +143,13 @@ export const STICKER_SLOT_CLASS = [
 ];
 
 export const RECIPIENT_OPTIONS = ["Bố", "Mẹ", "Thầy/Cô", "Bạn bè"];
+
+/** Who the letter is likely to be for, given the life the player has just been living.
+ *  A parent writing "Gửi bố" and signing it "Con của bố mẹ" was the game putting words in
+ *  their mouth from the wrong side of the family. */
+export function recipientOptionsFor(role: Role | null): string[] {
+  if (role === "parent") return ["Con", "Thầy/Cô của con", "Bạn bè"];
+  if (role === "teacher") return ["Học trò", "Phụ huynh", "Đồng nghiệp"];
+  return RECIPIENT_OPTIONS;
+}
+

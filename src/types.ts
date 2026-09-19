@@ -164,6 +164,19 @@ export interface AdviceEntry {
 
 export type LetterTheme = "blue" | "green" | "amber" | "pink" | "violet";
 
+/** a sticker the player placed themselves: where it sits on the paper, how big, how tilted.
+ *  x and y are fractions of the letter's width and height, so a letter laid out on a phone
+ *  comes back looking the same on a laptop and in the exported image. */
+export interface PlacedSticker {
+  emoji: string;
+  x: number;
+  y: number;
+  /** degrees; 0 is upright */
+  rotate?: number;
+  /** 1 is the default size */
+  scale?: number;
+}
+
 export interface Letter {
   id: string;
   templateId: string;
@@ -171,7 +184,10 @@ export interface Letter {
   toWhom: string;
   message: string;
   signOff: string;
+  /** the emoji used, kept flat so letters written by older builds still open */
   stickers: string[];
+  /** where the player actually put them; absent on letters from before they could be moved */
+  placed?: PlacedSticker[];
   createdAt: string;
 }
 

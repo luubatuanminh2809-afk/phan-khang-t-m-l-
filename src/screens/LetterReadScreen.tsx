@@ -67,6 +67,7 @@ export function LetterReadScreen() {
               theme={shown.theme}
               toWhom={shown.toWhom}
               stickers={shown.stickers}
+              placed={shown.placed}
               signOff={shown.signOff}
               dateLabel={
                 Number.isNaN(new Date(shown.createdAt).getTime())

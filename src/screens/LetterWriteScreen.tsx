@@ -1,41 +1,102 @@
-import { useState } from "react";
+import { useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { renderLetterToBlob } from "../lib/letterImage";
-import { ArrowLeft, Check, ImageDown, Link2, Palette, Send, Sparkles } from "lucide-react";
+import { ArrowLeft, Check, ImageDown, Link2, Minus, PenLine, Plus, RotateCw, Trash2, Palette, Send, Sparkles } from "lucide-react";
 import { useGame } from "../state/gameContext";
 import { Card } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { LetterCard } from "../components/ui/LetterCard";
 import { CloudField, HillField, SparkleField } from "../components/illustrations/AmbientBackdrop";
-import { LETTER_THEMES, STICKER_OPTIONS, RECIPIENT_OPTIONS } from "../data/letterTemplates";
+import { LETTER_THEMES, STICKER_OPTIONS, recipientOptionsFor } from "../data/letterTemplates";
 import { encodeLetter, buildLetterLink, newLetterId } from "../state/letterCode";
-import { addSentLetter } from "../state/storage";
-import type { Letter, LetterTheme } from "../types";
+import { addSentLetter, getProfile } from "../state/storage";
+import type { Letter, LetterTheme, PlacedSticker } from "../types";
 
 const THEME_KEYS = Object.keys(LETTER_THEMES) as LetterTheme[];
+const MAX_STICKERS = 8;
+// where a freshly tapped sticker lands before the player drags it: around the edges of the
+// paper, clear of the writing, and never twice in the same place
+const DROP_SPOTS = [
+  { x: 0.84, y: 0.16, rotate: 10 },
+  { x: 0.16, y: 0.18, rotate: -10 },
+  { x: 0.86, y: 0.82, rotate: -8 },
+  { x: 0.18, y: 0.84, rotate: 8 },
+  { x: 0.5, y: 0.12, rotate: -4 },
+  { x: 0.5, y: 0.88, rotate: 6 },
+  { x: 0.9, y: 0.5, rotate: 12 },
+  { x: 0.12, y: 0.5, rotate: -12 },
+];
 
 export function LetterWriteScreen() {
   const { dispatch, role, letterReturn } = useGame();
+  const recipientOptions = recipientOptionsFor(role);
   // no templates any more: a pre-filled letter is the writer's words, not the player's,
   // and most people just tweak whatever is already in the box. Starting blank is the
   // point — the letter is supposed to be the one thing they say for themselves.
   const [theme, setTheme] = useState<LetterTheme>("blue");
-  const [toWhom, setToWhom] = useState<string>(RECIPIENT_OPTIONS[0]);
+  const [toWhom, setToWhom] = useState<string>(recipientOptions[0]);
   const [customName, setCustomName] = useState("");
   const [message, setMessage] = useState("");
-  const [stickers, setStickers] = useState<string[]>([]);
+  // The letter used to sign itself — "Con của bố/mẹ" under every one, whoever was writing
+  // and whoever it was for. It is their letter, so the name at the bottom is theirs to
+  // type: their own, a nickname, or nothing at all.
+  const [signature, setSignature] = useState(() => getProfile().name ?? "");
+  const [placed, setPlaced] = useState<PlacedSticker[]>([]);
+  const [selected, setSelected] = useState<number | null>(null);
   const [copied, setCopied] = useState(false);
   const [exporting, setExporting] = useState(false);
   // object URL of the rendered letter image, shown full-size so the player can save it
   // with their browser's own "save image" gesture — see handleExportImage
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const recipientLabel = toWhom === "Tự điền tên" ? customName.trim() : toWhom;
   const canSend = message.trim().length > 0 && recipientLabel.length > 0;
-  const signOff = LETTER_THEMES[theme].signOff;
+  const signOff = signature.trim() ? `${LETTER_THEMES[theme].signOff}\n${signature.trim()}` : LETTER_THEMES[theme].signOff;
   const dateLabel = new Date().toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit", year: "numeric" });
 
-  function toggleSticker(s: string) {
-    setStickers((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : prev.length >= 4 ? prev : [...prev, s]));
+  /** drops a new sticker somewhere free-ish, then lets the player drag it wherever */
+  function addSticker(emoji: string) {
+    if (placed.length >= MAX_STICKERS) return;
+    const spot = DROP_SPOTS[placed.length % DROP_SPOTS.length];
+    setPlaced((prev) => [...prev, { emoji, x: spot.x, y: spot.y, rotate: spot.rotate, scale: 1 }]);
+    setSelected(placed.length);
+  }
+
+  function updateSelected(change: Partial<PlacedSticker>) {
+    if (selected === null) return;
+    setPlaced((prev) => prev.map((s, i) => (i === selected ? { ...s, ...change } : s)));
+  }
+
+  function removeSelected() {
+    if (selected === null) return;
+    setPlaced((prev) => prev.filter((_, i) => i !== selected));
+    setSelected(null);
+  }
+
+  // dragging: the sticker follows the pointer within the paper, in fractions of the card so
+  // the layout survives a different screen and the exported image
+  function handleStickerDown(index: number, event: ReactPointerEvent<HTMLSpanElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    setSelected(index);
+    const card = cardRef.current;
+    if (!card) return;
+    const pointerId = event.pointerId;
+    const move = (e: PointerEvent) => {
+      if (e.pointerId !== pointerId) return;
+      const rect = card.getBoundingClientRect();
+      const x = Math.min(0.97, Math.max(0.03, (e.clientX - rect.left) / rect.width));
+      const y = Math.min(0.97, Math.max(0.03, (e.clientY - rect.top) / rect.height));
+      setPlaced((prev) => prev.map((s, i) => (i === index ? { ...s, x, y } : s)));
+    };
+    const up = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", up);
+      window.removeEventListener("pointercancel", up);
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up);
+    window.addEventListener("pointercancel", up);
   }
 
   function buildLetter(): Letter {
@@ -47,7 +108,8 @@ export function LetterWriteScreen() {
       toWhom: recipientLabel,
       message: message.trim(),
       signOff,
-      stickers,
+      stickers: placed.map((s) => s.emoji),
+      placed,
       createdAt: new Date().toISOString(),
     };
   }
@@ -62,7 +124,7 @@ export function LetterWriteScreen() {
         message,
         signOff,
         dateLabel,
-        stickers,
+        placed,
       });
       addSentLetter(buildLetter());
       setExporting(false);
@@ -141,7 +203,7 @@ export function LetterWriteScreen() {
                 <Send size={13} className="text-blue-500" /> Gửi cho
               </label>
               <div className="flex flex-wrap gap-2">
-                {[...RECIPIENT_OPTIONS, "Tự điền tên"].map((r) => (
+                {[...recipientOptions, "Tự điền tên"].map((r) => (
                   <button
                     key={r}
                     onClick={() => setToWhom(r)}
@@ -163,7 +225,16 @@ export function LetterWriteScreen() {
               )}
             </Card>
 
-            <LetterCard theme={theme} toWhom={recipientLabel || undefined} stickers={stickers} signOff={signOff} dateLabel={dateLabel}>
+            <LetterCard
+              theme={theme}
+              toWhom={recipientLabel || undefined}
+              placed={placed}
+              selectedSticker={selected}
+              onStickerDown={handleStickerDown}
+              signOff={signOff}
+              dateLabel={dateLabel}
+              cardRef={cardRef}
+            >
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -174,26 +245,71 @@ export function LetterWriteScreen() {
             </LetterCard>
 
             <Card className="p-4 mt-4">
-              <label className="mb-2.5 flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wide text-slate-500">
-                <Sparkles size={13} className="text-amber-400" /> Sticker
-                <span className="ml-auto font-bold normal-case tracking-normal text-slate-400">{stickers.length}/4</span>
+              <label className="mb-1 flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wide text-slate-500">
+                <PenLine size={13} className="text-blue-500" /> Ký tên
               </label>
-              <div className="mb-5 flex flex-wrap gap-2">
-                {STICKER_OPTIONS.map((s) => {
-                  const on = stickers.includes(s);
-                  return (
-                    <button
-                      key={s}
-                      onClick={() => toggleSticker(s)}
-                      className={`flex h-11 w-11 items-center justify-center rounded-2xl text-xl transition active:scale-90 ${
-                        on ? "bg-blue-100 ring-2 ring-blue-400 scale-110 shadow-sm" : "bg-slate-50 hover:bg-slate-100"
-                      }`}
-                    >
-                      {s}
-                    </button>
-                  );
-                })}
+              <input
+                value={signature}
+                onChange={(e) => setSignature(e.target.value)}
+                placeholder="Tên hoặc biệt danh của bạn..."
+                className="mb-5 w-full rounded-xl border-2 border-slate-100 p-2.5 text-sm text-slate-700 outline-none focus:border-blue-300"
+              />
+
+              <label className="mb-1 flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wide text-slate-500">
+                <Sparkles size={13} className="text-amber-400" /> Sticker
+                <span className="ml-auto font-bold normal-case tracking-normal text-slate-400">
+                  {placed.length}/{MAX_STICKERS}
+                </span>
+              </label>
+              <p className="mb-2.5 text-[11px] text-slate-400">Chạm để thêm, rồi kéo sticker trên thư tới chỗ bạn thích.</p>
+              <div className="mb-3 flex flex-wrap gap-2">
+                {STICKER_OPTIONS.map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => addSticker(s)}
+                    disabled={placed.length >= MAX_STICKERS}
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-50 text-xl transition hover:bg-slate-100 active:scale-90 disabled:opacity-40"
+                  >
+                    {s}
+                  </button>
+                ))}
               </div>
+
+              {/* the controls act on whichever sticker is selected — the one with the dashed
+                  ring on the letter above */}
+              {selected !== null && placed[selected] && (
+                <div className="mb-5 flex flex-wrap items-center gap-2 rounded-2xl bg-slate-50 p-2.5">
+                  <span className="px-1 text-2xl">{placed[selected].emoji}</span>
+                  <button
+                    onClick={() => updateSelected({ scale: Math.min(2.4, (placed[selected].scale ?? 1) + 0.2) })}
+                    aria-label="To hơn"
+                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-slate-600 shadow-sm active:scale-90"
+                  >
+                    <Plus size={16} />
+                  </button>
+                  <button
+                    onClick={() => updateSelected({ scale: Math.max(0.6, (placed[selected].scale ?? 1) - 0.2) })}
+                    aria-label="Nhỏ lại"
+                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-slate-600 shadow-sm active:scale-90"
+                  >
+                    <Minus size={16} />
+                  </button>
+                  <button
+                    onClick={() => updateSelected({ rotate: ((placed[selected].rotate ?? 0) + 15) % 360 })}
+                    aria-label="Xoay"
+                    className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-slate-600 shadow-sm active:scale-90"
+                  >
+                    <RotateCw size={16} />
+                  </button>
+                  <button
+                    onClick={removeSelected}
+                    aria-label="Xoá sticker"
+                    className="ml-auto flex h-9 w-9 items-center justify-center rounded-xl bg-white text-rose-500 shadow-sm active:scale-90"
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
+              )}
 
               <label className="mb-2.5 flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wide text-slate-500">
                 <Palette size={13} className="text-violet-500" /> Màu giấy

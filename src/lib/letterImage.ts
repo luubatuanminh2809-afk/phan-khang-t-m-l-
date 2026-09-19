@@ -1,5 +1,5 @@
 import { LETTER_THEMES } from "../data/letterTemplates";
-import type { LetterTheme } from "../types";
+import type { LetterTheme, PlacedSticker } from "../types";
 
 // Draws the finished letter straight onto a canvas instead of screenshotting the DOM.
 //
@@ -62,6 +62,10 @@ export interface LetterImageInput {
   signOff?: string;
   dateLabel?: string;
   stickers?: string[];
+  /** where the player dragged each sticker, as fractions of the letter; when absent the
+   *  old fixed corners are used, so a letter written before they could be moved exports
+   *  looking the way it did on screen */
+  placed?: PlacedSticker[];
 }
 
 export function renderLetterToBlob(input: LetterImageInput): Promise<Blob | null> {
@@ -154,23 +158,34 @@ export function renderLetterToBlob(input: LetterImageInput): Promise<Blob | null
   }
   ctx.textAlign = "left";
 
-  // stickers tucked into the corners, same slots as the on-screen card
-  const slots: [number, number, number][] = [
-    [W - PAD - 6, H - 40, 8],
-    [PAD - 6, H - 40, -8],
-    [W - PAD - 6, 78, 14],
-    [PAD - 6, 78, -14],
-  ];
-  (input.stickers ?? []).slice(0, 4).forEach((sticker, i) => {
-    const [sx, sy, deg] = slots[i % slots.length];
+  function drawSticker(emoji: string, sx: number, sy: number, deg: number, scale: number) {
     ctx.save();
     ctx.translate(sx, sy);
     ctx.rotate((deg * Math.PI) / 180);
-    ctx.font = `40px ${FONT_STACK}`;
+    ctx.font = `${Math.round(44 * scale)}px ${FONT_STACK}`;
     ctx.textAlign = "center";
-    ctx.fillText(sticker, 0, 0);
+    ctx.textBaseline = "middle";
+    ctx.fillText(emoji, 0, 0);
     ctx.restore();
-  });
+  }
+
+  if (input.placed?.length) {
+    // exactly where the player put them: the same fractions the on-screen card lays out by
+    input.placed.forEach((s) => drawSticker(s.emoji, s.x * W, s.y * H, s.rotate ?? 0, s.scale ?? 1));
+  } else {
+    // letters from before stickers could be moved: the four corner slots they were drawn in
+    const slots: [number, number, number][] = [
+      [W - PAD - 6, H - 40, 8],
+      [PAD - 6, H - 40, -8],
+      [W - PAD - 6, 78, 14],
+      [PAD - 6, 78, -14],
+    ];
+    (input.stickers ?? []).slice(0, 4).forEach((sticker, i) => {
+      const [sx, sy, deg] = slots[i % slots.length];
+      drawSticker(sticker, sx, sy, deg, 1);
+    });
+  }
+  ctx.textBaseline = "alphabetic";
 
   return new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
 }
