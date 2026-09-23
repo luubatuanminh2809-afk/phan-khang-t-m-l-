@@ -21,58 +21,59 @@ export function CoverScreen() {
   const { dispatch } = useGame();
   const playRef = useRef<HTMLButtonElement>(null);
 
-  // hotspot boxes were located by sampling the actual pixel art (the original 1672x941
-  // cover, since the shipped cover.jpg is upscaled; they are percentages, so they still line up)
-  // for the button-fill colors, not eyeballed — see chat history.
+  // Hotspot boxes come from the artwork itself — the play button's blue fill, the white
+  // pills, the two round buttons — never from eyeballing, and each one is checked by drawing
+  // it back over the cover. They are percentages of the 1672x941 drawing, so they line up on
+  // the upscaled cover.jpg at any width. Re-measure them whenever the cover art changes.
   const hotspots: Hotspot[] = [
     {
       label: "Khám phá",
-      top: 3.19,
-      left: 1.79,
-      width: 15.19,
-      height: 8.29,
+      top: 3.4,
+      left: 1.44,
+      width: 15.31,
+      height: 7.66,
       onClick: () => dispatch({ type: "GO_TO", screen: "explore" }),
     },
     {
       label: "Chơi ngay",
-      top: 47.29,
-      left: 41.09,
-      width: 20.75,
-      height: 9.99,
+      top: 52.77,
+      left: 40.43,
+      width: 22.25,
+      height: 9.36,
       // goes through the profile screen first, which offers "chơi tiếp" when a saved
       // run exists instead of silently restarting the week
       onClick: () => dispatch({ type: "GO_TO", screen: "profile" }),
     },
     {
       label: "Viết thư",
-      top: 59.72,
-      left: 42.58,
-      width: 18.0,
-      height: 7.65,
+      top: 63.83,
+      left: 42.11,
+      width: 18.66,
+      height: 6.81,
       onClick: () => dispatch({ type: "GO_TO", screen: "letterWrite" }),
     },
     {
       label: "Cài đặt",
-      top: 69.08,
-      left: 42.7,
-      width: 17.16,
-      height: 8.18,
+      top: 72.6,
+      left: 42.11,
+      width: 18.66,
+      height: 6.81,
       onClick: () => dispatch({ type: "GO_TO", screen: "settings" }),
     },
     {
       label: "Thành tích",
-      top: 79.81,
-      left: 44.02,
-      width: 6.16,
-      height: 10.84,
+      top: 82.13,
+      left: 44.26,
+      width: 5.74,
+      height: 10.21,
       onClick: () => dispatch({ type: "GO_TO", screen: "achievements" }),
     },
     {
       label: "Lịch trình",
-      top: 79.81,
-      left: 52.33,
-      width: 6.1,
-      height: 10.84,
+      top: 82.13,
+      left: 52.15,
+      width: 5.74,
+      height: 10.21,
       onClick: () => dispatch({ type: "GO_TO", screen: "history" }),
     },
   ];
