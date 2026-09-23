@@ -202,6 +202,17 @@ const NPC_CHARACTER_MAP: Record<string, CharacterKey> = {
   "Kiên": "student_boy",
   "Phụ huynh bạn Lâm": "mother",
   "Thảo": "student_girl",
+  // the students the teacher role meets in te21-te30
+  "Duy": "student_boy",
+  "Tú": "student_boy",
+  "Nhi": "student_girl",
+  "Sơn": "student_boy",
+  "Hạ": "student_girl",
+  "Kha": "student_boy",
+  "Linh": "student_girl",
+  "Phúc": "student_boy",
+  "Uyên": "student_girl",
+  "Bảo": "student_boy",
   // student-role situations (st1-st20)
   "Cô Vân": "teacher_female",
   "Cô Hiệu": "teacher_female",
