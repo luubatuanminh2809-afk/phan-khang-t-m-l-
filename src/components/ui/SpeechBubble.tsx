@@ -26,7 +26,7 @@ export const SpeechBubble = forwardRef<
         {speaker && (
           <p
             className={`font-extrabold uppercase tracking-wide ${highlight ? "text-amber-900" : "text-blue-500"} ${
-              compact ? "text-[clamp(9px,1.15dvh,12px)] mb-0.5" : "text-[11px] mb-1"
+              compact ? "text-[clamp(10px,1.3dvh,13px)] mb-0.5" : "text-[11px] mb-1"
             }`}
           >
             {speaker}
@@ -34,7 +34,7 @@ export const SpeechBubble = forwardRef<
         )}
         <p
           className={`${highlight ? "font-black text-slate-900" : "font-medium text-slate-800"} ${
-            compact ? "text-[clamp(11px,1.7dvh,17px)] leading-snug" : "text-[15px] leading-relaxed"
+            compact ? "text-[clamp(13px,1.95dvh,19px)] leading-snug" : "text-[15px] leading-relaxed"
           }`}
         >
           <TypewriterText ref={ref} text={text} onDone={onTypingDone} />

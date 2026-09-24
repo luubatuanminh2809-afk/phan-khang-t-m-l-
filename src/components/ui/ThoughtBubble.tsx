@@ -29,7 +29,7 @@ export const ThoughtBubble = forwardRef<
       </div>
 
       <div className={`relative rounded-[1.6rem] bg-blue-50 ${compact ? "px-3.5 py-2.5" : "px-5 py-4"}`}>
-        <p className={`text-blue-900 italic font-medium ${compact ? "text-[11px] leading-snug" : "text-[15px] leading-relaxed"}`}>
+        <p className={`text-blue-900 italic font-medium ${compact ? "text-[clamp(13px,1.95dvh,19px)] leading-snug" : "text-[15px] leading-relaxed"}`}>
           <TypewriterText ref={ref} text={text} onDone={onTypingDone} />
         </p>
       </div>

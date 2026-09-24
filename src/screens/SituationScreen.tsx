@@ -293,10 +293,10 @@ function DialogueBox({
         // poses are drawn right up to the top of their box, and that overlap was enough to
         // clip the top of a head on a short screen
         align === "right"
-        ? `order-first z-20 mb-1 ml-auto mr-[3%] w-[46%] ${cap}`
+        ? `order-first z-20 mb-3 ml-auto mr-[3%] w-[46%] ${cap}`
         : align === "left"
-          ? `order-first z-20 mb-1 mr-auto ml-[3%] w-[46%] ${cap}`
-          : `order-first z-20 mb-1 ml-[44%] w-[58%] -translate-x-1/2 ${cap}`;
+          ? `order-first z-20 mb-3 mr-auto ml-[3%] w-[46%] ${cap}`
+          : `order-first z-20 mb-3 ml-[44%] w-[58%] -translate-x-1/2 ${cap}`;
   return (
     <div className={posClass}>
       {variant === "thought" ? (
@@ -321,10 +321,10 @@ function DialogueBox({
       ) : (
         <NarrationBox compact text={text} ref={typewriterRef} onTypingDone={onTypingDone} />
       )}
-      <div className="mt-1 flex items-center justify-between rounded-full bg-black/30 backdrop-blur px-2.5 py-0.5">
-        <span className="text-[9px] font-medium text-white/80">{total && total > 1 ? `${current}/${total}` : ""}</span>
+      <div className="mt-1 flex items-center justify-between rounded-full bg-black/30 backdrop-blur px-3 py-1">
+        <span className="text-[11px] font-medium text-white/80">{total && total > 1 ? `${current}/${total}` : ""}</span>
         <span
-          className={`flex items-center gap-1 text-[11px] font-bold text-white transition-opacity duration-300 ${
+          className={`flex items-center gap-1 text-[13px] font-bold text-white transition-opacity duration-300 ${
             typingDone ? "opacity-100" : "opacity-50"
           }`}
         >
